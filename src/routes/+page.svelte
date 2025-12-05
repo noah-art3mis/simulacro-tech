@@ -2,6 +2,8 @@
 	import ContactForm from '$lib/components/ContactForm.svelte';
 	import { Database, BarChart3, Code, ArrowRight } from 'lucide-svelte';
 	import { base } from '$app/paths';
+	
+	const imagePath = base ? `${base.replace(/\/$/, '')}/simulacro.png` : '/simulacro.png';
 </script>
 
 <svelte:head>
@@ -12,7 +14,7 @@
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
 	<div class="text-center">
 		<div class="mb-8 flex justify-center">
-			<img src={`${base}/simulacro.png`} alt="Simulacro Tech" class="w-32 h-32 md:w-40 md:h-40" />
+			<img src={imagePath} alt="Simulacro Tech" class="w-32 h-32 md:w-40 md:h-40" />
 		</div>
 		<h1 class="text-5xl md:text-6xl font-bold mb-6 [font-variant:small-caps]">Simulacro Tech</h1>
 		<p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">

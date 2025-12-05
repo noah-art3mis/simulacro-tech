@@ -5,10 +5,12 @@
 	import { base } from '$app/paths';
 
 	let { children } = $props();
+	
+	const iconPath = base ? `${base.replace(/\/$/, '')}/simulacro.png` : '/simulacro.png';
 </script>
 
 <svelte:head>
-	<link rel="icon" href={`${base}/simulacro.png`} />
+	<link rel="icon" href={iconPath} />
 	<title>Simulacro Tech - Interdisciplinary Data & AI Consultancy</title>
 </svelte:head>
 
