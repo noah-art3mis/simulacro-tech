@@ -11,23 +11,22 @@
 
 	<div class="prose prose-lg max-w-none mb-16">
 		<p class="text-lg text-gray-600 mb-6">
-			I'm Gustavo Costa, and Simulacro Tech is my interdisciplinary consultancy based in Brasília, Brazil, 
-			operating at the intersection of psychology, philosophy, and data science. I bring together insights 
-			from psychoanalysis, critical theory, and computational methods to address complex problems.
+			I'm Gustavo Costa. Before I wrote code, I listened to people — as a clinical psychologist 
+			and psychoanalyst in Brasília, Brazil. That work taught me something you don't learn from 
+			tutorials: how to sit with complexity, ask better questions, and resist the urge to 
+			optimize everything. 
+		</p>
+		<p class="text-lg text-gray-600 mb-6">    
+            However, this also gave me the opportunity to see how much systems, especially in humanistic contexts, can be improved by optimization -- so they can better achieve their humanistic purposes. 
 		</p>
 		<p class="text-lg text-gray-600 mb-6">
-			With a background spanning clinical psychology, Lacanian psychoanalysis, and 
-			interdisciplinary research methods, my approach to data and AI challenges emphasizes 
-			human understanding, ethical considerations, and the philosophical implications of 
-			technology. This interdisciplinary perspective enables me to see beyond technical 
-			solutions to the deeper questions of how technology shapes and is shaped by human 
-			experience.
+			Now I build AI systems and conduct research at the edges of technology and the humanities. 
+			My background in Lacanian psychoanalysis and critical theory gives me a different lens on 
+			what "working" means — not just technically, but for the people affected.
 		</p>
 		<p class="text-lg text-gray-600">
-			From building RAG systems and conducting mixed-methods research on AI-generated 
-			content to consulting on data strategy, my work is characterized by a commitment to 
-			rigor, thoughtfulness, and human-centered design, informed by years of 
-			psychotherapeutic practice and philosophical inquiry.
+			Simulacro Tech is where I bring this together: RAG systems, mixed-methods research, 
+			data strategy — all built with the same care I brought to the clinic.
 		</p>
 	</div>
 
@@ -57,39 +56,32 @@
 			</div>
 			<h3 class="text-xl font-semibold mb-3">Experience</h3>
 			<p class="text-gray-600 text-sm mb-3">
-				<strong>Psychotherapist</strong><br />
-				Partner, Espaço Psique Psychology Clinic (2020-2024)
-			</p>
-			<p class="text-gray-600 text-sm mb-3">
-				<strong>Research</strong><br />
-				Master's dissertation on AI slop using mixed-methods analysis
+				<strong>Psychotherapy</strong><br />
+				Partner at Espaço Psique Psychology Clinic (2020-2024)
 			</p>
 			<p class="text-gray-600 text-sm mb-3">
 				<strong>Writing</strong><br />
 				Essays on data science, AI ethics, and philosophy at 
-				<strong>simulacro.co.uk</strong> and <strong>gustavocosta.psc.br</strong>
+				<a href="https://simulacro.co.uk" target="_blank" rel="noopener noreferrer" class="text-black font-semibold hover:underline">simulacro.co.uk</a> and <a href="https://gustavocosta.psc.br" target="_blank" rel="noopener noreferrer" class="text-black font-semibold hover:underline">gustavocosta.psc.br</a>. Master's dissertation on AI slop using mixed-methods analysis
 			</p>
 			<p class="text-gray-600 text-sm">
 				<strong>Technical Projects</strong><br />
-				RAG systems, NLP applications, and data analysis tools. See <strong>simulacro.cv</strong> for details.
+				RAG systems, NLP applications, and data analysis tools. See <a href="https://simulacro.cv" target="_blank" rel="noopener noreferrer" class="text-black font-semibold hover:underline">simulacro.cv</a> for details.
 			</p>
 		</div>
 	</div>
 
 	<div class="prose prose-lg max-w-none">
-		<h2 class="text-2xl font-bold mb-4">Interdisciplinary Approach</h2>
+		<h2 class="text-2xl font-bold mb-4">Approach</h2>
 		<p class="text-gray-600 mb-4">
-			My work is distinguished by the integration of perspectives from multiple disciplines. 
-			My training in psychology and psychoanalysis informs how I approach human-technology 
-			interaction. My philosophical background helps me address ethical questions and 
-			conceptual frameworks. My technical skills in data science and AI enable me to 
-			implement solutions that are both sophisticated and practical.
+			I don't treat ethics as a checklist. When I audit an AI system or design a data pipeline, 
+			I'm thinking about who gets left out, what assumptions are baked in, and whether the 
+			thing we're building actually helps.
 		</p>
 		<p class="text-gray-600">
-			This interdisciplinary lens is particularly valuable when working on projects involving 
-			AI ethics, human-centered design, or research that requires both qualitative insight 
-			and quantitative rigor. My approach goes beyond building systems to consider what they 
-			mean, how they affect people, and how they can be designed to serve human flourishing.
+			This matters most for projects where the stakes are human: content moderation, 
+			mental health tech, research on vulnerable populations. If you need someone who 
+			can hold both the technical and the ethical in view, that's the work I do.
 		</p>
 	</div>
 </div>

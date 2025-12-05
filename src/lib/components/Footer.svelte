@@ -8,7 +8,7 @@
 			<div>
 				<h3 class="text-lg font-semibold mb-4 [font-variant:small-caps]">Simulacro Tech</h3>
 				<p class="text-sm text-gray-600">
-					Interdisciplinary data consultancy bridging psychology, philosophy, and technology.
+					Human-centered AI and data consulting.
 				</p>
 			</div>
 

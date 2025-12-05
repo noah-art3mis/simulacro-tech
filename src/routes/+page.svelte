@@ -18,8 +18,8 @@
 		</div>
 		<h1 class="text-5xl md:text-6xl font-bold mb-6 [font-variant:small-caps]">Simulacro Tech</h1>
 		<p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
-			Interdisciplinary data consultancy bridging psychology, philosophy, and technology. 
-			Human-centered approaches to AI, analytics, and data strategy.
+			Data and AI consultancy grounded in ethics. 
+			Building technology that serves people, not the other way around.
 		</p>
 		<a
 			href="#contact"
@@ -42,8 +42,8 @@
 				</div>
 				<h3 class="text-xl font-semibold mb-4">AI & NLP Solutions</h3>
 				<p class="text-gray-600">
-					Custom AI applications, RAG systems, and NLP solutions. From embeddings and topic modeling 
-					to fine-tuned LLMs, with a focus on ethical implementation and human-centered design.
+					RAG systems, embeddings, topic modeling, and fine-tuned LLMs. 
+					Built with transparency and accountability from the start.
 				</p>
 			</div>
 
@@ -53,8 +53,8 @@
 				</div>
 				<h3 class="text-xl font-semibold mb-4">Data Analysis & Research</h3>
 				<p class="text-gray-600">
-					Mixed-methods research combining qualitative insights with computational approaches. 
-					Data mining, visualization, and statistical analysis informed by interdisciplinary thinking.
+					Mixed-methods research that pairs qualitative depth with computational rigor. 
+					Data mining, visualization, and statistical analysis.
 				</p>
 			</div>
 
@@ -62,10 +62,10 @@
 				<div class="mb-4">
 					<Code size={40} />
 				</div>
-				<h3 class="text-xl font-semibold mb-4">Strategic Consulting</h3>
+				<h3 class="text-xl font-semibold mb-4">Ethics & Strategy</h3>
 				<p class="text-gray-600">
-					Data strategy and AI ethics consulting that bridges technical expertise with 
-					philosophical rigor and psychological understanding of human-technology interaction.
+					AI ethics audits and data strategy consulting. 
+					Practical guidance rooted in philosophy and psychology.
 				</p>
 			</div>
 		</div>
@@ -76,36 +76,28 @@
 <section class="py-24">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Why Us</h2>
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 			<div class="bg-white border border-black p-8">
-				<h3 class="text-xl font-semibold mb-4">Interdisciplinary Expertise</h3>
+				<h3 class="text-xl font-semibold mb-4">Clinical Background</h3>
 				<p class="text-gray-600">
-					Unique combination of psychology, philosophy, and data science enables approaches 
-					that go beyond technical solutions to address ethical, human, and conceptual dimensions.
+					Years of psychotherapeutic practice shape how I understand 
+					technology's impact on real people — not just users in the abstract.
 				</p>
 			</div>
 
 			<div class="bg-white border border-black p-8">
-				<h3 class="text-xl font-semibold mb-4">Mixed-Methods Research</h3>
+				<h3 class="text-xl font-semibold mb-4">Philosophical Rigor</h3>
 				<p class="text-gray-600">
-					Integration of qualitative insights with computational approaches ensures solutions 
-					are both technically rigorous and human-centered.
+					Ethics isn't an afterthought. Training in philosophy means asking 
+					the hard questions before building, not after.
 				</p>
 			</div>
 
 			<div class="bg-white border border-black p-8">
-				<h3 class="text-xl font-semibold mb-4">Ethical Foundation</h3>
+				<h3 class="text-xl font-semibold mb-4">Technical Depth</h3>
 				<p class="text-gray-600">
-					Philosophical and psychological training informs every project, ensuring AI and data 
-					solutions are designed with human flourishing in mind.
-				</p>
-			</div>
-
-			<div class="bg-white border border-black p-8">
-				<h3 class="text-xl font-semibold mb-4">Human-Centered Design</h3>
-				<p class="text-gray-600">
-					Years of psychotherapeutic practice inform understanding of how technology affects 
-					people, ensuring solutions are attuned to human needs.
+					From NLP pipelines to statistical analysis, the technical work 
+					is grounded in research-grade methodology.
 				</p>
 			</div>
 		</div>
@@ -117,9 +109,8 @@
 	<div class="prose prose-lg max-w-none">
 		<h2 class="text-3xl font-bold mb-6">About</h2>
 		<p class="text-gray-600 mb-4">
-			I'm Gustavo Costa, and Simulacro Tech is my interdisciplinary consultancy working at the intersection 
-			of psychology, philosophy, and data science. I bring together insights from psychoanalysis, 
-			interdisciplinary methods, and AI research to address technical challenges with a human-centered perspective.
+			I'm Gustavo Costa — psychologist turned data scientist. After years in clinical practice, 
+			I now apply that same attentiveness to how we build and deploy AI systems.
 		</p>
 		<div class="mt-8">
 			<a href="/about" class="text-black font-semibold hover:underline">
