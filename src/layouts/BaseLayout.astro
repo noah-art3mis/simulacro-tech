@@ -1,0 +1,32 @@
+---
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+}
+
+const { title = 'Simulacro Tech - Interdisciplinary Data & AI Consultancy' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Data and AI consultancy grounded in ethics. Building technology that serves people, not the other way around." />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/png" href="/simulacro.png" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<div class="min-h-screen flex flex-col">
+			<Navigation />
+			<main class="flex-grow">
+				<slot />
+			</main>
+			<Footer />
+		</div>
+	</body>
+</html>
+

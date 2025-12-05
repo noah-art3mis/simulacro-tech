@@ -1,0 +1,81 @@
+---
+import { Menu, X } from 'lucide-astro';
+
+const navItems = [
+	{ href: '/', label: 'Home' },
+	{ href: '/about', label: 'About' }
+];
+---
+
+<nav class="border-b border-black">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="flex justify-between items-center h-16">
+			<a href="/" class="text-xl font-semibold [font-variant:small-caps]">Simulacro Tech</a>
+
+			<!-- Desktop Navigation -->
+			<div class="hidden md:flex space-x-8">
+				{navItems.map((item) => (
+					<a
+						href={item.href}
+						class="hover:underline"
+						data-path={item.href}
+					>
+						{item.label}
+					</a>
+				))}
+			</div>
+
+			<!-- Mobile menu button -->
+			<button
+				type="button"
+				class="md:hidden p-2"
+				id="mobile-menu-button"
+				aria-label="Toggle menu"
+			>
+				<Menu size={24} id="menu-icon" />
+				<X size={24} id="close-icon" class="hidden" />
+			</button>
+		</div>
+	</div>
+
+	<!-- Mobile Navigation -->
+	<div class="md:hidden border-t border-black hidden" id="mobile-menu">
+		<div class="px-2 pt-2 pb-3 space-y-1">
+			{navItems.map((item) => (
+				<a
+					href={item.href}
+					class="block px-3 py-2 hover:bg-gray-100"
+					data-path={item.href}
+				>
+					{item.label}
+				</a>
+			))}
+		</div>
+	</div>
+</nav>
+
+<script>
+	// Mobile menu toggle
+	const menuButton = document.getElementById('mobile-menu-button');
+	const mobileMenu = document.getElementById('mobile-menu');
+	const menuIcon = document.getElementById('menu-icon');
+	const closeIcon = document.getElementById('close-icon');
+
+	if (menuButton && mobileMenu && menuIcon && closeIcon) {
+		menuButton.addEventListener('click', () => {
+			const isHidden = mobileMenu.classList.contains('hidden');
+			mobileMenu.classList.toggle('hidden');
+			menuIcon.classList.toggle('hidden');
+			closeIcon.classList.toggle('hidden');
+		});
+	}
+
+	// Highlight current path
+	const currentPath = window.location.pathname;
+	document.querySelectorAll('[data-path]').forEach((link) => {
+		if (link.getAttribute('data-path') === currentPath) {
+			link.classList.add('font-semibold');
+		}
+	});
+</script>
+
