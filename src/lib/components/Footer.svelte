@@ -6,7 +6,7 @@
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 			<div>
-				<h3 class="text-lg font-semibold mb-4">Simulacro Tech</h3>
+				<h3 class="text-lg font-semibold mb-4 [font-variant:small-caps]">Simulacro Tech</h3>
 				<p class="text-sm text-gray-600">
 					Tech data consultancy specializing in data solutions and analytics.
 				</p>
@@ -26,7 +26,7 @@
 				<h3 class="text-lg font-semibold mb-4">Connect</h3>
 				<div class="flex gap-4">
 					<a
-						href="https://linkedin.com/company/simulacro-tech"
+						href="https://linkedin.com/in/your-username"
 						target="_blank"
 						rel="noopener noreferrer"
 						class="hover:underline"

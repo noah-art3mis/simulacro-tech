@@ -19,7 +19,7 @@
 <nav class="border-b border-black">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="flex justify-between items-center h-16">
-			<a href="/" class="text-xl font-semibold">Simulacro Tech</a>
+			<a href="/" class="text-xl font-semibold [font-variant:small-caps]">Simulacro Tech</a>
 
 			<!-- Desktop Navigation -->
 			<div class="hidden md:flex space-x-8">

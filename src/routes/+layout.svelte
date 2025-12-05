@@ -2,13 +2,12 @@
 	import '../app.css';
 	import Navigation from '$lib/components/Navigation.svelte';
 	import Footer from '$lib/components/Footer.svelte';
-	import favicon from '$lib/assets/favicon.svg';
 
 	let { children } = $props();
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<link rel="icon" href="/simulacro.png" />
 	<title>Simulacro Tech</title>
 </svelte:head>
 
