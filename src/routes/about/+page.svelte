@@ -11,22 +11,19 @@
 
 	<div class="prose prose-lg max-w-none mb-16">
 		<p class="text-lg text-gray-600 mb-6">
-			I'm Gustavo Costa. Before I wrote code, I listened to people — as a clinical psychologist 
-			and psychoanalyst in Brasília, Brazil. That work taught me something you don't learn from 
-			tutorials: how to sit with complexity, ask better questions, and resist the urge to 
-			optimize everything. 
-		</p>
-		<p class="text-lg text-gray-600 mb-6">    
-            However, this also gave me the opportunity to see how much systems, especially in humanistic contexts, can be improved by optimization -- so they can better achieve their humanistic purposes. 
+			I'm Gustavo Costa. Before I wrote code, I worked as a clinical psychologist 
+			and psychoanalyst in Brasília, Brazil. That work taught me how to navigate complexity 
+			and ask better questions, rather than rushing to immediate solutions. 
+            
+            
 		</p>
 		<p class="text-lg text-gray-600 mb-6">
-			Now I build AI systems and conduct research at the edges of technology and the humanities. 
-			My background in Lacanian psychoanalysis and critical theory gives me a different lens on 
-			what "working" means — not just technically, but for the people affected.
+			Now I build AI systems and conduct research at the intersection of technology and the humanities. This interdisciplinary experience showed me how optimization, when applied thoughtfully in humanistic contexts, 
+            can help systems better achieve their purpose.
 		</p>
 		<p class="text-lg text-gray-600">
-			Simulacro Tech is where I bring this together: RAG systems, mixed-methods research, 
-			data strategy — all built with the same care I brought to the clinic.
+			Simulacro Tech is where I bring this together through a diverse range of technical solutions, including RAG systems, mixed-methods research, 
+			and data strategy -- all built with the same care I brought to clinical practice.
 		</p>
 	</div>
 
@@ -60,9 +57,9 @@
 				Partner at Espaço Psique Psychology Clinic (2020-2024)
 			</p>
 			<p class="text-gray-600 text-sm mb-3">
-				<strong>Writing</strong><br />
-				Essays on data science, AI ethics, and philosophy at 
-				<a href="https://simulacro.co.uk" target="_blank" rel="noopener noreferrer" class="text-black font-semibold hover:underline">simulacro.co.uk</a> and <a href="https://gustavocosta.psc.br" target="_blank" rel="noopener noreferrer" class="text-black font-semibold hover:underline">gustavocosta.psc.br</a>. Master's dissertation on AI slop using mixed-methods analysis
+				<strong>Writing & Research</strong><br />
+				Essays on data science and AI at 
+				<a href="https://simulacro.co.uk" target="_blank" rel="noopener noreferrer" class="text-black font-semibold hover:underline">simulacro.co.uk</a>; essays on philosophy of psychoanalysis at <a href="https://gustavocosta.psc.br" target="_blank" rel="noopener noreferrer" class="text-black font-semibold hover:underline">gustavocosta.psc.br</a>; dissertation on AI slop using mixed-methods
 			</p>
 			<p class="text-gray-600 text-sm">
 				<strong>Technical Projects</strong><br />
@@ -71,18 +68,5 @@
 		</div>
 	</div>
 
-	<div class="prose prose-lg max-w-none">
-		<h2 class="text-2xl font-bold mb-4">Approach</h2>
-		<p class="text-gray-600 mb-4">
-			I don't treat ethics as a checklist. When I audit an AI system or design a data pipeline, 
-			I'm thinking about who gets left out, what assumptions are baked in, and whether the 
-			thing we're building actually helps.
-		</p>
-		<p class="text-gray-600">
-			This matters most for projects where the stakes are human: content moderation, 
-			mental health tech, research on vulnerable populations. If you need someone who 
-			can hold both the technical and the ethical in view, that's the work I do.
-		</p>
-	</div>
 </div>
 

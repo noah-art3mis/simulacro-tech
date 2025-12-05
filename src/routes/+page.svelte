@@ -81,7 +81,7 @@
 				<h3 class="text-xl font-semibold mb-4">Clinical Background</h3>
 				<p class="text-gray-600">
 					Years of psychotherapeutic practice shape how I understand 
-					technology's impact on real people — not just users in the abstract.
+					technology's impact on real people, not just users in the abstract.
 				</p>
 			</div>
 
@@ -109,7 +109,7 @@
 	<div class="prose prose-lg max-w-none">
 		<h2 class="text-3xl font-bold mb-6">About</h2>
 		<p class="text-gray-600 mb-4">
-			I'm Gustavo Costa — psychologist turned data scientist. After years in clinical practice, 
+			I'm Gustavo Costa, a psychologist turned data scientist. After years in clinical practice, 
 			I now apply that same attentiveness to how we build and deploy AI systems.
 		</p>
 		<div class="mt-8">
