@@ -8,7 +8,7 @@
 
 <svelte:head>
 	<link rel="icon" href="/simulacro.png" />
-	<title>Simulacro Tech</title>
+	<title>Simulacro Tech - Interdisciplinary Data & AI Consultancy</title>
 </svelte:head>
 
 <div class="min-h-screen flex flex-col">

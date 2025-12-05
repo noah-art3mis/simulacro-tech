@@ -4,7 +4,7 @@
 </script>
 
 <svelte:head>
-	<title>Simulacro Tech - Tech Data Consultancy</title>
+	<title>Simulacro Tech - Interdisciplinary Data & AI Consultancy</title>
 </svelte:head>
 
 <!-- Hero Section -->
@@ -15,14 +15,14 @@
 		</div>
 		<h1 class="text-5xl md:text-6xl font-bold mb-6 [font-variant:small-caps]">Simulacro Tech</h1>
 		<p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
-			Transforming data into strategic insights. We help businesses unlock the power of their
-			data through expert consulting and innovative solutions.
+			Interdisciplinary data consultancy bridging psychology, philosophy, and technology. 
+			Human-centered approaches to AI, analytics, and data strategy.
 		</p>
 		<a
 			href="#contact"
 			class="inline-flex items-center gap-2 bg-black text-white px-8 py-3 font-medium hover:bg-gray-800 transition-colors"
 		>
-			Get Started
+			Get in Touch
 			<ArrowRight size={20} />
 		</a>
 	</div>
@@ -31,16 +31,16 @@
 <!-- Services Overview -->
 <section class="bg-gray-50 py-24">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-		<h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Our Services</h2>
+		<h2 class="text-3xl md:text-4xl font-bold text-center mb-16">What I Offer</h2>
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 			<div class="bg-white border border-black p-8">
 				<div class="mb-4">
 					<Database size={40} />
 				</div>
-				<h3 class="text-xl font-semibold mb-4">Data Strategy</h3>
+				<h3 class="text-xl font-semibold mb-4">AI & NLP Solutions</h3>
 				<p class="text-gray-600">
-					Develop comprehensive data strategies that align with your business objectives and
-					drive measurable results.
+					Custom AI applications, RAG systems, and NLP solutions. From embeddings and topic modeling 
+					to fine-tuned LLMs, with a focus on ethical implementation and human-centered design.
 				</p>
 			</div>
 
@@ -48,10 +48,10 @@
 				<div class="mb-4">
 					<BarChart3 size={40} />
 				</div>
-				<h3 class="text-xl font-semibold mb-4">Analytics & Insights</h3>
+				<h3 class="text-xl font-semibold mb-4">Data Analysis & Research</h3>
 				<p class="text-gray-600">
-					Transform raw data into actionable insights that inform decision-making and
-					optimize performance.
+					Mixed-methods research combining qualitative insights with computational approaches. 
+					Data mining, visualization, and statistical analysis informed by interdisciplinary thinking.
 				</p>
 			</div>
 
@@ -59,10 +59,10 @@
 				<div class="mb-4">
 					<Code size={40} />
 				</div>
-				<h3 class="text-xl font-semibold mb-4">Data Solutions</h3>
+				<h3 class="text-xl font-semibold mb-4">Strategic Consulting</h3>
 				<p class="text-gray-600">
-					Build scalable data infrastructure and custom solutions tailored to your unique
-					business needs.
+					Data strategy and AI ethics consulting that bridges technical expertise with 
+					philosophical rigor and psychological understanding of human-technology interaction.
 				</p>
 			</div>
 		</div>
@@ -72,19 +72,22 @@
 <!-- Brief Intro -->
 <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
 	<div class="prose prose-lg max-w-none">
-		<h2 class="text-3xl font-bold mb-6">About Simulacro Tech</h2>
+		<h2 class="text-3xl font-bold mb-6">About</h2>
 		<p class="text-gray-600 mb-4">
-			Simulacro Tech is a specialized tech data consultancy focused on helping organizations
-			harness the full potential of their data assets. We combine deep technical expertise
-			with strategic business understanding to deliver solutions that drive real value.
+			I'm Gustavo Costa, an interdisciplinary researcher and consultant working at the intersection 
+			of psychology, philosophy, and data science. With a background spanning psychoanalysis, 
+			interdisciplinary methods, and AI research, I bring a uniquely human-centered perspective 
+			to technical challenges.
 		</p>
 		<p class="text-gray-600">
-			Whether you're looking to establish a data-driven culture, implement advanced analytics,
-			or build robust data infrastructure, we partner with you every step of the way.
+			My approach integrates qualitative understanding with computational methods, ensuring that 
+			data solutions are not just technically sound, but ethically grounded and attuned to human 
+			needs. Whether it's building RAG systems, conducting mixed-methods research, or developing 
+			AI ethics frameworks, I work to bridge the gap between technical excellence and human insight.
 		</p>
 		<div class="mt-8">
 			<a href="/about" class="text-black font-semibold hover:underline">
-				Learn more about us →
+				Learn more →
 			</a>
 		</div>
 	</div>

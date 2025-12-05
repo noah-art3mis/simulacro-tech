@@ -7,8 +7,7 @@
 
 	const navItems = [
 		{ href: '/', label: 'Home' },
-		{ href: '/about', label: 'About' },
-		{ href: '/approach', label: 'Approach' }
+		{ href: '/about', label: 'About' }
 	];
 
 	function toggleMobileMenu() {
