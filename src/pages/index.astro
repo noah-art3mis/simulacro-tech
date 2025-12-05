@@ -9,7 +9,7 @@ import { Database, BarChart3, Code, ArrowRight } from 'lucide-astro';
 	<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
 		<div class="text-center">
 			<div class="mb-8 flex justify-center">
-				<img src="/simulacro.png" alt="Simulacro Tech" class="w-32 h-32 md:w-40 md:h-40" />
+				<img src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/simulacro.png`} alt="Simulacro Tech" class="w-32 h-32 md:w-40 md:h-40" />
 			</div>
 			<h1 class="text-5xl md:text-6xl font-bold mb-6 [font-variant:small-caps]">Simulacro Tech</h1>
 			<p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
@@ -108,7 +108,7 @@ import { Database, BarChart3, Code, ArrowRight } from 'lucide-astro';
 				I now apply that same attentiveness to how we build and deploy AI systems.
 			</p>
 			<div class="mt-8">
-				<a href="/about" class="text-black font-semibold hover:underline">
+				<a href={`${import.meta.env.BASE_URL}about`} class="text-black font-semibold hover:underline">
 					Learn more →
 				</a>
 			</div>

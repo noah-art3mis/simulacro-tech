@@ -16,7 +16,7 @@ const { title = 'Simulacro Tech - Interdisciplinary Data & AI Consultancy' } = A
 		<meta charset="UTF-8" />
 		<meta name="description" content="Data and AI consultancy grounded in ethics. Building technology that serves people, not the other way around." />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/png" href="/simulacro.png" />
+		<link rel="icon" type="image/png" href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/simulacro.png`} />
 		<title>{title}</title>
 	</head>
 	<body>
