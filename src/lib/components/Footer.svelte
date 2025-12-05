@@ -15,17 +15,17 @@
 			<div>
 				<h3 class="text-lg font-semibold mb-4">Contact</h3>
 				<div class="space-y-2 text-sm">
-					<a href="mailto:gustavo@arcos.org.br" class="flex items-center gap-2 hover:underline">
+					<a href="mailto:contact@simulacro.tech" class="flex items-center gap-2 hover:underline">
 						<Mail size={16} />
-						gustavo@arcos.org.br
+						contact@simulacro.tech
 					</a>
-					<a href="tel:+447502445416" class="flex items-center gap-2 hover:underline">
+					<a href="tel:+5561981334405" class="flex items-center gap-2 hover:underline">
 						<Phone size={16} />
-						+44 7502 445416
+						+55 61 98133-4405
 					</a>
 					<div class="flex items-center gap-2">
 						<MapPin size={16} />
-						London, UK
+						London, UK / Brasília, Brazil
 					</div>
 				</div>
 			</div>
@@ -46,7 +46,7 @@
 		</div>
 
 		<div class="mt-8 pt-8 border-t border-gray-200 text-center text-sm text-gray-600">
-			<p>&copy; {new Date().getFullYear()} Gustavo Costa. All rights reserved.</p>
+			<p>&copy; {new Date().getFullYear()} Simulacro Tech. All rights reserved.</p>
 		</div>
 	</div>
 </footer>
