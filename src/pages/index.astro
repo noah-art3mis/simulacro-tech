@@ -1,126 +1,186 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
-import { Database, BarChart3, Code, ArrowRight } from 'lucide-astro';
+import { Database, BarChart3, Code, ArrowRight, Brain, Shield } from 'lucide-astro';
 ---
 
 <BaseLayout title="Simulacro Tech - Interdisciplinary Data & AI Consultancy">
 	<!-- Hero Section -->
-	<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-		<div class="text-center">
-			<div class="mb-8 flex justify-center">
-				<img src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/simulacro.png`} alt="Simulacro Tech" class="w-32 h-32 md:w-40 md:h-40" />
+	<section class="relative min-h-[90vh] flex items-center overflow-hidden">
+		<!-- Gradient orbs -->
+		<div class="gradient-orb gradient-orb-1"></div>
+		<div class="gradient-orb gradient-orb-2"></div>
+		
+		<div class="max-w-6xl mx-auto px-6 lg:px-8 py-24 relative z-10">
+			<div class="max-w-3xl">
+				<h1 class="text-5xl md:text-7xl font-bold mb-8 animate-fade-up text-balance">
+					Technology that serves <span class="gradient-text">people</span>
+				</h1>
+				
+				<p class="text-xl md:text-2xl text-[var(--color-text-muted)] mb-10 animate-fade-up animate-delay-1 max-w-2xl leading-relaxed">
+					AI and data solutions grounded in ethics. Building systems with transparency, accountability, and human impact at the core.
+				</p>
+				
+				<div class="animate-fade-up animate-delay-2">
+					<a href="#contact" class="btn-primary inline-flex items-center justify-center gap-2">
+						Get in Touch
+						<ArrowRight size={18} />
+					</a>
+				</div>
 			</div>
-			<h1 class="text-5xl md:text-6xl font-bold mb-6 [font-variant:small-caps]">Simulacro Tech</h1>
-			<p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
-				Data and AI consultancy grounded in ethics. 
-				Building technology that serves people, not the other way around.
-			</p>
-			<a
-				href="#contact"
-				class="inline-flex items-center gap-2 bg-black text-white px-8 py-3 font-medium hover:bg-gray-800 transition-colors"
-			>
-				Get in Touch
-				<ArrowRight size={20} />
-			</a>
+		</div>
+		
+		<!-- Decorative element -->
+		<div class="hidden lg:block absolute right-12 top-1/2 -translate-y-1/2 w-80 h-80 animate-float">
+			<img 
+				src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/simulacro.png`} 
+				alt="" 
+				class="w-full h-full object-contain opacity-20"
+			/>
 		</div>
 	</section>
 
-	<!-- Services Overview -->
-	<section class="bg-gray-50 py-24">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Services</h2>
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-				<div class="bg-white border border-black p-8">
-					<div class="mb-4">
-						<Database size={40} />
+	<!-- Services Section -->
+	<section id="services" class="py-32 relative">
+		<div class="max-w-6xl mx-auto px-6 lg:px-8">
+			<div class="text-center mb-20">
+				<span class="text-sm font-medium text-[var(--color-accent)] uppercase tracking-wider mb-4 block">Services</span>
+				<h2 class="text-4xl md:text-5xl font-bold mb-6">What I Build</h2>
+				<p class="text-lg text-[var(--color-text-muted)] max-w-2xl mx-auto">
+					Interdisciplinary solutions that bridge technical depth with humanistic insight.
+				</p>
+			</div>
+			
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+				<div class="glass-card rounded-2xl p-8 group">
+					<div class="icon-box mb-6">
+						<Brain size={24} />
 					</div>
-					<h3 class="text-xl font-semibold mb-4">AI & NLP Solutions</h3>
-					<p class="text-gray-600">
-						RAG systems, embeddings, topic modeling, and fine-tuned LLMs. 
-						Built with transparency and accountability from the start.
+					<h3 class="text-xl font-semibold mb-4 group-hover:text-[var(--color-accent)] transition-colors">AI & NLP Solutions</h3>
+					<p class="text-[var(--color-text-muted)] leading-relaxed">
+						RAG systems, embeddings, topic modeling, and fine-tuned LLMs. Built with transparency and accountability from the start.
 					</p>
 				</div>
 
-				<div class="bg-white border border-black p-8">
-					<div class="mb-4">
-						<BarChart3 size={40} />
+				<div class="glass-card rounded-2xl p-8 group">
+					<div class="icon-box mb-6">
+						<BarChart3 size={24} />
 					</div>
-					<h3 class="text-xl font-semibold mb-4">Data Analysis & Research</h3>
-					<p class="text-gray-600">
-						Mixed-methods research that pairs qualitative depth with computational rigor. 
-						Data mining, visualization, and statistical analysis.
+					<h3 class="text-xl font-semibold mb-4 group-hover:text-[var(--color-accent)] transition-colors">Data Analysis & Research</h3>
+					<p class="text-[var(--color-text-muted)] leading-relaxed">
+						Mixed-methods research that pairs qualitative depth with computational rigor. Data mining, visualization, and statistical analysis.
 					</p>
 				</div>
 
-				<div class="bg-white border border-black p-8">
-					<div class="mb-4">
-						<Code size={40} />
+				<div class="glass-card rounded-2xl p-8 group">
+					<div class="icon-box mb-6">
+						<Shield size={24} />
 					</div>
-					<h3 class="text-xl font-semibold mb-4">Ethics & Strategy</h3>
-					<p class="text-gray-600">
-						AI ethics audits and data strategy consulting. 
-						Practical guidance rooted in philosophy and psychology.
+					<h3 class="text-xl font-semibold mb-4 group-hover:text-[var(--color-accent)] transition-colors">Ethics & Strategy</h3>
+					<p class="text-[var(--color-text-muted)] leading-relaxed">
+						AI ethics audits and data strategy consulting. Practical guidance rooted in philosophy and psychology.
 					</p>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- Why Us Section -->
-	<section class="py-24">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Why Us</h2>
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-				<div class="bg-white border border-black p-8">
-					<h3 class="text-xl font-semibold mb-4">Clinical Background</h3>
-					<p class="text-gray-600">
-						Years of psychotherapeutic practice shape how I understand 
-						technology's impact on real people, not just users in the abstract.
+	<!-- Why Section -->
+	<section class="py-32 relative overflow-hidden">
+		<div class="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--color-bg-elevated)] to-transparent"></div>
+		
+		<div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+				<div>
+					<span class="text-sm font-medium text-[var(--color-accent)] uppercase tracking-wider mb-4 block">Approach</span>
+					<h2 class="text-4xl md:text-5xl font-bold mb-8">Why Work With Me</h2>
+					<p class="text-lg text-[var(--color-text-muted)] mb-8 leading-relaxed">
+						A rare blend of clinical psychology, philosophical training, and technical expertise. I bring depth that pure technologists can't match.
 					</p>
 				</div>
+				
+				<div class="space-y-6">
+					<div class="glass-card rounded-xl p-6 flex gap-5">
+						<div class="shrink-0">
+							<div class="w-12 h-12 rounded-full bg-[var(--color-accent)]/10 flex items-center justify-center text-[var(--color-accent)] font-bold">
+								01
+							</div>
+						</div>
+						<div>
+							<h3 class="text-lg font-semibold mb-2">Clinical Background</h3>
+							<p class="text-[var(--color-text-muted)] text-sm leading-relaxed">
+								Years of psychotherapeutic practice shape how I understand technology's impact on real people, not just users in the abstract.
+							</p>
+						</div>
+					</div>
 
-				<div class="bg-white border border-black p-8">
-					<h3 class="text-xl font-semibold mb-4">Philosophical Rigor</h3>
-					<p class="text-gray-600">
-						Ethics isn't an afterthought. Training in philosophy means asking 
-						the hard questions before building, not after.
-					</p>
-				</div>
+					<div class="glass-card rounded-xl p-6 flex gap-5">
+						<div class="shrink-0">
+							<div class="w-12 h-12 rounded-full bg-[var(--color-accent)]/10 flex items-center justify-center text-[var(--color-accent)] font-bold">
+								02
+							</div>
+						</div>
+						<div>
+							<h3 class="text-lg font-semibold mb-2">Philosophical Rigor</h3>
+							<p class="text-[var(--color-text-muted)] text-sm leading-relaxed">
+								Ethics isn't an afterthought. Training in philosophy means asking the hard questions before building, not after.
+							</p>
+						</div>
+					</div>
 
-				<div class="bg-white border border-black p-8">
-					<h3 class="text-xl font-semibold mb-4">Technical Depth</h3>
-					<p class="text-gray-600">
-						From NLP pipelines to statistical analysis, the technical work 
-						is grounded in research-grade methodology.
-					</p>
+					<div class="glass-card rounded-xl p-6 flex gap-5">
+						<div class="shrink-0">
+							<div class="w-12 h-12 rounded-full bg-[var(--color-accent)]/10 flex items-center justify-center text-[var(--color-accent)] font-bold">
+								03
+							</div>
+						</div>
+						<div>
+							<h3 class="text-lg font-semibold mb-2">Technical Depth</h3>
+							<p class="text-[var(--color-text-muted)] text-sm leading-relaxed">
+								From NLP pipelines to statistical analysis, the technical work is grounded in research-grade methodology.
+							</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- Brief Intro -->
-	<section class="bg-gray-50 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-		<div class="prose prose-lg max-w-none">
-			<h2 class="text-3xl font-bold mb-6">About</h2>
-			<p class="text-gray-600 mb-4">
-				I'm Gustavo Costa, a psychologist turned data scientist. After years in clinical practice, 
-				I now apply that same attentiveness to how we build and deploy AI systems.
-			</p>
-			<div class="mt-8">
-				<a href={`${import.meta.env.BASE_URL}about`} class="text-black font-semibold hover:underline">
-					Learn more →
-				</a>
+	<!-- About Preview -->
+	<section class="py-32">
+		<div class="max-w-6xl mx-auto px-6 lg:px-8">
+			<div class="glass-card rounded-3xl p-10 md:p-16 relative overflow-hidden">
+				<!-- Decorative gradient -->
+				<div class="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-[var(--color-accent)]/10 to-transparent rounded-full blur-3xl"></div>
+				
+				<div class="relative z-10 max-w-2xl">
+					<span class="text-sm font-medium text-[var(--color-accent)] uppercase tracking-wider mb-4 block">About</span>
+					<h2 class="text-3xl md:text-4xl font-bold mb-6">Gustavo Costa</h2>
+					<p class="text-lg text-[var(--color-text-muted)] mb-8 leading-relaxed">
+						I'm a psychologist turned data scientist. After years in clinical practice, I now apply that same attentiveness to how we build and deploy AI systems.
+					</p>
+					<a href={`${import.meta.env.BASE_URL}about`} class="inline-flex items-center gap-2 text-[var(--color-accent)] font-medium hover:gap-3 transition-all duration-300">
+						Read full bio
+						<ArrowRight size={18} />
+					</a>
+				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- Contact CTA -->
-	<section id="contact" class="bg-black text-white py-24">
-		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-			<h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Get in Touch</h2>
+	<!-- Contact Section -->
+	<section id="contact" class="py-32 relative">
+		<div class="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-elevated)] to-transparent"></div>
+		
+		<div class="max-w-4xl mx-auto px-6 lg:px-8 relative z-10">
+			<div class="text-center mb-16">
+				<span class="text-sm font-medium text-[var(--color-accent)] uppercase tracking-wider mb-4 block">Contact</span>
+				<h2 class="text-4xl md:text-5xl font-bold mb-6">Let's Talk</h2>
+				<p class="text-lg text-[var(--color-text-muted)] max-w-xl mx-auto">
+					Have a project in mind? I'd love to hear about it.
+				</p>
+			</div>
 			<ContactForm />
 		</div>
 	</section>
 </BaseLayout>
-

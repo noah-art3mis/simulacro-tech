@@ -1,81 +1,83 @@
 ---
+import { Send } from 'lucide-astro';
 ---
 
 <div class="w-full max-w-2xl mx-auto">
 	<form
 		id="contact-form"
 		action="https://formspree.io/f/xpwvlovb"
-		class="grid gap-y-6"
+		class="glass-card rounded-2xl p-8 space-y-6"
 		target="_top"
 		method="POST"
 	>
-		<div class="flex flex-col gap-y-1.5">
-			<label
-				class="block text-sm font-medium text-white"
-				for="name"
-			>
-				Name
-			</label>
-			<input
-				class="h-10 rounded-md border-0 px-3 bg-gray-900 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
-				id="name"
-				name="name"
-				type="text"
-				required
-			/>
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+			<div class="space-y-2">
+				<label class="block text-sm font-medium text-[var(--color-text-muted)]" for="name">
+					Name
+				</label>
+				<input
+					class="w-full h-12 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] px-4 text-[var(--color-text)] placeholder:text-[var(--color-text-muted)]/50 focus:outline-none focus:border-[var(--color-accent)] transition-colors"
+					id="name"
+					name="name"
+					type="text"
+					placeholder="Your name"
+					required
+				/>
+			</div>
+
+			<div class="space-y-2">
+				<label class="block text-sm font-medium text-[var(--color-text-muted)]" for="email">
+					Email
+				</label>
+				<input
+					class="w-full h-12 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] px-4 text-[var(--color-text)] placeholder:text-[var(--color-text-muted)]/50 focus:outline-none focus:border-[var(--color-accent)] transition-colors"
+					id="email"
+					name="email"
+					type="email"
+					placeholder="you@example.com"
+					required
+				/>
+			</div>
 		</div>
 
-		<div class="flex flex-col gap-y-1.5">
-			<label
-				class="block text-sm font-medium text-white"
-				for="email"
-			>
-				Email
-			</label>
-			<input
-				class="h-10 rounded-md border-0 px-3 bg-gray-900 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
-				id="email"
-				name="email"
-				type="email"
-				required
-			/>
-		</div>
-
-		<div class="flex flex-col gap-y-1.5">
-			<label
-				class="block text-sm font-medium text-white"
-				for="message"
-			>
+		<div class="space-y-2">
+			<label class="block text-sm font-medium text-[var(--color-text-muted)]" for="message">
 				Message
 			</label>
 			<textarea
-				class="resize-none rounded-md border-0 px-3 py-2 bg-gray-900 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
+				class="w-full min-h-[160px] resize-none rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-3 text-[var(--color-text)] placeholder:text-[var(--color-text-muted)]/50 focus:outline-none focus:border-[var(--color-accent)] transition-colors"
 				id="message"
 				name="message"
-				rows="6"
+				placeholder="Tell me about your project..."
 				required
 			></textarea>
 		</div>
 
-		<div class="flex flex-row-reverse gap-x-6">
+		<div class="flex justify-end">
 			<button
-				class="rounded-md bg-black px-8 py-4 text-sm font-medium text-white transition-colors hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-white"
+				class="btn-primary inline-flex items-center gap-2"
 				type="submit"
 			>
-				Send
+				Send Message
+				<Send size={16} />
 			</button>
 		</div>
 	</form>
 
-	<div id="error" class="text-sm text-red-600 hidden mt-6"></div>
+	<div id="error" class="glass-card rounded-xl p-4 text-sm text-red-400 border-red-400/30 hidden mt-6"></div>
 
-	<div id="success" class="bg-gray-100 border border-black p-6 text-center hidden mt-6">
-		<p class="text-lg font-semibold mb-2 text-black">Thank you for your message!</p>
-		<p class="text-sm text-gray-800">We'll get back to you soon.</p>
+	<div id="success" class="glass-card rounded-xl p-8 text-center hidden mt-6">
+		<div class="w-16 h-16 rounded-full bg-[var(--color-accent)]/10 flex items-center justify-center mx-auto mb-4">
+			<svg class="w-8 h-8 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+			</svg>
+		</div>
+		<p class="text-lg font-semibold mb-2">Thank you!</p>
+		<p class="text-sm text-[var(--color-text-muted)] mb-6">I'll get back to you soon.</p>
 		<button
 			type="button"
 			id="send-another"
-			class="mt-4 text-sm underline hover:no-underline text-black"
+			class="text-sm text-[var(--color-accent)] hover:underline"
 		>
 			Send another message
 		</button>
@@ -121,13 +123,10 @@
 					}
 				});
 
-				// Formspree returns 200 on success with JSON, or 302 redirect
 				if (response.ok) {
-					// Check if response is JSON
 					const contentType = response.headers.get('content-type');
 					if (contentType && contentType.includes('application/json')) {
 						const data = await response.json();
-						// Formspree returns { next: "..." } or { ok: true } on success
 						if (data.next || data.ok !== false) {
 							form.classList.add('hidden');
 							successDiv.classList.remove('hidden');
@@ -136,16 +135,13 @@
 							errorDiv.classList.remove('hidden');
 						}
 					} else {
-						// If not JSON, assume success (redirect response)
 						form.classList.add('hidden');
 						successDiv.classList.remove('hidden');
 					}
 				} else if (response.status === 302) {
-					// Redirect means success for Formspree
 					form.classList.add('hidden');
 					successDiv.classList.remove('hidden');
 				} else {
-					// Try to parse error response
 					try {
 						const data = await response.json();
 						errorDiv.textContent = data.error || 'Something went wrong. Please try again.';
@@ -169,4 +165,3 @@
 		});
 	}
 </script>
-

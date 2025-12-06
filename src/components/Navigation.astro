@@ -8,28 +8,43 @@ const navItems = [
 ];
 ---
 
-<nav class="border-b border-black">
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="flex justify-between items-center h-16">
-			<a href={base} class="text-xl font-semibold [font-variant:small-caps]">Simulacro Tech</a>
+<nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-[var(--color-bg)]/80 border-b border-[var(--color-border)]">
+	<div class="max-w-6xl mx-auto px-6 lg:px-8">
+		<div class="flex justify-between items-center h-20">
+			<a href={base} class="group flex items-center gap-3">
+				<img 
+					src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/simulacro.png`} 
+					alt="Simulacro" 
+					class="w-8 h-8 transition-transform duration-300 group-hover:scale-110"
+				/>
+				<span class="text-lg font-semibold tracking-tight">
+					simulacro<span class="text-[var(--color-text-muted)]">.tech</span>
+				</span>
+			</a>
 
 			<!-- Desktop Navigation -->
-			<div class="hidden md:flex space-x-8">
+			<div class="hidden md:flex items-center gap-8">
 				{navItems.map((item) => (
 					<a
 						href={item.href}
-						class="hover:underline"
+						class="text-sm font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors link-underline"
 						data-path={item.href}
 					>
 						{item.label}
 					</a>
 				))}
+				<a
+					href="#contact"
+					class="text-sm font-semibold text-[var(--color-bg)] bg-[var(--color-accent)] px-5 py-2.5 rounded-full hover:bg-[var(--color-accent-hover)] transition-all duration-300 hover:shadow-lg hover:shadow-[var(--color-accent)]/20"
+				>
+					Contact
+				</a>
 			</div>
 
 			<!-- Mobile menu button -->
 			<button
 				type="button"
-				class="md:hidden p-2"
+				class="md:hidden p-2 text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
 				id="mobile-menu-button"
 				aria-label="Toggle menu"
 			>
@@ -40,20 +55,29 @@ const navItems = [
 	</div>
 
 	<!-- Mobile Navigation -->
-	<div class="md:hidden border-t border-black hidden" id="mobile-menu">
-		<div class="px-2 pt-2 pb-3 space-y-1">
+	<div class="md:hidden border-t border-[var(--color-border)] hidden bg-[var(--color-bg-elevated)]" id="mobile-menu">
+		<div class="px-6 py-4 space-y-1">
 			{navItems.map((item) => (
 				<a
 					href={item.href}
-					class="block px-3 py-2 hover:bg-gray-100"
+					class="block px-4 py-3 text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-white/5 rounded-lg transition-colors"
 					data-path={item.href}
 				>
 					{item.label}
 				</a>
 			))}
+			<a
+				href="#contact"
+				class="block px-4 py-3 mt-2 text-center font-semibold text-[var(--color-bg)] bg-[var(--color-accent)] rounded-lg"
+			>
+				Contact
+			</a>
 		</div>
 	</div>
 </nav>
+
+<!-- Spacer for fixed nav -->
+<div class="h-20"></div>
 
 <script>
 	// Mobile menu toggle
@@ -64,7 +88,6 @@ const navItems = [
 
 	if (menuButton && mobileMenu && menuIcon && closeIcon) {
 		menuButton.addEventListener('click', () => {
-			const isHidden = mobileMenu.classList.contains('hidden');
 			mobileMenu.classList.toggle('hidden');
 			menuIcon.classList.toggle('hidden');
 			closeIcon.classList.toggle('hidden');
@@ -75,8 +98,8 @@ const navItems = [
 	const currentPath = window.location.pathname;
 	document.querySelectorAll('[data-path]').forEach((link) => {
 		if (link.getAttribute('data-path') === currentPath) {
-			link.classList.add('font-semibold');
+			link.classList.add('text-[var(--color-text)]');
+			link.classList.remove('text-[var(--color-text-muted)]');
 		}
 	});
 </script>
-

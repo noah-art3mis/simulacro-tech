@@ -19,14 +19,16 @@ const { title = 'Simulacro Tech - Interdisciplinary Data & AI Consultancy' } = A
 		<link rel="icon" type="image/png" href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/simulacro.png`} />
 		<title>{title}</title>
 	</head>
-	<body>
-		<div class="min-h-screen flex flex-col">
+	<body class="overflow-x-hidden">
+		<!-- Noise texture overlay -->
+		<div class="noise-overlay"></div>
+		
+		<div class="min-h-screen flex flex-col relative">
 			<Navigation />
-			<main class="flex-grow">
+			<main class="flex-grow relative">
 				<slot />
 			</main>
 			<Footer />
 		</div>
 	</body>
 </html>
-

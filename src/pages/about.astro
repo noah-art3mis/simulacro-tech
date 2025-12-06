@@ -1,69 +1,118 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { GraduationCap, Briefcase } from 'lucide-astro';
+import { GraduationCap, Briefcase, ExternalLink } from 'lucide-astro';
 ---
 
 <BaseLayout title="About - Simulacro Tech">
-	<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-		<h1 class="text-4xl md:text-5xl font-bold mb-12">About</h1>
-
-		<div class="prose prose-lg max-w-none mb-16">
-			<p class="text-lg text-gray-600 mb-6">
-				I'm Gustavo Costa. Before I wrote code, I worked as a clinical psychologist 
-				and psychoanalyst in Brasília, Brazil. That work taught me how to navigate complexity 
-				and ask better questions, rather than rushing to immediate solutions. 
-			</p>
-			<p class="text-lg text-gray-600 mb-6">
-				Now I build AI systems and conduct research at the intersection of technology and the humanities. This interdisciplinary experience showed me how optimization, when applied thoughtfully in humanistic contexts, 
-				can help systems better achieve their purpose.
-			</p>
-			<p class="text-lg text-gray-600">
-				Simulacro Tech is where I bring this together through a diverse range of technical solutions, including RAG systems, mixed-methods research, 
-				and data strategy -- all built with the same care I brought to clinical practice.
-			</p>
-		</div>
-
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-			<div class="border border-black p-6">
-				<div class="mb-4">
-					<GraduationCap size={32} />
-				</div>
-				<h3 class="text-xl font-semibold mb-3">Education</h3>
-				<p class="text-gray-600 text-sm mb-2">
-					<strong>Master of Arts and Sciences</strong><br />
-					London Interdisciplinary School
-				</p>
-				<p class="text-gray-600 text-sm mb-2">
-					<strong>Specialist in Lacanian Psychoanalysis</strong><br />
-					Faculdade Inspirar
-				</p>
-				<p class="text-gray-600 text-sm">
-					<strong>Bachelor in Psychology</strong><br />
-					Universidade de Brasília
-				</p>
-			</div>
-
-			<div class="border border-black p-6">
-				<div class="mb-4">
-					<Briefcase size={32} />
-				</div>
-				<h3 class="text-xl font-semibold mb-3">Experience</h3>
-				<p class="text-gray-600 text-sm mb-3">
-					<strong>Psychotherapy</strong><br />
-					Partner at Espaço Psique Psychology Clinic (2020-2024)
-				</p>
-				<p class="text-gray-600 text-sm mb-3">
-					<strong>Writing & Research</strong><br />
-					Essays on data science and AI at 
-					<a href="https://simulacro.co.uk" target="_blank" rel="noopener noreferrer" class="text-black font-semibold hover:underline">simulacro.co.uk</a>; essays on philosophy of psychoanalysis at <a href="https://gustavocosta.psc.br" target="_blank" rel="noopener noreferrer" class="text-black font-semibold hover:underline">gustavocosta.psc.br</a>; dissertation on AI slop using mixed-methods
-				</p>
-				<p class="text-gray-600 text-sm">
-					<strong>Technical Projects</strong><br />
-					RAG systems, NLP applications, and data analysis tools. See <a href="https://simulacro.cv" target="_blank" rel="noopener noreferrer" class="text-black font-semibold hover:underline">simulacro.cv</a> for details.
+	<!-- Hero -->
+	<section class="relative py-24 overflow-hidden">
+		<div class="gradient-orb gradient-orb-1"></div>
+		
+		<div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
+			<div class="max-w-3xl">
+				<span class="text-sm font-medium text-[var(--color-accent)] uppercase tracking-wider mb-4 block animate-fade-up">About</span>
+				<h1 class="text-5xl md:text-6xl font-bold mb-8 animate-fade-up animate-delay-1">Gustavo Costa</h1>
+				<p class="text-xl text-[var(--color-text-muted)] leading-relaxed animate-fade-up animate-delay-2">
+					Psychologist turned data scientist. Bringing clinical attentiveness to the world of AI and technology.
 				</p>
 			</div>
 		</div>
+	</section>
 
-	</div>
+	<!-- Bio Section -->
+	<section class="py-16">
+		<div class="max-w-6xl mx-auto px-6 lg:px-8">
+			<div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+				<div class="lg:col-span-2 space-y-6">
+					<p class="text-lg text-[var(--color-text-muted)] leading-relaxed">
+						Before I wrote code, I worked as a clinical psychologist and psychoanalyst in Brasília, Brazil. That work taught me how to navigate complexity and ask better questions, rather than rushing to immediate solutions.
+					</p>
+					<p class="text-lg text-[var(--color-text-muted)] leading-relaxed">
+						Now I build AI systems and conduct research at the intersection of technology and the humanities. This interdisciplinary experience showed me how optimization, when applied thoughtfully in humanistic contexts, can help systems better achieve their purpose.
+					</p>
+					<p class="text-lg text-[var(--color-text-muted)] leading-relaxed">
+						Simulacro Tech is where I bring this together through a diverse range of technical solutions, including RAG systems, mixed-methods research, and data strategy — all built with the same care I brought to clinical practice.
+					</p>
+				</div>
+				
+				<div class="lg:col-span-1">
+					<div class="glass-card rounded-2xl p-6 sticky top-28">
+						<h3 class="font-semibold mb-4 text-[var(--color-accent)]">Quick Links</h3>
+						<div class="space-y-3">
+							<a href="https://simulacro.cv" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors group">
+								<span>Full CV & Projects</span>
+								<ExternalLink size={14} class="opacity-0 group-hover:opacity-100 transition-opacity" />
+							</a>
+							<a href="https://simulacro.co.uk" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors group">
+								<span>Data Science Essays</span>
+								<ExternalLink size={14} class="opacity-0 group-hover:opacity-100 transition-opacity" />
+							</a>
+							<a href="https://gustavocosta.psc.br" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors group">
+								<span>Philosophy of Psychoanalysis</span>
+								<ExternalLink size={14} class="opacity-0 group-hover:opacity-100 transition-opacity" />
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Education & Experience -->
+	<section class="py-24">
+		<div class="max-w-6xl mx-auto px-6 lg:px-8">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+				<!-- Education -->
+				<div class="glass-card rounded-2xl p-8">
+					<div class="flex items-center gap-4 mb-8">
+						<div class="icon-box">
+							<GraduationCap size={24} />
+						</div>
+						<h2 class="text-2xl font-bold">Education</h2>
+					</div>
+					
+					<div class="space-y-6">
+						<div class="border-l-2 border-[var(--color-accent)]/30 pl-6">
+							<h3 class="font-semibold mb-1">Master of Arts and Sciences</h3>
+							<p class="text-sm text-[var(--color-text-muted)]">London Interdisciplinary School</p>
+						</div>
+						<div class="border-l-2 border-[var(--color-border)] pl-6">
+							<h3 class="font-semibold mb-1">Specialist in Lacanian Psychoanalysis</h3>
+							<p class="text-sm text-[var(--color-text-muted)]">Faculdade Inspirar</p>
+						</div>
+						<div class="border-l-2 border-[var(--color-border)] pl-6">
+							<h3 class="font-semibold mb-1">Bachelor in Psychology</h3>
+							<p class="text-sm text-[var(--color-text-muted)]">Universidade de Brasília</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Experience -->
+				<div class="glass-card rounded-2xl p-8">
+					<div class="flex items-center gap-4 mb-8">
+						<div class="icon-box">
+							<Briefcase size={24} />
+						</div>
+						<h2 class="text-2xl font-bold">Experience</h2>
+					</div>
+					
+					<div class="space-y-6">
+						<div class="border-l-2 border-[var(--color-accent)]/30 pl-6">
+							<h3 class="font-semibold mb-1">Psychotherapy</h3>
+							<p class="text-sm text-[var(--color-text-muted)]">Partner at Espaço Psique Psychology Clinic</p>
+							<p class="text-xs text-[var(--color-text-muted)] mt-1">2020 – 2024</p>
+						</div>
+						<div class="border-l-2 border-[var(--color-border)] pl-6">
+							<h3 class="font-semibold mb-1">Writing & Research</h3>
+							<p class="text-sm text-[var(--color-text-muted)]">Essays on data science, AI, and philosophy of psychoanalysis. Dissertation on AI slop using mixed-methods.</p>
+						</div>
+						<div class="border-l-2 border-[var(--color-border)] pl-6">
+							<h3 class="font-semibold mb-1">Technical Projects</h3>
+							<p class="text-sm text-[var(--color-text-muted)]">RAG systems, NLP applications, and data analysis tools.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 </BaseLayout>
-
