@@ -201,10 +201,10 @@ export const ui = {
 	pt: {
 		'meta.home.title': 'Simulacro Tech — Consultoria interdisciplinar em dados e IA',
 		'meta.home.description':
-			'Consultoria em dados e IA fundamentada na ética. Construindo tecnologia a serviço das pessoas, e não o contrário.',
+			'Consultoria em dados e IA fundamentada na ética. Tecnologia construída a serviço das pessoas, e não o contrário.',
 		'meta.about.title': 'Sobre — Simulacro Tech',
 		'meta.about.description':
-			'Consultoria em dados e IA fundamentada na ética. Construindo tecnologia a serviço das pessoas, e não o contrário.',
+			'Consultoria em dados e IA fundamentada na ética. Tecnologia construída a serviço das pessoas, e não o contrário.',
 		'meta.projects.title': 'Projetos · Simulacro Tech',
 		'meta.projects.description':
 			'Trabalhos selecionados em infraestrutura de IA, PLN e pesquisa aplicada.',
@@ -217,7 +217,7 @@ export const ui = {
 		'home.hero.title.before': 'Tecnologia a serviço das ',
 		'home.hero.title.highlight': 'pessoas',
 		'home.hero.tagline':
-			'Soluções de IA e dados fundamentadas na ética. Sistemas construídos com transparência, responsabilidade e impacto humano no centro.',
+			'Soluções de IA e dados fundamentadas na ética. Sistemas construídos com transparência, responsabilidade e foco no impacto humano.',
 		'home.hero.cta': 'Entre em contato',
 
 		'home.services.label': 'Serviços',
@@ -237,20 +237,20 @@ export const ui = {
 		'home.why.label': 'Abordagem',
 		'home.why.heading': 'Por que trabalhar conosco',
 		'home.why.intro':
-			'Uma combinação rara de psicologia clínica, formação filosófica e expertise técnica. Trazemos uma profundidade que tecnólogos puros não conseguem oferecer.',
+			'Uma combinação rara de psicologia clínica, formação filosófica e expertise técnica. Trazemos uma profundidade que perfis puramente técnicos não conseguem oferecer.',
 		'home.why.clinical.title': 'Formação clínica',
 		'home.why.clinical.description':
 			'Anos de prática psicoterapêutica moldam como entendemos o impacto da tecnologia em pessoas reais, não apenas em usuários abstratos.',
 		'home.why.philosophy.title': 'Rigor filosófico',
 		'home.why.philosophy.description':
-			'Ética não é um acessório. Formação em filosofia significa fazer as perguntas difíceis antes de construir, não depois.',
+			'Ética não é uma reflexão posterior. Formação em filosofia significa fazer as perguntas difíceis antes de construir, não depois.',
 		'home.why.technical.title': 'Profundidade técnica',
 		'home.why.technical.description':
 			'De pipelines de PLN à análise estatística, o trabalho técnico se baseia em metodologia de pesquisa.',
 
 		'home.about.label': 'Sobre',
 		'home.about.bio':
-			'Fundada por Gustavo Costa, psicólogo que se tornou cientista de dados. Depois de anos na prática clínica, ele aplica essa mesma atenção à forma como construímos e implantamos sistemas de IA.',
+			'Fundada por Gustavo Costa, psicólogo de formação, hoje cientista de dados. Depois de anos na prática clínica, aplica essa mesma atenção à forma como construímos e implantamos sistemas de IA.',
 		'home.about.cta': 'Ler bio completa',
 
 		'home.contact.label': 'Contato',
@@ -259,13 +259,13 @@ export const ui = {
 
 		'about.label': 'Sobre',
 		'about.subtitle':
-			'Psicólogo que se tornou cientista de dados. Trazendo atenção clínica para o mundo da IA e tecnologia.',
+			'Psicólogo de formação, hoje cientista de dados. Trago atenção clínica ao mundo da IA e da tecnologia.',
 		'about.bio.p1':
-			'Antes de escrever código, trabalhei como psicólogo clínico e psicanalista em Brasília. Esse trabalho me ensinou a navegar pela complexidade e a fazer perguntas melhores, em vez de correr para soluções imediatas.',
+			'Antes de escrever código, trabalhei como psicólogo clínico e psicanalista em Brasília. Esse trabalho me ensinou a lidar com a complexidade e a fazer perguntas melhores, em vez de correr para soluções imediatas.',
 		'about.bio.p2':
-			'Hoje construo sistemas de IA e faço pesquisa na intersecção entre tecnologia e humanidades. Essa experiência interdisciplinar me mostrou como a otimização, quando aplicada com cuidado em contextos humanísticos, pode ajudar sistemas a cumprirem melhor seu propósito.',
+			'Hoje construo sistemas de IA e faço pesquisa na interseção entre tecnologia e humanidades. Essa experiência interdisciplinar me mostrou como a otimização, quando aplicada com cuidado em contextos humanísticos, pode ajudar sistemas a cumprirem melhor seu propósito.',
 		'about.bio.p3':
-			'A Simulacro Tech é onde reúno tudo isso por meio de soluções técnicas diversas, incluindo sistemas RAG, pesquisa de métodos mistos e estratégia de dados — todas construídas com o mesmo cuidado que levava à prática clínica.',
+			'Na Simulacro Tech, reúno tudo isso por meio de soluções técnicas diversas, incluindo sistemas RAG, pesquisa de métodos mistos e estratégia de dados — todas construídas com o mesmo cuidado que levava à prática clínica.',
 
 		'about.links.heading': 'Links rápidos',
 		'about.links.cv': 'CV completo e projetos',
@@ -318,7 +318,7 @@ export const ui = {
 		'projects.manifest.title.highlight': 'arquivo',
 		'projects.manifest.title.after': ' vivo de sistemas construídos para times reais.',
 		'projects.manifest.lede':
-			'Infraestrutura de IA em produção, ferramentas open source e pesquisa na intersecção de PLN, ética e humanidades. Oito entradas, agrupadas por propósito.',
+			'Infraestrutura de IA em produção, ferramentas open source e pesquisa na interseção de PLN, ética e humanidades. Oito entradas, agrupadas por propósito.',
 		'projects.stats.production': 'Sistemas em produção',
 		'projects.stats.openSource': 'Open source',
 		'projects.stats.research': 'Trabalhos de pesquisa',
@@ -391,10 +391,10 @@ export const ui = {
 	es: {
 		'meta.home.title': 'Simulacro Tech — Consultoría interdisciplinaria en datos e IA',
 		'meta.home.description':
-			'Consultoría en datos e IA basada en la ética. Construyendo tecnología al servicio de las personas, y no al revés.',
+			'Consultoría en datos e IA basada en la ética. Tecnología al servicio de las personas, y no a la inversa.',
 		'meta.about.title': 'Sobre mí — Simulacro Tech',
 		'meta.about.description':
-			'Consultoría en datos e IA basada en la ética. Construyendo tecnología al servicio de las personas, y no al revés.',
+			'Consultoría en datos e IA basada en la ética. Tecnología al servicio de las personas, y no a la inversa.',
 		'meta.projects.title': 'Proyectos · Simulacro Tech',
 		'meta.projects.description':
 			'Trabajos seleccionados en infraestructura de IA, PLN e investigación aplicada.',
@@ -407,7 +407,7 @@ export const ui = {
 		'home.hero.title.before': 'Tecnología al servicio de las ',
 		'home.hero.title.highlight': 'personas',
 		'home.hero.tagline':
-			'Soluciones de IA y datos basadas en la ética. Sistemas construidos con transparencia, responsabilidad e impacto humano en el centro.',
+			'Soluciones de IA y datos basadas en la ética. Sistemas construidos con transparencia, responsabilidad y centrados en el impacto humano.',
 		'home.hero.cta': 'Contactar',
 
 		'home.services.label': 'Servicios',
@@ -427,20 +427,20 @@ export const ui = {
 		'home.why.label': 'Enfoque',
 		'home.why.heading': 'Por qué trabajar con nosotros',
 		'home.why.intro':
-			'Una combinación poco común de psicología clínica, formación filosófica y experiencia técnica. Aportamos una profundidad que los tecnólogos puros no pueden igualar.',
+			'Una combinación poco común de psicología clínica, formación filosófica y experiencia técnica. Aportamos una profundidad que los perfiles puramente técnicos no pueden igualar.',
 		'home.why.clinical.title': 'Formación clínica',
 		'home.why.clinical.description':
 			'Años de práctica psicoterapéutica moldean cómo entendemos el impacto de la tecnología en personas reales, no solo en usuarios abstractos.',
 		'home.why.philosophy.title': 'Rigor filosófico',
 		'home.why.philosophy.description':
-			'La ética no es algo accesorio. La formación en filosofía significa hacer las preguntas difíciles antes de construir, no después.',
+			'La ética no es una ocurrencia tardía. La formación en filosofía significa hacer las preguntas difíciles antes de construir, no después.',
 		'home.why.technical.title': 'Profundidad técnica',
 		'home.why.technical.description':
 			'Desde pipelines de PLN hasta análisis estadístico, el trabajo técnico se basa en metodología de investigación.',
 
 		'home.about.label': 'Sobre mí',
 		'home.about.bio':
-			'Fundada por Gustavo Costa, psicólogo convertido en científico de datos. Tras años de práctica clínica, él aplica esa misma atención a cómo construimos y desplegamos sistemas de IA.',
+			'Fundada por Gustavo Costa, psicólogo de formación, ahora científico de datos. Tras años de práctica clínica, aplica esa misma atención a cómo construimos y desplegamos sistemas de IA.',
 		'home.about.cta': 'Leer biografía completa',
 
 		'home.contact.label': 'Contacto',
@@ -449,13 +449,13 @@ export const ui = {
 
 		'about.label': 'Sobre mí',
 		'about.subtitle':
-			'Psicólogo convertido en científico de datos. Llevando la atención clínica al mundo de la IA y la tecnología.',
+			'Psicólogo de formación, ahora científico de datos. Aporto la atención clínica al mundo de la IA y la tecnología.',
 		'about.bio.p1':
-			'Antes de escribir código, trabajé como psicólogo clínico y psicoanalista en Brasilia, Brasil. Ese trabajo me enseñó a navegar la complejidad y a hacer mejores preguntas, en lugar de apresurarme a soluciones inmediatas.',
+			'Antes de escribir código, trabajé como psicólogo clínico y psicoanalista en Brasilia, Brasil. Ese trabajo me enseñó a lidiar con la complejidad y a hacer mejores preguntas, en lugar de apresurarme a soluciones inmediatas.',
 		'about.bio.p2':
 			'Hoy construyo sistemas de IA y realizo investigación en la intersección entre la tecnología y las humanidades. Esta experiencia interdisciplinaria me mostró cómo la optimización, cuando se aplica con cuidado en contextos humanísticos, puede ayudar a los sistemas a cumplir mejor su propósito.',
 		'about.bio.p3':
-			'Simulacro Tech es donde uno todo esto a través de una variedad de soluciones técnicas, incluyendo sistemas RAG, investigación de métodos mixtos y estrategia de datos — todas construidas con el mismo cuidado que llevaba a la práctica clínica.',
+			'En Simulacro Tech reúno todo esto a través de una variedad de soluciones técnicas, incluyendo sistemas RAG, investigación de métodos mixtos y estrategia de datos — todas construidas con el mismo cuidado que llevaba a la práctica clínica.',
 
 		'about.links.heading': 'Enlaces rápidos',
 		'about.links.cv': 'CV completo y proyectos',
