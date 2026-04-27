@@ -1,21 +1,34 @@
 @import 'tailwindcss';
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @layer base {
     :root {
         --color-bg: #0a0a0f;
         --color-bg-elevated: #12121a;
         --color-bg-card: rgba(22, 22, 32, 0.6);
+        --color-bg-card-strong: rgba(20, 20, 28, 0.78);
         --color-text: #e8e6e3;
         --color-text-muted: #9ca3af;
+        --color-text-faint: rgba(232, 230, 227, 0.45);
         --color-accent: #f59e0b;
         --color-accent-hover: #fbbf24;
         --color-accent-secondary: #8b5cf6;
         --color-accent-secondary-hover: #a78bfa;
+        /* Refined palette: a controlled teal dye, used ONLY for research/academic archetypes. Not a third CTA. */
+        --color-accent-research: #0fb5a4;
         --color-border: rgba(255, 255, 255, 0.08);
         --color-border-hover: rgba(255, 255, 255, 0.15);
+        --color-border-strong: rgba(255, 255, 255, 0.18);
         --color-glow: rgba(245, 158, 11, 0.4);
         --color-glow-secondary: rgba(139, 92, 246, 0.3);
+
+        /* Type scale — disciplined steps so hero >> section >> card */
+        --type-display: clamp(3rem, 8vw + 1rem, 7.5rem);   /* hero on home */
+        --type-section: clamp(2.25rem, 4vw + 0.5rem, 3.75rem);
+        --type-subsection: clamp(1.25rem, 1.5vw + 0.5rem, 1.875rem);
+
+        /* Easing — single source of truth */
+        --ease-quint: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     * {
@@ -41,15 +54,89 @@
         letter-spacing: -0.02em;
         line-height: 1.2;
     }
+
+    /* Selection — subtle amber */
+    ::selection {
+        background: rgba(245, 158, 11, 0.25);
+        color: var(--color-text);
+    }
 }
 
 @layer components {
+    /* ─────────── Typography helpers ─────────── */
+
+    /* The italic serif device — make sure it always carries weight */
+    .italic-serif {
+        font-family: 'Crimson Pro', Georgia, serif;
+        font-style: italic;
+        font-weight: 400;
+    }
+
+    /* Drop cap — first letter of a paragraph rendered as a serif initial */
+    .drop-cap::first-letter {
+        font-family: 'Crimson Pro', Georgia, serif;
+        font-weight: 500;
+        font-size: 4.5em;
+        line-height: 0.85;
+        float: left;
+        padding: 0.05em 0.12em 0 0;
+        margin-top: 0.05em;
+        color: var(--color-accent);
+    }
+
+    /* Pull-quote — italic serif, generous, low-key amber rule on the left */
+    .pull-quote {
+        font-family: 'Crimson Pro', Georgia, serif;
+        font-style: italic;
+        font-weight: 400;
+        font-size: clamp(1.5rem, 2.5vw + 0.5rem, 2.25rem);
+        line-height: 1.35;
+        letter-spacing: -0.01em;
+        color: var(--color-text);
+        border-left: 2px solid var(--color-accent);
+        padding-left: 1.75rem;
+    }
+
+    /* Stat value — serif numeric, small-caps caption variant */
+    .stat-value {
+        font-family: 'Crimson Pro', Georgia, serif;
+        font-weight: 500;
+        font-feature-settings: 'lnum' 1, 'tnum' 1;
+        line-height: 1;
+        letter-spacing: -0.02em;
+    }
+
+    .small-caps {
+        font-variant: small-caps;
+        letter-spacing: 0.08em;
+    }
+
+    /* Eyebrow label — the amber mono pattern made into a single class */
+    .eyebrow {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.75rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.25em;
+        color: var(--color-accent);
+        display: block;
+    }
+
+    .eyebrow-research {
+        color: var(--color-accent-research);
+    }
+
+    /* ─────────── Glass card — base + archetype variants ─────────── */
+
     .glass-card {
         background: var(--color-bg-card);
         backdrop-filter: blur(16px);
         border: 1px solid var(--color-border);
         position: relative;
-        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        transition:
+            transform 0.4s var(--ease-quint),
+            box-shadow 0.4s var(--ease-quint),
+            border-color 0.4s var(--ease-quint);
     }
 
     .glass-card::before {
@@ -59,8 +146,8 @@
         border-radius: inherit;
         padding: 1px;
         background: linear-gradient(
-            135deg, 
-            rgba(245, 158, 11, 0.5) 0%, 
+            135deg,
+            rgba(245, 158, 11, 0.5) 0%,
             rgba(139, 92, 246, 0.3) 100%
         );
         -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -73,7 +160,7 @@
 
     .glass-card:hover {
         transform: translateY(-2px);
-        box-shadow: 
+        box-shadow:
             0 0 25px -10px rgba(245, 158, 11, 0.25),
             0 0 50px -15px rgba(139, 92, 246, 0.15);
     }
@@ -81,6 +168,82 @@
     .glass-card:hover::before {
         opacity: 1;
     }
+
+    /* Service tile — subtle. The base is already correct; just dial down hover. */
+    .glass-card-service {
+        border-radius: 16px;
+    }
+    .glass-card-service:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 0 20px -12px rgba(245, 158, 11, 0.18);
+    }
+    .glass-card-service:hover::before {
+        opacity: 0.5;
+    }
+
+    /* Case-study card — more border-glow, larger radii */
+    .glass-card-case {
+        border-radius: 24px;
+        background: var(--color-bg-card-strong);
+    }
+    .glass-card-case::before {
+        background: linear-gradient(
+            135deg,
+            rgba(245, 158, 11, 0.7) 0%,
+            rgba(139, 92, 246, 0.45) 60%,
+            rgba(245, 158, 11, 0.5) 100%
+        );
+        opacity: 0.35;
+    }
+    .glass-card-case:hover {
+        transform: translateY(-3px);
+        box-shadow:
+            0 0 35px -8px rgba(245, 158, 11, 0.3),
+            0 0 70px -20px rgba(139, 92, 246, 0.25);
+    }
+    .glass-card-case:hover::before {
+        opacity: 1;
+    }
+
+    /* Terminal-window card — chrome-realistic. Tighter corners, no border glow. */
+    .glass-card-terminal {
+        border-radius: 12px;
+        background: rgba(14, 14, 22, 0.85);
+    }
+    .glass-card-terminal::before {
+        display: none;
+    }
+    .glass-card-terminal:hover {
+        transform: translateY(-2px);
+        border-color: var(--color-border-strong);
+        box-shadow:
+            0 0 0 1px rgba(245, 158, 11, 0.25) inset,
+            0 8px 30px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Contact form — almost no glass. Reads as a paper field. */
+    .glass-card-contact {
+        background: transparent;
+        backdrop-filter: none;
+        border: 1px solid var(--color-border);
+        border-radius: 16px;
+    }
+    .glass-card-contact::before {
+        display: none;
+    }
+    .glass-card-contact:hover {
+        transform: none;
+        box-shadow: none;
+        border-color: var(--color-border-hover);
+    }
+
+    /* Manifesto / about-preview hero card — biggest radius, strongest glass */
+    .glass-card-manifest {
+        border-radius: 32px;
+        background: var(--color-bg-card-strong);
+    }
+
+    /* ─────────── Other components ─────────── */
 
     .gradient-text {
         background: linear-gradient(135deg, var(--color-accent) 0%, #ef4444 100%);
@@ -97,11 +260,35 @@
         border-radius: 9999px;
         transition: all 0.3s ease;
         box-shadow: 0 4px 20px -4px rgba(245, 158, 11, 0.4);
+        position: relative;
     }
 
     .btn-primary:hover {
         transform: translateY(-2px);
         box-shadow: 0 8px 30px -4px rgba(245, 158, 11, 0.5);
+    }
+
+    /* Gentle pulsing CTA used on hero only */
+    .btn-primary-pulse::after {
+        content: '';
+        position: absolute;
+        inset: -4px;
+        border-radius: 9999px;
+        background: radial-gradient(circle at center, rgba(245, 158, 11, 0.4) 0%, transparent 70%);
+        z-index: -1;
+        animation: cta-pulse 3.2s var(--ease-quint) infinite;
+        pointer-events: none;
+    }
+
+    @keyframes cta-pulse {
+        0%, 100% {
+            opacity: 0.55;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 0.95;
+            transform: scale(1.08);
+        }
     }
 
     .link-underline {
@@ -123,16 +310,22 @@
         width: 100%;
     }
 
+    .link-underline.is-active::after {
+        width: 100%;
+    }
+
     .animate-fade-up {
-        animation: fadeUp 0.6s ease forwards;
+        animation: fadeUp 0.7s var(--ease-quint) forwards;
         opacity: 0;
     }
 
-    .animate-delay-1 { animation-delay: 0.1s; }
-    .animate-delay-2 { animation-delay: 0.2s; }
-    .animate-delay-3 { animation-delay: 0.3s; }
-    .animate-delay-4 { animation-delay: 0.4s; }
-    .animate-delay-5 { animation-delay: 0.5s; }
+    .animate-delay-1 { animation-delay: 0.15s; }
+    .animate-delay-2 { animation-delay: 0.3s; }
+    .animate-delay-3 { animation-delay: 0.45s; }
+    .animate-delay-4 { animation-delay: 0.6s; }
+    .animate-delay-5 { animation-delay: 0.75s; }
+    /* Used to drag attention to the italic word — arrives last */
+    .animate-delay-late { animation-delay: 0.95s; }
 
     @keyframes fadeUp {
         from {
@@ -142,6 +335,27 @@
         to {
             opacity: 1;
             transform: translateY(0);
+        }
+    }
+
+    /* The italic word in hero headlines fades in slightly later and from a tilt */
+    .italic-reveal {
+        opacity: 0;
+        display: inline-block;
+        animation: italicReveal 0.9s var(--ease-quint) forwards;
+        animation-delay: 0.95s;
+    }
+
+    @keyframes italicReveal {
+        from {
+            opacity: 0;
+            transform: translateY(8px) skewX(-4deg);
+            filter: blur(4px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) skewX(0);
+            filter: blur(0);
         }
     }
 
@@ -194,13 +408,13 @@
     }
 
     @keyframes pulse-glow {
-        0%, 100% { 
-            opacity: 0.4; 
-            transform: scale(1); 
+        0%, 100% {
+            opacity: 0.4;
+            transform: scale(1);
         }
-        50% { 
-            opacity: 0.7; 
-            transform: scale(1.15); 
+        50% {
+            opacity: 0.7;
+            transform: scale(1.15);
         }
     }
 
@@ -208,14 +422,24 @@
     .reveal-on-scroll {
         opacity: 0;
         transform: translateY(40px);
-        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
-                    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        transition: opacity 0.8s var(--ease-quint),
+                    transform 0.8s var(--ease-quint);
     }
 
     .reveal-on-scroll.revealed {
         opacity: 1;
         transform: translateY(0);
     }
+
+    /* Children of revealed sections that opt-in to a stagger inherit a delay */
+    .reveal-on-scroll.revealed .stagger-child {
+        animation: fadeUp 0.7s var(--ease-quint) both;
+    }
+    .reveal-on-scroll.revealed .stagger-child:nth-child(1) { animation-delay: 0.05s; }
+    .reveal-on-scroll.revealed .stagger-child:nth-child(2) { animation-delay: 0.15s; }
+    .reveal-on-scroll.revealed .stagger-child:nth-child(3) { animation-delay: 0.25s; }
+    .reveal-on-scroll.revealed .stagger-child:nth-child(4) { animation-delay: 0.35s; }
+    .reveal-on-scroll.revealed .stagger-child:nth-child(5) { animation-delay: 0.45s; }
 
     /* Staggered reveal delays */
     .reveal-delay-1 { transition-delay: 0.1s; }
@@ -247,10 +471,85 @@
         border-radius: 12px;
         color: var(--color-accent);
     }
+
+    /* Research dye — used for academic/research entries only */
+    .icon-box-research {
+        background: linear-gradient(135deg, rgba(15, 181, 164, 0.15) 0%, rgba(15, 181, 164, 0.05) 100%);
+        color: var(--color-accent-research);
+    }
+
+    /* Section divider — single hairline with a subtle amber notch */
+    .section-rule {
+        position: relative;
+        height: 1px;
+        background: var(--color-border);
+    }
+    .section-rule::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 4rem;
+        height: 1px;
+        background: var(--color-accent);
+    }
+
+    /* Form input — refined focus state. Slim ring instead of just a color swap. */
+    .field-input {
+        width: 100%;
+        height: 3rem;
+        border-radius: 12px;
+        border: 1px solid var(--color-border);
+        background: rgba(10, 10, 15, 0.6);
+        padding: 0 1rem;
+        color: var(--color-text);
+        transition:
+            border-color 0.25s ease,
+            background 0.25s ease,
+            box-shadow 0.25s ease;
+    }
+    .field-input::placeholder {
+        color: rgba(156, 163, 175, 0.45);
+    }
+    .field-input:focus {
+        outline: none;
+        border-color: var(--color-accent);
+        background: rgba(10, 10, 15, 0.85);
+        box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.08);
+    }
+    .field-textarea {
+        height: auto;
+        min-height: 11rem;
+        resize: none;
+        padding: 0.875rem 1rem;
+    }
 }
 
 @layer utilities {
     .text-balance {
         text-wrap: balance;
+    }
+
+    .text-pretty {
+        text-wrap: pretty;
+    }
+}
+
+/* Reduced motion — collapse all entrance + ambient loops */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .glow-orb,
+    .gradient-orb,
+    .animate-float,
+    .btn-primary-pulse::after {
+        animation: none !important;
     }
 }

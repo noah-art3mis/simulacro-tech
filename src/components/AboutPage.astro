@@ -10,48 +10,46 @@ const { lang } = Astro.props;
 const t = (key: UIKey) => ui[lang][key];
 ---
 
-<!-- Hero -->
-<section class="relative py-24 overflow-hidden">
-	<div class="gradient-orb gradient-orb-1"></div>
+<!-- ─────────── Hero ─────────── -->
+<section class="relative pt-16 pb-20 overflow-hidden">
+	<!-- A single, soft amber wash — about pages are introspective, not blasted -->
+	<div class="glow-orb w-[420px] h-[420px] -top-32 -right-32 opacity-50"></div>
 
 	<div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
 		<div class="max-w-3xl">
-			<span
-				class="text-sm font-medium text-[var(--color-accent)] uppercase tracking-wider mb-4 block animate-fade-up"
-			>
-				{t('about.label')}
+			<span class="eyebrow mb-6 inline-block animate-fade-up">
+				§ — {t('about.label')}
 			</span>
-			<h1 class="text-5xl md:text-6xl font-bold mb-8 animate-fade-up animate-delay-1">
-				Gustavo Costa
+			<h1 class="text-[clamp(3rem,7vw,6rem)] leading-[0.95] mb-8 animate-fade-up animate-delay-1">
+				Gustavo <span class="italic-reveal italic-serif text-[var(--color-text-muted)]">Costa</span>
 			</h1>
-			<p
-				class="text-xl text-[var(--color-text-muted)] leading-relaxed animate-fade-up animate-delay-2"
-			>
+			<p class="text-xl md:text-2xl text-[var(--color-text-muted)] leading-relaxed animate-fade-up animate-delay-2 max-w-2xl text-pretty">
 				{t('about.subtitle')}
 			</p>
 		</div>
 	</div>
 </section>
 
-<!-- Bio Section -->
-<section class="py-16">
+<!-- ─────────── Bio ─────────── -->
+<!-- Drop-cap on the first paragraph; subsequent paragraphs are quieter. -->
+<section class="py-16 md:py-20">
 	<div class="max-w-6xl mx-auto px-6 lg:px-8">
-		<div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
-			<div class="lg:col-span-2 space-y-6">
-				<p class="text-lg text-[var(--color-text-muted)] leading-relaxed">
+		<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+			<div class="lg:col-span-8 space-y-7">
+				<p class="drop-cap text-lg md:text-xl text-[var(--color-text-muted)] leading-[1.7] text-pretty">
 					{t('about.bio.p1')}
 				</p>
-				<p class="text-lg text-[var(--color-text-muted)] leading-relaxed">
+				<p class="text-lg text-[var(--color-text-muted)] leading-[1.7] text-pretty">
 					{t('about.bio.p2')}
 				</p>
-				<p class="text-lg text-[var(--color-text-muted)] leading-relaxed">
+				<p class="text-lg text-[var(--color-text-muted)] leading-[1.7] text-pretty">
 					{t('about.bio.p3')}
 				</p>
 			</div>
 
-			<div class="lg:col-span-1">
-				<div class="glass-card rounded-2xl p-6 sticky top-28">
-					<h3 class="font-semibold mb-4 text-[var(--color-accent)]">
+			<div class="lg:col-span-4">
+				<div class="glass-card glass-card-service p-7 sticky top-28">
+					<h3 class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-accent)] mb-5">
 						{t('about.links.heading')}
 					</h3>
 					<div class="space-y-3">
@@ -59,36 +57,36 @@ const t = (key: UIKey) => ui[lang][key];
 							href="https://simulacro.cv"
 							target="_blank"
 							rel="noopener noreferrer"
-							class="flex items-center justify-between text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors group"
+							class="flex items-center justify-between text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors group py-1"
 						>
 							<span>{t('about.links.cv')}</span>
 							<ExternalLink
 								size={14}
-								class="opacity-0 group-hover:opacity-100 transition-opacity"
+								class="opacity-40 group-hover:opacity-100 group-hover:text-[var(--color-accent)] transition-all"
 							/>
 						</a>
 						<a
 							href="https://simulacro.co.uk"
 							target="_blank"
 							rel="noopener noreferrer"
-							class="flex items-center justify-between text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors group"
+							class="flex items-center justify-between text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors group py-1"
 						>
 							<span>{t('about.links.essays')}</span>
 							<ExternalLink
 								size={14}
-								class="opacity-0 group-hover:opacity-100 transition-opacity"
+								class="opacity-40 group-hover:opacity-100 group-hover:text-[var(--color-accent)] transition-all"
 							/>
 						</a>
 						<a
 							href="https://gustavocosta.psc.br"
 							target="_blank"
 							rel="noopener noreferrer"
-							class="flex items-center justify-between text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors group"
+							class="flex items-center justify-between text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors group py-1"
 						>
 							<span>{t('about.links.philosophy')}</span>
 							<ExternalLink
 								size={14}
-								class="opacity-0 group-hover:opacity-100 transition-opacity"
+								class="opacity-40 group-hover:opacity-100 group-hover:text-[var(--color-accent)] transition-all"
 							/>
 						</a>
 					</div>
@@ -98,61 +96,68 @@ const t = (key: UIKey) => ui[lang][key];
 	</div>
 </section>
 
-<!-- Education & Experience -->
-<section class="py-24">
+<!-- ─────────── Education & Experience ─────────── -->
+<!-- A more deliberate timeline: amber rule on the latest entry, faded on older ones. -->
+<section class="py-20 md:py-24 relative">
 	<div class="max-w-6xl mx-auto px-6 lg:px-8">
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 			<!-- Education -->
-			<div class="glass-card rounded-2xl p-8">
-				<div class="flex items-center gap-4 mb-8">
+			<div class="glass-card glass-card-service p-8 md:p-10">
+				<div class="flex items-center gap-4 mb-10">
 					<div class="icon-box">
-						<GraduationCap size={24} />
+						<GraduationCap size={22} />
 					</div>
-					<h2 class="text-2xl font-bold">{t('about.education.heading')}</h2>
+					<h2 class="text-2xl md:text-3xl">{t('about.education.heading')}</h2>
 				</div>
 
-				<div class="space-y-6">
-					<div class="border-l-2 border-[var(--color-accent)]/30 pl-6">
-						<h3 class="font-semibold mb-1">{t('about.education.degree1.title')}</h3>
+				<div class="space-y-7">
+					<div class="border-l-2 border-[var(--color-accent)] pl-6 relative">
+						<span class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-[var(--color-accent)]"></span>
+						<h3 class="font-semibold mb-1.5 text-[var(--color-text)]">{t('about.education.degree1.title')}</h3>
 						<p class="text-sm text-[var(--color-text-muted)]">London Interdisciplinary School</p>
 					</div>
-					<div class="border-l-2 border-[var(--color-border)] pl-6">
-						<h3 class="font-semibold mb-1">{t('about.education.degree2.title')}</h3>
+					<div class="border-l-2 border-[var(--color-border)] pl-6 relative">
+						<span class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-[var(--color-border-strong)]"></span>
+						<h3 class="font-semibold mb-1.5">{t('about.education.degree2.title')}</h3>
 						<p class="text-sm text-[var(--color-text-muted)]">Faculdade Inspirar</p>
 					</div>
-					<div class="border-l-2 border-[var(--color-border)] pl-6">
-						<h3 class="font-semibold mb-1">{t('about.education.degree3.title')}</h3>
+					<div class="border-l-2 border-[var(--color-border)] pl-6 relative">
+						<span class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-[var(--color-border-strong)]"></span>
+						<h3 class="font-semibold mb-1.5">{t('about.education.degree3.title')}</h3>
 						<p class="text-sm text-[var(--color-text-muted)]">Universidade de Brasília</p>
 					</div>
 				</div>
 			</div>
 
 			<!-- Experience -->
-			<div class="glass-card rounded-2xl p-8">
-				<div class="flex items-center gap-4 mb-8">
+			<div class="glass-card glass-card-service p-8 md:p-10">
+				<div class="flex items-center gap-4 mb-10">
 					<div class="icon-box">
-						<Briefcase size={24} />
+						<Briefcase size={22} />
 					</div>
-					<h2 class="text-2xl font-bold">{t('about.experience.heading')}</h2>
+					<h2 class="text-2xl md:text-3xl">{t('about.experience.heading')}</h2>
 				</div>
 
-				<div class="space-y-6">
-					<div class="border-l-2 border-[var(--color-accent)]/30 pl-6">
-						<h3 class="font-semibold mb-1">{t('about.experience.psychotherapy.title')}</h3>
-						<p class="text-sm text-[var(--color-text-muted)]">
+				<div class="space-y-7">
+					<div class="border-l-2 border-[var(--color-accent)] pl-6 relative">
+						<span class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-[var(--color-accent)]"></span>
+						<h3 class="font-semibold mb-1.5">{t('about.experience.psychotherapy.title')}</h3>
+						<p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
 							{t('about.experience.psychotherapy.details')}
 						</p>
-						<p class="text-xs text-[var(--color-text-muted)] mt-1">2020 – 2024</p>
+						<p class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-muted)]/60 mt-2">2020 – 2024</p>
 					</div>
-					<div class="border-l-2 border-[var(--color-border)] pl-6">
-						<h3 class="font-semibold mb-1">{t('about.experience.writing.title')}</h3>
-						<p class="text-sm text-[var(--color-text-muted)]">
+					<div class="border-l-2 border-[var(--color-border)] pl-6 relative">
+						<span class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-[var(--color-border-strong)]"></span>
+						<h3 class="font-semibold mb-1.5">{t('about.experience.writing.title')}</h3>
+						<p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
 							{t('about.experience.writing.details')}
 						</p>
 					</div>
-					<div class="border-l-2 border-[var(--color-border)] pl-6">
-						<h3 class="font-semibold mb-1">{t('about.experience.technical.title')}</h3>
-						<p class="text-sm text-[var(--color-text-muted)]">
+					<div class="border-l-2 border-[var(--color-border)] pl-6 relative">
+						<span class="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-[var(--color-border-strong)]"></span>
+						<h3 class="font-semibold mb-1.5">{t('about.experience.technical.title')}</h3>
+						<p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
 							{t('about.experience.technical.details')}
 						</p>
 					</div>

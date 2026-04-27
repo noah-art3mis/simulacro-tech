@@ -136,18 +136,18 @@ const research = [
 ];
 ---
 
-<!-- ─────────── Hero / Index ─────────── -->
-<section class="relative pt-20 pb-24 overflow-hidden">
+<!-- ─────────── Hero / Index manifest ─────────── -->
+<section class="relative pt-16 pb-20 overflow-hidden">
 	<!-- Background atmosphere -->
-	<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(245,158,11,0.12)_0%,transparent_55%),radial-gradient(ellipse_at_70%_60%,rgba(139,92,246,0.10)_0%,transparent_55%)]"></div>
-	<div class="glow-orb w-[500px] h-[500px] -top-32 -right-32 opacity-60"></div>
-	<div class="glow-orb glow-orb-secondary w-[400px] h-[400px] top-1/2 -left-32 opacity-50" style="animation-delay: -1.5s;"></div>
+	<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(245,158,11,0.13)_0%,transparent_55%),radial-gradient(ellipse_at_70%_60%,rgba(139,92,246,0.10)_0%,transparent_55%)]"></div>
+	<div class="glow-orb w-[460px] h-[460px] -top-32 -right-32 opacity-55"></div>
+	<div class="glow-orb glow-orb-secondary w-[380px] h-[380px] top-1/2 -left-32 opacity-45" style="animation-delay: -1.5s;"></div>
 
 	<div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
-		<!-- Manifest header: file-card style -->
-		<div class="border border-[var(--color-border)] rounded-2xl bg-[var(--color-bg-card)] backdrop-blur-md overflow-hidden animate-fade-up">
+		<!-- Manifest header: file-card style — tighter, more deliberate -->
+		<div class="border border-[var(--color-border)] rounded-3xl bg-[var(--color-bg-card-strong)] backdrop-blur-md overflow-hidden animate-fade-up">
 			<!-- Top metadata bar -->
-			<div class="flex items-center justify-between px-6 py-3 border-b border-[var(--color-border)] font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
+			<div class="flex items-center justify-between px-6 py-3 border-b border-[var(--color-border)] font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-text-muted)]">
 				<div class="flex items-center gap-3">
 					<span class="w-2 h-2 rounded-full bg-[var(--color-accent)] animate-pulse"></span>
 					<span>simulacro.tech / projects</span>
@@ -156,63 +156,66 @@ const research = [
 			</div>
 
 			<!-- Header body -->
-			<div class="p-8 md:p-14 grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+			<div class="p-8 md:p-14 grid grid-cols-1 md:grid-cols-12 gap-10 items-end">
 				<div class="md:col-span-8">
-					<span class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-accent)] block mb-6">
+					<span class="eyebrow mb-7 inline-block">
 						Index 001 — Selected Work
 					</span>
-					<h1 class="text-5xl md:text-7xl lg:text-[5.5rem] leading-[0.95] mb-8 text-balance">
-						A working <span class="italic text-[var(--color-text-muted)]">archive</span> of systems built for real teams.
+					<h1 class="text-[clamp(2.5rem,7vw,5.5rem)] leading-[0.95] mb-8 text-balance">
+						A working <span class="italic-reveal italic-serif text-[var(--color-text-muted)]">archive</span> of systems built for real teams.
 					</h1>
-					<p class="text-lg md:text-xl text-[var(--color-text-muted)] max-w-2xl leading-relaxed">
+					<p class="text-lg md:text-xl text-[var(--color-text-muted)] max-w-2xl leading-relaxed text-pretty">
 						Production AI infrastructure, open-source tools, and research at the intersection of NLP, ethics, and the humanities. Eight entries, grouped by purpose.
 					</p>
 				</div>
 
-				<!-- Stat block on the right -->
-				<div class="md:col-span-4 md:border-l md:border-[var(--color-border)] md:pl-8 grid grid-cols-3 md:grid-cols-1 gap-6">
+				<!-- Stat block on the right — small-caps caption + serif numerals -->
+				<div class="md:col-span-4 md:border-l md:border-[var(--color-border)] md:pl-10 grid grid-cols-3 md:grid-cols-1 gap-6">
 					<div>
-						<div class="text-3xl md:text-5xl font-serif" style="font-family: 'Crimson Pro', serif;">3</div>
-						<div class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-muted)] mt-1">Production systems</div>
+						<div class="stat-value text-4xl md:text-6xl text-[var(--color-text)]">3</div>
+						<div class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-text-muted)] mt-2 small-caps">Production</div>
 					</div>
 					<div>
-						<div class="text-3xl md:text-5xl font-serif" style="font-family: 'Crimson Pro', serif;">3</div>
-						<div class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-muted)] mt-1">Open source</div>
+						<div class="stat-value text-4xl md:text-6xl text-[var(--color-text)]">3</div>
+						<div class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-text-muted)] mt-2 small-caps">Open source</div>
 					</div>
 					<div>
-						<div class="text-3xl md:text-5xl font-serif" style="font-family: 'Crimson Pro', serif;">2</div>
-						<div class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-muted)] mt-1">Research outputs</div>
+						<div class="stat-value text-4xl md:text-6xl text-[var(--color-accent-research)]">2</div>
+						<div class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-accent-research)] mt-2 small-caps">Research</div>
 					</div>
 				</div>
 			</div>
 
-			<!-- Quick-jump bar -->
-			<div class="border-t border-[var(--color-border)] px-6 py-4 flex flex-wrap gap-x-8 gap-y-2 font-mono text-xs">
+			<!-- Quick-jump bar / mini-toc -->
+			<div class="border-t border-[var(--color-border)] px-6 py-4 flex flex-wrap gap-x-8 gap-y-2 font-mono text-[11px] uppercase tracking-[0.18em]">
 				<a href="#production" class="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">→ /production</a>
 				<a href="#open-source" class="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">→ /open-source</a>
-				<a href="#research" class="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">→ /research</a>
+				<a href="#research" class="text-[var(--color-text-muted)] hover:text-[var(--color-accent-research)] transition-colors">→ /research</a>
 			</div>
 		</div>
 	</div>
 </section>
 
 <!-- ─────────── Production Systems ─────────── -->
-<section id="production" class="py-24 relative scroll-mt-24">
+<!-- Quiet — case-studies are the texture themselves -->
+<section id="production" class="py-24 md:py-28 relative scroll-mt-24">
 	<div class="max-w-6xl mx-auto px-6 lg:px-8">
 		<!-- Section header -->
 		<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-20 pb-6 border-b border-[var(--color-border)]">
 			<div>
-				<span class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-accent)] block mb-4">§ 01 — Production Systems</span>
-				<h2 class="text-4xl md:text-6xl">Built for paying clients.</h2>
+				<span class="eyebrow mb-4 inline-block">§ 01 — Production Systems</span>
+				<h2 class="text-[clamp(2rem,5vw,4rem)] leading-[1.05]">
+					Built for paying <span class="italic-serif text-[var(--color-text-muted)]">clients</span>.
+				</h2>
 			</div>
-			<p class="md:text-right text-[var(--color-text-muted)] max-w-sm leading-relaxed flex items-center gap-2 md:justify-end">
+			<p class="md:text-right text-[var(--color-text-muted)] max-w-sm leading-relaxed flex items-center gap-2 md:justify-end text-sm">
 				<Lock size={14} class="shrink-0" />
 				<span>Internal tools. Source private; metrics shared with permission.</span>
 			</p>
 		</div>
 
 		<!-- Project case studies -->
-		<div class="space-y-32">
+		<div class="space-y-32 md:space-y-40">
 			{productionSystems.map((p, i) => {
 				const Icon = p.icon;
 				const isReversed = i % 2 === 1;
@@ -227,10 +230,10 @@ const research = [
 							<div class={`icon-box mb-6 ${isReversed ? 'lg:ml-auto' : ''}`}>
 								<Icon size={22} />
 							</div>
-							<h3 class="text-5xl md:text-6xl mb-4 leading-none">
+							<h3 class="text-5xl md:text-6xl mb-5 leading-none">
 								<span class="gradient-text">{p.name}</span>
 							</h3>
-							<dl class={`font-mono text-xs uppercase tracking-[0.15em] text-[var(--color-text-muted)] space-y-2 ${isReversed ? 'lg:text-right' : ''}`}>
+							<dl class={`font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-text-muted)] space-y-2 ${isReversed ? 'lg:text-right' : ''}`}>
 								<div class={`flex gap-3 ${isReversed ? 'lg:justify-end' : ''}`}>
 									<dt class="text-[var(--color-text-muted)]/60">Client</dt>
 									<dd class="text-[var(--color-text)]">{p.client}</dd>
@@ -248,21 +251,21 @@ const research = [
 
 						{/* Right rail: copy + stats */}
 						<div class={`lg:col-span-8 ${isReversed ? 'lg:order-1' : ''}`}>
-							<p class="text-2xl md:text-3xl leading-tight mb-6 font-serif" style="font-family: 'Crimson Pro', serif; font-weight: 400;">
+							<p class="text-2xl md:text-3xl leading-[1.25] mb-7 italic-serif text-[var(--color-text)] text-pretty">
 								{p.tagline}
 							</p>
-							<p class="text-[var(--color-text-muted)] text-base md:text-lg leading-relaxed mb-10 max-w-2xl">
+							<p class="text-[var(--color-text-muted)] text-base md:text-lg leading-relaxed mb-10 max-w-2xl text-pretty">
 								{p.description}
 							</p>
 
-							{/* Stats strip */}
+							{/* Stats strip — small-caps captions, serif numerals */}
 							<div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-[var(--color-border)] border border-[var(--color-border)] rounded-xl overflow-hidden mb-8">
 								{p.stats.map(s => (
 									<div class="bg-[var(--color-bg)] p-5">
-										<div class="text-2xl md:text-3xl font-semibold text-[var(--color-accent)]" style="font-family: 'Crimson Pro', serif;">
+										<div class="stat-value text-2xl md:text-3xl text-[var(--color-accent)]">
 											{s.value}
 										</div>
-										<div class="font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-text-muted)] mt-2 leading-tight">
+										<div class="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-text-muted)] mt-2 leading-tight small-caps">
 											{s.label}
 										</div>
 									</div>
@@ -286,38 +289,41 @@ const research = [
 </section>
 
 <!-- ─────────── Open Source ─────────── -->
-<section id="open-source" class="py-24 relative scroll-mt-24">
-	<!-- subtle banding to mark a section break -->
+<!-- Single subtle orb — terminal aesthetic carries the section. -->
+<section id="open-source" class="py-24 md:py-28 relative scroll-mt-24 overflow-hidden">
 	<div class="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--color-bg-elevated)]/40 to-transparent"></div>
+	<div class="glow-orb w-[300px] h-[300px] top-1/3 right-0 opacity-25" style="animation-delay: -3s;"></div>
 
 	<div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
 		<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 pb-6 border-b border-[var(--color-border)]">
 			<div>
-				<span class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-accent)] block mb-4">§ 02 — Open Source</span>
-				<h2 class="text-4xl md:text-6xl">Tools left in public.</h2>
+				<span class="eyebrow mb-4 inline-block">§ 02 — Open Source</span>
+				<h2 class="text-[clamp(2rem,5vw,4rem)] leading-[1.05]">
+					Tools left in <span class="italic-serif text-[var(--color-text-muted)]">public</span>.
+				</h2>
 			</div>
-			<a href="https://github.com/noah-art3mis" target="_blank" rel="noopener" class="font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors inline-flex items-center gap-2 self-start md:self-end">
+			<a href="https://github.com/noah-art3mis" target="_blank" rel="noopener" class="font-mono text-xs uppercase tracking-[0.2em] text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors inline-flex items-center gap-2 self-start md:self-end">
 				<Github size={14} />
 				<span>github.com/noah-art3mis</span>
 				<ArrowUpRight size={12} />
 			</a>
 		</div>
 
-		<!-- Terminal-window cards grid -->
+		<!-- Terminal-window cards grid — chrome-realistic -->
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 			{openSource.map(p => {
 				const Icon = p.icon;
 				return (
 					<a href={p.url} target="_blank" rel="noopener" class="group block">
-						<article class="h-full glass-card rounded-xl overflow-hidden flex flex-col">
-							{/* Title bar — like a terminal/window chrome */}
-							<header class="flex items-center justify-between px-4 py-3 border-b border-[var(--color-border)] bg-black/20">
+						<article class="h-full glass-card glass-card-terminal overflow-hidden flex flex-col">
+							{/* Title bar — terminal/window chrome */}
+							<header class="flex items-center justify-between px-4 py-3 border-b border-[var(--color-border)] bg-black/35">
 								<div class="flex items-center gap-1.5">
-									<span class="w-2.5 h-2.5 rounded-full bg-[var(--color-text-muted)]/30"></span>
-									<span class="w-2.5 h-2.5 rounded-full bg-[var(--color-text-muted)]/30"></span>
-									<span class="w-2.5 h-2.5 rounded-full bg-[var(--color-text-muted)]/30"></span>
+									<span class="w-2.5 h-2.5 rounded-full bg-[#ff5f57]/50"></span>
+									<span class="w-2.5 h-2.5 rounded-full bg-[#febc2e]/50"></span>
+									<span class="w-2.5 h-2.5 rounded-full bg-[#28c840]/50"></span>
 								</div>
-								<span class="font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-text-muted)] truncate">
+								<span class="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-text-muted)] truncate">
 									{p.repo}
 								</span>
 							</header>
@@ -332,12 +338,12 @@ const research = [
 
 								<h3 class="text-2xl mb-3 group-hover:text-[var(--color-accent)] transition-colors">{p.name}</h3>
 
-								<p class="text-[var(--color-text-muted)] text-sm leading-relaxed mb-6 flex-1">
+								<p class="text-[var(--color-text-muted)] text-sm leading-relaxed mb-6 flex-1 text-pretty">
 									{p.summary}
 								</p>
 
 								<!-- footer: lang + tags + year -->
-								<div class="flex items-center justify-between pt-4 border-t border-[var(--color-border)] font-mono text-[10px] uppercase tracking-[0.15em]">
+								<div class="flex items-center justify-between pt-4 border-t border-[var(--color-border)] font-mono text-[10px] uppercase tracking-[0.18em]">
 									<div class="flex items-center gap-2">
 										<span class="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]"></span>
 										<span class="text-[var(--color-text-muted)]">{p.lang}</span>
@@ -360,11 +366,17 @@ const research = [
 </section>
 
 <!-- ─────────── Research & Honors ─────────── -->
-<section id="research" class="py-24 relative scroll-mt-24">
+<!-- This section uses the teal research-dye consistently. Not a CTA — a marker. -->
+<section id="research" class="py-24 md:py-28 relative scroll-mt-24 overflow-hidden">
+	<!-- A whisper of teal at the section seam -->
+	<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--color-accent-research)]/30 to-transparent"></div>
+
 	<div class="max-w-6xl mx-auto px-6 lg:px-8">
 		<div class="mb-16 pb-6 border-b border-[var(--color-border)]">
-			<span class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-accent)] block mb-4">§ 03 — Research &amp; Honors</span>
-			<h2 class="text-4xl md:text-6xl">Written, defended, awarded.</h2>
+			<span class="eyebrow eyebrow-research mb-4 inline-block">§ 03 — Research &amp; Honors</span>
+			<h2 class="text-[clamp(2rem,5vw,4rem)] leading-[1.05]">
+				Written, defended, <span class="italic-serif text-[var(--color-accent-research)]">awarded</span>.
+			</h2>
 		</div>
 
 		<!-- Manuscript-style entries -->
@@ -372,27 +384,27 @@ const research = [
 			{research.map(r => {
 				const Icon = r.icon;
 				return (
-					<article class="py-10 first:pt-0 last:pb-0 grid grid-cols-1 md:grid-cols-12 gap-6 group">
+					<article class="py-12 first:pt-0 last:pb-0 grid grid-cols-1 md:grid-cols-12 gap-6 group">
 						<div class="md:col-span-2">
 							<div class="flex md:flex-col items-center md:items-start gap-4 md:gap-5">
-								<div class="icon-box">
+								<div class="icon-box icon-box-research">
 									<Icon size={20} />
 								</div>
-								<div class="font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-accent)]">
+								<div class="font-mono text-xs uppercase tracking-[0.2em] text-[var(--color-accent-research)]">
 									{r.grade}
 								</div>
 							</div>
 						</div>
 						<div class="md:col-span-10">
 							<h3 class="text-3xl md:text-4xl mb-3 italic" style="font-family: 'Crimson Pro', serif; font-weight: 500;">
-								“{r.title}”
+								&ldquo;{r.title}&rdquo;
 							</h3>
-							<div class="font-mono text-xs uppercase tracking-[0.15em] text-[var(--color-text-muted)] mb-5 flex flex-wrap gap-x-4 gap-y-1">
+							<div class="font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-text-muted)] mb-5 flex flex-wrap gap-x-4 gap-y-1">
 								<span>{r.venue}</span>
 								<span class="text-[var(--color-text-muted)]/60">·</span>
 								<span>{r.year}</span>
 							</div>
-							<p class="text-[var(--color-text-muted)] text-base md:text-lg leading-relaxed max-w-3xl">
+							<p class="text-[var(--color-text-muted)] text-base md:text-lg leading-relaxed max-w-3xl text-pretty">
 								{r.summary}
 							</p>
 						</div>
@@ -404,16 +416,17 @@ const research = [
 </section>
 
 <!-- ─────────── CTA ─────────── -->
-<section class="py-24 relative overflow-hidden">
+<!-- Warm bottom-glow — consistent with home contact rhythm. -->
+<section class="py-24 md:py-28 relative overflow-hidden">
 	<div class="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-elevated)] to-transparent"></div>
-	<div class="glow-orb glow-orb-secondary w-[500px] h-[500px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-25"></div>
+	<div class="glow-orb w-[640px] h-[440px] -bottom-32 left-1/2 -translate-x-1/2 opacity-25"></div>
 
 	<div class="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center">
-		<span class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-accent)] block mb-6">— Fin —</span>
-		<h2 class="text-4xl md:text-5xl mb-6 text-balance">
-			Have a problem that doesn't fit a template?
+		<span class="font-mono text-xs uppercase tracking-[0.3em] text-[var(--color-accent)] block mb-6">— Fin —</span>
+		<h2 class="text-[clamp(2rem,5vw,3.5rem)] mb-6 text-balance leading-[1.1]">
+			Have a problem that doesn't fit a <span class="italic-serif text-[var(--color-text-muted)]">template</span>?
 		</h2>
-		<p class="text-lg text-[var(--color-text-muted)] max-w-xl mx-auto mb-10">
+		<p class="text-lg text-[var(--color-text-muted)] max-w-xl mx-auto mb-10 text-pretty">
 			Most of the work above started as someone saying exactly that.
 		</p>
 		<a href={contactHref} class="btn-primary inline-flex items-center gap-2 group">

@@ -64,6 +64,10 @@ export const ui = {
 			'Founded by Gustavo Costa, a psychologist turned data scientist. After years in clinical practice, he now applies that same attentiveness to how we build and deploy AI systems.',
 		'home.about.cta': 'Read full bio',
 
+		'home.why.pullquote.before': 'Built for paying ',
+		'home.why.pullquote.italic': 'clients',
+		'home.why.pullquote.after': ', not for the demo.',
+
 		'home.contact.label': 'Contact',
 		'home.contact.heading': "Let's Talk",
 		'home.contact.subheading': "Have a project in mind? We'd love to hear about it.",
@@ -99,10 +103,14 @@ export const ui = {
 			'RAG systems, NLP applications, and data analysis tools.',
 
 		'footer.tagline': 'Human-centered AI and data consulting.',
+		'footer.manifesto.before': 'A working ',
+		'footer.manifesto.italic': 'archive',
+		'footer.manifesto.after': ' of systems built with the same care once brought to clinical practice.',
 		'footer.contact.heading': 'Contact',
 		'footer.contact.location': 'London, UK / Brasília, Brazil',
 		'footer.connect.heading': 'Connect',
 		'footer.copyright': 'All rights reserved.',
+		'footer.build.label': 'last build',
 
 		'form.name.label': 'Name',
 		'form.name.placeholder': 'Your name',
@@ -177,6 +185,10 @@ export const ui = {
 			'Fundada por Gustavo Costa, psicólogo que se tornou cientista de dados. Depois de anos na prática clínica, ele aplica essa mesma atenção à forma como construímos e implantamos sistemas de IA.',
 		'home.about.cta': 'Ler bio completa',
 
+		'home.why.pullquote.before': 'Construído para ',
+		'home.why.pullquote.italic': 'clientes reais',
+		'home.why.pullquote.after': ', não para a demo.',
+
 		'home.contact.label': 'Contato',
 		'home.contact.heading': 'Vamos conversar',
 		'home.contact.subheading': 'Tem um projeto em mente? Adoraríamos saber mais.',
@@ -212,10 +224,14 @@ export const ui = {
 			'Sistemas RAG, aplicações de PLN e ferramentas de análise de dados.',
 
 		'footer.tagline': 'Consultoria em IA e dados centrada no humano.',
+		'footer.manifesto.before': 'Um ',
+		'footer.manifesto.italic': 'arquivo',
+		'footer.manifesto.after': ' de sistemas construídos com o mesmo cuidado dedicado à clínica.',
 		'footer.contact.heading': 'Contato',
 		'footer.contact.location': 'Londres, Reino Unido / Brasília, Brasil',
 		'footer.connect.heading': 'Conecte-se',
 		'footer.copyright': 'Todos os direitos reservados.',
+		'footer.build.label': 'última build',
 
 		'form.name.label': 'Nome',
 		'form.name.placeholder': 'Seu nome',
@@ -290,6 +306,10 @@ export const ui = {
 			'Fundada por Gustavo Costa, psicólogo convertido en científico de datos. Tras años de práctica clínica, él aplica esa misma atención a cómo construimos y desplegamos sistemas de IA.',
 		'home.about.cta': 'Leer biografía completa',
 
+		'home.why.pullquote.before': 'Construido para ',
+		'home.why.pullquote.italic': 'clientes reales',
+		'home.why.pullquote.after': ', no para la demo.',
+
 		'home.contact.label': 'Contacto',
 		'home.contact.heading': 'Hablemos',
 		'home.contact.subheading': '¿Tienes un proyecto en mente? Nos encantaría saber más.',
@@ -325,10 +345,14 @@ export const ui = {
 			'Sistemas RAG, aplicaciones de PLN y herramientas de análisis de datos.',
 
 		'footer.tagline': 'Consultoría en IA y datos centrada en el ser humano.',
+		'footer.manifesto.before': 'Un ',
+		'footer.manifesto.italic': 'archivo',
+		'footer.manifesto.after': ' de sistemas construidos con el mismo cuidado de la práctica clínica.',
 		'footer.contact.heading': 'Contacto',
 		'footer.contact.location': 'Londres, Reino Unido / Brasilia, Brasil',
 		'footer.connect.heading': 'Conecta',
 		'footer.copyright': 'Todos los derechos reservados.',
+		'footer.build.label': 'última build',
 
 		'form.name.label': 'Nombre',
 		'form.name.placeholder': 'Tu nombre',
