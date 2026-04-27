@@ -1,0 +1,100 @@
+---
+import { languages, ui, type Lang } from '../i18n/ui';
+import { getLocalizedPath, stripLocale } from '../i18n/utils';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang: currentLang } = Astro.props;
+const basePath = stripLocale(Astro.url.pathname);
+
+const targets = (Object.keys(languages) as Lang[])
+	.filter((l) => l !== currentLang)
+	.map((l) => ({
+		lang: l,
+		suggest: ui[l]['banner.suggest'],
+		href: getLocalizedPath(basePath, l),
+	}));
+
+const dismissLabel = ui[currentLang]['banner.dismiss'];
+---
+
+<div
+	id="lang-banner"
+	data-current={currentLang}
+	data-targets={JSON.stringify(targets)}
+	class="fixed bottom-0 left-0 right-0 z-50 border-t border-[var(--color-border)] bg-[var(--color-bg-elevated)]/95 backdrop-blur-md"
+	hidden
+>
+	<div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-center gap-4">
+		<a
+			id="lang-banner-link"
+			href="#"
+			data-target-lang=""
+			class="text-sm text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors font-medium underline-offset-4 hover:underline"
+		></a>
+		<button
+			type="button"
+			id="lang-banner-close"
+			class="text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors p-1"
+			aria-label={dismissLabel}
+		>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="16"
+				height="16"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			>
+				<line x1="18" y1="6" x2="6" y2="18"></line>
+				<line x1="6" y1="6" x2="18" y2="18"></line>
+			</svg>
+		</button>
+	</div>
+</div>
+
+<script>
+	type Target = { lang: string; suggest: string; href: string };
+
+	const banner = document.getElementById('lang-banner');
+	const link = document.getElementById('lang-banner-link') as HTMLAnchorElement | null;
+	const closeBtn = document.getElementById('lang-banner-close');
+
+	if (banner && link && closeBtn) {
+		const stored = localStorage.getItem('simulacroLang');
+		const current = banner.dataset.current ?? '';
+		const targets: Target[] = JSON.parse(banner.dataset.targets ?? '[]');
+
+		if (!stored) {
+			const navLang = (navigator.language || '').toLowerCase();
+			let detected = 'en';
+			if (navLang.startsWith('pt')) detected = 'pt';
+			else if (navLang.startsWith('es')) detected = 'es';
+
+			if (detected !== current) {
+				const target = targets.find((t) => t.lang === detected);
+				if (target) {
+					link.textContent = target.suggest + ' →';
+					link.href = target.href;
+					link.dataset.targetLang = target.lang;
+					banner.removeAttribute('hidden');
+				}
+			}
+		}
+
+		link.addEventListener('click', () => {
+			const target = link.dataset.targetLang;
+			if (target) localStorage.setItem('simulacroLang', target);
+		});
+
+		closeBtn.addEventListener('click', () => {
+			localStorage.setItem('simulacroLang', current);
+			banner.setAttribute('hidden', '');
+		});
+	}
+</script>

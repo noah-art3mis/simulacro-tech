@@ -1,38 +1,52 @@
 ---
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
+import LanguageBanner from '../components/LanguageBanner.astro';
+import { ui, type Lang, type UIKey } from '../i18n/ui';
+import { getAlternates } from '../i18n/utils';
 import '../styles/global.css';
 
 interface Props {
-	title?: string;
+	lang: Lang;
+	titleKey: UIKey;
+	descriptionKey: UIKey;
 }
 
-const { title = 'Simulacro Tech - Interdisciplinary Data & AI Consultancy' } = Astro.props;
+const { lang, titleKey, descriptionKey } = Astro.props;
+const t = (key: UIKey) => ui[lang][key];
+
+const siteOrigin = Astro.site ? Astro.site.origin : 'https://simulacro.tech';
+const alternates = getAlternates(Astro.url.pathname, siteOrigin);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Data and AI consultancy grounded in ethics. Building technology that serves people, not the other way around." />
+		<meta name="description" content={t(descriptionKey)} />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/png" href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/simulacro.png`} />
-		<title>{title}</title>
+		{alternates.map((alt) => (
+			<link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
+		))}
+		<title>{t(titleKey)}</title>
 	</head>
 	<body class="overflow-x-hidden">
 		<!-- Animated network canvas -->
 		<canvas id="network-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
-		
+
 		<!-- Noise texture overlay -->
 		<div class="noise-overlay"></div>
-		
+
 		<div class="min-h-screen flex flex-col relative z-10">
-			<Navigation />
+			<Navigation lang={lang} />
 			<main class="flex-grow relative">
 				<slot />
 			</main>
-			<Footer />
+			<Footer lang={lang} />
 		</div>
+
+		<LanguageBanner lang={lang} />
 
 		<script>
 			// Network particle animation

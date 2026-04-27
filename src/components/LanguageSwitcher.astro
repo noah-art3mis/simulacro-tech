@@ -1,0 +1,43 @@
+---
+import { languages, type Lang } from '../i18n/ui';
+import { getLocalizedPath, stripLocale } from '../i18n/utils';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang: currentLang } = Astro.props;
+const basePath = stripLocale(Astro.url.pathname);
+const localeList = Object.keys(languages) as Lang[];
+---
+
+<div class="flex items-center gap-2 text-xs uppercase tracking-wider">
+	{
+		localeList.map((lang, i) => (
+			<>
+				{i > 0 && <span class="text-[var(--color-text-muted)]/40">·</span>}
+				<a
+					href={getLocalizedPath(basePath, lang)}
+					data-lang={lang}
+					class:list={[
+						'lang-link transition-colors',
+						lang === currentLang
+							? 'text-[var(--color-text)] font-semibold'
+							: 'text-[var(--color-text-muted)] hover:text-[var(--color-text)]',
+					]}
+				>
+					{lang.toUpperCase()}
+				</a>
+			</>
+		))
+	}
+</div>
+
+<script>
+	document.querySelectorAll<HTMLAnchorElement>('.lang-link').forEach((a) => {
+		a.addEventListener('click', () => {
+			const lang = a.getAttribute('data-lang');
+			if (lang) localStorage.setItem('simulacroLang', lang);
+		});
+	});
+</script>

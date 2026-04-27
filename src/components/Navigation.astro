@@ -1,20 +1,35 @@
 ---
 import { Menu, X } from 'lucide-astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import { ui, type Lang, type UIKey } from '../i18n/ui';
+import { getLocalizedPath } from '../i18n/utils';
 
-const base = import.meta.env.BASE_URL;
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = (key: UIKey) => ui[lang][key];
+
+const homeHref = getLocalizedPath('/', lang);
+const aboutHref = getLocalizedPath('/about', lang);
+const projectsHref = getLocalizedPath('/projects', lang);
+const contactHref = `${homeHref.replace(/\/$/, '')}/#contact`;
+
 const navItems = [
-	{ href: base, label: 'Home' },
-	{ href: `${base}about`, label: 'About' }
+	{ href: homeHref, label: t('nav.home') },
+	{ href: projectsHref, label: t('nav.projects') },
+	{ href: aboutHref, label: t('nav.about') },
 ];
 ---
 
 <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-[var(--color-bg)]/80 border-b border-[var(--color-border)]">
 	<div class="max-w-6xl mx-auto px-6 lg:px-8">
 		<div class="flex justify-between items-center h-20">
-			<a href={base} class="group flex items-center gap-3">
-				<img 
-					src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/simulacro.png`} 
-					alt="Simulacro" 
+			<a href={homeHref} class="group flex items-center gap-3">
+				<img
+					src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/simulacro.png`}
+					alt="Simulacro"
 					class="w-8 h-8 transition-transform duration-300 group-hover:scale-110"
 				/>
 				<span class="text-lg font-semibold tracking-tight">
@@ -24,21 +39,26 @@ const navItems = [
 
 			<!-- Desktop Navigation -->
 			<div class="hidden md:flex items-center gap-8">
-				{navItems.map((item) => (
-					<a
-						href={item.href}
-						class="text-sm font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors link-underline"
-						data-path={item.href}
-					>
-						{item.label}
-					</a>
-				))}
+				{
+					navItems.map((item) => (
+						<a
+							href={item.href}
+							class="text-sm font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors link-underline"
+							data-path={item.href}
+						>
+							{item.label}
+						</a>
+					))
+				}
 				<a
-					href="#contact"
+					href={contactHref}
 					class="text-sm font-semibold text-[var(--color-bg)] bg-[var(--color-accent)] px-5 py-2.5 rounded-full hover:bg-[var(--color-accent-hover)] transition-all duration-300 hover:shadow-lg hover:shadow-[var(--color-accent)]/20"
 				>
-					Contact
+					{t('nav.contact')}
 				</a>
+				<div class="pl-4 border-l border-[var(--color-border)]">
+					<LanguageSwitcher lang={lang} />
+				</div>
 			</div>
 
 			<!-- Mobile menu button -->
@@ -55,23 +75,31 @@ const navItems = [
 	</div>
 
 	<!-- Mobile Navigation -->
-	<div class="md:hidden border-t border-[var(--color-border)] hidden bg-[var(--color-bg-elevated)]" id="mobile-menu">
+	<div
+		class="md:hidden border-t border-[var(--color-border)] hidden bg-[var(--color-bg-elevated)]"
+		id="mobile-menu"
+	>
 		<div class="px-6 py-4 space-y-1">
-			{navItems.map((item) => (
-				<a
-					href={item.href}
-					class="block px-4 py-3 text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-white/5 rounded-lg transition-colors"
-					data-path={item.href}
-				>
-					{item.label}
-				</a>
-			))}
+			{
+				navItems.map((item) => (
+					<a
+						href={item.href}
+						class="block px-4 py-3 text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-white/5 rounded-lg transition-colors"
+						data-path={item.href}
+					>
+						{item.label}
+					</a>
+				))
+			}
 			<a
-				href="#contact"
+				href={contactHref}
 				class="block px-4 py-3 mt-2 text-center font-semibold text-[var(--color-bg)] bg-[var(--color-accent)] rounded-lg"
 			>
-				Contact
+				{t('nav.contact')}
 			</a>
+			<div class="px-4 pt-4 mt-2 border-t border-[var(--color-border)]">
+				<LanguageSwitcher lang={lang} />
+			</div>
 		</div>
 	</div>
 </nav>
@@ -94,10 +122,11 @@ const navItems = [
 		});
 	}
 
-	// Highlight current path
-	const currentPath = window.location.pathname;
+	// Highlight current path (normalize trailing slashes)
+	const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
 	document.querySelectorAll('[data-path]').forEach((link) => {
-		if (link.getAttribute('data-path') === currentPath) {
+		const linkPath = (link.getAttribute('data-path') || '').replace(/\/$/, '') || '/';
+		if (linkPath === currentPath) {
 			link.classList.add('text-[var(--color-text)]');
 			link.classList.remove('text-[var(--color-text-muted)]');
 		}
