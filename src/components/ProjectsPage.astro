@@ -1,0 +1,424 @@
+---
+import {
+	ArrowUpRight,
+	Github,
+	Lock,
+	Mic,
+	Cpu,
+	ScanLine,
+	Search,
+	Gavel,
+	FlaskConical,
+	BookOpen,
+	Award,
+} from 'lucide-astro';
+import { type Lang } from '../i18n/ui';
+import { getLocalizedPath } from '../i18n/utils';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const homeHref = getLocalizedPath('/', lang);
+const contactHref = `${homeHref.replace(/\/$/, '')}/#contact`;
+
+const productionSystems = [
+	{
+		num: '01',
+		name: 'Molcajete',
+		client: 'CAPTA',
+		year: '2026',
+		role: 'Lead Engineer',
+		tagline: 'AI-powered transcription and analysis pipeline for political focus group research in Mexican Spanish.',
+		description:
+			'A full audio-to-insight pipeline replacing weeks of manual transcription and coding. Speaker diarization, transcription, theme/subtheme classification, and integrated reporting — all surfaced through a tooling layer that researchers actually use.',
+		stats: [
+			{ value: '1,300+', label: 'hours of audio processed' },
+			{ value: '10', label: 'Mexican states covered' },
+			{ value: '30–60 min', label: 'turnaround per project' },
+		],
+		stack: ['Python', 'Whisper', 'Claude', 'Google Apps Script', 'rclone'],
+		icon: Mic,
+	},
+	{
+		num: '02',
+		name: 'Adapta',
+		client: 'CAPTA',
+		year: '2026',
+		role: 'Lead Engineer',
+		tagline: 'Seven-stage data pipeline and LLM fine-tuning infrastructure for Mexican Spanish political analysis.',
+		description:
+			'QLoRA fine-tuning workflow with reproducible training, evaluation, and registry. Built for empirical comparison of base models, prompts, and adapters across a curated benchmark of domain-specific tasks.',
+		stats: [
+			{ value: '40+', label: 'evaluation metrics' },
+			{ value: '100+', label: 'training runs' },
+			{ value: '165 hrs', label: 'GPU compute logged' },
+			{ value: '22', label: 'empirical findings' },
+		],
+		stack: ['QLoRA', 'Unsloth', 'vLLM', 'Modal', 'W&B / Weave'],
+		icon: Cpu,
+	},
+	{
+		num: '03',
+		name: 'Nopalero',
+		client: 'CAPTA',
+		year: '2026',
+		role: 'Lead Engineer',
+		tagline: 'Automated participant screening system for qualitative recruitment.',
+		description:
+			'Replaces hours of manual data entry per project with a validation engine that combines OCR, fraud detection, and socioeconomic classification. Designed so analysts spend their time on judgement, not transcription.',
+		stats: [
+			{ value: '48', label: 'validation checks' },
+			{ value: 'OCR', label: 'document parsing' },
+			{ value: '0', label: 'manual data entry' },
+		],
+		stack: ['Python', 'OCR', 'LLM classification', 'Jotform'],
+		icon: ScanLine,
+	},
+];
+
+const openSource = [
+	{
+		name: 'Intersect',
+		repo: 'noah-art3mis/intersect',
+		url: 'https://github.com/noah-art3mis/intersect',
+		year: '2025',
+		lang: 'Python',
+		summary:
+			'Job board that uses NLP — embeddings, reranking, classical ML — to surface roles that actually match. Deployed as a Streamlit app.',
+		tags: ['nlp', 'embeddings', 'streamlit'],
+		icon: Search,
+	},
+	{
+		name: 'Judex-mini',
+		repo: 'noah-art3mis/judex-mini',
+		url: 'https://github.com/noah-art3mis/judex-mini',
+		year: '2025',
+		lang: 'Python',
+		summary:
+			'Python library for scraping case data from the Brazilian Supreme Court (STF). The trimmed-down successor to a larger legal-data toolkit.',
+		tags: ['scraper', 'law', 'python'],
+		icon: Gavel,
+	},
+	{
+		name: 'Crucible',
+		repo: 'noah-art3mis/crucible',
+		url: 'https://github.com/noah-art3mis/crucible',
+		year: '2024',
+		lang: 'Python',
+		summary:
+			'Bulk evaluation harness for LLM apps — test models and prompts side-by-side and rank what works before shipping.',
+		tags: ['evals', 'llm', 'prompt-engineering'],
+		icon: FlaskConical,
+	},
+];
+
+const research = [
+	{
+		title: 'What is AI slop?',
+		venue: 'MASc Dissertation · London Interdisciplinary School',
+		year: '2025',
+		grade: 'Distinction',
+		summary:
+			'Mixed-methods NLP investigation of AI-generated content. Combines topic modelling, sentiment analysis, and LLM-based classification to characterise a phenomenon the literature had not yet defined.',
+		icon: BookOpen,
+	},
+	{
+		title: 'Stereotype Detection in LLMs via Sparse Autoencoders',
+		venue: 'AI Safety Hackathon · Holistic AI × UCL AI Society',
+		year: '2024',
+		grade: 'Winner',
+		summary:
+			'Used sparse autoencoder features to surface latent stereotype representations inside large language models — interpretability as a route to AI safety.',
+		icon: Award,
+	},
+];
+---
+
+<!-- ─────────── Hero / Index ─────────── -->
+<section class="relative pt-20 pb-24 overflow-hidden">
+	<!-- Background atmosphere -->
+	<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(245,158,11,0.12)_0%,transparent_55%),radial-gradient(ellipse_at_70%_60%,rgba(139,92,246,0.10)_0%,transparent_55%)]"></div>
+	<div class="glow-orb w-[500px] h-[500px] -top-32 -right-32 opacity-60"></div>
+	<div class="glow-orb glow-orb-secondary w-[400px] h-[400px] top-1/2 -left-32 opacity-50" style="animation-delay: -1.5s;"></div>
+
+	<div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
+		<!-- Manifest header: file-card style -->
+		<div class="border border-[var(--color-border)] rounded-2xl bg-[var(--color-bg-card)] backdrop-blur-md overflow-hidden animate-fade-up">
+			<!-- Top metadata bar -->
+			<div class="flex items-center justify-between px-6 py-3 border-b border-[var(--color-border)] font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
+				<div class="flex items-center gap-3">
+					<span class="w-2 h-2 rounded-full bg-[var(--color-accent)] animate-pulse"></span>
+					<span>simulacro.tech / projects</span>
+				</div>
+				<span class="hidden sm:inline">last updated · 2026</span>
+			</div>
+
+			<!-- Header body -->
+			<div class="p-8 md:p-14 grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+				<div class="md:col-span-8">
+					<span class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-accent)] block mb-6">
+						Index 001 — Selected Work
+					</span>
+					<h1 class="text-5xl md:text-7xl lg:text-[5.5rem] leading-[0.95] mb-8 text-balance">
+						A working <span class="italic text-[var(--color-text-muted)]">archive</span> of systems built for real teams.
+					</h1>
+					<p class="text-lg md:text-xl text-[var(--color-text-muted)] max-w-2xl leading-relaxed">
+						Production AI infrastructure, open-source tools, and research at the intersection of NLP, ethics, and the humanities. Eight entries, grouped by purpose.
+					</p>
+				</div>
+
+				<!-- Stat block on the right -->
+				<div class="md:col-span-4 md:border-l md:border-[var(--color-border)] md:pl-8 grid grid-cols-3 md:grid-cols-1 gap-6">
+					<div>
+						<div class="text-3xl md:text-5xl font-serif" style="font-family: 'Crimson Pro', serif;">3</div>
+						<div class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-muted)] mt-1">Production systems</div>
+					</div>
+					<div>
+						<div class="text-3xl md:text-5xl font-serif" style="font-family: 'Crimson Pro', serif;">3</div>
+						<div class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-muted)] mt-1">Open source</div>
+					</div>
+					<div>
+						<div class="text-3xl md:text-5xl font-serif" style="font-family: 'Crimson Pro', serif;">2</div>
+						<div class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-muted)] mt-1">Research outputs</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Quick-jump bar -->
+			<div class="border-t border-[var(--color-border)] px-6 py-4 flex flex-wrap gap-x-8 gap-y-2 font-mono text-xs">
+				<a href="#production" class="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">→ /production</a>
+				<a href="#open-source" class="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">→ /open-source</a>
+				<a href="#research" class="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">→ /research</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ─────────── Production Systems ─────────── -->
+<section id="production" class="py-24 relative scroll-mt-24">
+	<div class="max-w-6xl mx-auto px-6 lg:px-8">
+		<!-- Section header -->
+		<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-20 pb-6 border-b border-[var(--color-border)]">
+			<div>
+				<span class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-accent)] block mb-4">§ 01 — Production Systems</span>
+				<h2 class="text-4xl md:text-6xl">Built for paying clients.</h2>
+			</div>
+			<p class="md:text-right text-[var(--color-text-muted)] max-w-sm leading-relaxed flex items-center gap-2 md:justify-end">
+				<Lock size={14} class="shrink-0" />
+				<span>Internal tools. Source private; metrics shared with permission.</span>
+			</p>
+		</div>
+
+		<!-- Project case studies -->
+		<div class="space-y-32">
+			{productionSystems.map((p, i) => {
+				const Icon = p.icon;
+				const isReversed = i % 2 === 1;
+				return (
+					<article class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+						{/* Left rail: number + meta */}
+						<div class={`lg:col-span-4 ${isReversed ? 'lg:order-2 lg:text-right' : ''}`}>
+							<div class={`flex items-baseline gap-4 mb-6 ${isReversed ? 'lg:justify-end' : ''}`}>
+								<span class="font-mono text-sm text-[var(--color-text-muted)]">{p.num}</span>
+								<div class="h-px flex-1 bg-gradient-to-r from-[var(--color-accent)]/40 to-transparent"></div>
+							</div>
+							<div class={`icon-box mb-6 ${isReversed ? 'lg:ml-auto' : ''}`}>
+								<Icon size={22} />
+							</div>
+							<h3 class="text-5xl md:text-6xl mb-4 leading-none">
+								<span class="gradient-text">{p.name}</span>
+							</h3>
+							<dl class={`font-mono text-xs uppercase tracking-[0.15em] text-[var(--color-text-muted)] space-y-2 ${isReversed ? 'lg:text-right' : ''}`}>
+								<div class={`flex gap-3 ${isReversed ? 'lg:justify-end' : ''}`}>
+									<dt class="text-[var(--color-text-muted)]/60">Client</dt>
+									<dd class="text-[var(--color-text)]">{p.client}</dd>
+								</div>
+								<div class={`flex gap-3 ${isReversed ? 'lg:justify-end' : ''}`}>
+									<dt class="text-[var(--color-text-muted)]/60">Year</dt>
+									<dd class="text-[var(--color-text)]">{p.year}</dd>
+								</div>
+								<div class={`flex gap-3 ${isReversed ? 'lg:justify-end' : ''}`}>
+									<dt class="text-[var(--color-text-muted)]/60">Role</dt>
+									<dd class="text-[var(--color-text)]">{p.role}</dd>
+								</div>
+							</dl>
+						</div>
+
+						{/* Right rail: copy + stats */}
+						<div class={`lg:col-span-8 ${isReversed ? 'lg:order-1' : ''}`}>
+							<p class="text-2xl md:text-3xl leading-tight mb-6 font-serif" style="font-family: 'Crimson Pro', serif; font-weight: 400;">
+								{p.tagline}
+							</p>
+							<p class="text-[var(--color-text-muted)] text-base md:text-lg leading-relaxed mb-10 max-w-2xl">
+								{p.description}
+							</p>
+
+							{/* Stats strip */}
+							<div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-[var(--color-border)] border border-[var(--color-border)] rounded-xl overflow-hidden mb-8">
+								{p.stats.map(s => (
+									<div class="bg-[var(--color-bg)] p-5">
+										<div class="text-2xl md:text-3xl font-semibold text-[var(--color-accent)]" style="font-family: 'Crimson Pro', serif;">
+											{s.value}
+										</div>
+										<div class="font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-text-muted)] mt-2 leading-tight">
+											{s.label}
+										</div>
+									</div>
+								))}
+							</div>
+
+							{/* Stack */}
+							<div class="flex flex-wrap gap-2">
+								{p.stack.map(t => (
+									<span class="font-mono text-[11px] px-3 py-1.5 rounded-full border border-[var(--color-border)] text-[var(--color-text-muted)] bg-white/[0.02]">
+										{t}
+									</span>
+								))}
+							</div>
+						</div>
+					</article>
+				);
+			})}
+		</div>
+	</div>
+</section>
+
+<!-- ─────────── Open Source ─────────── -->
+<section id="open-source" class="py-24 relative scroll-mt-24">
+	<!-- subtle banding to mark a section break -->
+	<div class="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--color-bg-elevated)]/40 to-transparent"></div>
+
+	<div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
+		<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 pb-6 border-b border-[var(--color-border)]">
+			<div>
+				<span class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-accent)] block mb-4">§ 02 — Open Source</span>
+				<h2 class="text-4xl md:text-6xl">Tools left in public.</h2>
+			</div>
+			<a href="https://github.com/noah-art3mis" target="_blank" rel="noopener" class="font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors inline-flex items-center gap-2 self-start md:self-end">
+				<Github size={14} />
+				<span>github.com/noah-art3mis</span>
+				<ArrowUpRight size={12} />
+			</a>
+		</div>
+
+		<!-- Terminal-window cards grid -->
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+			{openSource.map(p => {
+				const Icon = p.icon;
+				return (
+					<a href={p.url} target="_blank" rel="noopener" class="group block">
+						<article class="h-full glass-card rounded-xl overflow-hidden flex flex-col">
+							{/* Title bar — like a terminal/window chrome */}
+							<header class="flex items-center justify-between px-4 py-3 border-b border-[var(--color-border)] bg-black/20">
+								<div class="flex items-center gap-1.5">
+									<span class="w-2.5 h-2.5 rounded-full bg-[var(--color-text-muted)]/30"></span>
+									<span class="w-2.5 h-2.5 rounded-full bg-[var(--color-text-muted)]/30"></span>
+									<span class="w-2.5 h-2.5 rounded-full bg-[var(--color-text-muted)]/30"></span>
+								</div>
+								<span class="font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-text-muted)] truncate">
+									{p.repo}
+								</span>
+							</header>
+
+							<div class="p-6 flex flex-col flex-1">
+								<div class="flex items-start justify-between mb-5">
+									<div class="icon-box">
+										<Icon size={20} />
+									</div>
+									<ArrowUpRight size={18} class="text-[var(--color-text-muted)] transition-all duration-300 group-hover:text-[var(--color-accent)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+								</div>
+
+								<h3 class="text-2xl mb-3 group-hover:text-[var(--color-accent)] transition-colors">{p.name}</h3>
+
+								<p class="text-[var(--color-text-muted)] text-sm leading-relaxed mb-6 flex-1">
+									{p.summary}
+								</p>
+
+								<!-- footer: lang + tags + year -->
+								<div class="flex items-center justify-between pt-4 border-t border-[var(--color-border)] font-mono text-[10px] uppercase tracking-[0.15em]">
+									<div class="flex items-center gap-2">
+										<span class="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]"></span>
+										<span class="text-[var(--color-text-muted)]">{p.lang}</span>
+									</div>
+									<span class="text-[var(--color-text-muted)]/70">{p.year}</span>
+								</div>
+
+								<div class="flex flex-wrap gap-1.5 mt-4">
+									{p.tags.map(t => (
+										<span class="font-mono text-[10px] text-[var(--color-text-muted)]/70">#{t}</span>
+									))}
+								</div>
+							</div>
+						</article>
+					</a>
+				);
+			})}
+		</div>
+	</div>
+</section>
+
+<!-- ─────────── Research & Honors ─────────── -->
+<section id="research" class="py-24 relative scroll-mt-24">
+	<div class="max-w-6xl mx-auto px-6 lg:px-8">
+		<div class="mb-16 pb-6 border-b border-[var(--color-border)]">
+			<span class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-accent)] block mb-4">§ 03 — Research &amp; Honors</span>
+			<h2 class="text-4xl md:text-6xl">Written, defended, awarded.</h2>
+		</div>
+
+		<!-- Manuscript-style entries -->
+		<div class="divide-y divide-[var(--color-border)]">
+			{research.map(r => {
+				const Icon = r.icon;
+				return (
+					<article class="py-10 first:pt-0 last:pb-0 grid grid-cols-1 md:grid-cols-12 gap-6 group">
+						<div class="md:col-span-2">
+							<div class="flex md:flex-col items-center md:items-start gap-4 md:gap-5">
+								<div class="icon-box">
+									<Icon size={20} />
+								</div>
+								<div class="font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-accent)]">
+									{r.grade}
+								</div>
+							</div>
+						</div>
+						<div class="md:col-span-10">
+							<h3 class="text-3xl md:text-4xl mb-3 italic" style="font-family: 'Crimson Pro', serif; font-weight: 500;">
+								“{r.title}”
+							</h3>
+							<div class="font-mono text-xs uppercase tracking-[0.15em] text-[var(--color-text-muted)] mb-5 flex flex-wrap gap-x-4 gap-y-1">
+								<span>{r.venue}</span>
+								<span class="text-[var(--color-text-muted)]/60">·</span>
+								<span>{r.year}</span>
+							</div>
+							<p class="text-[var(--color-text-muted)] text-base md:text-lg leading-relaxed max-w-3xl">
+								{r.summary}
+							</p>
+						</div>
+					</article>
+				);
+			})}
+		</div>
+	</div>
+</section>
+
+<!-- ─────────── CTA ─────────── -->
+<section class="py-24 relative overflow-hidden">
+	<div class="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-elevated)] to-transparent"></div>
+	<div class="glow-orb glow-orb-secondary w-[500px] h-[500px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-25"></div>
+
+	<div class="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center">
+		<span class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-accent)] block mb-6">— Fin —</span>
+		<h2 class="text-4xl md:text-5xl mb-6 text-balance">
+			Have a problem that doesn't fit a template?
+		</h2>
+		<p class="text-lg text-[var(--color-text-muted)] max-w-xl mx-auto mb-10">
+			Most of the work above started as someone saying exactly that.
+		</p>
+		<a href={contactHref} class="btn-primary inline-flex items-center gap-2 group">
+			Start a conversation
+			<ArrowUpRight size={18} class="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+		</a>
+	</div>
+</section>
