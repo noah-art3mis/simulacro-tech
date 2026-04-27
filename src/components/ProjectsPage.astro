@@ -12,7 +12,7 @@ import {
 	BookOpen,
 	Award,
 } from 'lucide-astro';
-import { type Lang } from '../i18n/ui';
+import { ui, type Lang, type UIKey } from '../i18n/ui';
 import { getLocalizedPath } from '../i18n/utils';
 
 interface Props {
@@ -20,120 +20,88 @@ interface Props {
 }
 
 const { lang } = Astro.props;
+const t = (key: UIKey) => ui[lang][key];
 const homeHref = getLocalizedPath('/', lang);
 const contactHref = `${homeHref.replace(/\/$/, '')}/#contact`;
 
 const productionSystems = [
 	{
+		id: 'molcajete',
 		num: '01',
 		name: 'Molcajete',
 		client: 'CAPTA',
 		year: '2026',
-		role: 'Lead Engineer',
-		tagline: 'AI-powered transcription and analysis pipeline for political focus group research in Mexican Spanish.',
-		description:
-			'A full audio-to-insight pipeline replacing weeks of manual transcription and coding. Speaker diarization, transcription, theme/subtheme classification, and integrated reporting — all surfaced through a tooling layer that researchers actually use.',
-		stats: [
-			{ value: '1,300+', label: 'hours of audio processed' },
-			{ value: '10', label: 'Mexican states covered' },
-			{ value: '30–60 min', label: 'turnaround per project' },
-		],
+		statValues: ['1,300+', '10', '30–60 min'],
 		stack: ['Python', 'Whisper', 'Claude', 'Google Apps Script', 'rclone'],
 		icon: Mic,
 	},
 	{
+		id: 'adapta',
 		num: '02',
 		name: 'Adapta',
 		client: 'CAPTA',
 		year: '2026',
-		role: 'Lead Engineer',
-		tagline: 'Seven-stage data pipeline and LLM fine-tuning infrastructure for Mexican Spanish political analysis.',
-		description:
-			'QLoRA fine-tuning workflow with reproducible training, evaluation, and registry. Built for empirical comparison of base models, prompts, and adapters across a curated benchmark of domain-specific tasks.',
-		stats: [
-			{ value: '40+', label: 'evaluation metrics' },
-			{ value: '100+', label: 'training runs' },
-			{ value: '165 hrs', label: 'GPU compute logged' },
-			{ value: '22', label: 'empirical findings' },
-		],
+		statValues: ['40+', '100+', '165 h', '22'],
 		stack: ['QLoRA', 'Unsloth', 'vLLM', 'Modal', 'W&B / Weave'],
 		icon: Cpu,
 	},
 	{
+		id: 'nopalero',
 		num: '03',
 		name: 'Nopalero',
 		client: 'CAPTA',
 		year: '2026',
-		role: 'Lead Engineer',
-		tagline: 'Automated participant screening system for qualitative recruitment.',
-		description:
-			'Replaces hours of manual data entry per project with a validation engine that combines OCR, fraud detection, and socioeconomic classification. Designed so analysts spend their time on judgement, not transcription.',
-		stats: [
-			{ value: '48', label: 'validation checks' },
-			{ value: 'OCR', label: 'document parsing' },
-			{ value: '0', label: 'manual data entry' },
-		],
+		statValues: ['48', 'OCR', '0'],
 		stack: ['Python', 'OCR', 'LLM classification', 'Jotform'],
 		icon: ScanLine,
 	},
-];
+] as const;
 
 const openSource = [
 	{
+		id: 'intersect',
 		name: 'Intersect',
 		repo: 'noah-art3mis/intersect',
 		url: 'https://github.com/noah-art3mis/intersect',
 		year: '2025',
-		lang: 'Python',
-		summary:
-			'Job board that uses NLP — embeddings, reranking, classical ML — to surface roles that actually match. Deployed as a Streamlit app.',
+		codeLang: 'Python',
 		tags: ['nlp', 'embeddings', 'streamlit'],
 		icon: Search,
 	},
 	{
+		id: 'judexMini',
 		name: 'Judex-mini',
 		repo: 'noah-art3mis/judex-mini',
 		url: 'https://github.com/noah-art3mis/judex-mini',
 		year: '2025',
-		lang: 'Python',
-		summary:
-			'Python library for scraping case data from the Brazilian Supreme Court (STF). The trimmed-down successor to a larger legal-data toolkit.',
+		codeLang: 'Python',
 		tags: ['scraper', 'law', 'python'],
 		icon: Gavel,
 	},
 	{
+		id: 'crucible',
 		name: 'Crucible',
 		repo: 'noah-art3mis/crucible',
 		url: 'https://github.com/noah-art3mis/crucible',
 		year: '2024',
-		lang: 'Python',
-		summary:
-			'Bulk evaluation harness for LLM apps — test models and prompts side-by-side and rank what works before shipping.',
+		codeLang: 'Python',
 		tags: ['evals', 'llm', 'prompt-engineering'],
 		icon: FlaskConical,
 	},
-];
+] as const;
 
 const research = [
 	{
-		title: 'What is AI slop?',
-		venue: 'MASc Dissertation · London Interdisciplinary School',
+		id: 'slop',
 		year: '2025',
-		grade: 'Distinction',
-		summary:
-			'Mixed-methods NLP investigation of AI-generated content. Combines topic modelling, sentiment analysis, and LLM-based classification to characterise a phenomenon the literature had not yet defined.',
 		icon: BookOpen,
 	},
 	{
-		title: 'Stereotype Detection in LLMs via Sparse Autoencoders',
-		venue: 'AI Safety Hackathon · Holistic AI × UCL AI Society',
+		id: 'stereotype',
 		year: '2024',
-		grade: 'Winner',
-		summary:
-			'Used sparse autoencoder features to surface latent stereotype representations inside large language models — interpretability as a route to AI safety.',
 		icon: Award,
 	},
-];
+] as const;
 ---
 
 <!-- ─────────── Hero / Index ─────────── -->
@@ -150,22 +118,22 @@ const research = [
 			<div class="flex items-center justify-between px-6 py-3 border-b border-[var(--color-border)] font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
 				<div class="flex items-center gap-3">
 					<span class="w-2 h-2 rounded-full bg-[var(--color-accent)] animate-pulse"></span>
-					<span>simulacro.tech / projects</span>
+					<span>{t('projects.manifest.path')}</span>
 				</div>
-				<span class="hidden sm:inline">last updated · 2026</span>
+				<span class="hidden sm:inline">{t('projects.manifest.lastUpdated')}</span>
 			</div>
 
 			<!-- Header body -->
 			<div class="p-8 md:p-14 grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
 				<div class="md:col-span-8">
 					<span class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-accent)] block mb-6">
-						Index 001 — Selected Work
+						{t('projects.manifest.index')}
 					</span>
 					<h1 class="text-5xl md:text-7xl lg:text-[5.5rem] leading-[0.95] mb-8 text-balance">
-						A working <span class="italic text-[var(--color-text-muted)]">archive</span> of systems built for real teams.
+						{t('projects.manifest.title.before')}<span class="italic text-[var(--color-text-muted)]">{t('projects.manifest.title.highlight')}</span>{t('projects.manifest.title.after')}
 					</h1>
 					<p class="text-lg md:text-xl text-[var(--color-text-muted)] max-w-2xl leading-relaxed">
-						Production AI infrastructure, open-source tools, and research at the intersection of NLP, ethics, and the humanities. Eight entries, grouped by purpose.
+						{t('projects.manifest.lede')}
 					</p>
 				</div>
 
@@ -173,24 +141,24 @@ const research = [
 				<div class="md:col-span-4 md:border-l md:border-[var(--color-border)] md:pl-8 grid grid-cols-3 md:grid-cols-1 gap-6">
 					<div>
 						<div class="text-3xl md:text-5xl font-serif" style="font-family: 'Crimson Pro', serif;">3</div>
-						<div class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-muted)] mt-1">Production systems</div>
+						<div class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-muted)] mt-1">{t('projects.stats.production')}</div>
 					</div>
 					<div>
 						<div class="text-3xl md:text-5xl font-serif" style="font-family: 'Crimson Pro', serif;">3</div>
-						<div class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-muted)] mt-1">Open source</div>
+						<div class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-muted)] mt-1">{t('projects.stats.openSource')}</div>
 					</div>
 					<div>
 						<div class="text-3xl md:text-5xl font-serif" style="font-family: 'Crimson Pro', serif;">2</div>
-						<div class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-muted)] mt-1">Research outputs</div>
+						<div class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-muted)] mt-1">{t('projects.stats.research')}</div>
 					</div>
 				</div>
 			</div>
 
 			<!-- Quick-jump bar -->
 			<div class="border-t border-[var(--color-border)] px-6 py-4 flex flex-wrap gap-x-8 gap-y-2 font-mono text-xs">
-				<a href="#production" class="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">→ /production</a>
-				<a href="#open-source" class="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">→ /open-source</a>
-				<a href="#research" class="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">→ /research</a>
+				<a href="#production" class="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">{t('projects.jump.production')}</a>
+				<a href="#open-source" class="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">{t('projects.jump.openSource')}</a>
+				<a href="#research" class="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">{t('projects.jump.research')}</a>
 			</div>
 		</div>
 	</div>
@@ -202,12 +170,12 @@ const research = [
 		<!-- Section header -->
 		<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-20 pb-6 border-b border-[var(--color-border)]">
 			<div>
-				<span class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-accent)] block mb-4">§ 01 — Production Systems</span>
-				<h2 class="text-4xl md:text-6xl">Built for paying clients.</h2>
+				<span class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-accent)] block mb-4">{t('projects.production.eyebrow')}</span>
+				<h2 class="text-4xl md:text-6xl">{t('projects.production.heading')}</h2>
 			</div>
 			<p class="md:text-right text-[var(--color-text-muted)] max-w-sm leading-relaxed flex items-center gap-2 md:justify-end">
 				<Lock size={14} class="shrink-0" />
-				<span>Internal tools. Source private; metrics shared with permission.</span>
+				<span>{t('projects.production.note')}</span>
 			</p>
 		</div>
 
@@ -216,6 +184,8 @@ const research = [
 			{productionSystems.map((p, i) => {
 				const Icon = p.icon;
 				const isReversed = i % 2 === 1;
+				const tagline = t(`projects.production.${p.id}.tagline` as UIKey);
+				const description = t(`projects.production.${p.id}.description` as UIKey);
 				return (
 					<article class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
 						{/* Left rail: number + meta */}
@@ -232,16 +202,16 @@ const research = [
 							</h3>
 							<dl class={`font-mono text-xs uppercase tracking-[0.15em] text-[var(--color-text-muted)] space-y-2 ${isReversed ? 'lg:text-right' : ''}`}>
 								<div class={`flex gap-3 ${isReversed ? 'lg:justify-end' : ''}`}>
-									<dt class="text-[var(--color-text-muted)]/60">Client</dt>
+									<dt class="text-[var(--color-text-muted)]/60">{t('projects.production.meta.client')}</dt>
 									<dd class="text-[var(--color-text)]">{p.client}</dd>
 								</div>
 								<div class={`flex gap-3 ${isReversed ? 'lg:justify-end' : ''}`}>
-									<dt class="text-[var(--color-text-muted)]/60">Year</dt>
+									<dt class="text-[var(--color-text-muted)]/60">{t('projects.production.meta.year')}</dt>
 									<dd class="text-[var(--color-text)]">{p.year}</dd>
 								</div>
 								<div class={`flex gap-3 ${isReversed ? 'lg:justify-end' : ''}`}>
-									<dt class="text-[var(--color-text-muted)]/60">Role</dt>
-									<dd class="text-[var(--color-text)]">{p.role}</dd>
+									<dt class="text-[var(--color-text-muted)]/60">{t('projects.production.meta.role')}</dt>
+									<dd class="text-[var(--color-text)]">{t('projects.production.role')}</dd>
 								</div>
 							</dl>
 						</div>
@@ -249,21 +219,21 @@ const research = [
 						{/* Right rail: copy + stats */}
 						<div class={`lg:col-span-8 ${isReversed ? 'lg:order-1' : ''}`}>
 							<p class="text-2xl md:text-3xl leading-tight mb-6 font-serif" style="font-family: 'Crimson Pro', serif; font-weight: 400;">
-								{p.tagline}
+								{tagline}
 							</p>
 							<p class="text-[var(--color-text-muted)] text-base md:text-lg leading-relaxed mb-10 max-w-2xl">
-								{p.description}
+								{description}
 							</p>
 
 							{/* Stats strip */}
 							<div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-[var(--color-border)] border border-[var(--color-border)] rounded-xl overflow-hidden mb-8">
-								{p.stats.map(s => (
+								{p.statValues.map((value, idx) => (
 									<div class="bg-[var(--color-bg)] p-5">
 										<div class="text-2xl md:text-3xl font-semibold text-[var(--color-accent)]" style="font-family: 'Crimson Pro', serif;">
-											{s.value}
+											{value}
 										</div>
 										<div class="font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-text-muted)] mt-2 leading-tight">
-											{s.label}
+											{t(`projects.production.${p.id}.stat.${idx}` as UIKey)}
 										</div>
 									</div>
 								))}
@@ -271,9 +241,9 @@ const research = [
 
 							{/* Stack */}
 							<div class="flex flex-wrap gap-2">
-								{p.stack.map(t => (
+								{p.stack.map(s => (
 									<span class="font-mono text-[11px] px-3 py-1.5 rounded-full border border-[var(--color-border)] text-[var(--color-text-muted)] bg-white/[0.02]">
-										{t}
+										{s}
 									</span>
 								))}
 							</div>
@@ -293,8 +263,8 @@ const research = [
 	<div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
 		<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 pb-6 border-b border-[var(--color-border)]">
 			<div>
-				<span class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-accent)] block mb-4">§ 02 — Open Source</span>
-				<h2 class="text-4xl md:text-6xl">Tools left in public.</h2>
+				<span class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-accent)] block mb-4">{t('projects.openSource.eyebrow')}</span>
+				<h2 class="text-4xl md:text-6xl">{t('projects.openSource.heading')}</h2>
 			</div>
 			<a href="https://github.com/noah-art3mis" target="_blank" rel="noopener" class="font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors inline-flex items-center gap-2 self-start md:self-end">
 				<Github size={14} />
@@ -307,6 +277,7 @@ const research = [
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 			{openSource.map(p => {
 				const Icon = p.icon;
+				const summary = t(`projects.openSource.${p.id}.summary` as UIKey);
 				return (
 					<a href={p.url} target="_blank" rel="noopener" class="group block">
 						<article class="h-full glass-card rounded-xl overflow-hidden flex flex-col">
@@ -333,21 +304,21 @@ const research = [
 								<h3 class="text-2xl mb-3 group-hover:text-[var(--color-accent)] transition-colors">{p.name}</h3>
 
 								<p class="text-[var(--color-text-muted)] text-sm leading-relaxed mb-6 flex-1">
-									{p.summary}
+									{summary}
 								</p>
 
 								<!-- footer: lang + tags + year -->
 								<div class="flex items-center justify-between pt-4 border-t border-[var(--color-border)] font-mono text-[10px] uppercase tracking-[0.15em]">
 									<div class="flex items-center gap-2">
 										<span class="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]"></span>
-										<span class="text-[var(--color-text-muted)]">{p.lang}</span>
+										<span class="text-[var(--color-text-muted)]">{p.codeLang}</span>
 									</div>
 									<span class="text-[var(--color-text-muted)]/70">{p.year}</span>
 								</div>
 
 								<div class="flex flex-wrap gap-1.5 mt-4">
-									{p.tags.map(t => (
-										<span class="font-mono text-[10px] text-[var(--color-text-muted)]/70">#{t}</span>
+									{p.tags.map(tag => (
+										<span class="font-mono text-[10px] text-[var(--color-text-muted)]/70">#{tag}</span>
 									))}
 								</div>
 							</div>
@@ -363,14 +334,18 @@ const research = [
 <section id="research" class="py-24 relative scroll-mt-24">
 	<div class="max-w-6xl mx-auto px-6 lg:px-8">
 		<div class="mb-16 pb-6 border-b border-[var(--color-border)]">
-			<span class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-accent)] block mb-4">§ 03 — Research &amp; Honors</span>
-			<h2 class="text-4xl md:text-6xl">Written, defended, awarded.</h2>
+			<span class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-accent)] block mb-4">{t('projects.research.eyebrow')}</span>
+			<h2 class="text-4xl md:text-6xl">{t('projects.research.heading')}</h2>
 		</div>
 
 		<!-- Manuscript-style entries -->
 		<div class="divide-y divide-[var(--color-border)]">
 			{research.map(r => {
 				const Icon = r.icon;
+				const title = t(`projects.research.${r.id}.title` as UIKey);
+				const venue = t(`projects.research.${r.id}.venue` as UIKey);
+				const grade = t(`projects.research.${r.id}.grade` as UIKey);
+				const summary = t(`projects.research.${r.id}.summary` as UIKey);
 				return (
 					<article class="py-10 first:pt-0 last:pb-0 grid grid-cols-1 md:grid-cols-12 gap-6 group">
 						<div class="md:col-span-2">
@@ -379,21 +354,21 @@ const research = [
 									<Icon size={20} />
 								</div>
 								<div class="font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-accent)]">
-									{r.grade}
+									{grade}
 								</div>
 							</div>
 						</div>
 						<div class="md:col-span-10">
 							<h3 class="text-3xl md:text-4xl mb-3 italic" style="font-family: 'Crimson Pro', serif; font-weight: 500;">
-								“{r.title}”
+								“{title}”
 							</h3>
 							<div class="font-mono text-xs uppercase tracking-[0.15em] text-[var(--color-text-muted)] mb-5 flex flex-wrap gap-x-4 gap-y-1">
-								<span>{r.venue}</span>
+								<span>{venue}</span>
 								<span class="text-[var(--color-text-muted)]/60">·</span>
 								<span>{r.year}</span>
 							</div>
 							<p class="text-[var(--color-text-muted)] text-base md:text-lg leading-relaxed max-w-3xl">
-								{r.summary}
+								{summary}
 							</p>
 						</div>
 					</article>
@@ -409,15 +384,15 @@ const research = [
 	<div class="glow-orb glow-orb-secondary w-[500px] h-[500px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-25"></div>
 
 	<div class="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center">
-		<span class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-accent)] block mb-6">— Fin —</span>
+		<span class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-accent)] block mb-6">{t('projects.cta.eyebrow')}</span>
 		<h2 class="text-4xl md:text-5xl mb-6 text-balance">
-			Have a problem that doesn't fit a template?
+			{t('projects.cta.heading')}
 		</h2>
 		<p class="text-lg text-[var(--color-text-muted)] max-w-xl mx-auto mb-10">
-			Most of the work above started as someone saying exactly that.
+			{t('projects.cta.lede')}
 		</p>
 		<a href={contactHref} class="btn-primary inline-flex items-center gap-2 group">
-			Start a conversation
+			{t('projects.cta.action')}
 			<ArrowUpRight size={18} class="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
 		</a>
 	</div>

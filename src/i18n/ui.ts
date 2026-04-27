@@ -121,6 +121,82 @@ export const ui = {
 
 		'banner.suggest': 'View in English?',
 		'banner.dismiss': 'Dismiss',
+
+		'projects.manifest.path': 'simulacro.tech / projects',
+		'projects.manifest.lastUpdated': 'last updated · 2026',
+		'projects.manifest.index': 'Index 001 — Selected Work',
+		'projects.manifest.title.before': 'A working ',
+		'projects.manifest.title.highlight': 'archive',
+		'projects.manifest.title.after': ' of systems built for real teams.',
+		'projects.manifest.lede':
+			'Production AI infrastructure, open-source tools, and research at the intersection of NLP, ethics, and the humanities. Eight entries, grouped by purpose.',
+		'projects.stats.production': 'Production systems',
+		'projects.stats.openSource': 'Open source',
+		'projects.stats.research': 'Research outputs',
+		'projects.jump.production': '→ /production',
+		'projects.jump.openSource': '→ /open-source',
+		'projects.jump.research': '→ /research',
+
+		'projects.production.eyebrow': '§ 01 — Production Systems',
+		'projects.production.heading': 'Built for paying clients.',
+		'projects.production.note':
+			'Internal tools. Source private; metrics shared with permission.',
+		'projects.production.meta.client': 'Client',
+		'projects.production.meta.year': 'Year',
+		'projects.production.meta.role': 'Role',
+		'projects.production.role': 'Lead Engineer',
+
+		'projects.production.molcajete.tagline':
+			'AI-powered transcription and analysis pipeline for political focus group research in Mexican Spanish.',
+		'projects.production.molcajete.description':
+			'A full audio-to-insight pipeline replacing weeks of manual transcription and coding. Speaker diarization, transcription, theme/subtheme classification, and integrated reporting — all surfaced through a tooling layer that researchers actually use.',
+		'projects.production.molcajete.stat.0': 'hours of audio processed',
+		'projects.production.molcajete.stat.1': 'Mexican states covered',
+		'projects.production.molcajete.stat.2': 'turnaround per project',
+
+		'projects.production.adapta.tagline':
+			'Seven-stage data pipeline and LLM fine-tuning infrastructure for Mexican Spanish political analysis.',
+		'projects.production.adapta.description':
+			'QLoRA fine-tuning workflow with reproducible training, evaluation, and registry. Built for empirical comparison of base models, prompts, and adapters across a curated benchmark of domain-specific tasks.',
+		'projects.production.adapta.stat.0': 'evaluation metrics',
+		'projects.production.adapta.stat.1': 'training runs',
+		'projects.production.adapta.stat.2': 'GPU compute logged',
+		'projects.production.adapta.stat.3': 'empirical findings',
+
+		'projects.production.nopalero.tagline':
+			'Automated participant screening system for qualitative recruitment.',
+		'projects.production.nopalero.description':
+			'Replaces hours of manual data entry per project with a validation engine that combines OCR, fraud detection, and socioeconomic classification. Designed so analysts spend their time on judgement, not transcription.',
+		'projects.production.nopalero.stat.0': 'validation checks',
+		'projects.production.nopalero.stat.1': 'document parsing',
+		'projects.production.nopalero.stat.2': 'manual data entry',
+
+		'projects.openSource.eyebrow': '§ 02 — Open Source',
+		'projects.openSource.heading': 'Tools left in public.',
+		'projects.openSource.intersect.summary':
+			'Job board that uses NLP — embeddings, reranking, classical ML — to surface roles that actually match. Deployed as a Streamlit app.',
+		'projects.openSource.judexMini.summary':
+			'Python library for scraping case data from the Brazilian Supreme Court (STF). The trimmed-down successor to a larger legal-data toolkit.',
+		'projects.openSource.crucible.summary':
+			'Bulk evaluation harness for LLM apps — test models and prompts side-by-side and rank what works before shipping.',
+
+		'projects.research.eyebrow': '§ 03 — Research & Honors',
+		'projects.research.heading': 'Written, defended, awarded.',
+		'projects.research.slop.title': 'What is AI slop?',
+		'projects.research.slop.venue': 'MASc Dissertation · London Interdisciplinary School',
+		'projects.research.slop.grade': 'Distinction',
+		'projects.research.slop.summary':
+			'Mixed-methods NLP investigation of AI-generated content. Combines topic modelling, sentiment analysis, and LLM-based classification to characterise a phenomenon the literature had not yet defined.',
+		'projects.research.stereotype.title': 'Stereotype Detection in LLMs via Sparse Autoencoders',
+		'projects.research.stereotype.venue': 'AI Safety Hackathon · Holistic AI × UCL AI Society',
+		'projects.research.stereotype.grade': 'Winner',
+		'projects.research.stereotype.summary':
+			'Used sparse autoencoder features to surface latent stereotype representations inside large language models — interpretability as a route to AI safety.',
+
+		'projects.cta.eyebrow': '— Fin —',
+		'projects.cta.heading': "Have a problem that doesn't fit a template?",
+		'projects.cta.lede': 'Most of the work above started as someone saying exactly that.',
+		'projects.cta.action': 'Start a conversation',
 	},
 	pt: {
 		'meta.home.title': 'Simulacro Tech — Consultoria interdisciplinar em dados e IA',
@@ -234,6 +310,83 @@ export const ui = {
 
 		'banner.suggest': 'Ver em português?',
 		'banner.dismiss': 'Fechar',
+
+		'projects.manifest.path': 'simulacro.tech / projetos',
+		'projects.manifest.lastUpdated': 'última atualização · 2026',
+		'projects.manifest.index': 'Índice 001 — Trabalhos selecionados',
+		'projects.manifest.title.before': 'Um ',
+		'projects.manifest.title.highlight': 'arquivo',
+		'projects.manifest.title.after': ' vivo de sistemas construídos para times reais.',
+		'projects.manifest.lede':
+			'Infraestrutura de IA em produção, ferramentas open source e pesquisa na intersecção de PLN, ética e humanidades. Oito entradas, agrupadas por propósito.',
+		'projects.stats.production': 'Sistemas em produção',
+		'projects.stats.openSource': 'Open source',
+		'projects.stats.research': 'Trabalhos de pesquisa',
+		'projects.jump.production': '→ /produção',
+		'projects.jump.openSource': '→ /open-source',
+		'projects.jump.research': '→ /pesquisa',
+
+		'projects.production.eyebrow': '§ 01 — Sistemas em produção',
+		'projects.production.heading': 'Construído para clientes pagantes.',
+		'projects.production.note':
+			'Ferramentas internas. Código fechado; métricas compartilhadas com autorização.',
+		'projects.production.meta.client': 'Cliente',
+		'projects.production.meta.year': 'Ano',
+		'projects.production.meta.role': 'Função',
+		'projects.production.role': 'Engenheiro líder',
+
+		'projects.production.molcajete.tagline':
+			'Pipeline de transcrição e análise com IA para pesquisa qualitativa em grupos focais de política em espanhol mexicano.',
+		'projects.production.molcajete.description':
+			'Um pipeline completo de áudio a insight que substitui semanas de transcrição e codificação manual. Diarização de falantes, transcrição, classificação de temas e subtemas, e relatórios integrados — tudo entregue por uma camada de ferramentas que pesquisadores realmente usam.',
+		'projects.production.molcajete.stat.0': 'horas de áudio processadas',
+		'projects.production.molcajete.stat.1': 'estados mexicanos cobertos',
+		'projects.production.molcajete.stat.2': 'tempo de entrega por projeto',
+
+		'projects.production.adapta.tagline':
+			'Pipeline de dados de sete estágios e infraestrutura de fine-tuning de LLMs para análise política em espanhol mexicano.',
+		'projects.production.adapta.description':
+			'Workflow de fine-tuning com QLoRA com treino, avaliação e registro reprodutíveis. Construído para a comparação empírica de modelos base, prompts e adapters em um benchmark curado de tarefas específicas do domínio.',
+		'projects.production.adapta.stat.0': 'métricas de avaliação',
+		'projects.production.adapta.stat.1': 'execuções de treino',
+		'projects.production.adapta.stat.2': 'horas de GPU registradas',
+		'projects.production.adapta.stat.3': 'achados empíricos',
+
+		'projects.production.nopalero.tagline':
+			'Sistema automatizado de triagem de participantes para recrutamento qualitativo.',
+		'projects.production.nopalero.description':
+			'Substitui horas de entrada manual de dados por projeto por um motor de validação que combina OCR, detecção de fraude e classificação socioeconômica. Desenhado para que analistas gastem tempo com julgamento, não com transcrição.',
+		'projects.production.nopalero.stat.0': 'verificações de validação',
+		'projects.production.nopalero.stat.1': 'leitura de documentos',
+		'projects.production.nopalero.stat.2': 'entrada manual de dados',
+
+		'projects.openSource.eyebrow': '§ 02 — Open Source',
+		'projects.openSource.heading': 'Ferramentas deixadas em público.',
+		'projects.openSource.intersect.summary':
+			'Quadro de vagas que usa PLN — embeddings, reranking, ML clássico — para destacar oportunidades que de fato combinam. Implantado como app Streamlit.',
+		'projects.openSource.judexMini.summary':
+			'Biblioteca Python para coleta de dados de processos do Supremo Tribunal Federal (STF). Sucessora enxuta de um conjunto maior de ferramentas para dados jurídicos.',
+		'projects.openSource.crucible.summary':
+			'Banco de avaliação em massa para apps com LLM — teste modelos e prompts lado a lado e ranqueie o que funciona antes de subir para produção.',
+
+		'projects.research.eyebrow': '§ 03 — Pesquisa e prêmios',
+		'projects.research.heading': 'Escrito, defendido, premiado.',
+		'projects.research.slop.title': 'What is AI slop?',
+		'projects.research.slop.venue': 'Dissertação MASc · London Interdisciplinary School',
+		'projects.research.slop.grade': 'Distinção',
+		'projects.research.slop.summary':
+			'Investigação por métodos mistos em PLN sobre conteúdo gerado por IA. Combina modelagem de tópicos, análise de sentimento e classificação por LLM para caracterizar um fenômeno que a literatura ainda não havia definido.',
+		'projects.research.stereotype.title':
+			'Stereotype Detection in LLMs via Sparse Autoencoders',
+		'projects.research.stereotype.venue': 'AI Safety Hackathon · Holistic AI × UCL AI Society',
+		'projects.research.stereotype.grade': 'Vencedor',
+		'projects.research.stereotype.summary':
+			'Usou características de sparse autoencoders para revelar representações latentes de estereótipos dentro de grandes modelos de linguagem — interpretabilidade como caminho para a segurança em IA.',
+
+		'projects.cta.eyebrow': '— Fim —',
+		'projects.cta.heading': 'Tem um problema que não cabe num modelo pronto?',
+		'projects.cta.lede': 'A maior parte do trabalho acima começou com alguém dizendo exatamente isso.',
+		'projects.cta.action': 'Iniciar uma conversa',
 	},
 	es: {
 		'meta.home.title': 'Simulacro Tech — Consultoría interdisciplinaria en datos e IA',
@@ -347,6 +500,83 @@ export const ui = {
 
 		'banner.suggest': '¿Ver en español?',
 		'banner.dismiss': 'Cerrar',
+
+		'projects.manifest.path': 'simulacro.tech / proyectos',
+		'projects.manifest.lastUpdated': 'última actualización · 2026',
+		'projects.manifest.index': 'Índice 001 — Trabajos seleccionados',
+		'projects.manifest.title.before': 'Un ',
+		'projects.manifest.title.highlight': 'archivo',
+		'projects.manifest.title.after': ' vivo de sistemas construidos para equipos reales.',
+		'projects.manifest.lede':
+			'Infraestructura de IA en producción, herramientas open source e investigación en la intersección entre PLN, ética y humanidades. Ocho entradas, agrupadas por propósito.',
+		'projects.stats.production': 'Sistemas en producción',
+		'projects.stats.openSource': 'Open source',
+		'projects.stats.research': 'Trabajos de investigación',
+		'projects.jump.production': '→ /producción',
+		'projects.jump.openSource': '→ /open-source',
+		'projects.jump.research': '→ /investigación',
+
+		'projects.production.eyebrow': '§ 01 — Sistemas en producción',
+		'projects.production.heading': 'Construido para clientes que pagan.',
+		'projects.production.note':
+			'Herramientas internas. Código privado; métricas compartidas con permiso.',
+		'projects.production.meta.client': 'Cliente',
+		'projects.production.meta.year': 'Año',
+		'projects.production.meta.role': 'Rol',
+		'projects.production.role': 'Ingeniero líder',
+
+		'projects.production.molcajete.tagline':
+			'Pipeline de transcripción y análisis con IA para investigación cualitativa en grupos focales de política en español mexicano.',
+		'projects.production.molcajete.description':
+			'Pipeline completo de audio a insight que reemplaza semanas de transcripción y codificación manual. Diarización de hablantes, transcripción, clasificación de temas y subtemas, e informes integrados — todo expuesto a través de una capa de herramientas que los investigadores realmente usan.',
+		'projects.production.molcajete.stat.0': 'horas de audio procesadas',
+		'projects.production.molcajete.stat.1': 'estados mexicanos cubiertos',
+		'projects.production.molcajete.stat.2': 'tiempo de entrega por proyecto',
+
+		'projects.production.adapta.tagline':
+			'Pipeline de datos de siete etapas e infraestructura de fine-tuning de LLMs para análisis político en español mexicano.',
+		'projects.production.adapta.description':
+			'Flujo de fine-tuning con QLoRA con entrenamiento, evaluación y registro reproducibles. Construido para la comparación empírica de modelos base, prompts y adapters sobre un benchmark curado de tareas específicas del dominio.',
+		'projects.production.adapta.stat.0': 'métricas de evaluación',
+		'projects.production.adapta.stat.1': 'ejecuciones de entrenamiento',
+		'projects.production.adapta.stat.2': 'horas de GPU registradas',
+		'projects.production.adapta.stat.3': 'hallazgos empíricos',
+
+		'projects.production.nopalero.tagline':
+			'Sistema automatizado de selección de participantes para reclutamiento cualitativo.',
+		'projects.production.nopalero.description':
+			'Reemplaza horas de entrada manual de datos por proyecto con un motor de validación que combina OCR, detección de fraude y clasificación socioeconómica. Diseñado para que los analistas inviertan su tiempo en juicio, no en transcripción.',
+		'projects.production.nopalero.stat.0': 'verificaciones de validación',
+		'projects.production.nopalero.stat.1': 'lectura de documentos',
+		'projects.production.nopalero.stat.2': 'entrada manual de datos',
+
+		'projects.openSource.eyebrow': '§ 02 — Open Source',
+		'projects.openSource.heading': 'Herramientas dejadas en público.',
+		'projects.openSource.intersect.summary':
+			'Bolsa de trabajo que usa PLN — embeddings, reranking, ML clásico — para destacar puestos que realmente encajan. Desplegada como app de Streamlit.',
+		'projects.openSource.judexMini.summary':
+			'Biblioteca Python para extraer datos de casos del Supremo Tribunal Federal de Brasil (STF). Sucesora reducida de un conjunto de herramientas legales más amplio.',
+		'projects.openSource.crucible.summary':
+			'Arnés de evaluación masiva para apps con LLM — prueba modelos y prompts lado a lado y rankea lo que funciona antes de desplegar.',
+
+		'projects.research.eyebrow': '§ 03 — Investigación y honores',
+		'projects.research.heading': 'Escrito, defendido, premiado.',
+		'projects.research.slop.title': 'What is AI slop?',
+		'projects.research.slop.venue': 'Tesis MASc · London Interdisciplinary School',
+		'projects.research.slop.grade': 'Distinción',
+		'projects.research.slop.summary':
+			'Investigación de métodos mixtos en PLN sobre contenido generado por IA. Combina modelado de temas, análisis de sentimiento y clasificación con LLM para caracterizar un fenómeno que la literatura aún no había definido.',
+		'projects.research.stereotype.title':
+			'Stereotype Detection in LLMs via Sparse Autoencoders',
+		'projects.research.stereotype.venue': 'AI Safety Hackathon · Holistic AI × UCL AI Society',
+		'projects.research.stereotype.grade': 'Ganador',
+		'projects.research.stereotype.summary':
+			'Utilizó características de sparse autoencoders para revelar representaciones latentes de estereotipos dentro de grandes modelos de lenguaje — interpretabilidad como vía hacia la seguridad en IA.',
+
+		'projects.cta.eyebrow': '— Fin —',
+		'projects.cta.heading': '¿Tienes un problema que no encaja en una plantilla?',
+		'projects.cta.lede': 'La mayoría del trabajo de arriba empezó con alguien diciendo exactamente eso.',
+		'projects.cta.action': 'Iniciar una conversación',
 	},
 } as const satisfies Record<Lang, Record<string, string>>;
 
