@@ -11,18 +11,18 @@ const basePath = stripLocale(Astro.url.pathname);
 const localeList = Object.keys(languages) as Lang[];
 ---
 
-<div class="flex items-center gap-2 text-xs uppercase tracking-wider">
+<div class="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em]">
 	{
 		localeList.map((lang, i) => (
 			<>
-				{i > 0 && <span class="text-[var(--color-text-muted)]/40">·</span>}
+				{i > 0 && <span class="text-[var(--color-text-muted)]/30">·</span>}
 				<a
 					href={getLocalizedPath(basePath, lang)}
 					data-lang={lang}
 					class:list={[
 						'lang-link transition-colors',
 						lang === currentLang
-							? 'text-[var(--color-text)] font-semibold'
+							? 'text-[var(--color-accent)] font-semibold'
 							: 'text-[var(--color-text-muted)] hover:text-[var(--color-text)]',
 					]}
 				>

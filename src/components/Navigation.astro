@@ -67,6 +67,7 @@ const navItems = [
 				class="md:hidden p-2 text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
 				id="mobile-menu-button"
 				aria-label="Toggle menu"
+				aria-expanded="false"
 			>
 				<Menu size={24} id="menu-icon" />
 				<X size={24} id="close-icon" class="hidden" />
@@ -76,7 +77,7 @@ const navItems = [
 
 	<!-- Mobile Navigation -->
 	<div
-		class="md:hidden border-t border-[var(--color-border)] hidden bg-[var(--color-bg-elevated)]"
+		class="md:hidden border-t border-[var(--color-border)] bg-[var(--color-bg-elevated)]/95 backdrop-blur-md overflow-hidden mobile-menu"
 		id="mobile-menu"
 	>
 		<div class="px-6 py-4 space-y-1">
@@ -84,7 +85,7 @@ const navItems = [
 				navItems.map((item) => (
 					<a
 						href={item.href}
-						class="block px-4 py-3 text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-white/5 rounded-lg transition-colors"
+						class="block px-4 py-3 text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-white/5 rounded-lg transition-colors text-base font-medium"
 						data-path={item.href}
 					>
 						{item.label}
@@ -93,11 +94,11 @@ const navItems = [
 			}
 			<a
 				href={contactHref}
-				class="block px-4 py-3 mt-2 text-center font-semibold text-[var(--color-bg)] bg-[var(--color-accent)] rounded-lg"
+				class="block px-4 py-3 mt-3 text-center font-semibold text-[var(--color-bg)] bg-[var(--color-accent)] rounded-full"
 			>
 				{t('nav.contact')}
 			</a>
-			<div class="px-4 pt-4 mt-2 border-t border-[var(--color-border)]">
+			<div class="px-4 pt-5 mt-3 border-t border-[var(--color-border)]">
 				<LanguageSwitcher lang={lang} />
 			</div>
 		</div>
@@ -106,6 +107,21 @@ const navItems = [
 
 <!-- Spacer for fixed nav -->
 <div class="h-20"></div>
+
+<style>
+	/* Mobile menu transition — smooth max-height collapse */
+	.mobile-menu {
+		max-height: 0;
+		opacity: 0;
+		transition:
+			max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+			opacity 0.3s ease;
+	}
+	.mobile-menu.is-open {
+		max-height: 480px;
+		opacity: 1;
+	}
+</style>
 
 <script>
 	// Mobile menu toggle
@@ -116,19 +132,21 @@ const navItems = [
 
 	if (menuButton && mobileMenu && menuIcon && closeIcon) {
 		menuButton.addEventListener('click', () => {
-			mobileMenu.classList.toggle('hidden');
-			menuIcon.classList.toggle('hidden');
-			closeIcon.classList.toggle('hidden');
+			const open = mobileMenu.classList.toggle('is-open');
+			menuButton.setAttribute('aria-expanded', String(open));
+			menuIcon.classList.toggle('hidden', open);
+			closeIcon.classList.toggle('hidden', !open);
 		});
 	}
 
-	// Highlight current path (normalize trailing slashes)
+	// Highlight current path (normalize trailing slashes) — adds .is-active for animated underline
 	const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
 	document.querySelectorAll('[data-path]').forEach((link) => {
 		const linkPath = (link.getAttribute('data-path') || '').replace(/\/$/, '') || '/';
 		if (linkPath === currentPath) {
 			link.classList.add('text-[var(--color-text)]');
 			link.classList.remove('text-[var(--color-text-muted)]');
+			link.classList.add('is-active');
 		}
 	});
 </script>

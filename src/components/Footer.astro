@@ -1,26 +1,35 @@
 ---
-import { Mail, MapPin, Phone } from 'lucide-astro';
+import { Mail, MapPin, Phone, GraduationCap, BookOpen } from 'lucide-astro';
 import { ui, type Lang, type UIKey } from '../i18n/ui';
 import { getLocalizedPath } from '../i18n/utils';
 
 interface Props {
 	lang: Lang;
+	buildDate?: string;
 }
 
-const { lang } = Astro.props;
+const { lang, buildDate } = Astro.props;
 const t = (key: UIKey) => ui[lang][key];
 const homeHref = getLocalizedPath('/', lang);
+const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-[var(--color-border)] mt-auto bg-[var(--color-bg-elevated)]/50">
-	<div class="max-w-6xl mx-auto px-6 lg:px-8 py-16">
-		<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+<footer class="border-t border-[var(--color-border)] mt-auto bg-[var(--color-bg-elevated)]/50 relative overflow-hidden">
+	<!-- A whisper of warm light along the top — keeps the warmth thesis -->
+	<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--color-accent)]/30 to-transparent"></div>
+
+	<div class="max-w-6xl mx-auto px-6 lg:px-8 pt-20 pb-10">
+		<div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 pb-12 border-b border-[var(--color-border)]">
 			<!-- Brand -->
-			<div class="md:col-span-2">
+			<div class="md:col-span-5">
 				<a href={homeHref} class="flex items-center gap-3 mb-4">
 					<img
 						src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/simulacro.png`}
 						alt="Simulacro"
+						width="32"
+						height="32"
+						loading="lazy"
+						decoding="async"
 						class="w-8 h-8"
 					/>
 					<span class="text-lg font-semibold tracking-tight">
@@ -33,8 +42,8 @@ const homeHref = getLocalizedPath('/', lang);
 			</div>
 
 			<!-- Contact -->
-			<div>
-				<h3 class="text-sm font-semibold uppercase tracking-wider text-[var(--color-accent)] mb-4">
+			<div class="md:col-span-4">
+				<h3 class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-accent)] mb-5">
 					{t('footer.contact.heading')}
 				</h3>
 				<div class="space-y-3">
@@ -42,39 +51,40 @@ const homeHref = getLocalizedPath('/', lang);
 						href="mailto:contact@simulacro.tech"
 						class="flex items-center gap-3 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
 					>
-						<Mail size={16} class="shrink-0" />
+						<Mail size={15} class="shrink-0" />
 						contact@simulacro.tech
 					</a>
 					<a
 						href="tel:+5561981334405"
 						class="flex items-center gap-3 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
 					>
-						<Phone size={16} class="shrink-0" />
+						<Phone size={15} class="shrink-0" />
 						+55 61 98133-4405
 					</a>
 					<div class="flex items-center gap-3 text-sm text-[var(--color-text-muted)]">
-						<MapPin size={16} class="shrink-0" />
+						<MapPin size={15} class="shrink-0" />
 						{t('footer.contact.location')}
 					</div>
 				</div>
 			</div>
 
 			<!-- Connect -->
-			<div>
-				<h3 class="text-sm font-semibold uppercase tracking-wider text-[var(--color-accent)] mb-4">
+			<div class="md:col-span-3">
+				<h3 class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-accent)] mb-5">
 					{t('footer.connect.heading')}
 				</h3>
-				<div class="flex gap-4">
+				<div class="flex gap-3">
 					<a
 						href="https://linkedin.com/in/gustavoarcos"
 						target="_blank"
 						rel="noopener noreferrer"
+						aria-label="LinkedIn"
 						class="w-10 h-10 rounded-full border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-muted)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)]/50 transition-all duration-300"
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
-							width="18"
-							height="18"
+							width="17"
+							height="17"
 							viewBox="0 0 24 24"
 							fill="currentColor"
 						>
@@ -83,14 +93,63 @@ const homeHref = getLocalizedPath('/', lang);
 							></path>
 						</svg>
 					</a>
+					<a
+						href="https://github.com/noah-art3mis"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="GitHub"
+						class="w-10 h-10 rounded-full border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-muted)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)]/50 transition-all duration-300"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="17"
+							height="17"
+							viewBox="0 0 24 24"
+							fill="currentColor"
+						>
+							<path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+						</svg>
+					</a>
+					<a
+						href="https://simulacro.cv"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label={t('about.links.cv')}
+						class="w-10 h-10 rounded-full border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-muted)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)]/50 transition-all duration-300"
+					>
+						<GraduationCap size={17} />
+					</a>
+					<a
+						href="https://simulacro.co.uk"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label={t('about.links.essays')}
+						class="w-10 h-10 rounded-full border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-muted)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)]/50 transition-all duration-300"
+					>
+						<BookOpen size={17} />
+					</a>
+					<a
+						href="https://gustavocosta.psc.br"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label={t('about.links.philosophy')}
+						class="w-10 h-10 rounded-full border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-muted)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)]/50 transition-all duration-300"
+					>
+						<BookOpen size={17} />
+					</a>
 				</div>
 			</div>
 		</div>
 
-		<div
-			class="mt-12 pt-8 border-t border-[var(--color-border)] flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-[var(--color-text-muted)]"
-		>
-			<p>&copy; {new Date().getFullYear()} Simulacro Tech. {t('footer.copyright')}</p>
+		<!-- ─── Signoff line ─── -->
+		<div class="pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--color-text-muted)]">
+			<p>&copy; {year} Simulacro Tech · {t('footer.copyright')}</p>
+			{buildDate && (
+				<p class="flex items-center gap-2">
+					<span class="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]/60"></span>
+					<span>{t('footer.build.label')} · {buildDate}</span>
+				</p>
+			)}
 		</div>
 	</div>
 </footer>

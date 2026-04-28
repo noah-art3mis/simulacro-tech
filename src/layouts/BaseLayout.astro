@@ -17,6 +17,9 @@ const t = (key: UIKey) => ui[lang][key];
 
 const siteOrigin = Astro.site ? Astro.site.origin : 'https://simulacro.tech';
 const alternates = getAlternates(Astro.url.pathname, siteOrigin);
+
+// Build date — used in the footer caption. Set at build time.
+const buildDate = new Date().toISOString().slice(0, 10);
 ---
 
 <!doctype html>
@@ -31,38 +34,45 @@ const alternates = getAlternates(Astro.url.pathname, siteOrigin);
 		))}
 		<title>{t(titleKey)}</title>
 	</head>
-	<body class="overflow-x-hidden">
+	<body class="overflow-x-hidden" data-build-date={buildDate}>
 		<!-- Animated network canvas -->
 		<canvas id="network-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
-
-		<!-- Noise texture overlay -->
-		<div class="noise-overlay"></div>
 
 		<div class="min-h-screen flex flex-col relative z-10">
 			<Navigation lang={lang} />
 			<main class="flex-grow relative">
 				<slot />
 			</main>
-			<Footer lang={lang} />
+			<Footer lang={lang} buildDate={buildDate} />
 		</div>
 
 		<LanguageBanner lang={lang} />
 
 		<script>
-			// Network particle animation
+			// Network particle animation — refined: fewer particles, longer reach, slower drift,
+			// particles thicken near the cursor with a softer falloff.
 			const canvas = document.getElementById('network-canvas') as HTMLCanvasElement;
 			const ctx = canvas.getContext('2d');
 			let particles: Particle[] = [];
-			const PARTICLE_COUNT = 60;
-			const CONNECTION_DISTANCE = 150;
+			const PARTICLE_COUNT = 40;
+			const CONNECTION_DISTANCE = 200;
+			const MOUSE_REACH = 220;
+			const PARALLAX_FACTOR = 0.12;
 			let animationId: number;
 			let mouseX = -1000;
 			let mouseY = -1000;
+			let scrollOffsetY = 0;
+			const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 			function resize() {
 				canvas.width = window.innerWidth;
 				canvas.height = window.innerHeight;
 			}
+
+			const visualY = (y: number) => {
+				const h = canvas.height;
+				return ((y - scrollOffsetY) % h + h) % h;
+			};
 
 			class Particle {
 				x: number;
@@ -75,9 +85,10 @@ const alternates = getAlternates(Astro.url.pathname, siteOrigin);
 				constructor() {
 					this.x = Math.random() * canvas.width;
 					this.y = Math.random() * canvas.height;
-					this.vx = (Math.random() - 0.5) * 0.4;
-					this.vy = (Math.random() - 0.5) * 0.4;
-					this.baseRadius = Math.random() * 1.5 + 0.5;
+					// slower drift than before (was ±0.2)
+					this.vx = (Math.random() - 0.5) * 0.22;
+					this.vy = (Math.random() - 0.5) * 0.22;
+					this.baseRadius = Math.random() * 1.4 + 0.6;
 					this.radius = this.baseRadius;
 				}
 
@@ -89,12 +100,14 @@ const alternates = getAlternates(Astro.url.pathname, siteOrigin);
 					if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
 					if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
 
-					// Mouse interaction - particles grow near cursor
+					// Mouse interaction — particles thicken near cursor with quadratic falloff
+					const vy = visualY(this.y);
 					const dx = this.x - mouseX;
-					const dy = this.y - mouseY;
+					const dy = vy - mouseY;
 					const dist = Math.sqrt(dx * dx + dy * dy);
-					if (dist < 150) {
-						this.radius = this.baseRadius + (1 - dist / 150) * 2;
+					if (dist < MOUSE_REACH) {
+						const t = 1 - dist / MOUSE_REACH;
+						this.radius = this.baseRadius + t * t * 3.2;
 					} else {
 						this.radius = this.baseRadius;
 					}
@@ -103,25 +116,29 @@ const alternates = getAlternates(Astro.url.pathname, siteOrigin);
 				draw() {
 					if (!ctx) return;
 					ctx.beginPath();
-					ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-					ctx.fillStyle = 'rgba(245, 158, 11, 0.5)';
+					ctx.arc(this.x, visualY(this.y), this.radius, 0, Math.PI * 2);
+					ctx.fillStyle = 'rgba(245, 158, 11, 0.55)';
 					ctx.fill();
 				}
 			}
 
 			function drawConnections() {
 				if (!ctx) return;
-				for (let i = 0; i < particles.length; i++) {
-					for (let j = i + 1; j < particles.length; j++) {
+				const len = particles.length;
+				const vys = new Array(len);
+				for (let i = 0; i < len; i++) vys[i] = visualY(particles[i].y);
+
+				for (let i = 0; i < len; i++) {
+					for (let j = i + 1; j < len; j++) {
 						const dx = particles[i].x - particles[j].x;
-						const dy = particles[i].y - particles[j].y;
+						const dy = vys[i] - vys[j];
 						const dist = Math.sqrt(dx * dx + dy * dy);
 
 						if (dist < CONNECTION_DISTANCE) {
-							const opacity = 0.12 * (1 - dist / CONNECTION_DISTANCE);
+							const opacity = 0.1 * (1 - dist / CONNECTION_DISTANCE);
 							ctx.beginPath();
-							ctx.moveTo(particles[i].x, particles[i].y);
-							ctx.lineTo(particles[j].x, particles[j].y);
+							ctx.moveTo(particles[i].x, vys[i]);
+							ctx.lineTo(particles[j].x, vys[j]);
 							ctx.strokeStyle = `rgba(245, 158, 11, ${opacity})`;
 							ctx.lineWidth = 0.5;
 							ctx.stroke();
@@ -129,32 +146,34 @@ const alternates = getAlternates(Astro.url.pathname, siteOrigin);
 					}
 				}
 
-				// Draw connections to mouse
-				particles.forEach(p => {
+				// Cursor connections — amber to match background network
+				for (let i = 0; i < len; i++) {
+					const p = particles[i];
+					const pVy = vys[i];
 					const dx = p.x - mouseX;
-					const dy = p.y - mouseY;
+					const dy = pVy - mouseY;
 					const dist = Math.sqrt(dx * dx + dy * dy);
-					if (dist < 200) {
-						const opacity = 0.2 * (1 - dist / 200);
+					if (dist < MOUSE_REACH) {
+						const opacity = 0.22 * (1 - dist / MOUSE_REACH);
 						ctx.beginPath();
-						ctx.moveTo(p.x, p.y);
+						ctx.moveTo(p.x, pVy);
 						ctx.lineTo(mouseX, mouseY);
-						ctx.strokeStyle = `rgba(139, 92, 246, ${opacity})`;
+						ctx.strokeStyle = `rgba(245, 158, 11, ${opacity})`;
 						ctx.lineWidth = 0.8;
 						ctx.stroke();
 					}
-				});
+				}
 			}
 
 			function animate() {
 				if (!ctx) return;
 				ctx.clearRect(0, 0, canvas.width, canvas.height);
-				
+
 				particles.forEach(p => {
 					p.update();
 					p.draw();
 				});
-				
+
 				drawConnections();
 				animationId = requestAnimationFrame(animate);
 			}
@@ -165,7 +184,12 @@ const alternates = getAlternates(Astro.url.pathname, siteOrigin);
 				for (let i = 0; i < PARTICLE_COUNT; i++) {
 					particles.push(new Particle());
 				}
-				animate();
+				if (!reduced) animate();
+				else {
+					// Draw a single static frame so the canvas isn't blank
+					particles.forEach(p => p.draw());
+					drawConnections();
+				}
 			}
 
 			window.addEventListener('resize', () => {
@@ -182,20 +206,24 @@ const alternates = getAlternates(Astro.url.pathname, siteOrigin);
 				mouseY = -1000;
 			});
 
+			window.addEventListener('scroll', () => {
+				scrollOffsetY = window.scrollY * PARALLAX_FACTOR;
+			}, { passive: true });
+
 			init();
 		</script>
 
 		<script>
-			// Scroll reveal animation
+			// Scroll reveal animation — staggered children inside revealed sections
 			const revealObserver = new IntersectionObserver((entries) => {
 				entries.forEach(entry => {
 					if (entry.isIntersecting) {
 						entry.target.classList.add('revealed');
 					}
 				});
-			}, { 
-				threshold: 0.1,
-				rootMargin: '0px 0px -50px 0px'
+			}, {
+				threshold: 0.12,
+				rootMargin: '0px 0px -60px 0px'
 			});
 
 			// Observe all sections for reveal
@@ -204,7 +232,7 @@ const alternates = getAlternates(Astro.url.pathname, siteOrigin);
 				revealObserver.observe(el);
 			});
 
-			// Also observe elements with reveal-on-scroll class
+			// Also observe elements that opt in directly
 			document.querySelectorAll('.reveal-on-scroll').forEach(el => {
 				revealObserver.observe(el);
 			});

@@ -2,15 +2,10 @@
 import {
 	ArrowUpRight,
 	Github,
-	Lock,
 	Mic,
 	Cpu,
 	ScanLine,
-	Search,
 	Gavel,
-	FlaskConical,
-	BookOpen,
-	Award,
 } from 'lucide-astro';
 import { ui, type Lang, type UIKey } from '../i18n/ui';
 import { getLocalizedPath } from '../i18n/utils';
@@ -24,229 +19,129 @@ const t = (key: UIKey) => ui[lang][key];
 const homeHref = getLocalizedPath('/', lang);
 const contactHref = `${homeHref.replace(/\/$/, '')}/#contact`;
 
-const productionSystems = [
+type ProductionEntry = {
+	kind: 'production';
+	id: string;
+	name: string;
+	icon: typeof Mic;
+	statValues: readonly string[];
+};
+type OpenSourceEntry = {
+	kind: 'openSource';
+	id: string;
+	name: string;
+	icon: typeof Mic;
+	href: string;
+	repo: string;
+};
+
+const production: readonly ProductionEntry[] = [
 	{
+		kind: 'production',
 		id: 'molcajete',
-		num: '01',
 		name: 'Molcajete',
-		client: 'CAPTA',
-		year: '2026',
-		statValues: ['1,300+', '10', '30–60 min'],
-		stack: ['Python', 'Whisper', 'Claude', 'Google Apps Script', 'rclone'],
 		icon: Mic,
+		statValues: ['1,300+', '10', '<60 min'],
 	},
 	{
+		kind: 'production',
 		id: 'adapta',
-		num: '02',
 		name: 'Adapta',
-		client: 'CAPTA',
-		year: '2026',
-		statValues: ['40+', '100+', '165 h', '22'],
-		stack: ['QLoRA', 'Unsloth', 'vLLM', 'Modal', 'W&B / Weave'],
 		icon: Cpu,
+		statValues: ['40+', '100+'],
 	},
 	{
+		kind: 'production',
 		id: 'nopalero',
-		num: '03',
 		name: 'Nopalero',
-		client: 'CAPTA',
-		year: '2026',
-		statValues: ['48', 'OCR', '0'],
-		stack: ['Python', 'OCR', 'LLM classification', 'Jotform'],
 		icon: ScanLine,
+		statValues: ['48', 'OCR', '0'],
 	},
 ] as const;
 
-const openSource = [
+const openSource: readonly OpenSourceEntry[] = [
 	{
-		id: 'intersect',
-		name: 'Intersect',
-		repo: 'noah-art3mis/intersect',
-		url: 'https://github.com/noah-art3mis/intersect',
-		year: '2025',
-		codeLang: 'Python',
-		tags: ['nlp', 'embeddings', 'streamlit'],
-		icon: Search,
-	},
-	{
-		id: 'judexMini',
-		name: 'Judex-mini',
-		repo: 'noah-art3mis/judex-mini',
-		url: 'https://github.com/noah-art3mis/judex-mini',
-		year: '2025',
-		codeLang: 'Python',
-		tags: ['scraper', 'law', 'python'],
+		kind: 'openSource',
+		id: 'judex',
+		name: 'Judex',
 		icon: Gavel,
-	},
-	{
-		id: 'crucible',
-		name: 'Crucible',
-		repo: 'noah-art3mis/crucible',
-		url: 'https://github.com/noah-art3mis/crucible',
-		year: '2024',
-		codeLang: 'Python',
-		tags: ['evals', 'llm', 'prompt-engineering'],
-		icon: FlaskConical,
-	},
-] as const;
-
-const research = [
-	{
-		id: 'slop',
-		year: '2025',
-		icon: BookOpen,
-	},
-	{
-		id: 'stereotype',
-		year: '2024',
-		icon: Award,
+		href: 'https://github.com/noah-art3mis/judex-mini',
+		repo: 'noah-art3mis/judex-mini',
 	},
 ] as const;
 ---
 
-<!-- ─────────── Hero / Index ─────────── -->
-<section class="relative pt-20 pb-24 overflow-hidden">
-	<!-- Background atmosphere -->
-	<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(245,158,11,0.12)_0%,transparent_55%),radial-gradient(ellipse_at_70%_60%,rgba(139,92,246,0.10)_0%,transparent_55%)]"></div>
-	<div class="glow-orb w-[500px] h-[500px] -top-32 -right-32 opacity-60"></div>
-	<div class="glow-orb glow-orb-secondary w-[400px] h-[400px] top-1/2 -left-32 opacity-50" style="animation-delay: -1.5s;"></div>
+<!-- ════════════════════════════════════════════════
+     Masthead
+     ════════════════════════════════════════════════ -->
+<section class="relative pt-20 pb-16">
+	<div class="glow-orb w-[420px] h-[420px] -top-20 -right-32 opacity-50"></div>
 
-	<div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
-		<!-- Manifest header: file-card style -->
-		<div class="border border-[var(--color-border)] rounded-2xl bg-[var(--color-bg-card)] backdrop-blur-md overflow-hidden animate-fade-up">
-			<!-- Top metadata bar -->
-			<div class="flex items-center justify-between px-6 py-3 border-b border-[var(--color-border)] font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
-				<div class="flex items-center gap-3">
-					<span class="w-2 h-2 rounded-full bg-[var(--color-accent)] animate-pulse"></span>
-					<span>{t('projects.manifest.path')}</span>
-				</div>
-				<span class="hidden sm:inline">{t('projects.manifest.lastUpdated')}</span>
+	<div class="max-w-6xl mx-auto px-6 lg:px-10 relative z-10">
+		<div class="flex items-center gap-4 mb-12 animate-fade-up">
+			<span class="hairline w-12"></span>
+			<span class="mono-label">{t('nav.projects')}</span>
+		</div>
+
+		<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+			<div class="lg:col-span-9">
+				<h1 class="text-6xl md:text-7xl lg:text-[6.5rem] mb-2 animate-fade-up animate-delay-1 leading-[0.95] text-balance">
+					{t('projects.intro.heading')}
+				</h1>
 			</div>
-
-			<!-- Header body -->
-			<div class="p-8 md:p-14 grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
-				<div class="md:col-span-8">
-					<span class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-accent)] block mb-6">
-						{t('projects.manifest.index')}
-					</span>
-					<h1 class="text-5xl md:text-7xl lg:text-[5.5rem] leading-[0.95] mb-8 text-balance">
-						{t('projects.manifest.title.before')}<span class="italic text-[var(--color-text-muted)]">{t('projects.manifest.title.highlight')}</span>{t('projects.manifest.title.after')}
-					</h1>
-					<p class="text-lg md:text-xl text-[var(--color-text-muted)] max-w-2xl leading-relaxed">
-						{t('projects.manifest.lede')}
-					</p>
-				</div>
-
-				<!-- Stat block on the right -->
-				<div class="md:col-span-4 md:border-l md:border-[var(--color-border)] md:pl-8 grid grid-cols-3 md:grid-cols-1 gap-6">
-					<div>
-						<div class="text-3xl md:text-5xl font-serif" style="font-family: 'Crimson Pro', serif;">3</div>
-						<div class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-muted)] mt-1">{t('projects.stats.production')}</div>
-					</div>
-					<div>
-						<div class="text-3xl md:text-5xl font-serif" style="font-family: 'Crimson Pro', serif;">3</div>
-						<div class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-muted)] mt-1">{t('projects.stats.openSource')}</div>
-					</div>
-					<div>
-						<div class="text-3xl md:text-5xl font-serif" style="font-family: 'Crimson Pro', serif;">2</div>
-						<div class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-muted)] mt-1">{t('projects.stats.research')}</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- Quick-jump bar -->
-			<div class="border-t border-[var(--color-border)] px-6 py-4 flex flex-wrap gap-x-8 gap-y-2 font-mono text-xs">
-				<a href="#production" class="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">{t('projects.jump.production')}</a>
-				<a href="#open-source" class="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">{t('projects.jump.openSource')}</a>
-				<a href="#research" class="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">{t('projects.jump.research')}</a>
+			<div class="lg:col-span-3 animate-fade-up animate-delay-2">
+				<div class="hairline mb-4"></div>
+				<p class="text-base text-[var(--color-text-muted)] leading-relaxed">
+					{t('meta.projects.description')}
+				</p>
 			</div>
 		</div>
 	</div>
 </section>
 
-<!-- ─────────── Production Systems ─────────── -->
-<section id="production" class="py-24 relative scroll-mt-24">
-	<div class="max-w-6xl mx-auto px-6 lg:px-8">
-		<!-- Section header -->
-		<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-20 pb-6 border-b border-[var(--color-border)]">
-			<div>
-				<span class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-accent)] block mb-4">{t('projects.production.eyebrow')}</span>
-				<h2 class="text-4xl md:text-6xl">{t('projects.production.heading')}</h2>
-			</div>
-			<p class="md:text-right text-[var(--color-text-muted)] max-w-sm leading-relaxed flex items-center gap-2 md:justify-end">
-				<Lock size={14} class="shrink-0" />
-				<span>{t('projects.production.note')}</span>
-			</p>
+<!-- ════════════════════════════════════════════════
+     I — In production
+     ════════════════════════════════════════════════ -->
+<section class="pt-12 pb-12 relative">
+	<div class="max-w-6xl mx-auto px-6 lg:px-10">
+		<div class="mb-8">
+			<span class="section-mark">I — {t('projects.section.production')}</span>
 		</div>
 
-		<!-- Project case studies -->
-		<div class="space-y-32">
-			{productionSystems.map((p, i) => {
+		<div class="border-t border-[var(--color-rule-strong)]">
+			{production.map((p, i) => {
 				const Icon = p.icon;
-				const isReversed = i % 2 === 1;
-				const tagline = t(`projects.production.${p.id}.tagline` as UIKey);
-				const description = t(`projects.production.${p.id}.description` as UIKey);
+				const num = String(i + 1).padStart(2, '0');
 				return (
-					<article class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-						{/* Left rail: number + meta */}
-						<div class={`lg:col-span-4 ${isReversed ? 'lg:order-2 lg:text-right' : ''}`}>
-							<div class={`flex items-baseline gap-4 mb-6 ${isReversed ? 'lg:justify-end' : ''}`}>
-								<span class="font-mono text-sm text-[var(--color-text-muted)]">{p.num}</span>
-								<div class="h-px flex-1 bg-gradient-to-r from-[var(--color-accent)]/40 to-transparent"></div>
+					<article class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-16 border-b border-[var(--color-rule)]">
+						<div class="lg:col-span-4">
+							<div class="flex items-baseline gap-4 mb-6">
+								<span class="mono-num text-[var(--color-accent)] text-sm tracking-widest">N° {num}</span>
+								<div class="flex-1 hairline"></div>
+								<Icon size={18} class="text-[var(--color-accent)] opacity-70" />
 							</div>
-							<div class={`icon-box mb-6 ${isReversed ? 'lg:ml-auto' : ''}`}>
-								<Icon size={22} />
-							</div>
-							<h3 class="text-5xl md:text-6xl mb-4 leading-none">
-								<span class="gradient-text">{p.name}</span>
-							</h3>
-							<dl class={`font-mono text-xs uppercase tracking-[0.15em] text-[var(--color-text-muted)] space-y-2 ${isReversed ? 'lg:text-right' : ''}`}>
-								<div class={`flex gap-3 ${isReversed ? 'lg:justify-end' : ''}`}>
-									<dt class="text-[var(--color-text-muted)]/60">{t('projects.production.meta.client')}</dt>
-									<dd class="text-[var(--color-text)]">{p.client}</dd>
-								</div>
-								<div class={`flex gap-3 ${isReversed ? 'lg:justify-end' : ''}`}>
-									<dt class="text-[var(--color-text-muted)]/60">{t('projects.production.meta.year')}</dt>
-									<dd class="text-[var(--color-text)]">{p.year}</dd>
-								</div>
-								<div class={`flex gap-3 ${isReversed ? 'lg:justify-end' : ''}`}>
-									<dt class="text-[var(--color-text-muted)]/60">{t('projects.production.meta.role')}</dt>
-									<dd class="text-[var(--color-text)]">{t('projects.production.role')}</dd>
-								</div>
-							</dl>
+							<h2 class="text-5xl md:text-6xl leading-none">{p.name}</h2>
 						</div>
 
-						{/* Right rail: copy + stats */}
-						<div class={`lg:col-span-8 ${isReversed ? 'lg:order-1' : ''}`}>
-							<p class="text-2xl md:text-3xl leading-tight mb-6 font-serif" style="font-family: 'Crimson Pro', serif; font-weight: 400;">
-								{tagline}
+						<div class="lg:col-span-8">
+							<p class="font-display text-2xl md:text-3xl leading-tight mb-6 text-balance">
+								{t(`projects.production.${p.id}.tagline` as UIKey)}
 							</p>
-							<p class="text-[var(--color-text-muted)] text-base md:text-lg leading-relaxed mb-10 max-w-2xl">
-								{description}
+							<p class="text-[var(--color-text-muted)] text-base md:text-lg leading-relaxed mb-10 max-w-2xl text-pretty">
+								{t(`projects.production.${p.id}.description` as UIKey)}
 							</p>
-
-							{/* Stats strip */}
-							<div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-[var(--color-border)] border border-[var(--color-border)] rounded-xl overflow-hidden mb-8">
+							<div class="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-6 border-t border-[var(--color-rule-strong)] pt-6">
 								{p.statValues.map((value, idx) => (
-									<div class="bg-[var(--color-bg)] p-5">
-										<div class="text-2xl md:text-3xl font-semibold text-[var(--color-accent)]" style="font-family: 'Crimson Pro', serif;">
+									<div>
+										<div class="font-display text-3xl md:text-4xl text-[var(--color-accent)] leading-none mb-2">
 											{value}
 										</div>
-										<div class="font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-text-muted)] mt-2 leading-tight">
+										<div class="mono-label leading-tight">
 											{t(`projects.production.${p.id}.stat.${idx}` as UIKey)}
 										</div>
 									</div>
 								))}
 							</div>
-
-							{/* Stack */}
-							<div class="flex flex-wrap gap-2">
-								{p.stack.map(s => (
-									<span class="font-mono text-[11px] px-3 py-1.5 rounded-full border border-[var(--color-border)] text-[var(--color-text-muted)] bg-white/[0.02]">
-										{s}
-									</span>
-								))}
-							</div>
 						</div>
 					</article>
 				);
@@ -255,120 +150,43 @@ const research = [
 	</div>
 </section>
 
-<!-- ─────────── Open Source ─────────── -->
-<section id="open-source" class="py-24 relative scroll-mt-24">
-	<!-- subtle banding to mark a section break -->
-	<div class="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--color-bg-elevated)]/40 to-transparent"></div>
-
-	<div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
-		<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 pb-6 border-b border-[var(--color-border)]">
-			<div>
-				<span class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-accent)] block mb-4">{t('projects.openSource.eyebrow')}</span>
-				<h2 class="text-4xl md:text-6xl">{t('projects.openSource.heading')}</h2>
-			</div>
-			<a href="https://github.com/noah-art3mis" target="_blank" rel="noopener" class="font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors inline-flex items-center gap-2 self-start md:self-end">
-				<Github size={14} />
-				<span>github.com/noah-art3mis</span>
-				<ArrowUpRight size={12} />
-			</a>
+<!-- ════════════════════════════════════════════════
+     II — Open source
+     ════════════════════════════════════════════════ -->
+<section class="pt-12 pb-24 relative">
+	<div class="max-w-6xl mx-auto px-6 lg:px-10">
+		<div class="mb-8">
+			<span class="section-mark">II — {t('projects.section.openSource')}</span>
 		</div>
 
-		<!-- Terminal-window cards grid -->
-		<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-			{openSource.map(p => {
+		<div class="border-t border-[var(--color-rule-strong)]">
+			{openSource.map((p, i) => {
 				const Icon = p.icon;
-				const summary = t(`projects.openSource.${p.id}.summary` as UIKey);
+				const num = String(i + 1).padStart(2, '0');
 				return (
-					<a href={p.url} target="_blank" rel="noopener" class="group block">
-						<article class="h-full glass-card rounded-xl overflow-hidden flex flex-col">
-							{/* Title bar — like a terminal/window chrome */}
-							<header class="flex items-center justify-between px-4 py-3 border-b border-[var(--color-border)] bg-black/20">
-								<div class="flex items-center gap-1.5">
-									<span class="w-2.5 h-2.5 rounded-full bg-[var(--color-text-muted)]/30"></span>
-									<span class="w-2.5 h-2.5 rounded-full bg-[var(--color-text-muted)]/30"></span>
-									<span class="w-2.5 h-2.5 rounded-full bg-[var(--color-text-muted)]/30"></span>
-								</div>
-								<span class="font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-text-muted)] truncate">
-									{p.repo}
-								</span>
-							</header>
-
-							<div class="p-6 flex flex-col flex-1">
-								<div class="flex items-start justify-between mb-5">
-									<div class="icon-box">
-										<Icon size={20} />
-									</div>
-									<ArrowUpRight size={18} class="text-[var(--color-text-muted)] transition-all duration-300 group-hover:text-[var(--color-accent)] group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-								</div>
-
-								<h3 class="text-2xl mb-3 group-hover:text-[var(--color-accent)] transition-colors">{p.name}</h3>
-
-								<p class="text-[var(--color-text-muted)] text-sm leading-relaxed mb-6 flex-1">
-									{summary}
-								</p>
-
-								<!-- footer: lang + tags + year -->
-								<div class="flex items-center justify-between pt-4 border-t border-[var(--color-border)] font-mono text-[10px] uppercase tracking-[0.15em]">
-									<div class="flex items-center gap-2">
-										<span class="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]"></span>
-										<span class="text-[var(--color-text-muted)]">{p.codeLang}</span>
-									</div>
-									<span class="text-[var(--color-text-muted)]/70">{p.year}</span>
-								</div>
-
-								<div class="flex flex-wrap gap-1.5 mt-4">
-									{p.tags.map(tag => (
-										<span class="font-mono text-[10px] text-[var(--color-text-muted)]/70">#{tag}</span>
-									))}
-								</div>
+					<article class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-12 border-b border-[var(--color-rule)]">
+						<div class="lg:col-span-4">
+							<div class="flex items-baseline gap-4 mb-6">
+								<span class="mono-num text-[var(--color-accent)] text-sm tracking-widest">N° {num}</span>
+								<div class="flex-1 hairline"></div>
+								<Icon size={18} class="text-[var(--color-accent)] opacity-70" />
 							</div>
-						</article>
-					</a>
-				);
-			})}
-		</div>
-	</div>
-</section>
-
-<!-- ─────────── Research & Honors ─────────── -->
-<section id="research" class="py-24 relative scroll-mt-24">
-	<div class="max-w-6xl mx-auto px-6 lg:px-8">
-		<div class="mb-16 pb-6 border-b border-[var(--color-border)]">
-			<span class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-accent)] block mb-4">{t('projects.research.eyebrow')}</span>
-			<h2 class="text-4xl md:text-6xl">{t('projects.research.heading')}</h2>
-		</div>
-
-		<!-- Manuscript-style entries -->
-		<div class="divide-y divide-[var(--color-border)]">
-			{research.map(r => {
-				const Icon = r.icon;
-				const title = t(`projects.research.${r.id}.title` as UIKey);
-				const venue = t(`projects.research.${r.id}.venue` as UIKey);
-				const grade = t(`projects.research.${r.id}.grade` as UIKey);
-				const summary = t(`projects.research.${r.id}.summary` as UIKey);
-				return (
-					<article class="py-10 first:pt-0 last:pb-0 grid grid-cols-1 md:grid-cols-12 gap-6 group">
-						<div class="md:col-span-2">
-							<div class="flex md:flex-col items-center md:items-start gap-4 md:gap-5">
-								<div class="icon-box">
-									<Icon size={20} />
-								</div>
-								<div class="font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-accent)]">
-									{grade}
-								</div>
-							</div>
+							<h2 class="text-4xl md:text-5xl leading-none mb-4">{p.name}</h2>
+							<a
+								href={p.href}
+								target="_blank"
+								rel="noopener"
+								class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
+							>
+								<Github size={14} />
+								<span>{p.repo}</span>
+								<ArrowUpRight size={12} />
+							</a>
 						</div>
-						<div class="md:col-span-10">
-							<h3 class="text-3xl md:text-4xl mb-3 italic" style="font-family: 'Crimson Pro', serif; font-weight: 500;">
-								“{title}”
-							</h3>
-							<div class="font-mono text-xs uppercase tracking-[0.15em] text-[var(--color-text-muted)] mb-5 flex flex-wrap gap-x-4 gap-y-1">
-								<span>{venue}</span>
-								<span class="text-[var(--color-text-muted)]/60">·</span>
-								<span>{r.year}</span>
-							</div>
-							<p class="text-[var(--color-text-muted)] text-base md:text-lg leading-relaxed max-w-3xl">
-								{summary}
+
+						<div class="lg:col-span-8">
+							<p class="font-display text-2xl md:text-3xl leading-tight text-balance">
+								{t(`projects.openSource.${p.id}.summary` as UIKey)}
 							</p>
 						</div>
 					</article>
@@ -378,22 +196,22 @@ const research = [
 	</div>
 </section>
 
-<!-- ─────────── CTA ─────────── -->
+<!-- ════════════════════════════════════════════════
+     Closing CTA
+     ════════════════════════════════════════════════ -->
 <section class="py-24 relative overflow-hidden">
-	<div class="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-elevated)] to-transparent"></div>
-	<div class="glow-orb glow-orb-secondary w-[500px] h-[500px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-25"></div>
+	<div class="glow-orb w-[400px] h-[400px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-25"></div>
 
-	<div class="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center">
-		<span class="font-mono text-xs uppercase tracking-[0.25em] text-[var(--color-accent)] block mb-6">{t('projects.cta.eyebrow')}</span>
-		<h2 class="text-4xl md:text-5xl mb-6 text-balance">
+	<div class="max-w-4xl mx-auto px-6 lg:px-10 relative z-10 text-center">
+		<h2 class="text-4xl md:text-5xl lg:text-6xl mb-6 text-balance">
 			{t('projects.cta.heading')}
 		</h2>
 		<p class="text-lg text-[var(--color-text-muted)] max-w-xl mx-auto mb-10">
 			{t('projects.cta.lede')}
 		</p>
-		<a href={contactHref} class="btn-primary inline-flex items-center gap-2 group">
+		<a href={contactHref} class="btn-primary inline-flex items-center justify-center gap-2 whitespace-nowrap group">
 			{t('projects.cta.action')}
-			<ArrowUpRight size={18} class="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+			<ArrowUpRight size={16} class="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
 		</a>
 	</div>
 </section>
