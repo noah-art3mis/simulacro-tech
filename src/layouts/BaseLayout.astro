@@ -60,15 +60,22 @@ const buildDate = new Date().toISOString().slice(0, 10);
 			const PARTICLE_COUNT = 40;
 			const CONNECTION_DISTANCE = 200;
 			const MOUSE_REACH = 220;
+			const PARALLAX_FACTOR = 0.12;
 			let animationId: number;
 			let mouseX = -1000;
 			let mouseY = -1000;
+			let scrollOffsetY = 0;
 			const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 			function resize() {
 				canvas.width = window.innerWidth;
 				canvas.height = window.innerHeight;
 			}
+
+			const visualY = (y: number) => {
+				const h = canvas.height;
+				return ((y - scrollOffsetY) % h + h) % h;
+			};
 
 			class Particle {
 				x: number;
@@ -97,8 +104,9 @@ const buildDate = new Date().toISOString().slice(0, 10);
 					if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
 
 					// Mouse interaction — particles thicken near cursor with quadratic falloff
+					const vy = visualY(this.y);
 					const dx = this.x - mouseX;
-					const dy = this.y - mouseY;
+					const dy = vy - mouseY;
 					const dist = Math.sqrt(dx * dx + dy * dy);
 					if (dist < MOUSE_REACH) {
 						const t = 1 - dist / MOUSE_REACH;
@@ -111,7 +119,7 @@ const buildDate = new Date().toISOString().slice(0, 10);
 				draw() {
 					if (!ctx) return;
 					ctx.beginPath();
-					ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+					ctx.arc(this.x, visualY(this.y), this.radius, 0, Math.PI * 2);
 					ctx.fillStyle = 'rgba(245, 158, 11, 0.55)';
 					ctx.fill();
 				}
@@ -119,17 +127,21 @@ const buildDate = new Date().toISOString().slice(0, 10);
 
 			function drawConnections() {
 				if (!ctx) return;
-				for (let i = 0; i < particles.length; i++) {
-					for (let j = i + 1; j < particles.length; j++) {
+				const len = particles.length;
+				const vys = new Array(len);
+				for (let i = 0; i < len; i++) vys[i] = visualY(particles[i].y);
+
+				for (let i = 0; i < len; i++) {
+					for (let j = i + 1; j < len; j++) {
 						const dx = particles[i].x - particles[j].x;
-						const dy = particles[i].y - particles[j].y;
+						const dy = vys[i] - vys[j];
 						const dist = Math.sqrt(dx * dx + dy * dy);
 
 						if (dist < CONNECTION_DISTANCE) {
 							const opacity = 0.1 * (1 - dist / CONNECTION_DISTANCE);
 							ctx.beginPath();
-							ctx.moveTo(particles[i].x, particles[i].y);
-							ctx.lineTo(particles[j].x, particles[j].y);
+							ctx.moveTo(particles[i].x, vys[i]);
+							ctx.lineTo(particles[j].x, vys[j]);
 							ctx.strokeStyle = `rgba(245, 158, 11, ${opacity})`;
 							ctx.lineWidth = 0.5;
 							ctx.stroke();
@@ -137,21 +149,23 @@ const buildDate = new Date().toISOString().slice(0, 10);
 					}
 				}
 
-				// Cursor connections — violet, only place violet appears as foreground
-				particles.forEach(p => {
+				// Cursor connections — amber to match background network
+				for (let i = 0; i < len; i++) {
+					const p = particles[i];
+					const pVy = vys[i];
 					const dx = p.x - mouseX;
-					const dy = p.y - mouseY;
+					const dy = pVy - mouseY;
 					const dist = Math.sqrt(dx * dx + dy * dy);
 					if (dist < MOUSE_REACH) {
 						const opacity = 0.22 * (1 - dist / MOUSE_REACH);
 						ctx.beginPath();
-						ctx.moveTo(p.x, p.y);
+						ctx.moveTo(p.x, pVy);
 						ctx.lineTo(mouseX, mouseY);
-						ctx.strokeStyle = `rgba(139, 92, 246, ${opacity})`;
+						ctx.strokeStyle = `rgba(245, 158, 11, ${opacity})`;
 						ctx.lineWidth = 0.8;
 						ctx.stroke();
 					}
-				});
+				}
 			}
 
 			function animate() {
@@ -194,6 +208,10 @@ const buildDate = new Date().toISOString().slice(0, 10);
 				mouseX = -1000;
 				mouseY = -1000;
 			});
+
+			window.addEventListener('scroll', () => {
+				scrollOffsetY = window.scrollY * PARALLAX_FACTOR;
+			}, { passive: true });
 
 			init();
 		</script>

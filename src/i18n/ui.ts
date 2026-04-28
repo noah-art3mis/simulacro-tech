@@ -59,6 +59,21 @@ export const ui = {
 		'home.why.technical.description':
 			'From NLP pipelines to statistical analysis, the technical work is grounded in research-grade methodology.',
 
+		'home.projects.label': 'Selected work',
+		'home.projects.heading': 'Recent projects',
+		'home.projects.intro':
+			'A few examples of how the practice plays out — production systems, research tools, end-to-end builds.',
+		'home.projects.cta': 'Browse all projects',
+
+		'projects.production.molcajete.tagline':
+			'AI-powered transcription and analysis pipeline for political focus group research in Mexican Spanish.',
+		'projects.production.adapta.tagline':
+			'Seven-stage data pipeline and LLM fine-tuning infrastructure for Mexican Spanish political analysis.',
+		'projects.production.nopalero.tagline':
+			'Automated participant screening system for qualitative recruitment.',
+		'projects.openSource.judexMini.summary':
+			'Streamlined, fast Python library for scraping case data from the Brazilian Supreme Court (STF).',
+
 		'home.about.label': 'About',
 		'home.about.bio':
 			'Founded by Gustavo Costa, a psychologist turned data scientist. After years in clinical practice, he now applies that same attentiveness to how we build and deploy AI systems.',
@@ -107,7 +122,7 @@ export const ui = {
 		'footer.manifesto.italic': 'archive',
 		'footer.manifesto.after': ' of systems built with the same care once brought to clinical practice.',
 		'footer.contact.heading': 'Contact',
-		'footer.contact.location': 'London, UK / Brasília, Brazil',
+		'footer.contact.location': 'London, UK / Brasília, BR / CDMX, MX',
 		'footer.connect.heading': 'Connect',
 		'footer.copyright': 'All rights reserved.',
 		'footer.build.label': 'last build',
@@ -180,6 +195,21 @@ export const ui = {
 		'home.why.technical.description':
 			'De pipelines de PLN à análise estatística, o trabalho técnico se baseia em metodologia de pesquisa.',
 
+		'home.projects.label': 'Trabalho selecionado',
+		'home.projects.heading': 'Projetos recentes',
+		'home.projects.intro':
+			'Alguns exemplos de como a prática se desdobra — sistemas em produção, ferramentas de pesquisa, implementações ponta a ponta.',
+		'home.projects.cta': 'Ver todos os projetos',
+
+		'projects.production.molcajete.tagline':
+			'Pipeline de transcrição e análise com IA para pesquisa qualitativa em grupos focais de política em espanhol mexicano.',
+		'projects.production.adapta.tagline':
+			'Pipeline de dados de sete estágios e infraestrutura de fine-tuning de LLMs para análise política em espanhol mexicano.',
+		'projects.production.nopalero.tagline':
+			'Sistema automatizado de triagem de participantes para recrutamento qualitativo.',
+		'projects.openSource.judexMini.summary':
+			'Biblioteca Python enxuta e rápida para coletar dados de processos do Supremo Tribunal Federal (STF).',
+
 		'home.about.label': 'Sobre',
 		'home.about.bio':
 			'Fundada por Gustavo Costa, psicólogo que se tornou cientista de dados. Depois de anos na prática clínica, ele aplica essa mesma atenção à forma como construímos e implantamos sistemas de IA.',
@@ -228,7 +258,7 @@ export const ui = {
 		'footer.manifesto.italic': 'arquivo',
 		'footer.manifesto.after': ' de sistemas construídos com o mesmo cuidado dedicado à clínica.',
 		'footer.contact.heading': 'Contato',
-		'footer.contact.location': 'Londres, Reino Unido / Brasília, Brasil',
+		'footer.contact.location': 'Londres, Reino Unido / Brasília, BR / CDMX, MX',
 		'footer.connect.heading': 'Conecte-se',
 		'footer.copyright': 'Todos os direitos reservados.',
 		'footer.build.label': 'última build',
@@ -301,6 +331,21 @@ export const ui = {
 		'home.why.technical.description':
 			'Desde pipelines de PLN hasta análisis estadístico, el trabajo técnico se basa en metodología de investigación.',
 
+		'home.projects.label': 'Trabajo seleccionado',
+		'home.projects.heading': 'Proyectos recientes',
+		'home.projects.intro':
+			'Algunos ejemplos de cómo se desarrolla la práctica — sistemas en producción, herramientas de investigación, implementaciones integrales.',
+		'home.projects.cta': 'Ver todos los proyectos',
+
+		'projects.production.molcajete.tagline':
+			'Pipeline de transcripción y análisis con IA para investigación cualitativa en grupos focales de política en español mexicano.',
+		'projects.production.adapta.tagline':
+			'Pipeline de datos de siete etapas e infraestructura de fine-tuning de LLMs para análisis político en español mexicano.',
+		'projects.production.nopalero.tagline':
+			'Sistema automatizado de selección de participantes para reclutamiento cualitativo.',
+		'projects.openSource.judexMini.summary':
+			'Biblioteca Python reducida y rápida para extraer datos de casos del Supremo Tribunal Federal de Brasil (STF).',
+
 		'home.about.label': 'Sobre mí',
 		'home.about.bio':
 			'Fundada por Gustavo Costa, psicólogo convertido en científico de datos. Tras años de práctica clínica, él aplica esa misma atención a cómo construimos y desplegamos sistemas de IA.',
@@ -349,7 +394,7 @@ export const ui = {
 		'footer.manifesto.italic': 'archivo',
 		'footer.manifesto.after': ' de sistemas construidos con el mismo cuidado de la práctica clínica.',
 		'footer.contact.heading': 'Contacto',
-		'footer.contact.location': 'Londres, Reino Unido / Brasilia, Brasil',
+		'footer.contact.location': 'Londres, Reino Unido / Brasilia, BR / CDMX, MX',
 		'footer.connect.heading': 'Conecta',
 		'footer.copyright': 'Todos los derechos reservados.',
 		'footer.build.label': 'última build',

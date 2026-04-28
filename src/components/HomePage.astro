@@ -1,6 +1,6 @@
 ---
 import ContactForm from './ContactForm.astro';
-import { ArrowRight, Brain, BarChart3, Shield } from 'lucide-astro';
+import { ArrowRight, ArrowUpRight, Brain, BarChart3, Shield, HeartPulse, BookOpenText, Cpu } from 'lucide-astro';
 import { ui, type Lang, type UIKey } from '../i18n/ui';
 import { getLocalizedPath } from '../i18n/utils';
 
@@ -11,12 +11,19 @@ interface Props {
 const { lang } = Astro.props;
 const t = (key: UIKey) => ui[lang][key];
 const aboutHref = getLocalizedPath('/about', lang);
+const projectsHref = getLocalizedPath('/projects', lang);
+
+const featuredProjects = [
+	{ id: 'molcajete', name: 'Molcajete', taglineKey: 'projects.production.molcajete.tagline' },
+	{ id: 'adapta',    name: 'Adapta',    taglineKey: 'projects.production.adapta.tagline' },
+	{ id: 'judexMini', name: 'Judex Mini', taglineKey: 'projects.openSource.judexMini.summary' },
+] as const;
 ---
 
 <!-- ─────────── Hero ─────────── -->
 <!-- Strong glow. Choreographed entrance: eyebrow first, italic word last. -->
 <section
-	class="relative min-h-[92vh] flex items-center overflow-hidden hero-mesh-bg"
+	class="relative min-h-[92vh] flex items-center hero-mesh-bg"
 >
 	<!-- Mesh gradient background -->
 	<div
@@ -88,12 +95,12 @@ const aboutHref = getLocalizedPath('/about', lang);
 
 <!-- ─────────── Services ─────────── -->
 <!-- Single subtle orb — quiet section after the hero blast. -->
-<section id="services" class="py-24 md:py-28 relative scroll-mt-24 overflow-hidden">
+<section id="services" class="py-24 md:py-28 relative scroll-mt-24">
 	<div class="glow-orb w-[300px] h-[300px] -top-24 right-1/4 opacity-25" style="animation-delay: -2.5s;"></div>
 
 	<div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
 		<div class="text-center max-w-3xl mx-auto mb-20">
-			<span class="eyebrow mb-5 inline-block">§ 01 — {t('home.services.label')}</span>
+			<span class="eyebrow mb-5 inline-block">01 — {t('home.services.label')}</span>
 			<h2 class="text-[clamp(2rem,5vw,3.75rem)] mb-6 text-balance">{t('home.services.heading')}</h2>
 			<p class="text-lg md:text-xl text-[var(--color-text-muted)] leading-relaxed text-pretty">
 				{t('home.services.subheading')}
@@ -146,25 +153,19 @@ const aboutHref = getLocalizedPath('/about', lang);
 	<div class="max-w-6xl mx-auto px-6 lg:px-8">
 		<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
 			<div class="lg:col-span-5">
-				<span class="eyebrow mb-5 inline-block">§ 02 — {t('home.why.label')}</span>
+				<span class="eyebrow mb-5 inline-block">02 — {t('home.why.label')}</span>
 				<h2 class="text-[clamp(2rem,4.5vw,3.5rem)] mb-8 leading-[1.05]">{t('home.why.heading')}</h2>
 				<p class="text-lg text-[var(--color-text-muted)] leading-relaxed text-pretty">
 					{t('home.why.intro')}
 				</p>
 
-				<!-- Pull-quote that earns the italic serif device -->
-				<div class="hidden lg:block mt-12">
-					<p class="pull-quote">
-						{t('home.why.pullquote.before')}<span class="italic-serif">{t('home.why.pullquote.italic')}</span>{t('home.why.pullquote.after')}
-					</p>
-				</div>
 			</div>
 
 			<div class="lg:col-span-7 space-y-5">
 				<div class="glass-card glass-card-service p-6 md:p-7 flex gap-6 stagger-child">
 					<div class="shrink-0">
-						<div class="w-14 h-14 rounded-full bg-[var(--color-accent)]/10 flex items-center justify-center text-[var(--color-accent)] stat-value text-2xl">
-							01
+						<div class="w-14 h-14 rounded-full bg-[var(--color-accent)]/10 flex items-center justify-center text-[var(--color-accent)]" aria-hidden="true">
+							<HeartPulse size={24} strokeWidth={1.5} />
 						</div>
 					</div>
 					<div>
@@ -179,8 +180,8 @@ const aboutHref = getLocalizedPath('/about', lang);
 
 				<div class="glass-card glass-card-service p-6 md:p-7 flex gap-6 stagger-child">
 					<div class="shrink-0">
-						<div class="w-14 h-14 rounded-full bg-[var(--color-accent)]/10 flex items-center justify-center text-[var(--color-accent)] stat-value text-2xl">
-							02
+						<div class="w-14 h-14 rounded-full bg-[var(--color-accent)]/10 flex items-center justify-center text-[var(--color-accent)]" aria-hidden="true">
+							<BookOpenText size={24} strokeWidth={1.5} />
 						</div>
 					</div>
 					<div>
@@ -195,8 +196,8 @@ const aboutHref = getLocalizedPath('/about', lang);
 
 				<div class="glass-card glass-card-service p-6 md:p-7 flex gap-6 stagger-child">
 					<div class="shrink-0">
-						<div class="w-14 h-14 rounded-full bg-[var(--color-accent)]/10 flex items-center justify-center text-[var(--color-accent)] stat-value text-2xl">
-							03
+						<div class="w-14 h-14 rounded-full bg-[var(--color-accent)]/10 flex items-center justify-center text-[var(--color-accent)]" aria-hidden="true">
+							<Cpu size={24} strokeWidth={1.5} />
 						</div>
 					</div>
 					<div>
@@ -213,9 +214,57 @@ const aboutHref = getLocalizedPath('/about', lang);
 	</div>
 </section>
 
+<!-- ─────────── Projects ─────────── -->
+<!-- Selected work — quiet glow, ruled cards, name leads. -->
+<section id="projects" class="py-24 md:py-28 relative scroll-mt-24">
+	<div class="glow-orb w-[280px] h-[280px] -bottom-20 left-1/4 opacity-20" style="animation-delay: -3.5s;"></div>
+
+	<div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
+		<div class="text-center max-w-3xl mx-auto mb-20">
+			<span class="eyebrow mb-5 inline-block">03 — {t('home.projects.label')}</span>
+			<h2 class="text-[clamp(2rem,5vw,3.75rem)] mb-6 text-balance">{t('home.projects.heading')}</h2>
+			<p class="text-lg md:text-xl text-[var(--color-text-muted)] leading-relaxed text-pretty">
+				{t('home.projects.intro')}
+			</p>
+		</div>
+
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+			{featuredProjects.map((p, i) => (
+				<a
+					href={`${projectsHref}#${p.id}`}
+					class="glass-card glass-card-case p-8 group stagger-child flex flex-col"
+				>
+					<div class="flex items-baseline gap-3 mb-6">
+						<span class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-accent)]">
+							{String(i + 1).padStart(2, '0')}
+						</span>
+						<span class="flex-1 h-px bg-[var(--color-border)]"></span>
+					</div>
+					<h3 class="text-2xl font-semibold mb-4 group-hover:text-[var(--color-accent)] transition-colors">
+						{p.name}
+					</h3>
+					<p class="text-[var(--color-text-muted)] leading-relaxed text-pretty flex-grow text-base">
+						{t(p.taglineKey as UIKey)}
+					</p>
+					<span class="mt-7 inline-flex items-center gap-2 text-sm text-[var(--color-accent)] transition-transform group-hover:translate-x-1">
+						{p.name} <ArrowUpRight size={14} />
+					</span>
+				</a>
+			))}
+		</div>
+
+		<div class="mt-14 flex justify-center">
+			<a href={projectsHref} class="link-underline inline-flex items-center gap-2 font-medium text-[var(--color-accent)]">
+				{t('home.projects.cta')}
+				<ArrowRight size={16} class="transition-transform group-hover:translate-x-1" />
+			</a>
+		</div>
+	</div>
+</section>
+
 <!-- ─────────── About preview ─────────── -->
 <!-- Single subtle violet orb — slight warmth, not a blast. -->
-<section class="py-20 relative overflow-hidden">
+<section class="py-20 relative">
 	<div class="max-w-6xl mx-auto px-6 lg:px-8">
 		<div class="glass-card glass-card-manifest p-10 md:p-16 relative overflow-hidden">
 			<div
@@ -225,7 +274,7 @@ const aboutHref = getLocalizedPath('/about', lang);
 			</div>
 
 			<div class="relative z-10 max-w-2xl">
-				<span class="eyebrow mb-5 inline-block">§ 03 — {t('home.about.label')}</span>
+				<span class="eyebrow mb-5 inline-block">04 — {t('home.about.label')}</span>
 				<h2 class="text-3xl md:text-5xl mb-7 leading-tight">
 					Gustavo <span class="italic-serif text-[var(--color-text-muted)]">Costa</span>
 				</h2>
@@ -246,7 +295,7 @@ const aboutHref = getLocalizedPath('/about', lang);
 
 <!-- ─────────── Contact ─────────── -->
 <!-- Warm bottom-glow. Form is almost-no-glass, see ContactForm. -->
-<section id="contact" class="py-24 md:py-28 relative overflow-hidden scroll-mt-24">
+<section id="contact" class="py-24 md:py-28 relative scroll-mt-24">
 	<div
 		class="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-elevated)] to-transparent"
 	>
@@ -260,7 +309,7 @@ const aboutHref = getLocalizedPath('/about', lang);
 
 	<div class="max-w-4xl mx-auto px-6 lg:px-8 relative z-10">
 		<div class="text-center max-w-2xl mx-auto mb-14">
-			<span class="eyebrow mb-5 inline-block">§ 04 — {t('home.contact.label')}</span>
+			<span class="eyebrow mb-5 inline-block">05 — {t('home.contact.label')}</span>
 			<h2 class="text-[clamp(2rem,5vw,3.75rem)] mb-6 leading-[1.05] text-balance">
 				{t('home.contact.heading')}
 			</h2>
