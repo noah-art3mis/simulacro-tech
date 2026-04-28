@@ -37,13 +37,13 @@ export const ui = {
 			'Interdisciplinary solutions that bridge technical depth with humanistic insight.',
 		'home.services.ai.title': 'AI & NLP Solutions',
 		'home.services.ai.description':
-			'RAG systems, embeddings, topic modeling, and fine-tuned LLMs. Built with transparency and accountability from the start.',
+			'Fine-tuned LLMs, RAG systems, embeddings, and topic modeling. Built with transparency and accountability from the start.',
 		'home.services.data.title': 'Data Analysis & Research',
 		'home.services.data.description':
 			'Mixed-methods research that pairs qualitative depth with computational rigor. Data mining, visualization, and statistical analysis.',
-		'home.services.ethics.title': 'Ethics & Strategy',
-		'home.services.ethics.description':
-			'AI ethics audits and data strategy consulting. Practical guidance rooted in philosophy and psychology.',
+		'home.services.pipelines.title': 'Pipelines & Automation',
+		'home.services.pipelines.description':
+			'Replacing manual data work with end-to-end pipelines — audio transcription, document parsing, web scraping, validation. Operators spend their time on judgement, not data entry.',
 
 		'home.why.label': 'Approach',
 		'home.why.heading': 'Why Work With Us',
@@ -51,7 +51,7 @@ export const ui = {
 			"A rare blend of clinical psychology, philosophical training, and technical expertise. We bring depth that pure technologists can't match.",
 		'home.why.clinical.title': 'Clinical Background',
 		'home.why.clinical.description':
-			"Years of psychotherapeutic practice shape how we understand technology's impact on real people, not just users in the abstract.",
+			"Years of psychotherapeutic practice shape how we understand technology's impact on real people.",
 		'home.why.philosophy.title': 'Philosophical Rigor',
 		'home.why.philosophy.description':
 			"Ethics isn't an afterthought. Training in philosophy means asking the hard questions before building, not after.",
@@ -67,12 +67,36 @@ export const ui = {
 
 		'projects.production.molcajete.tagline':
 			'AI-powered transcription and analysis pipeline for political focus group research in Mexican Spanish.',
+		'projects.production.molcajete.description':
+			'A full audio-to-insight pipeline replacing error-prone transcription and weeks of manual coding. Speaker diarization, transcription, theme classification, and integrated reporting — all surfaced through a tooling layer that researchers actually use.',
+		'projects.production.molcajete.stat.0': 'hours of audio processed',
+		'projects.production.molcajete.stat.1': 'Mexican states covered',
+		'projects.production.molcajete.stat.2': 'turnaround per project',
+
 		'projects.production.adapta.tagline':
-			'Seven-stage data pipeline and LLM fine-tuning infrastructure for Mexican Spanish political analysis.',
+			'Data preprocessing pipeline and LLM fine-tuning infrastructure for Mexican Spanish political analysis.',
+		'projects.production.adapta.description':
+			'QLoRA fine-tuning workflow with reproducible training, evaluation, and registry. Built for empirical comparison of base models, prompts, and adapters across a curated benchmark of domain-specific tasks.',
+		'projects.production.adapta.stat.0': 'evaluation metrics',
+		'projects.production.adapta.stat.1': 'training runs',
+
 		'projects.production.nopalero.tagline':
 			'Automated participant screening system for qualitative recruitment.',
-		'projects.openSource.judexMini.summary':
-			'Streamlined, fast Python library for scraping case data from the Brazilian Supreme Court (STF).',
+		'projects.production.nopalero.description':
+			'Automated intake pipeline that replaces hours of manual data entry per project. Combines OCR, fraud detection, and socioeconomic classification — so analysts focus on the decisions, not the paperwork.',
+		'projects.production.nopalero.stat.0': 'validation checks',
+		'projects.production.nopalero.stat.1': 'document parsing',
+		'projects.production.nopalero.stat.2': 'manual data entry',
+
+		'projects.openSource.judex.summary':
+			'Streamlined Python library for scraping case data from the Brazilian Supreme Court (STF).',
+
+		'projects.intro.heading': 'Selected work',
+		'projects.section.production': 'In production',
+		'projects.section.openSource': 'Open source',
+		'projects.cta.heading': "Have a problem that doesn't fit a template?",
+		'projects.cta.lede': 'Most of the work above started as someone saying exactly that.',
+		'projects.cta.action': 'Start a conversation',
 
 		'home.about.label': 'About',
 		'home.about.bio':
@@ -173,13 +197,13 @@ export const ui = {
 			'Soluções interdisciplinares que unem profundidade técnica e visão humanística.',
 		'home.services.ai.title': 'Soluções de IA e PLN',
 		'home.services.ai.description':
-			'Sistemas RAG, embeddings, modelagem de tópicos e LLMs com fine-tuning. Construídos com transparência e responsabilidade desde o início.',
+			'LLMs com fine-tuning, sistemas RAG, embeddings e modelagem de tópicos. Construídos com transparência e responsabilidade desde o início.',
 		'home.services.data.title': 'Análise de dados e pesquisa',
 		'home.services.data.description':
 			'Pesquisa de métodos mistos que une profundidade qualitativa e rigor computacional. Mineração de dados, visualização e análise estatística.',
-		'home.services.ethics.title': 'Ética e estratégia',
-		'home.services.ethics.description':
-			'Auditorias de ética em IA e consultoria em estratégia de dados. Orientação prática baseada em filosofia e psicologia.',
+		'home.services.pipelines.title': 'Pipelines e automação',
+		'home.services.pipelines.description':
+			'Substituindo trabalho manual de dados por pipelines ponta a ponta — transcrição de áudio, leitura de documentos, web scraping, validação. As equipes investem o tempo em julgamento, não em digitação.',
 
 		'home.why.label': 'Abordagem',
 		'home.why.heading': 'Por que trabalhar conosco',
@@ -187,7 +211,7 @@ export const ui = {
 			'Uma combinação rara de psicologia clínica, formação filosófica e expertise técnica. Trazemos uma profundidade que tecnólogos puros não conseguem oferecer.',
 		'home.why.clinical.title': 'Formação clínica',
 		'home.why.clinical.description':
-			'Anos de prática psicoterapêutica moldam como entendemos o impacto da tecnologia em pessoas reais, não apenas em usuários abstratos.',
+			'Anos de prática psicoterapêutica moldam como entendemos o impacto da tecnologia em pessoas reais.',
 		'home.why.philosophy.title': 'Rigor filosófico',
 		'home.why.philosophy.description':
 			'Ética não é um acessório. Formação em filosofia significa fazer as perguntas difíceis antes de construir, não depois.',
@@ -203,12 +227,36 @@ export const ui = {
 
 		'projects.production.molcajete.tagline':
 			'Pipeline de transcrição e análise com IA para pesquisa qualitativa em grupos focais de política em espanhol mexicano.',
+		'projects.production.molcajete.description':
+			'Um pipeline completo de áudio a insight que substitui transcrição imprecisa e semanas de codificação manual. Diarização de falantes, transcrição, classificação de temas, e relatórios integrados — tudo entregue por uma camada de ferramentas que pesquisadores realmente usam.',
+		'projects.production.molcajete.stat.0': 'horas de áudio processadas',
+		'projects.production.molcajete.stat.1': 'estados mexicanos cobertos',
+		'projects.production.molcajete.stat.2': 'tempo de entrega por projeto',
+
 		'projects.production.adapta.tagline':
-			'Pipeline de dados de sete estágios e infraestrutura de fine-tuning de LLMs para análise política em espanhol mexicano.',
+			'Pipeline de pré-processamento de dados e infraestrutura de fine-tuning de LLMs para análise política em espanhol mexicano.',
+		'projects.production.adapta.description':
+			'Workflow de fine-tuning com QLoRA com treino, avaliação e registro reprodutíveis. Construído para a comparação empírica de modelos base, prompts e adapters em um benchmark curado de tarefas específicas do domínio.',
+		'projects.production.adapta.stat.0': 'métricas de avaliação',
+		'projects.production.adapta.stat.1': 'execuções de treino',
+
 		'projects.production.nopalero.tagline':
 			'Sistema automatizado de triagem de participantes para recrutamento qualitativo.',
-		'projects.openSource.judexMini.summary':
-			'Biblioteca Python enxuta e rápida para coletar dados de processos do Supremo Tribunal Federal (STF).',
+		'projects.production.nopalero.description':
+			'Pipeline automatizado de triagem que substitui horas de digitação manual por projeto. Combina OCR, detecção de fraude e classificação socioeconômica — para que os analistas foquem nas decisões, não no trabalho burocrático.',
+		'projects.production.nopalero.stat.0': 'verificações de validação',
+		'projects.production.nopalero.stat.1': 'leitura de documentos',
+		'projects.production.nopalero.stat.2': 'entrada manual de dados',
+
+		'projects.openSource.judex.summary':
+			'Biblioteca Python enxuta para coletar dados de processos do Supremo Tribunal Federal (STF).',
+
+		'projects.intro.heading': 'Trabalhos selecionados',
+		'projects.section.production': 'Em produção',
+		'projects.section.openSource': 'Código aberto',
+		'projects.cta.heading': 'Tem um problema que não cabe num modelo pronto?',
+		'projects.cta.lede': 'A maior parte do trabalho acima começou com alguém dizendo exatamente isso.',
+		'projects.cta.action': 'Iniciar uma conversa',
 
 		'home.about.label': 'Sobre',
 		'home.about.bio':
@@ -258,7 +306,7 @@ export const ui = {
 		'footer.manifesto.italic': 'arquivo',
 		'footer.manifesto.after': ' de sistemas construídos com o mesmo cuidado dedicado à clínica.',
 		'footer.contact.heading': 'Contato',
-		'footer.contact.location': 'Londres, Reino Unido / Brasília, BR / CDMX, MX',
+		'footer.contact.location': 'Londres, UK / Brasília, BR / CDMX, MX',
 		'footer.connect.heading': 'Conecte-se',
 		'footer.copyright': 'Todos os direitos reservados.',
 		'footer.build.label': 'última build',
@@ -309,13 +357,13 @@ export const ui = {
 			'Soluciones interdisciplinarias que combinan profundidad técnica con perspectiva humanística.',
 		'home.services.ai.title': 'Soluciones de IA y PLN',
 		'home.services.ai.description':
-			'Sistemas RAG, embeddings, modelado de temas y LLMs ajustados. Construidos con transparencia y responsabilidad desde el principio.',
+			'LLMs ajustados, sistemas RAG, embeddings y modelado de temas. Construidos con transparencia y responsabilidad desde el principio.',
 		'home.services.data.title': 'Análisis de datos e investigación',
 		'home.services.data.description':
 			'Investigación de métodos mixtos que combina profundidad cualitativa con rigor computacional. Minería de datos, visualización y análisis estadístico.',
-		'home.services.ethics.title': 'Ética y estrategia',
-		'home.services.ethics.description':
-			'Auditorías de ética en IA y consultoría de estrategia de datos. Orientación práctica basada en filosofía y psicología.',
+		'home.services.pipelines.title': 'Pipelines y automatización',
+		'home.services.pipelines.description':
+			'Reemplazando el trabajo manual de datos con pipelines de extremo a extremo — transcripción de audio, parsing de documentos, web scraping, validación. Los equipos invierten su tiempo en juicio, no en captura de datos.',
 
 		'home.why.label': 'Enfoque',
 		'home.why.heading': 'Por qué trabajar con nosotros',
@@ -323,7 +371,7 @@ export const ui = {
 			'Una combinación poco común de psicología clínica, formación filosófica y experiencia técnica. Aportamos una profundidad que los tecnólogos puros no pueden igualar.',
 		'home.why.clinical.title': 'Formación clínica',
 		'home.why.clinical.description':
-			'Años de práctica psicoterapéutica moldean cómo entendemos el impacto de la tecnología en personas reales, no solo en usuarios abstractos.',
+			'Años de práctica psicoterapéutica moldean cómo entendemos el impacto de la tecnología en personas reales.',
 		'home.why.philosophy.title': 'Rigor filosófico',
 		'home.why.philosophy.description':
 			'La ética no es algo accesorio. La formación en filosofía significa hacer las preguntas difíciles antes de construir, no después.',
@@ -339,12 +387,36 @@ export const ui = {
 
 		'projects.production.molcajete.tagline':
 			'Pipeline de transcripción y análisis con IA para investigación cualitativa en grupos focales de política en español mexicano.',
+		'projects.production.molcajete.description':
+			'Pipeline completo de audio a insight que reemplaza transcripción imprecisa y semanas de codificación manual. Diarización de hablantes, transcripción, clasificación de temas, e informes integrados — todo expuesto a través de una capa de herramientas que los investigadores realmente usan.',
+		'projects.production.molcajete.stat.0': 'horas de audio procesadas',
+		'projects.production.molcajete.stat.1': 'estados mexicanos cubiertos',
+		'projects.production.molcajete.stat.2': 'tiempo de entrega por proyecto',
+
 		'projects.production.adapta.tagline':
-			'Pipeline de datos de siete etapas e infraestructura de fine-tuning de LLMs para análisis político en español mexicano.',
+			'Pipeline de preprocesamiento de datos e infraestructura de fine-tuning de LLMs para análisis político en español mexicano.',
+		'projects.production.adapta.description':
+			'Flujo de fine-tuning con QLoRA con entrenamiento, evaluación y registro reproducibles. Construido para la comparación empírica de modelos base, prompts y adapters sobre un benchmark curado de tareas específicas del dominio.',
+		'projects.production.adapta.stat.0': 'métricas de evaluación',
+		'projects.production.adapta.stat.1': 'ejecuciones de entrenamiento',
+
 		'projects.production.nopalero.tagline':
 			'Sistema automatizado de selección de participantes para reclutamiento cualitativo.',
-		'projects.openSource.judexMini.summary':
-			'Biblioteca Python reducida y rápida para extraer datos de casos del Supremo Tribunal Federal de Brasil (STF).',
+		'projects.production.nopalero.description':
+			'Pipeline automatizado de admisión que reemplaza horas de captura manual de datos por proyecto. Combina OCR, detección de fraude y clasificación socioeconómica — para que los analistas se enfoquen en las decisiones, no en el papeleo.',
+		'projects.production.nopalero.stat.0': 'verificaciones de validación',
+		'projects.production.nopalero.stat.1': 'lectura de documentos',
+		'projects.production.nopalero.stat.2': 'entrada manual de datos',
+
+		'projects.openSource.judex.summary':
+			'Biblioteca Python reducida para extraer datos de casos del Supremo Tribunal Federal de Brasil (STF).',
+
+		'projects.intro.heading': 'Trabajos seleccionados',
+		'projects.section.production': 'En producción',
+		'projects.section.openSource': 'Código abierto',
+		'projects.cta.heading': '¿Tienes un problema que no encaja en una plantilla?',
+		'projects.cta.lede': 'La mayoría del trabajo de arriba empezó con alguien diciendo exactamente eso.',
+		'projects.cta.action': 'Iniciar una conversación',
 
 		'home.about.label': 'Sobre mí',
 		'home.about.bio':
@@ -394,7 +466,7 @@ export const ui = {
 		'footer.manifesto.italic': 'archivo',
 		'footer.manifesto.after': ' de sistemas construidos con el mismo cuidado de la práctica clínica.',
 		'footer.contact.heading': 'Contacto',
-		'footer.contact.location': 'Londres, Reino Unido / Brasilia, BR / CDMX, MX',
+		'footer.contact.location': 'Londres, UK / Brasilia, BR / CDMX, MX',
 		'footer.connect.heading': 'Conecta',
 		'footer.copyright': 'Todos los derechos reservados.',
 		'footer.build.label': 'última build',
