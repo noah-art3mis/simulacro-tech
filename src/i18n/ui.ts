@@ -134,12 +134,12 @@ export const ui = {
 		'about.experience.heading': 'Experience',
 		'about.experience.psychotherapy.title': 'Psychotherapy',
 		'about.experience.psychotherapy.details': 'Partner at Espaço Psique Psychology Clinic',
-		'about.experience.writing.title': 'Writing & Research',
+		'about.experience.writing.title': 'Writing',
 		'about.experience.writing.details':
-			'Essays on data science, AI, and philosophy of psychoanalysis. Dissertation on AI slop using mixed-methods.',
-		'about.experience.technical.title': 'Technical Projects',
-		'about.experience.technical.details':
-			'RAG systems, NLP applications, and data analysis tools.',
+			'Essays on data science, AI, and philosophy of psychoanalysis.',
+		'about.experience.research.title': 'Research',
+		'about.experience.research.details':
+			'Dissertation on AI slop using mixed-methods.',
 
 		'footer.tagline': 'Human-centered AI and data consulting.',
 		'footer.manifesto.before': 'A working ',
@@ -294,12 +294,12 @@ export const ui = {
 		'about.experience.heading': 'Experiência',
 		'about.experience.psychotherapy.title': 'Psicoterapia',
 		'about.experience.psychotherapy.details': 'Sócio na clínica de psicologia Espaço Psique',
-		'about.experience.writing.title': 'Escrita e pesquisa',
+		'about.experience.writing.title': 'Escrita',
 		'about.experience.writing.details':
-			'Ensaios sobre ciência de dados, IA e filosofia da psicanálise. Dissertação sobre AI slop com métodos mistos.',
-		'about.experience.technical.title': 'Projetos técnicos',
-		'about.experience.technical.details':
-			'Sistemas RAG, aplicações de PLN e ferramentas de análise de dados.',
+			'Ensaios sobre ciência de dados, IA e filosofia da psicanálise.',
+		'about.experience.research.title': 'Pesquisa',
+		'about.experience.research.details':
+			'Dissertação sobre AI slop com métodos mistos.',
 
 		'footer.tagline': 'Consultoria em IA e dados centrada no humano.',
 		'footer.manifesto.before': 'Um ',
@@ -454,12 +454,12 @@ export const ui = {
 		'about.experience.heading': 'Experiencia',
 		'about.experience.psychotherapy.title': 'Psicoterapia',
 		'about.experience.psychotherapy.details': 'Socio en la clínica de psicología Espaço Psique',
-		'about.experience.writing.title': 'Escritura e investigación',
+		'about.experience.writing.title': 'Escritura',
 		'about.experience.writing.details':
-			'Ensayos sobre ciencia de datos, IA y filosofía del psicoanálisis. Tesis sobre AI slop con métodos mixtos.',
-		'about.experience.technical.title': 'Proyectos técnicos',
-		'about.experience.technical.details':
-			'Sistemas RAG, aplicaciones de PLN y herramientas de análisis de datos.',
+			'Ensayos sobre ciencia de datos, IA y filosofía del psicoanálisis.',
+		'about.experience.research.title': 'Investigación',
+		'about.experience.research.details':
+			'Tesis sobre AI slop con métodos mixtos.',
 
 		'footer.tagline': 'Consultoría en IA y datos centrada en el ser humano.',
 		'footer.manifesto.before': 'Un ',
