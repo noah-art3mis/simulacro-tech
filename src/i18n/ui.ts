@@ -70,8 +70,7 @@ export const ui = {
 		'projects.production.molcajete.description':
 			'A full audio-to-insight pipeline replacing error-prone transcription and weeks of manual coding. Speaker diarization, transcription, theme classification, and integrated reporting — all surfaced through a tooling layer that researchers actually use.',
 		'projects.production.molcajete.stat.0': 'hours of audio processed',
-		'projects.production.molcajete.stat.1': 'Mexican states covered',
-		'projects.production.molcajete.stat.2': 'turnaround per project',
+		'projects.production.molcajete.stat.1': 'turnaround per project',
 
 		'projects.production.adapta.tagline':
 			'Data preprocessing pipeline and LLM fine-tuning infrastructure for Mexican Spanish political analysis.',
@@ -85,8 +84,7 @@ export const ui = {
 		'projects.production.nopalero.description':
 			'Automated intake pipeline that replaces hours of manual data entry per project. Combines OCR, fraud detection, and socioeconomic classification — so analysts focus on the decisions, not the paperwork.',
 		'projects.production.nopalero.stat.0': 'validation checks',
-		'projects.production.nopalero.stat.1': 'document parsing',
-		'projects.production.nopalero.stat.2': 'manual data entry',
+		'projects.production.nopalero.stat.1': 'manual data entry',
 
 		'projects.openSource.judex.summary':
 			'Streamlined Python library for scraping case data from the Brazilian Supreme Court (STF).',
@@ -230,8 +228,7 @@ export const ui = {
 		'projects.production.molcajete.description':
 			'Um pipeline completo de áudio a insight que substitui transcrição imprecisa e semanas de codificação manual. Diarização de falantes, transcrição, classificação de temas, e relatórios integrados — tudo entregue por uma camada de ferramentas que pesquisadores realmente usam.',
 		'projects.production.molcajete.stat.0': 'horas de áudio processadas',
-		'projects.production.molcajete.stat.1': 'estados mexicanos cobertos',
-		'projects.production.molcajete.stat.2': 'tempo de entrega por projeto',
+		'projects.production.molcajete.stat.1': 'tempo de entrega por projeto',
 
 		'projects.production.adapta.tagline':
 			'Pipeline de pré-processamento de dados e infraestrutura de fine-tuning de LLMs para análise política em espanhol mexicano.',
@@ -245,8 +242,7 @@ export const ui = {
 		'projects.production.nopalero.description':
 			'Pipeline automatizado de triagem que substitui horas de digitação manual por projeto. Combina OCR, detecção de fraude e classificação socioeconômica — para que os analistas foquem nas decisões, não no trabalho burocrático.',
 		'projects.production.nopalero.stat.0': 'verificações de validação',
-		'projects.production.nopalero.stat.1': 'leitura de documentos',
-		'projects.production.nopalero.stat.2': 'entrada manual de dados',
+		'projects.production.nopalero.stat.1': 'entrada manual de dados',
 
 		'projects.openSource.judex.summary':
 			'Biblioteca Python enxuta para coletar dados de processos do Supremo Tribunal Federal (STF).',
@@ -390,8 +386,7 @@ export const ui = {
 		'projects.production.molcajete.description':
 			'Pipeline completo de audio a insight que reemplaza transcripción imprecisa y semanas de codificación manual. Diarización de hablantes, transcripción, clasificación de temas, e informes integrados — todo expuesto a través de una capa de herramientas que los investigadores realmente usan.',
 		'projects.production.molcajete.stat.0': 'horas de audio procesadas',
-		'projects.production.molcajete.stat.1': 'estados mexicanos cubiertos',
-		'projects.production.molcajete.stat.2': 'tiempo de entrega por proyecto',
+		'projects.production.molcajete.stat.1': 'tiempo de entrega por proyecto',
 
 		'projects.production.adapta.tagline':
 			'Pipeline de preprocesamiento de datos e infraestructura de fine-tuning de LLMs para análisis político en español mexicano.',
@@ -405,8 +400,7 @@ export const ui = {
 		'projects.production.nopalero.description':
 			'Pipeline automatizado de admisión que reemplaza horas de captura manual de datos por proyecto. Combina OCR, detección de fraude y clasificación socioeconómica — para que los analistas se enfoquen en las decisiones, no en el papeleo.',
 		'projects.production.nopalero.stat.0': 'verificaciones de validación',
-		'projects.production.nopalero.stat.1': 'lectura de documentos',
-		'projects.production.nopalero.stat.2': 'entrada manual de datos',
+		'projects.production.nopalero.stat.1': 'entrada manual de datos',
 
 		'projects.openSource.judex.summary':
 			'Biblioteca Python reducida para extraer datos de casos del Supremo Tribunal Federal de Brasil (STF).',
