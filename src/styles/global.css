@@ -45,6 +45,9 @@
 
     html {
         scroll-behavior: smooth;
+        /* Prevent horizontal scroll caused by orbs bleeding past the viewport.
+           overflow-x must be set on html (not just body) or mobile viewports still scroll horizontally. */
+        overflow-x: clip;
     }
 
     body {
