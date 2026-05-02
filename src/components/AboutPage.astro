@@ -1,5 +1,5 @@
 ---
-import { GraduationCap, Briefcase, ExternalLink } from 'lucide-astro';
+import { ArrowUpRight } from 'lucide-astro';
 import { ui, type Lang, type UIKey } from '../i18n/ui';
 
 interface Props {
@@ -8,155 +8,178 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = (key: UIKey) => ui[lang][key];
+
+const education = [
+	{ titleKey: 'about.education.degree1.title' as UIKey, place: 'London Interdisciplinary School', dates: '2024' },
+	{ titleKey: 'about.education.degree2.title' as UIKey, place: 'Faculdade Inspirar',              dates: '2020' },
+	{ titleKey: 'about.education.degree3.title' as UIKey, place: 'Universidade de Brasília',         dates: '2017' },
+];
+
+const experience = [
+	{ titleKey: 'about.experience.psychotherapy.title' as UIKey, detailsKey: 'about.experience.psychotherapy.details' as UIKey, dates: '2020 – 2024' },
+	{ titleKey: 'about.experience.writing.title' as UIKey,       detailsKey: 'about.experience.writing.details' as UIKey,       dates: '2019 – present' },
+	{ titleKey: 'about.experience.research.title' as UIKey,      detailsKey: 'about.experience.research.details' as UIKey,      dates: '2017 – 2020' },
+];
+
+const links = [
+	{ href: 'https://simulacro.cv',          labelKey: 'about.links.cv' as UIKey },
+	{ href: 'https://simulacro.co.uk',       labelKey: 'about.links.essays' as UIKey },
+	{ href: 'https://gustavocosta.psc.br',   labelKey: 'about.links.philosophy' as UIKey },
+];
 ---
 
-<!-- ─────────── Hero ─────────── -->
-<section class="relative pt-16 pb-20">
-	<!-- A single, soft amber wash — about pages are introspective, not blasted -->
-	<div class="glow-orb w-[420px] h-[420px] -top-32 -right-32 opacity-50"></div>
+<!-- ════════════════════════════════════════════════
+     Hero — block-dark
+     Two-line name, no italic. Elsewhere column on the right.
+     ════════════════════════════════════════════════ -->
+<section class="block block-dark relative overflow-hidden">
+	<div class="glow-orb w-[480px] h-[480px] -top-32 -right-32"></div>
 
-	<div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
-		<div class="max-w-3xl">
-			<span class="eyebrow mb-6 inline-block animate-fade-up">
-				{t('about.label')}
-			</span>
-			<h1 class="text-[clamp(3rem,7vw,6rem)] leading-[0.95] mb-8 animate-fade-up animate-delay-1">
-				Gustavo Costa
-			</h1>
-			<p class="text-xl md:text-2xl text-[var(--color-text-muted)] leading-relaxed animate-fade-up animate-delay-2 max-w-2xl text-pretty">
-				{t('about.subtitle')}
-			</p>
+	<div class="container-shell pt-20 lg:pt-32 pb-24 lg:pb-32 relative z-10">
+		<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16 lg:mb-24">
+			<div class="lg:col-span-3">
+				<p class="mono-label animate-fade-up">— {t('about.label')}</p>
+			</div>
+			<div class="lg:col-span-9">
+				<h1 class="text-mega text-balance">
+					<span class="block animate-fade-up animate-delay-1">Gustavo</span>
+					<span class="block animate-fade-up animate-delay-2 text-[var(--color-text-muted)]">Costa.</span>
+				</h1>
+			</div>
+		</div>
+
+		<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+			<div class="lg:col-span-3 lg:col-start-4">
+				<div class="rule-on-dark-strong w-12 mb-5"></div>
+			</div>
+			<div class="lg:col-span-9 lg:col-start-4">
+				<p class="text-xl lg:text-2xl text-[var(--color-text-muted)] leading-[1.4] tracking-[-0.015em] max-w-3xl text-pretty animate-fade-up animate-delay-3">
+					{t('about.subtitle')}
+				</p>
+			</div>
 		</div>
 	</div>
+
+	<div class="rule-on-dark-strong"></div>
 </section>
 
-<!-- ─────────── Bio ─────────── -->
-<!-- Drop-cap on the first paragraph; subsequent paragraphs are quieter. -->
-<section class="py-16 md:py-20">
-	<div class="max-w-6xl mx-auto px-6 lg:px-8">
-		<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
-			<div class="lg:col-span-8 space-y-7">
-				<p class="drop-cap text-lg text-[var(--color-text-muted)] leading-[1.7] text-pretty">
+<!-- ════════════════════════════════════════════════
+     Bio — block-cream
+     First-person. Plain. Sticky links column on the right.
+     ════════════════════════════════════════════════ -->
+<section class="block block-cream block-pad">
+	<div class="container-shell">
+		<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+			<div class="lg:col-span-3">
+				<p class="mono-label">— A note</p>
+			</div>
+
+			<div class="lg:col-span-6 space-y-7">
+				<p class="text-2xl lg:text-3xl font-semibold tracking-[-0.025em] leading-[1.15] mb-12 text-balance">
 					{t('about.bio.p1')}
 				</p>
-				<p class="text-lg text-[var(--color-text-muted)] leading-[1.7] text-pretty">
+				<p class="text-base lg:text-lg leading-[1.55] text-[var(--color-text-muted-on-light)] text-pretty">
 					{t('about.bio.p2')}
 				</p>
-				<p class="text-lg text-[var(--color-text-muted)] leading-[1.7] text-pretty">
+				<p class="text-base lg:text-lg leading-[1.55] text-[var(--color-text-muted-on-light)] text-pretty">
 					{t('about.bio.p3')}
 				</p>
 			</div>
 
-			<div class="lg:col-span-4">
-				<div class="glass-card glass-card-service p-7 sticky top-28">
-					<h3 class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-accent)] mb-5">
-						{t('about.links.heading')}
-					</h3>
-					<div class="space-y-3">
-						<a
-							href="https://simulacro.cv"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="flex items-center justify-between text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors group py-1"
-						>
-							<span>{t('about.links.cv')}</span>
-							<ExternalLink
-								size={14}
-								class="opacity-40 group-hover:opacity-100 group-hover:text-[var(--color-accent)] transition-all"
-							/>
-						</a>
-						<a
-							href="https://simulacro.co.uk"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="flex items-center justify-between text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors group py-1"
-						>
-							<span>{t('about.links.essays')}</span>
-							<ExternalLink
-								size={14}
-								class="opacity-40 group-hover:opacity-100 group-hover:text-[var(--color-accent)] transition-all"
-							/>
-						</a>
-						<a
-							href="https://gustavocosta.psc.br"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="flex items-center justify-between text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors group py-1"
-						>
-							<span>{t('about.links.philosophy')}</span>
-							<ExternalLink
-								size={14}
-								class="opacity-40 group-hover:opacity-100 group-hover:text-[var(--color-accent)] transition-all"
-							/>
-						</a>
-					</div>
+			<div class="lg:col-span-3">
+				<div class="lg:sticky lg:top-28">
+					<p class="mono-label mb-6">— Elsewhere</p>
+					<ul class="space-y-1 border-t border-[var(--color-rule-dark-strong)]">
+						{links.map((l) => (
+							<li class="border-b border-[var(--color-rule-dark)]">
+								<a
+									href={l.href}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="group flex items-center justify-between py-4 text-base font-medium tracking-[-0.01em] hover:text-[var(--color-amber-deep)] transition-colors"
+								>
+									<span>{t(l.labelKey)}</span>
+									<ArrowUpRight size={16} class="opacity-50 group-hover:opacity-100 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+								</a>
+							</li>
+						))}
+					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
 
-<!-- ─────────── Education & Experience ─────────── -->
-<!-- A more deliberate timeline: amber rule on the latest entry, faded on older ones. -->
-<section class="py-20 md:py-24 relative">
-	<div class="max-w-6xl mx-auto px-6 lg:px-8">
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-			<!-- Education -->
-			<div class="glass-card glass-card-service p-8 md:p-10">
-				<div class="flex items-center gap-4 mb-10">
-					<div class="icon-box">
-						<GraduationCap size={22} />
-					</div>
-					<h2 class="text-2xl md:text-3xl">{t('about.education.heading')}</h2>
-				</div>
-
-				<div class="space-y-7">
-					<div class="border-l-2 border-[var(--color-accent)] pl-6">
-						<h3 class="font-semibold mb-1.5 text-[var(--color-text)]">{t('about.education.degree1.title')}</h3>
-						<p class="text-sm text-[var(--color-text-muted)]">London Interdisciplinary School</p>
-					</div>
-					<div class="border-l-2 border-[var(--color-border)] pl-6">
-						<h3 class="font-semibold mb-1.5">{t('about.education.degree2.title')}</h3>
-						<p class="text-sm text-[var(--color-text-muted)]">Faculdade Inspirar</p>
-					</div>
-					<div class="border-l-2 border-[var(--color-border)] pl-6">
-						<h3 class="font-semibold mb-1.5">{t('about.education.degree3.title')}</h3>
-						<p class="text-sm text-[var(--color-text-muted)]">Universidade de Brasília</p>
-					</div>
-				</div>
+<!-- ════════════════════════════════════════════════
+     Education — block-dark
+     Ruled list. Mono dates with tabular numerals.
+     ════════════════════════════════════════════════ -->
+<section class="block block-dark block-pad">
+	<div class="container-shell">
+		<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16 lg:mb-20">
+			<div class="lg:col-span-3">
+				<p class="mono-label">— Education</p>
 			</div>
-
-			<!-- Experience -->
-			<div class="glass-card glass-card-service p-8 md:p-10">
-				<div class="flex items-center gap-4 mb-10">
-					<div class="icon-box">
-						<Briefcase size={22} />
-					</div>
-					<h2 class="text-2xl md:text-3xl">{t('about.experience.heading')}</h2>
-				</div>
-
-				<div class="space-y-7">
-					<div class="border-l-2 border-[var(--color-accent)] pl-6">
-						<h3 class="font-semibold mb-1.5">{t('about.experience.psychotherapy.title')}</h3>
-						<p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
-							{t('about.experience.psychotherapy.details')}
-						</p>
-						<p class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-muted)]/60 mt-2">2020 – 2024</p>
-					</div>
-					<div class="border-l-2 border-[var(--color-border)] pl-6">
-						<h3 class="font-semibold mb-1.5">{t('about.experience.writing.title')}</h3>
-						<p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
-							{t('about.experience.writing.details')}
-						</p>
-					</div>
-					<div class="border-l-2 border-[var(--color-border)] pl-6">
-						<h3 class="font-semibold mb-1.5">{t('about.experience.research.title')}</h3>
-						<p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
-							{t('about.experience.research.details')}
-						</p>
-					</div>
-				</div>
+			<div class="lg:col-span-9">
+				<h2 class="text-display leading-[0.94] tracking-[-0.04em] text-balance max-w-3xl">
+					{t('about.education.heading')}.
+				</h2>
 			</div>
 		</div>
+
+		<ul class="border-t border-[var(--color-rule-strong)]">
+			{education.map((row) => (
+				<li class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 py-8 lg:py-10 border-b border-[var(--color-rule)]">
+					<div class="lg:col-span-2 mono-num text-sm text-[var(--color-text-muted)] tracking-widest">
+						{row.dates}
+					</div>
+					<div class="lg:col-span-7">
+						<h3 class="text-2xl lg:text-3xl font-semibold tracking-[-0.025em] leading-[1.1]">
+							{t(row.titleKey)}
+						</h3>
+					</div>
+					<div class="lg:col-span-3 text-base text-[var(--color-text-muted)] tracking-[-0.01em]">
+						{row.place}
+					</div>
+				</li>
+			))}
+		</ul>
+	</div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     Experience — block-cream
+     Same shape as Education, light surface for contrast.
+     ════════════════════════════════════════════════ -->
+<section class="block block-cream block-pad">
+	<div class="container-shell">
+		<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16 lg:mb-20">
+			<div class="lg:col-span-3">
+				<p class="mono-label">— Experience</p>
+			</div>
+			<div class="lg:col-span-9">
+				<h2 class="text-display leading-[0.94] tracking-[-0.04em] text-balance max-w-3xl">
+					{t('about.experience.heading')}.
+				</h2>
+			</div>
+		</div>
+
+		<ul class="border-t border-[var(--color-rule-dark-strong)]">
+			{experience.map((row) => (
+				<li class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 py-8 lg:py-10 border-b border-[var(--color-rule-dark)]">
+					<div class="lg:col-span-2 mono-num text-sm text-[var(--color-text-muted-on-light)] tracking-widest">
+						{row.dates}
+					</div>
+					<div class="lg:col-span-4">
+						<h3 class="text-2xl lg:text-3xl font-semibold tracking-[-0.025em] leading-[1.1]">
+							{t(row.titleKey)}
+						</h3>
+					</div>
+					<div class="lg:col-span-6 text-base text-[var(--color-text-muted-on-light)] leading-[1.5] tracking-[-0.005em] text-pretty">
+						{t(row.detailsKey)}
+					</div>
+				</li>
+			))}
+		</ul>
 	</div>
 </section>

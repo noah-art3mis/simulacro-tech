@@ -1,12 +1,5 @@
 ---
-import {
-	ArrowUpRight,
-	Github,
-	Mic,
-	Cpu,
-	ScanLine,
-	Gavel,
-} from 'lucide-astro';
+import { ArrowUpRight, Github } from 'lucide-astro';
 import { ui, type Lang, type UIKey } from '../i18n/ui';
 import { getLocalizedPath } from '../i18n/utils';
 
@@ -20,198 +13,195 @@ const homeHref = getLocalizedPath('/', lang);
 const contactHref = `${homeHref.replace(/\/$/, '')}/#contact`;
 
 type ProductionEntry = {
-	kind: 'production';
 	id: string;
 	name: string;
-	icon: typeof Mic;
 	statValues: readonly string[];
 };
 type OpenSourceEntry = {
-	kind: 'openSource';
 	id: string;
 	name: string;
-	icon: typeof Mic;
 	href: string;
 	repo: string;
 };
 
 const production: readonly ProductionEntry[] = [
-	{
-		kind: 'production',
-		id: 'molcajete',
-		name: 'Molcajete',
-		icon: Mic,
-		statValues: ['1,300+', '<60 min'],
-	},
-	{
-		kind: 'production',
-		id: 'adapta',
-		name: 'Adapta',
-		icon: Cpu,
-		statValues: ['40+', '100+'],
-	},
-	{
-		kind: 'production',
-		id: 'nopalero',
-		name: 'Nopalero',
-		icon: ScanLine,
-		statValues: ['48', '0'],
-	},
+	{ id: 'molcajete', name: 'Molcajete', statValues: ['1,300+', '<60 min'] },
+	{ id: 'adapta',    name: 'Adapta',    statValues: ['40+', '100+'] },
+	{ id: 'nopalero',  name: 'Nopalero',  statValues: ['48', '0'] },
 ] as const;
 
 const openSource: readonly OpenSourceEntry[] = [
-	{
-		kind: 'openSource',
-		id: 'judex',
-		name: 'Judex',
-		icon: Gavel,
-		href: 'https://github.com/noah-art3mis/judex-mini',
-		repo: 'noah-art3mis/judex-mini',
-	},
+	{ id: 'judex', name: 'Judex', href: 'https://github.com/noah-art3mis/judex-mini', repo: 'noah-art3mis/judex-mini' },
 ] as const;
 ---
 
 <!-- ════════════════════════════════════════════════
-     Masthead
+     Masthead — block-dark
      ════════════════════════════════════════════════ -->
-<section class="relative pt-20 pb-16">
-	<div class="glow-orb w-[420px] h-[420px] -top-20 -right-32 opacity-50"></div>
+<section class="block block-dark relative overflow-hidden">
+	<div class="glow-orb w-[520px] h-[520px] -top-32 -right-32"></div>
 
-	<div class="max-w-6xl mx-auto px-6 lg:px-10 relative z-10">
-		<div class="flex items-center gap-4 mb-12 animate-fade-up">
-			<span class="hairline w-12"></span>
-			<span class="mono-label">{t('nav.projects')}</span>
-		</div>
-
-		<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+	<div class="container-shell pt-20 lg:pt-32 pb-20 lg:pb-32 relative z-10">
+		<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16 lg:mb-20">
+			<div class="lg:col-span-3">
+				<p class="mono-label animate-fade-up">— {t('nav.projects')}</p>
+			</div>
 			<div class="lg:col-span-9">
-				<h1 class="text-6xl md:text-7xl lg:text-[6.5rem] mb-2 animate-fade-up animate-delay-1 leading-[0.95] text-balance">
-					{t('projects.intro.heading')}
+				<h1 class="text-mega text-balance animate-fade-up animate-delay-1">
+					{t('projects.intro.heading')}.
 				</h1>
 			</div>
-			<div class="lg:col-span-3 animate-fade-up animate-delay-2">
-				<div class="hairline mb-4"></div>
-				<p class="text-base text-[var(--color-text-muted)] leading-relaxed">
+		</div>
+
+		<div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+			<div class="lg:col-span-3 lg:col-start-4">
+				<div class="rule-on-dark-strong w-12 mb-5"></div>
+			</div>
+			<div class="lg:col-span-9 lg:col-start-4">
+				<p class="text-xl lg:text-2xl text-[var(--color-text-muted)] leading-[1.4] tracking-[-0.015em] max-w-3xl text-pretty animate-fade-up animate-delay-2">
 					{t('meta.projects.description')}
 				</p>
 			</div>
 		</div>
 	</div>
+
+	<div class="rule-on-dark-strong"></div>
 </section>
 
 <!-- ════════════════════════════════════════════════
-     I — In production
+     I. In production — block-cream
+     Each entry is a ruled row; stats sit on top rule.
      ════════════════════════════════════════════════ -->
-<section class="pt-12 pb-12 relative">
-	<div class="max-w-6xl mx-auto px-6 lg:px-10">
-		<div class="mb-8">
-			<span class="section-mark">I — {t('projects.section.production')}</span>
+<section class="block block-cream block-pad">
+	<div class="container-shell">
+		<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-12 lg:mb-16">
+			<div class="lg:col-span-3">
+				<p class="mono-label">— I. {t('projects.section.production')}</p>
+			</div>
+			<div class="lg:col-span-9">
+				<h2 class="text-display leading-[0.94] tracking-[-0.04em] text-balance max-w-3xl">
+					Built. Running. Used.
+				</h2>
+			</div>
 		</div>
 
-		<div class="border-t border-[var(--color-rule-strong)]">
-			{production.map((p, i) => {
-				const Icon = p.icon;
-				const num = String(i + 1).padStart(2, '0');
-				return (
-					<article class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-16 border-b border-[var(--color-rule)]">
-						<div class="lg:col-span-4">
-							<div class="flex items-baseline gap-4 mb-6">
-								<span class="mono-num text-[var(--color-accent)] text-sm tracking-widest">N° {num}</span>
-								<div class="flex-1 hairline"></div>
-								<Icon size={18} class="text-[var(--color-accent)] opacity-70" />
-							</div>
-							<h2 class="text-5xl md:text-6xl leading-none">{p.name}</h2>
+		<div class="border-t border-[var(--color-rule-dark-strong)]">
+			{production.map((p, i) => (
+				<article id={p.id} class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-14 lg:py-20 border-b border-[var(--color-rule-dark)] scroll-mt-24">
+					<div class="lg:col-span-4">
+						<div class="flex items-baseline gap-4 mb-6">
+							<span class="mono-num text-[var(--color-text-muted-on-light)] text-xs tracking-widest">
+								N° {String(i + 1).padStart(2, '0')}
+							</span>
+							<div class="flex-1 rule-on-light-strong"></div>
 						</div>
+						<h3 class="text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-[-0.04em] leading-[0.92]">
+							{p.name}
+						</h3>
+					</div>
 
-						<div class="lg:col-span-8">
-							<p class="font-display text-2xl md:text-3xl leading-tight mb-6 text-balance">
-								{t(`projects.production.${p.id}.tagline` as UIKey)}
-							</p>
-							<p class="text-[var(--color-text-muted)] text-base md:text-lg leading-relaxed mb-10 max-w-2xl text-pretty">
-								{t(`projects.production.${p.id}.description` as UIKey)}
-							</p>
-							<div class="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-6 border-t border-[var(--color-rule-strong)] pt-6">
-								{p.statValues.map((value, idx) => (
-									<div>
-										<div class="font-display text-3xl md:text-4xl text-[var(--color-accent)] leading-none mb-2">
-											{value}
-										</div>
-										<div class="mono-label leading-tight">
-											{t(`projects.production.${p.id}.stat.${idx}` as UIKey)}
-										</div>
+					<div class="lg:col-span-8">
+						<p class="text-2xl lg:text-3xl font-semibold tracking-[-0.025em] leading-[1.15] mb-8 text-balance max-w-3xl">
+							{t(`projects.production.${p.id}.tagline` as UIKey)}
+						</p>
+						<p class="text-base lg:text-lg leading-[1.55] text-[var(--color-text-muted-on-light)] mb-12 max-w-2xl text-pretty">
+							{t(`projects.production.${p.id}.description` as UIKey)}
+						</p>
+
+						<div class="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-6 border-t border-[var(--color-rule-dark-strong)] pt-8">
+							{p.statValues.map((value, idx) => (
+								<div>
+									<div class="text-4xl lg:text-5xl font-semibold tracking-[-0.04em] leading-[0.92] mb-2 text-[var(--color-amber-deep)]">
+										{value}
 									</div>
-								))}
-							</div>
+									<div class="mono-label leading-tight">
+										{t(`projects.production.${p.id}.stat.${idx}` as UIKey)}
+									</div>
+								</div>
+							))}
 						</div>
-					</article>
-				);
-			})}
+					</div>
+				</article>
+			))}
 		</div>
 	</div>
 </section>
 
 <!-- ════════════════════════════════════════════════
-     II — Open source
+     II. Open source — block-dark
      ════════════════════════════════════════════════ -->
-<section class="pt-12 pb-24 relative">
-	<div class="max-w-6xl mx-auto px-6 lg:px-10">
-		<div class="mb-8">
-			<span class="section-mark">II — {t('projects.section.openSource')}</span>
+<section class="block block-dark block-pad">
+	<div class="container-shell">
+		<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-12 lg:mb-16">
+			<div class="lg:col-span-3">
+				<p class="mono-label">— II. {t('projects.section.openSource')}</p>
+			</div>
+			<div class="lg:col-span-9">
+				<h2 class="text-display leading-[0.94] tracking-[-0.04em] text-balance max-w-3xl">
+					Tools, left in public.
+				</h2>
+			</div>
 		</div>
 
 		<div class="border-t border-[var(--color-rule-strong)]">
-			{openSource.map((p, i) => {
-				const Icon = p.icon;
-				const num = String(i + 1).padStart(2, '0');
-				return (
-					<article class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-12 border-b border-[var(--color-rule)]">
-						<div class="lg:col-span-4">
-							<div class="flex items-baseline gap-4 mb-6">
-								<span class="mono-num text-[var(--color-accent)] text-sm tracking-widest">N° {num}</span>
-								<div class="flex-1 hairline"></div>
-								<Icon size={18} class="text-[var(--color-accent)] opacity-70" />
-							</div>
-							<h2 class="text-4xl md:text-5xl leading-none mb-4">{p.name}</h2>
-							<a
-								href={p.href}
-								target="_blank"
-								rel="noopener"
-								class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
-							>
-								<Github size={14} />
-								<span>{p.repo}</span>
-								<ArrowUpRight size={12} />
-							</a>
+			{openSource.map((p, i) => (
+				<article id={p.id} class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-14 lg:py-20 border-b border-[var(--color-rule)] scroll-mt-24">
+					<div class="lg:col-span-4">
+						<div class="flex items-baseline gap-4 mb-6">
+							<span class="mono-num text-[var(--color-text-muted)] text-xs tracking-widest">
+								N° {String(i + 1).padStart(2, '0')}
+							</span>
+							<div class="flex-1 rule-on-dark-strong"></div>
 						</div>
+						<h3 class="text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-[-0.04em] leading-[0.92] mb-6">
+							{p.name}
+						</h3>
+						<a
+							href={p.href}
+							target="_blank"
+							rel="noopener"
+							class="inline-flex items-center gap-2 mono-label hover:text-[var(--color-amber)] transition-colors"
+						>
+							<Github size={14} />
+							<span>{p.repo}</span>
+							<ArrowUpRight size={12} />
+						</a>
+					</div>
 
-						<div class="lg:col-span-8">
-							<p class="font-display text-2xl md:text-3xl leading-tight text-balance">
-								{t(`projects.openSource.${p.id}.summary` as UIKey)}
-							</p>
-						</div>
-					</article>
-				);
-			})}
+					<div class="lg:col-span-8">
+						<p class="text-2xl lg:text-3xl font-semibold tracking-[-0.025em] leading-[1.15] text-balance max-w-3xl">
+							{t(`projects.openSource.${p.id}.summary` as UIKey)}
+						</p>
+					</div>
+				</article>
+			))}
 		</div>
 	</div>
 </section>
 
 <!-- ════════════════════════════════════════════════
-     Closing CTA
+     Closing CTA — block-amber
      ════════════════════════════════════════════════ -->
-<section class="py-24 relative overflow-hidden">
-	<div class="glow-orb w-[400px] h-[400px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-25"></div>
-
-	<div class="max-w-4xl mx-auto px-6 lg:px-10 relative z-10 text-center">
-		<h2 class="text-4xl md:text-5xl lg:text-6xl mb-6 text-balance">
-			{t('projects.cta.heading')}
-		</h2>
-		<p class="text-lg text-[var(--color-text-muted)] max-w-xl mx-auto mb-10">
-			{t('projects.cta.lede')}
-		</p>
-		<a href={contactHref} class="btn-primary inline-flex items-center justify-center gap-2 whitespace-nowrap group">
-			{t('projects.cta.action')}
-			<ArrowUpRight size={16} class="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-		</a>
+<section class="block block-amber block-pad-tight">
+	<div class="container-shell py-12 lg:py-20">
+		<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+			<div class="lg:col-span-3">
+				<p class="mono-label">— Next</p>
+			</div>
+			<div class="lg:col-span-7">
+				<h2 class="text-statement leading-[0.96] tracking-[-0.035em] text-balance">
+					{t('projects.cta.heading')}
+				</h2>
+				<p class="mt-6 text-base lg:text-lg leading-[1.5] max-w-xl text-pretty opacity-80">
+					{t('projects.cta.lede')}
+				</p>
+			</div>
+			<div class="lg:col-span-2 flex lg:justify-end">
+				<a href={contactHref} class="btn btn-on-amber group whitespace-nowrap">
+					{t('projects.cta.action')}
+					<ArrowUpRight size={16} class="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+				</a>
+			</div>
+		</div>
 	</div>
 </section>

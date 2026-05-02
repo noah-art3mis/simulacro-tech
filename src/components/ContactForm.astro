@@ -1,5 +1,5 @@
 ---
-import { Send } from 'lucide-astro';
+import { ArrowUpRight } from 'lucide-astro';
 import { ui, type Lang, type UIKey } from '../i18n/ui';
 
 interface Props {
@@ -10,11 +10,11 @@ const { lang } = Astro.props;
 const t = (key: UIKey) => ui[lang][key];
 ---
 
-<div class="w-full max-w-2xl mx-auto">
+<div class="w-full max-w-3xl">
 	<form
 		id="contact-form"
 		action="https://formspree.io/f/xpwvlovb"
-		class="glass-card-contact p-8 md:p-10 space-y-7"
+		class="space-y-10"
 		target="_top"
 		method="POST"
 		data-error-empty={t('form.error.empty')}
@@ -22,13 +22,10 @@ const t = (key: UIKey) => ui[lang][key];
 		data-error-generic={t('form.error.generic')}
 		data-error-network={t('form.error.network')}
 	>
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
 			<div class="space-y-2">
-				<label
-					class="block font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-text-muted)]"
-					for="name"
-				>
-					{t('form.name.label')}
+				<label class="mono-label" for="name">
+					— {t('form.name.label')}
 				</label>
 				<input
 					class="field-input"
@@ -41,11 +38,8 @@ const t = (key: UIKey) => ui[lang][key];
 			</div>
 
 			<div class="space-y-2">
-				<label
-					class="block font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-text-muted)]"
-					for="email"
-				>
-					{t('form.email.label')}
+				<label class="mono-label" for="email">
+					— {t('form.email.label')}
 				</label>
 				<input
 					class="field-input"
@@ -59,11 +53,8 @@ const t = (key: UIKey) => ui[lang][key];
 		</div>
 
 		<div class="space-y-2">
-			<label
-				class="block font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-text-muted)]"
-				for="message"
-			>
-				{t('form.message.label')}
+			<label class="mono-label" for="message">
+				— {t('form.message.label')}
 			</label>
 			<textarea
 				class="field-input field-textarea"
@@ -73,40 +64,34 @@ const t = (key: UIKey) => ui[lang][key];
 				required></textarea>
 		</div>
 
-		<div class="flex justify-end pt-2">
-			<button class="btn-primary inline-flex items-center gap-2 group" type="submit">
+		<div class="flex justify-start pt-4">
+			<button class="btn btn-outline-light group" type="submit">
 				{t('form.submit')}
-				<Send size={16} class="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+				<ArrowUpRight size={16} class="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
 			</button>
 		</div>
 	</form>
 
 	<div
 		id="error"
-		class="rounded-xl p-4 text-sm text-red-400 border border-red-400/30 bg-red-400/[0.03] hidden mt-6"
+		class="hidden mt-8 px-5 py-4 border-l-2 border-[var(--color-amber)] bg-transparent"
 	>
+		<p class="mono-label mb-2">— Error</p>
+		<p id="error-message" class="text-base text-[var(--color-text)]"></p>
 	</div>
 
-	<div id="success" class="rounded-xl p-8 text-center hidden mt-6 border border-[var(--color-accent)]/30 bg-[var(--color-accent)]/[0.03]">
-		<div
-			class="w-16 h-16 rounded-full bg-[var(--color-accent)]/10 flex items-center justify-center mx-auto mb-4"
-		>
-			<svg class="w-8 h-8 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="M5 13l4 4L19 7"></path>
-			</svg>
-		</div>
-		<p class="text-2xl mb-2 italic-serif">{t('form.success.title')}</p>
-		<p class="text-sm text-[var(--color-text-muted)] mb-6">{t('form.success.subtext')}</p>
+	<div id="success" class="hidden mt-8 border-t border-[var(--color-amber)] pt-10">
+		<p class="mono-label mb-4 text-[var(--color-amber)]">— {t('form.success.title')}</p>
+		<p class="text-2xl lg:text-3xl font-semibold tracking-[-0.025em] leading-[1.1] mb-8 text-balance max-w-2xl">
+			{t('form.success.subtext')}
+		</p>
 		<button
 			type="button"
 			id="send-another"
-			class="font-mono text-xs uppercase tracking-[0.2em] text-[var(--color-accent)] hover:underline underline-offset-4"
+			class="btn btn-outline-light group"
 		>
 			{t('form.success.action')}
+			<ArrowUpRight size={16} class="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
 		</button>
 	</div>
 </div>
@@ -114,10 +99,11 @@ const t = (key: UIKey) => ui[lang][key];
 <script>
 	const form = document.getElementById('contact-form') as HTMLFormElement;
 	const errorDiv = document.getElementById('error');
+	const errorMessage = document.getElementById('error-message');
 	const successDiv = document.getElementById('success');
 	const sendAnotherBtn = document.getElementById('send-another');
 
-	if (form && errorDiv && successDiv && sendAnotherBtn) {
+	if (form && errorDiv && errorMessage && successDiv && sendAnotherBtn) {
 		const msgEmpty = form.dataset.errorEmpty ?? 'Please fill in all fields.';
 		const msgEmail = form.dataset.errorEmail ?? 'Please enter a valid email address.';
 		const msgGeneric = form.dataset.errorGeneric ?? 'Something went wrong. Please try again.';
@@ -135,13 +121,13 @@ const t = (key: UIKey) => ui[lang][key];
 			const message = formData.get('message') as string;
 
 			if (!name || !email || !message) {
-				errorDiv.textContent = msgEmpty;
+				errorMessage.textContent = msgEmpty;
 				errorDiv.classList.remove('hidden');
 				return;
 			}
 
 			if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-				errorDiv.textContent = msgEmail;
+				errorMessage.textContent = msgEmail;
 				errorDiv.classList.remove('hidden');
 				return;
 			}
@@ -163,7 +149,7 @@ const t = (key: UIKey) => ui[lang][key];
 							form.classList.add('hidden');
 							successDiv.classList.remove('hidden');
 						} else {
-							errorDiv.textContent = data.error || msgGeneric;
+							errorMessage.textContent = data.error || msgGeneric;
 							errorDiv.classList.remove('hidden');
 						}
 					} else {
@@ -176,15 +162,15 @@ const t = (key: UIKey) => ui[lang][key];
 				} else {
 					try {
 						const data = await response.json();
-						errorDiv.textContent = data.error || msgGeneric;
+						errorMessage.textContent = data.error || msgGeneric;
 					} catch {
-						errorDiv.textContent = msgGeneric;
+						errorMessage.textContent = msgGeneric;
 					}
 					errorDiv.classList.remove('hidden');
 				}
 			} catch (error) {
 				console.error('Form submission error:', error);
-				errorDiv.textContent = msgNetwork;
+				errorMessage.textContent = msgNetwork;
 				errorDiv.classList.remove('hidden');
 			}
 		});
