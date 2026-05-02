@@ -170,16 +170,11 @@ export const ui = {
 		'banner.dismiss': 'Dismiss',
 
 		'eyebrow.position': 'A position',
-		'eyebrow.work': 'The work',
+		'eyebrow.work': "Work I've shipped",
 		'eyebrow.approach': 'An approach',
-		'eyebrow.elsewhere': 'Elsewhere',
+		'eyebrow.elsewhere': 'About me',
 		'eyebrow.note': 'A note',
 		'eyebrow.next': 'Next',
-
-		'home.stats.years.label': 'Years clinical practice',
-		'home.stats.disciplines.label': 'Disciplines, one mind',
-		'home.stats.cities.label': 'Cities · LDN / BSB',
-		'home.stats.practitioner.label': 'Practitioner',
 
 		'projects.h2.production': 'Built. Running. Used.',
 		'projects.h2.openSource': 'Tools, left in public.',
@@ -347,16 +342,11 @@ export const ui = {
 		'banner.dismiss': 'Fechar',
 
 		'eyebrow.position': 'Uma posição',
-		'eyebrow.work': 'O trabalho',
+		'eyebrow.work': 'Trabalhos que entreguei',
 		'eyebrow.approach': 'Um método',
-		'eyebrow.elsewhere': 'Em outros lugares',
+		'eyebrow.elsewhere': 'Sobre mim',
 		'eyebrow.note': 'Uma nota',
 		'eyebrow.next': 'Próximo',
-
-		'home.stats.years.label': 'Anos de prática clínica',
-		'home.stats.disciplines.label': 'Disciplinas, uma mente',
-		'home.stats.cities.label': 'Cidades · LDN / BSB',
-		'home.stats.practitioner.label': 'Praticante',
 
 		'projects.h2.production': 'Construído. Em produção. Em uso.',
 		'projects.h2.openSource': 'Ferramentas, deixadas em público.',
@@ -524,16 +514,11 @@ export const ui = {
 		'banner.dismiss': 'Cerrar',
 
 		'eyebrow.position': 'Una posición',
-		'eyebrow.work': 'El trabajo',
+		'eyebrow.work': 'Trabajos que he entregado',
 		'eyebrow.approach': 'Un método',
-		'eyebrow.elsewhere': 'En otros lugares',
+		'eyebrow.elsewhere': 'Sobre mí',
 		'eyebrow.note': 'Una nota',
 		'eyebrow.next': 'Siguiente',
-
-		'home.stats.years.label': 'Años de práctica clínica',
-		'home.stats.disciplines.label': 'Disciplinas, una mente',
-		'home.stats.cities.label': 'Ciudades · LDN / BSB',
-		'home.stats.practitioner.label': 'Practicante',
 
 		'projects.h2.production': 'Construido. En producción. En uso.',
 		'projects.h2.openSource': 'Herramientas, dejadas en público.',

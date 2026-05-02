@@ -1,30 +1,18 @@
 @import 'tailwindcss';
 
 /* ─────────── Self-hosted fonts ─────────── */
-/* Latin + latin-ext subsets only. PT/ES diacritics covered by latin (U+00xx).
-   Bricolage Grotesque ships as a single variable woff2 per subset; JetBrains
-   Mono ships as static weights 400/500/600. Total payload: ~324 KB cached
-   forever, served from the same origin (no third-party DNS hop, no GDPR
-   concern). */
+/* Cabinet Grotesk — variable woff2 covering weights 100–900 in a single
+   ~41 KB file, sourced from Fontshare and served from the same origin.
+   Cabinet has no italic master on Fontshare; .hero-emphasis falls back to
+   browser-synthesised oblique, which is acceptable at display sizes.
+   JetBrains Mono ships static 400/500/600 (3 woff2 files). */
 
 @font-face {
-    font-family: 'Bricolage Grotesque';
+    font-family: 'Cabinet Grotesk';
     font-style: normal;
-    font-weight: 200 800;
-    font-stretch: 75% 100%;
+    font-weight: 100 900;
     font-display: swap;
-    src: url('/fonts/bricolage-grotesque-latin-variable.woff2') format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-    font-family: 'Bricolage Grotesque';
-    font-style: normal;
-    font-weight: 200 800;
-    font-stretch: 75% 100%;
-    font-display: swap;
-    src: url('/fonts/bricolage-grotesque-latin-ext-variable.woff2') format('woff2');
-    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    src: url('/fonts/cabinet-grotesk-variable.woff2') format('woff2');
 }
 
 @font-face {
@@ -109,7 +97,7 @@
         --color-glow: rgba(245, 176, 66, 0.20);
 
         /* ── Typography aliases ── */
-        --font-sans: 'Bricolage Grotesque', system-ui, -apple-system, sans-serif;
+        --font-sans: 'Cabinet Grotesk', system-ui, -apple-system, sans-serif;
         --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
         /* ── Easing — single source of truth ── */
@@ -127,10 +115,8 @@
 
     body {
         font-family: var(--font-sans);
-        font-optical-sizing: auto;
-        font-weight: 300;
-        font-variation-settings: 'wdth' 100;
-        line-height: 1.45;
+        font-weight: 400;
+        line-height: 1.5;
         background-color: var(--color-bg);
         color: var(--color-text);
         -webkit-font-smoothing: antialiased;
@@ -139,21 +125,19 @@
 
     h1, h2, h3, h4, h5, h6 {
         font-family: var(--font-sans);
-        font-optical-sizing: auto;
-        font-variation-settings: 'wdth' 100, 'opsz' 96;
         font-weight: 600;
-        letter-spacing: -0.025em;
-        line-height: 0.96;
+        letter-spacing: -0.02em;
+        line-height: 1.02;
     }
     h1 {
         font-weight: 700;
-        letter-spacing: -0.04em;
-        line-height: 0.92;
+        letter-spacing: -0.03em;
+        line-height: 0.98;
     }
     h2 {
         font-weight: 600;
-        letter-spacing: -0.035em;
-        line-height: 0.94;
+        letter-spacing: -0.025em;
+        line-height: 1.0;
     }
 
     /* Selection — opaque amber over light text */
@@ -260,25 +244,81 @@
        statement copy to 90, body stays at 100. Engaging the variable axis is
        what distinguishes this from a static-sans implementation. */
     .text-mega {
-        font-size: clamp(3rem, 9vw, 8.5rem);
+        font-size: clamp(2.5rem, 7.5vw, 7rem);
         font-weight: 700;
-        letter-spacing: -0.045em;
-        line-height: 0.92;
-        font-variation-settings: 'wdth' 85, 'opsz' 96;
+        letter-spacing: -0.035em;
+        line-height: 0.98;
     }
     .text-display {
-        font-size: clamp(2.5rem, 6vw, 5.5rem);
+        font-size: clamp(2.1rem, 5vw, 4.5rem);
         font-weight: 600;
-        letter-spacing: -0.04em;
-        line-height: 0.94;
-        font-variation-settings: 'wdth' 88, 'opsz' 96;
+        letter-spacing: -0.03em;
+        line-height: 1.0;
     }
     .text-statement {
-        font-size: clamp(2rem, 4.5vw, 4rem);
+        font-size: clamp(1.75rem, 3.8vw, 3.25rem);
         font-weight: 600;
-        letter-spacing: -0.035em;
-        line-height: 0.96;
-        font-variation-settings: 'wdth' 92, 'opsz' 96;
+        letter-spacing: -0.025em;
+        line-height: 1.02;
+    }
+
+    /* ─────────── Hero construction-mark bracket ─────────── */
+    /* A top-left L-bracket frames the headline like a print crop mark.
+       Two thin amber strokes draw outward from the corner via stroke-
+       dashoffset on load, then sit static. Hidden on small screens
+       where the layout grid doesn't carry the same architectural weight. */
+
+    .construction-mark {
+        position: absolute;
+        top: -1rem;
+        left: -1rem;
+        width: 48px;
+        height: 48px;
+        pointer-events: none;
+        color: var(--color-amber);
+        z-index: 5;
+    }
+    @media (min-width: 768px) {
+        .construction-mark { top: -1.4rem; left: -1.4rem; width: 60px; height: 60px; }
+    }
+    @media (min-width: 1024px) {
+        .construction-mark { top: -1.75rem; left: -1.75rem; width: 76px; height: 76px; }
+    }
+    .construction-mark svg {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+        display: block;
+    }
+    .construction-mark .cm {
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.5;
+        stroke-linecap: square;
+    }
+    .construction-mark .cm-v,
+    .construction-mark .cm-h {
+        stroke-dasharray: 72;
+        stroke-dashoffset: 72;
+        animation: cm-draw 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .construction-mark .cm-v { animation-delay: 0.45s; }
+    .construction-mark .cm-h { animation-delay: 0.6s;  }
+
+    @keyframes cm-draw {
+        to { stroke-dashoffset: 0; }
+    }
+
+    /* Hero emphasis — the highlighted word gets italic Cabinet Grotesk so it
+       carries character against the upright headline. Optional swap target:
+       a different family altogether (e.g. Fraunces serif italic) if you want
+       a stronger contrast. */
+    .hero-emphasis {
+        font-style: italic;
+        font-weight: 600;
+        /* Italic glyphs lean right, leaving extra optical space — pull the
+           following character a hair closer with a small negative margin. */
+        margin-right: -0.02em;
     }
 
     /* Mono label — single eyebrow / metadata token */
@@ -396,19 +436,8 @@
         border-radius: 50%;
         background: radial-gradient(circle, var(--color-glow) 0%, rgba(245, 176, 66, 0) 70%);
         filter: blur(80px);
-        animation: pulse-glow 9s ease-in-out infinite;
+        opacity: 0.55;
         pointer-events: none;
-    }
-
-    @keyframes pulse-glow {
-        0%, 100% {
-            opacity: 0.45;
-            transform: scale(1);
-        }
-        50% {
-            opacity: 0.7;
-            transform: scale(1.06);
-        }
     }
 
     /* Noise overlay — applied at the body level via BaseLayout */
@@ -516,6 +545,278 @@
     .block-cream-warm .field-input:focus {
         border-bottom-color: var(--color-amber-deep);
     }
+
+    /* ─────────── Project tile previews ─────────── */
+    /* Living evidence of work. Each preview uses currentColor so it inverts
+       cleanly with the tile's hover-to-amber color flip. */
+
+    .preview-frame {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+        border-bottom: 1px solid var(--color-rule);
+        background: rgba(0, 0, 0, 0.18);
+        transition: border-color 0.5s ease, background 0.5s ease;
+    }
+    .group:hover .preview-frame {
+        border-bottom-color: rgba(10, 10, 15, 0.18);
+        background: rgba(10, 10, 15, 0.08);
+    }
+
+    /* Waveform — 16 bars, vertical, animated heights */
+    .preview-waveform {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        width: 100%;
+        height: 100%;
+        padding: 1.4rem 1.6rem;
+        color: var(--color-amber);
+    }
+    .group:hover .preview-waveform {
+        color: var(--color-bg);
+    }
+    .preview-waveform > span {
+        flex: 1;
+        background: currentColor;
+        opacity: 0.85;
+        border-radius: 1px;
+        animation: pw-bar 1.6s ease-in-out infinite alternate;
+        height: 18%;
+        transform-origin: center;
+    }
+    .preview-waveform > span:nth-child(1)  { animation-delay: -0.05s; animation-duration: 1.7s; }
+    .preview-waveform > span:nth-child(2)  { animation-delay: -0.40s; animation-duration: 1.4s; }
+    .preview-waveform > span:nth-child(3)  { animation-delay: -0.20s; animation-duration: 1.9s; }
+    .preview-waveform > span:nth-child(4)  { animation-delay: -0.55s; animation-duration: 1.3s; }
+    .preview-waveform > span:nth-child(5)  { animation-delay: -0.10s; animation-duration: 1.8s; }
+    .preview-waveform > span:nth-child(6)  { animation-delay: -0.65s; animation-duration: 1.5s; }
+    .preview-waveform > span:nth-child(7)  { animation-delay: -0.30s; animation-duration: 1.7s; }
+    .preview-waveform > span:nth-child(8)  { animation-delay: -0.50s; animation-duration: 1.4s; }
+    .preview-waveform > span:nth-child(9)  { animation-delay: -0.15s; animation-duration: 1.9s; }
+    .preview-waveform > span:nth-child(10) { animation-delay: -0.45s; animation-duration: 1.6s; }
+    .preview-waveform > span:nth-child(11) { animation-delay: -0.25s; animation-duration: 1.5s; }
+    .preview-waveform > span:nth-child(12) { animation-delay: -0.60s; animation-duration: 1.7s; }
+    .preview-waveform > span:nth-child(13) { animation-delay: -0.05s; animation-duration: 1.4s; }
+    .preview-waveform > span:nth-child(14) { animation-delay: -0.35s; animation-duration: 1.8s; }
+    .preview-waveform > span:nth-child(15) { animation-delay: -0.20s; animation-duration: 1.6s; }
+    .preview-waveform > span:nth-child(16) { animation-delay: -0.55s; animation-duration: 1.5s; }
+
+    @keyframes pw-bar {
+        0%   { height: 14%; }
+        50%  { height: 60%; }
+        100% { height: 28%; }
+    }
+
+    /* Sparkline — drawn line + endpoint dot, 8s loop */
+    .preview-sparkline {
+        width: 100%;
+        height: 100%;
+        padding: 1.4rem 1.6rem;
+        color: var(--color-amber);
+        display: block;
+    }
+    .group:hover .preview-sparkline {
+        color: var(--color-bg);
+    }
+    .preview-sparkline svg {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+    }
+    .preview-sparkline .grid {
+        stroke: currentColor;
+        stroke-width: 1;
+        stroke-dasharray: 2 4;
+        opacity: 0.18;
+    }
+    .preview-sparkline .line {
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 600;
+        stroke-dashoffset: 600;
+        animation: ps-draw 7s ease-in-out infinite;
+    }
+    .preview-sparkline .dot {
+        fill: currentColor;
+        opacity: 0;
+        animation: ps-dot 7s ease-in-out infinite;
+    }
+    .preview-sparkline .area {
+        fill: currentColor;
+        opacity: 0;
+        animation: ps-area 7s ease-in-out infinite;
+    }
+
+    @keyframes ps-draw {
+        0%        { stroke-dashoffset: 600; }
+        55%, 90%  { stroke-dashoffset: 0; }
+        100%      { stroke-dashoffset: 0; opacity: 0; }
+    }
+    @keyframes ps-dot {
+        0%, 50%   { opacity: 0; transform: scale(0.6); }
+        58%, 90%  { opacity: 1; transform: scale(1); }
+        100%      { opacity: 0; }
+    }
+    @keyframes ps-area {
+        0%, 30%   { opacity: 0; }
+        70%, 90%  { opacity: 0.10; }
+        100%      { opacity: 0; }
+    }
+
+    /* Highlight — annotated text. Marks pulse amber in/out in sequence. */
+    .preview-highlight {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        line-height: 1.7;
+        letter-spacing: -0.005em;
+        padding: 1.3rem 1.6rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.1rem;
+        color: var(--color-text);
+    }
+    .group:hover .preview-highlight {
+        color: var(--color-bg);
+    }
+    .preview-highlight > span {
+        display: block;
+    }
+    .preview-highlight mark {
+        color: inherit;
+        background: rgba(245, 176, 66, 0);
+        padding: 0.05em 0.2em;
+        margin: 0 -0.05em;
+        border-radius: 1px;
+        animation: ph-mark 7s ease-in-out infinite;
+    }
+    .preview-highlight mark:nth-of-type(1) { animation-delay: 0.4s; }
+    .preview-highlight mark:nth-of-type(2) { animation-delay: 1.8s; }
+    .preview-highlight mark:nth-of-type(3) { animation-delay: 3.2s; }
+
+    @keyframes ph-mark {
+        0%, 5%, 95%, 100% { background: rgba(245, 176, 66, 0); }
+        15%, 80%          { background: rgba(245, 176, 66, 0.32); }
+    }
+    .group:hover .preview-highlight mark {
+        animation-name: ph-mark-amber;
+    }
+    @keyframes ph-mark-amber {
+        0%, 5%, 95%, 100% { background: rgba(10, 10, 15, 0); }
+        15%, 80%          { background: rgba(10, 10, 15, 0.18); }
+    }
+
+    /* ─────────── Approach geometry — three static poster ornaments ─────────── */
+    /* Constructivist / Suprematist composition. Flat overlapping color
+       shapes, a few per card. Three palette tones (amber, cream, amber-deep)
+       so the section carries warmth without introducing a third family. */
+
+    .geom-frame {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.22);
+        border-bottom: 1px solid rgba(245, 176, 66, 0.18);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        isolation: isolate;
+    }
+    .geom-frame svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    /* Shared fill tokens — used directly via class on <rect>/<circle> */
+    .geom-fill-amber      { fill: var(--color-amber);      }
+    .geom-fill-amber-deep { fill: var(--color-amber-deep); }
+    .geom-fill-cream      { fill: var(--color-cream);      }
+    .geom-stroke-amber-deep { stroke: var(--color-amber-deep); fill: none; }
+    .geom-stroke-cream      { stroke: var(--color-cream);      fill: none; }
+
+    /* Multiply blend on overlapping shapes deepens intersection naturally */
+    .geom-frame .blend { mix-blend-mode: multiply; }
+
+    /* ─────────── Approach artifact — transcript / working note ─────────── */
+
+    .artifact-note {
+        margin-top: 1.75rem;
+        padding: 0.4rem 0 0.4rem 1.4rem;
+        border-left: 2px solid rgba(245, 176, 66, 0.55);
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        font-weight: 400;
+        line-height: 1.7;
+        opacity: 0.78;
+        max-width: 36ch;
+    }
+    .artifact-note p {
+        margin: 0;
+        text-wrap: pretty;
+    }
+    .artifact-cite {
+        display: block;
+        margin-top: 0.7rem;
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        opacity: 0.45;
+    }
+
+    /* ─────────── Portrait slot — Elsewhere block ─────────── */
+
+    .portrait-frame {
+        width: 100%;
+        max-width: 200px;
+        aspect-ratio: 4 / 5;
+        background: var(--color-bg);
+        position: relative;
+        overflow: hidden;
+        display: block;
+    }
+    .portrait-frame svg,
+    .portrait-frame img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: center 28%;
+    }
+    /* Contact-sheet treatment — desaturated, slightly punchy contrast. */
+    .portrait-frame img {
+        filter: grayscale(100%) contrast(1.05);
+    }
+    .portrait-frame::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+        background-size: 120px 120px;
+        mix-blend-mode: overlay;
+        opacity: 0.10;
+        pointer-events: none;
+    }
+    .portrait-mark {
+        position: absolute;
+        top: 0.5rem;
+        left: 0.5rem;
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--color-text);
+        opacity: 0.5;
+    }
 }
 
 @layer utilities {
@@ -552,8 +853,19 @@
         scroll-behavior: auto !important;
     }
 
-    .glow-orb {
+    .preview-waveform > span,
+    .preview-sparkline .line,
+    .preview-sparkline .dot,
+    .preview-sparkline .area,
+    .preview-highlight mark,
+    .construction-mark .cm-v,
+    .construction-mark .cm-h {
         animation: none !important;
-        opacity: 0.5 !important;
     }
+    .preview-waveform > span { height: 32% !important; }
+    .preview-sparkline .line { stroke-dashoffset: 0 !important; }
+    .preview-sparkline .dot { opacity: 1 !important; }
+    .preview-highlight mark { background: rgba(245, 176, 66, 0.32) !important; }
+    .construction-mark .cm-v,
+    .construction-mark .cm-h { stroke-dashoffset: 0 !important; }
 }
