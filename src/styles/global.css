@@ -175,24 +175,30 @@
 
     /* ─────────── Typography helpers ─────────── */
 
-    /* Display tokens — apply directly, do not stack with text-* size utilities */
+    /* Display tokens — apply directly, do not stack with text-* size utilities.
+       The `wdth` axis is the design system: display copy compresses to 85,
+       statement copy to 90, body stays at 100. Engaging the variable axis is
+       what distinguishes this from a static-sans implementation. */
     .text-mega {
         font-size: clamp(3rem, 9vw, 8.5rem);
         font-weight: 700;
         letter-spacing: -0.045em;
         line-height: 0.92;
+        font-variation-settings: 'wdth' 85, 'opsz' 96;
     }
     .text-display {
         font-size: clamp(2.5rem, 6vw, 5.5rem);
         font-weight: 600;
         letter-spacing: -0.04em;
         line-height: 0.94;
+        font-variation-settings: 'wdth' 88, 'opsz' 96;
     }
     .text-statement {
         font-size: clamp(2rem, 4.5vw, 4rem);
         font-weight: 600;
         letter-spacing: -0.035em;
         line-height: 0.96;
+        font-variation-settings: 'wdth' 92, 'opsz' 96;
     }
 
     /* Mono label — single eyebrow / metadata token */
@@ -398,6 +404,9 @@
     .field-input::placeholder {
         color: var(--color-text-faint);
     }
+    .field-input:hover {
+        border-bottom-color: var(--color-text);
+    }
     .field-input:focus {
         outline: none;
         border-bottom-color: var(--color-amber);
@@ -419,9 +428,13 @@
     .block-cream-warm .field-input::placeholder {
         color: var(--color-text-muted-on-light);
     }
+    .block-cream .field-input:hover,
+    .block-cream-warm .field-input:hover {
+        border-bottom-color: var(--color-text-on-light);
+    }
     .block-cream .field-input:focus,
     .block-cream-warm .field-input:focus {
-        border-bottom-color: var(--color-text-on-light);
+        border-bottom-color: var(--color-amber-deep);
     }
 }
 

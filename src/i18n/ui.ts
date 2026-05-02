@@ -25,8 +25,10 @@ export const ui = {
 		'nav.projects': 'Projects',
 		'nav.contact': 'Contact',
 
-		'home.hero.title.before': 'Technology that serves ',
-		'home.hero.title.highlight': 'people',
+		'home.hero.line1': 'Technology that serves',
+		'home.hero.line2.before': '',
+		'home.hero.line2.highlight': 'people',
+		'home.hero.line2.after': '.',
 		'home.hero.tagline':
 			'AI and data solutions grounded in ethics. Building systems with transparency, accountability, and human impact at the core.',
 		'home.hero.cta': 'Get in Touch',
@@ -200,8 +202,10 @@ export const ui = {
 		'nav.projects': 'Projetos',
 		'nav.contact': 'Contato',
 
-		'home.hero.title.before': 'Tecnologia a serviço das ',
-		'home.hero.title.highlight': 'pessoas',
+		'home.hero.line1': 'Tecnologia',
+		'home.hero.line2.before': 'a serviço das ',
+		'home.hero.line2.highlight': 'pessoas',
+		'home.hero.line2.after': '.',
 		'home.hero.tagline':
 			'Soluções de IA e dados fundamentadas na ética. Sistemas construídos com transparência, responsabilidade e foco no impacto humano.',
 		'home.hero.cta': 'Entre em contato',
@@ -375,8 +379,10 @@ export const ui = {
 		'nav.projects': 'Proyectos',
 		'nav.contact': 'Contacto',
 
-		'home.hero.title.before': 'Tecnología al servicio de las ',
-		'home.hero.title.highlight': 'personas',
+		'home.hero.line1': 'Tecnología',
+		'home.hero.line2.before': 'al servicio de las ',
+		'home.hero.line2.highlight': 'personas',
+		'home.hero.line2.after': '.',
 		'home.hero.tagline':
 			'Soluciones de IA y datos basadas en la ética. Sistemas construidos con transparencia, responsabilidad y centrados en el impacto humano.',
 		'home.hero.cta': 'Contactar',

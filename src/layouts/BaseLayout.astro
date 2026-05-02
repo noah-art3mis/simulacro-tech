@@ -19,19 +19,42 @@ const siteOrigin = Astro.site ? Astro.site.origin : 'https://simulacro.tech';
 const alternates = getAlternates(Astro.url.pathname, siteOrigin);
 
 const buildDate = new Date().toISOString().slice(0, 10);
+
+const pageTitle = t(titleKey);
+const pageDescription = t(descriptionKey);
+const canonicalUrl = new URL(Astro.url.pathname, siteOrigin).href;
+const ogImageUrl = new URL(`${import.meta.env.BASE_URL.replace(/\/$/, '')}/simulacro.png`, siteOrigin).href;
+const ogLocale = lang === 'pt' ? 'pt_BR' : lang === 'es' ? 'es_ES' : 'en_US';
 ---
 
 <!doctype html>
 <html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content={t(descriptionKey)} />
+		<meta name="description" content={pageDescription} />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="canonical" href={canonicalUrl} />
 		<link rel="icon" type="image/png" href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/simulacro.png`} />
 		{alternates.map((alt) => (
 			<link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
 		))}
-		<title>{t(titleKey)}</title>
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={pageDescription} />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:image" content={ogImageUrl} />
+		<meta property="og:site_name" content="Simulacro Tech" />
+		<meta property="og:locale" content={ogLocale} />
+
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={pageTitle} />
+		<meta name="twitter:description" content={pageDescription} />
+		<meta name="twitter:image" content={ogImageUrl} />
+
+		<title>{pageTitle}</title>
 	</head>
 	<body class="overflow-x-hidden" data-build-date={buildDate}>
 		<div class="min-h-screen flex flex-col relative">
