@@ -35,6 +35,17 @@ const ogLocale = lang === 'pt' ? 'pt_BR' : lang === 'es' ? 'es_ES' : 'en_US';
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="canonical" href={canonicalUrl} />
 		<link rel="icon" type="image/png" href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/simulacro.png`} />
+
+		<!-- Preload the body face. Bricolage Grotesque carries every word on
+		     every page, so fetching it before CSS parses removes a render-blocking
+		     round-trip. -->
+		<link
+			rel="preload"
+			as="font"
+			type="font/woff2"
+			href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/fonts/bricolage-grotesque-latin-variable.woff2`}
+			crossorigin
+		/>
 		{alternates.map((alt) => (
 			<link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
 		))}
