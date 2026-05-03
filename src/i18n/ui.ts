@@ -25,10 +25,8 @@ export const ui = {
 		'nav.projects': 'Projects',
 		'nav.contact': 'Contact',
 
-		'home.hero.line1': 'Technology that serves',
-		'home.hero.line2.before': '',
-		'home.hero.line2.highlight': 'people',
-		'home.hero.line2.after': '.',
+		'home.hero.title.before': 'Technology that serves ',
+		'home.hero.title.highlight': 'people',
 		'home.hero.tagline':
 			'AI and data solutions grounded in ethics. Building systems with transparency, accountability, and human impact at the core.',
 		'home.hero.cta': 'Get in Touch',
@@ -168,18 +166,6 @@ export const ui = {
 
 		'banner.suggest': 'View in English?',
 		'banner.dismiss': 'Dismiss',
-
-		'eyebrow.position': 'A position',
-		'eyebrow.work': "Work I've shipped",
-		'eyebrow.approach': 'An approach',
-		'eyebrow.elsewhere': 'About me',
-		'eyebrow.note': 'A note',
-		'eyebrow.next': 'Next',
-
-		'projects.h2.production': 'Built. Running. Used.',
-		'projects.h2.openSource': 'Tools, left in public.',
-
-		'form.error.label': 'Error',
 	},
 	pt: {
 		'meta.home.title': 'Simulacro Tech — Consultoria interdisciplinar em dados e IA',
@@ -197,10 +183,8 @@ export const ui = {
 		'nav.projects': 'Projetos',
 		'nav.contact': 'Contato',
 
-		'home.hero.line1': 'Tecnologia',
-		'home.hero.line2.before': 'a serviço das ',
-		'home.hero.line2.highlight': 'pessoas',
-		'home.hero.line2.after': '.',
+		'home.hero.title.before': 'Tecnologia a serviço das ',
+		'home.hero.title.highlight': 'pessoas',
 		'home.hero.tagline':
 			'Soluções de IA e dados fundamentadas na ética. Sistemas construídos com transparência, responsabilidade e foco no impacto humano.',
 		'home.hero.cta': 'Entre em contato',
@@ -340,18 +324,6 @@ export const ui = {
 
 		'banner.suggest': 'Ver em português?',
 		'banner.dismiss': 'Fechar',
-
-		'eyebrow.position': 'Uma posição',
-		'eyebrow.work': 'Trabalhos que entreguei',
-		'eyebrow.approach': 'Um método',
-		'eyebrow.elsewhere': 'Sobre mim',
-		'eyebrow.note': 'Uma nota',
-		'eyebrow.next': 'Próximo',
-
-		'projects.h2.production': 'Construído. Em produção. Em uso.',
-		'projects.h2.openSource': 'Ferramentas, deixadas em público.',
-
-		'form.error.label': 'Erro',
 	},
 	es: {
 		'meta.home.title': 'Simulacro Tech — Consultoría interdisciplinaria en datos e IA',
@@ -369,10 +341,8 @@ export const ui = {
 		'nav.projects': 'Proyectos',
 		'nav.contact': 'Contacto',
 
-		'home.hero.line1': 'Tecnología',
-		'home.hero.line2.before': 'al servicio de las ',
-		'home.hero.line2.highlight': 'personas',
-		'home.hero.line2.after': '.',
+		'home.hero.title.before': 'Tecnología al servicio de las ',
+		'home.hero.title.highlight': 'personas',
 		'home.hero.tagline':
 			'Soluciones de IA y datos basadas en la ética. Sistemas construidos con transparencia, responsabilidad y centrados en el impacto humano.',
 		'home.hero.cta': 'Contactar',
@@ -512,18 +482,6 @@ export const ui = {
 
 		'banner.suggest': '¿Ver en español?',
 		'banner.dismiss': 'Cerrar',
-
-		'eyebrow.position': 'Una posición',
-		'eyebrow.work': 'Trabajos que he entregado',
-		'eyebrow.approach': 'Un método',
-		'eyebrow.elsewhere': 'Sobre mí',
-		'eyebrow.note': 'Una nota',
-		'eyebrow.next': 'Siguiente',
-
-		'projects.h2.production': 'Construido. En producción. En uso.',
-		'projects.h2.openSource': 'Herramientas, dejadas en público.',
-
-		'form.error.label': 'Error',
 	},
 } as const satisfies Record<Lang, Record<string, string>>;
 
