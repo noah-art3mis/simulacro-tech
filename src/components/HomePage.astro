@@ -16,7 +16,7 @@ const projectsHref = getLocalizedPath('/projects', lang);
 const featuredProjects = [
 	{ id: 'molcajete', name: 'Molcajete', taglineKey: 'projects.production.molcajete.tagline' },
 	{ id: 'adapta',    name: 'Adapta',    taglineKey: 'projects.production.adapta.tagline' },
-	{ id: 'judex', name: 'Judex', taglineKey: 'projects.openSource.judex.summary' },
+	{ id: 'judex', name: 'Judex', taglineKey: 'projects.openSource.judex.tagline' },
 ] as const;
 ---
 
@@ -66,12 +66,9 @@ const featuredProjects = [
 			</p>
 
 			<div class="animate-fade-up animate-delay-3 flex items-center gap-6 flex-wrap">
-				<a href="#contact" class="btn-primary btn-primary-pulse inline-flex items-center justify-center gap-2 group">
+				<a href="#contact" class="btn-primary inline-flex items-center justify-center gap-2 group">
 					{t('home.hero.cta')}
 					<ArrowRight size={18} class="transition-transform group-hover:translate-x-1" />
-				</a>
-				<a href="#services" class="font-mono text-xs uppercase tracking-[0.22em] text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">
-					↓ scroll
 				</a>
 			</div>
 		</div>

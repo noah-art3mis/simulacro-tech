@@ -66,9 +66,9 @@ export const ui = {
 		'home.projects.cta': 'Browse all projects',
 
 		'projects.production.molcajete.tagline':
-			'AI-powered transcription and analysis pipeline for political focus group research in Mexican Spanish.',
+			'AI-powered transcription and analysis pipeline for political focus group research.',
 		'projects.production.molcajete.description':
-			'A full audio-to-insight pipeline replacing error-prone transcription and weeks of manual coding. Speaker diarization, transcription, theme classification, and integrated reporting — all surfaced through a tooling layer that researchers actually use.',
+			'A full audio-to-insight pipeline replacing error-prone transcription and hours of note-taking per project. Speaker diarization, transcription, theme classification, and integrated reporting — all surfaced through a tooling layer that researchers actually use.',
 		'projects.production.molcajete.stat.0': 'hours of audio processed',
 		'projects.production.molcajete.stat.1': 'turnaround per project',
 
@@ -86,8 +86,14 @@ export const ui = {
 		'projects.production.nopalero.stat.0': 'validation checks',
 		'projects.production.nopalero.stat.1': 'manual data entry',
 
-		'projects.openSource.judex.summary':
-			'Streamlined Python library for scraping case data from the Brazilian Supreme Court (STF).',
+		'projects.openSource.judex.tagline':
+			'Python scraper and parser for Brazilian Supreme Court (STF) case data.',
+		'projects.openSource.judex.description':
+			'Typer-based CLI with three cache-first stages — scrape, download, extract — supporting heavily sharded runs with proxy rotation, feeding a DuckDB warehouse. Multiple OCR backends, including self-hosted Tesseract on fly.io for cheap inference.',
+		'projects.openSource.judex.stat.0': 'yearly HC sweep',
+		'projects.openSource.judex.stat.1': 'PDFs sustained',
+		'projects.openSource.judex.stat.2': 'cases sustained',
+		'projects.openSource.judex.stat.3': 'OCR backends',
 
 		'projects.intro.heading': 'Selected work',
 		'projects.section.production': 'In production',
@@ -130,6 +136,8 @@ export const ui = {
 		'about.education.degree3.title': 'Bachelor in Psychology',
 
 		'about.experience.heading': 'Experience',
+		'about.experience.leadEngineer.title': 'Lead Engineer',
+		'about.experience.leadEngineer.details': 'Lead engineer at CAPTA.',
 		'about.experience.psychotherapy.title': 'Psychotherapy',
 		'about.experience.psychotherapy.details': 'Partner at Espaço Psique Psychology Clinic',
 		'about.experience.writing.title': 'Writing',
@@ -201,7 +209,7 @@ export const ui = {
 			'Pesquisa de métodos mistos que une profundidade qualitativa e rigor computacional. Mineração de dados, visualização e análise estatística.',
 		'home.services.pipelines.title': 'Pipelines e automação',
 		'home.services.pipelines.description':
-			'Substituindo trabalho manual de dados por pipelines ponta a ponta — transcrição de áudio, leitura de documentos, web scraping, validação. As equipes investem o tempo em julgamento, não em digitação.',
+			'Substituindo trabalho manual com dados por pipelines ponta a ponta — transcrição de áudio, leitura de documentos, web scraping, validação. As equipes investem o tempo em discernimento, não em digitação.',
 
 		'home.why.label': 'Abordagem',
 		'home.why.heading': 'Por que trabalhar conosco',
@@ -212,10 +220,10 @@ export const ui = {
 			'Anos de prática psicoterapêutica moldam como entendemos o impacto da tecnologia em pessoas reais.',
 		'home.why.philosophy.title': 'Rigor filosófico',
 		'home.why.philosophy.description':
-			'Ética não é uma reflexão posterior. Formação em filosofia significa fazer as perguntas difíceis antes de construir, não depois.',
+			'Ética não é coisa que se pensa depois. Formação em filosofia significa fazer as perguntas difíceis antes de construir, não depois.',
 		'home.why.technical.title': 'Profundidade técnica',
 		'home.why.technical.description':
-			'De pipelines de PLN à análise estatística, o trabalho técnico se baseia em metodologia de pesquisa.',
+			'De pipelines de PLN à análise estatística, o trabalho técnico se baseia em metodologia acadêmica rigorosa.',
 
 		'home.projects.label': 'Trabalho selecionado',
 		'home.projects.heading': 'Projetos recentes',
@@ -224,16 +232,16 @@ export const ui = {
 		'home.projects.cta': 'Ver todos os projetos',
 
 		'projects.production.molcajete.tagline':
-			'Pipeline de transcrição e análise com IA para pesquisa qualitativa em grupos focais de política em espanhol mexicano.',
+			'Pipeline de transcrição e análise com IA para pesquisa qualitativa em grupos focais sobre política.',
 		'projects.production.molcajete.description':
-			'Um pipeline completo de áudio a insight que substitui transcrição imprecisa e semanas de codificação manual. Diarização de falantes, transcrição, classificação de temas, e relatórios integrados — tudo entregue por uma camada de ferramentas que pesquisadores realmente usam.',
+			'Um pipeline completo de áudio a insight que substitui transcrição imprecisa e horas de anotações por projeto. Diarização de falantes, transcrição, classificação de temas e relatórios integrados — tudo entregue por uma camada de ferramentas que pesquisadores realmente usam.',
 		'projects.production.molcajete.stat.0': 'horas de áudio processadas',
 		'projects.production.molcajete.stat.1': 'tempo de entrega por projeto',
 
 		'projects.production.adapta.tagline':
 			'Pipeline de pré-processamento de dados e infraestrutura de fine-tuning de LLMs para análise política em espanhol mexicano.',
 		'projects.production.adapta.description':
-			'Workflow de fine-tuning com QLoRA com treino, avaliação e registro reprodutíveis. Construído para a comparação empírica de modelos base, prompts e adapters em um benchmark curado de tarefas específicas do domínio.',
+			'Workflow de fine-tuning com QLoRA: treinamento, avaliação e registro reprodutíveis. Construído para a comparação empírica de modelos base, prompts e adapters em um benchmark selecionado de tarefas específicas do domínio.',
 		'projects.production.adapta.stat.0': 'métricas de avaliação',
 		'projects.production.adapta.stat.1': 'execuções de treino',
 
@@ -244,15 +252,21 @@ export const ui = {
 		'projects.production.nopalero.stat.0': 'verificações de validação',
 		'projects.production.nopalero.stat.1': 'entrada manual de dados',
 
-		'projects.openSource.judex.summary':
-			'Biblioteca Python enxuta para coletar dados de processos do Supremo Tribunal Federal (STF).',
+		'projects.openSource.judex.tagline':
+			'Scraper e parser em Python para dados de processos do Supremo Tribunal Federal (STF).',
+		'projects.openSource.judex.description':
+			'CLI baseada em Typer com três etapas cache-first — coleta, download e extração — com suporte a execuções fortemente paralelizadas e rotação de proxy, alimentando um warehouse DuckDB. Vários backends de OCR, incluindo Tesseract auto-hospedado no fly.io para OCR de baixo custo.',
+		'projects.openSource.judex.stat.0': 'varredura anual de HC',
+		'projects.openSource.judex.stat.1': 'vazão de PDFs',
+		'projects.openSource.judex.stat.2': 'vazão de processos',
+		'projects.openSource.judex.stat.3': 'backends de OCR',
 
 		'projects.intro.heading': 'Trabalhos selecionados',
 		'projects.section.production': 'Em produção',
 		'projects.section.openSource': 'Código aberto',
 		'projects.cta.heading': 'Tem um problema que não cabe num modelo pronto?',
 		'projects.cta.lede': 'A maior parte do trabalho acima começou com alguém dizendo exatamente isso.',
-		'projects.cta.action': 'Iniciar uma conversa',
+		'projects.cta.action': 'Vamos conversar',
 
 		'home.about.label': 'Sobre',
 		'home.about.bio':
@@ -275,7 +289,7 @@ export const ui = {
 		'about.bio.p2':
 			'Hoje construo sistemas de IA e faço pesquisa na interseção entre tecnologia e humanidades. Essa experiência interdisciplinar me mostrou como a otimização, quando aplicada com cuidado em contextos humanísticos, pode ajudar sistemas a cumprirem melhor seu propósito.',
 		'about.bio.p3':
-			'Na Simulacro Tech, reúno tudo isso por meio de soluções técnicas diversas, incluindo sistemas RAG, pesquisa de métodos mistos e estratégia de dados — todas construídas com o mesmo cuidado que levava à prática clínica.',
+			'Na Simulacro Tech, reúno tudo isso por meio de soluções técnicas diversas, incluindo sistemas RAG, pesquisa de métodos mistos e estratégia de dados — todas construídas com o mesmo cuidado que dedicava à prática clínica.',
 
 		'about.links.heading': 'Links rápidos',
 		'about.links.cv': 'CV completo e projetos',
@@ -288,6 +302,8 @@ export const ui = {
 		'about.education.degree3.title': 'Bacharel em Psicologia',
 
 		'about.experience.heading': 'Experiência',
+		'about.experience.leadEngineer.title': 'Engenheiro Líder',
+		'about.experience.leadEngineer.details': 'Engenheiro líder na CAPTA.',
 		'about.experience.psychotherapy.title': 'Psicoterapia',
 		'about.experience.psychotherapy.details': 'Sócio na clínica de psicologia Espaço Psique',
 		'about.experience.writing.title': 'Escrita',
@@ -297,7 +313,7 @@ export const ui = {
 		'about.experience.research.details':
 			'Dissertação sobre AI slop com métodos mistos.',
 
-		'footer.tagline': 'Consultoria em IA e dados centrada no humano.',
+		'footer.tagline': 'Consultoria em IA e dados centrada nas pessoas.',
 		'footer.manifesto.before': 'Um ',
 		'footer.manifesto.italic': 'arquivo',
 		'footer.manifesto.after': ' de sistemas construídos com o mesmo cuidado dedicado à clínica.',
@@ -315,7 +331,7 @@ export const ui = {
 		'form.message.placeholder': 'Conte-nos sobre seu projeto...',
 		'form.submit': 'Enviar mensagem',
 		'form.success.title': 'Obrigado!',
-		'form.success.subtext': 'Retornaremos em breve.',
+		'form.success.subtext': 'Te respondemos em breve.',
 		'form.success.action': 'Enviar outra mensagem',
 		'form.error.empty': 'Por favor, preencha todos os campos.',
 		'form.error.email': 'Por favor, insira um email válido.',
@@ -359,7 +375,7 @@ export const ui = {
 			'Investigación de métodos mixtos que combina profundidad cualitativa con rigor computacional. Minería de datos, visualización y análisis estadístico.',
 		'home.services.pipelines.title': 'Pipelines y automatización',
 		'home.services.pipelines.description':
-			'Reemplazando el trabajo manual de datos con pipelines de extremo a extremo — transcripción de audio, parsing de documentos, web scraping, validación. Los equipos invierten su tiempo en juicio, no en captura de datos.',
+			'Reemplazando el trabajo manual con datos por pipelines de extremo a extremo — transcripción de audio, parsing de documentos, web scraping, validación. Los equipos invierten su tiempo en criterio, no en captura de datos.',
 
 		'home.why.label': 'Enfoque',
 		'home.why.heading': 'Por qué trabajar con nosotros',
@@ -370,10 +386,10 @@ export const ui = {
 			'Años de práctica psicoterapéutica moldean cómo entendemos el impacto de la tecnología en personas reales.',
 		'home.why.philosophy.title': 'Rigor filosófico',
 		'home.why.philosophy.description':
-			'La ética no es una ocurrencia tardía. La formación en filosofía significa hacer las preguntas difíciles antes de construir, no después.',
+			'La ética no es algo que se piense después. La formación en filosofía significa hacer las preguntas difíciles antes de construir, no después.',
 		'home.why.technical.title': 'Profundidad técnica',
 		'home.why.technical.description':
-			'Desde pipelines de PLN hasta análisis estadístico, el trabajo técnico se basa en metodología de investigación.',
+			'Desde pipelines de PLN hasta análisis estadístico, el trabajo técnico se basa en metodología académica rigurosa.',
 
 		'home.projects.label': 'Trabajo seleccionado',
 		'home.projects.heading': 'Proyectos recientes',
@@ -382,16 +398,16 @@ export const ui = {
 		'home.projects.cta': 'Ver todos los proyectos',
 
 		'projects.production.molcajete.tagline':
-			'Pipeline de transcripción y análisis con IA para investigación cualitativa en grupos focales de política en español mexicano.',
+			'Pipeline de transcripción y análisis con IA para investigación cualitativa en grupos focales sobre política.',
 		'projects.production.molcajete.description':
-			'Pipeline completo de audio a insight que reemplaza transcripción imprecisa y semanas de codificación manual. Diarización de hablantes, transcripción, clasificación de temas, e informes integrados — todo expuesto a través de una capa de herramientas que los investigadores realmente usan.',
+			'Pipeline completo de audio a insight que reemplaza transcripción imprecisa y horas de anotaciones por proyecto. Diarización de hablantes, transcripción, clasificación de temas e informes integrados — todo accesible mediante una capa de herramientas que los investigadores realmente usan.',
 		'projects.production.molcajete.stat.0': 'horas de audio procesadas',
 		'projects.production.molcajete.stat.1': 'tiempo de entrega por proyecto',
 
 		'projects.production.adapta.tagline':
 			'Pipeline de preprocesamiento de datos e infraestructura de fine-tuning de LLMs para análisis político en español mexicano.',
 		'projects.production.adapta.description':
-			'Flujo de fine-tuning con QLoRA con entrenamiento, evaluación y registro reproducibles. Construido para la comparación empírica de modelos base, prompts y adapters sobre un benchmark curado de tareas específicas del dominio.',
+			'Flujo de fine-tuning con QLoRA: entrenamiento, evaluación y registro reproducibles. Construido para la comparación empírica de modelos base, prompts y adapters sobre un benchmark seleccionado de tareas específicas del dominio.',
 		'projects.production.adapta.stat.0': 'métricas de evaluación',
 		'projects.production.adapta.stat.1': 'ejecuciones de entrenamiento',
 
@@ -402,15 +418,21 @@ export const ui = {
 		'projects.production.nopalero.stat.0': 'verificaciones de validación',
 		'projects.production.nopalero.stat.1': 'entrada manual de datos',
 
-		'projects.openSource.judex.summary':
-			'Biblioteca Python reducida para extraer datos de casos del Supremo Tribunal Federal de Brasil (STF).',
+		'projects.openSource.judex.tagline':
+			'Scraper y parser en Python para datos de procesos del Supremo Tribunal Federal de Brasil (STF).',
+		'projects.openSource.judex.description':
+			'CLI basada en Typer con tres etapas cache-first — recolección, descarga y extracción — con soporte para ejecuciones fuertemente paralelizadas y rotación de proxy, alimentando un warehouse DuckDB. Varios backends de OCR, incluyendo Tesseract auto-alojado en fly.io para OCR de bajo coste.',
+		'projects.openSource.judex.stat.0': 'barrido anual de HC',
+		'projects.openSource.judex.stat.1': 'rendimiento de PDFs',
+		'projects.openSource.judex.stat.2': 'rendimiento de casos',
+		'projects.openSource.judex.stat.3': 'backends de OCR',
 
 		'projects.intro.heading': 'Trabajos seleccionados',
 		'projects.section.production': 'En producción',
 		'projects.section.openSource': 'Código abierto',
 		'projects.cta.heading': '¿Tienes un problema que no encaja en una plantilla?',
-		'projects.cta.lede': 'La mayoría del trabajo de arriba empezó con alguien diciendo exactamente eso.',
-		'projects.cta.action': 'Iniciar una conversación',
+		'projects.cta.lede': 'La mayoría del trabajo anterior empezó con alguien diciendo exactamente eso.',
+		'projects.cta.action': 'Hablemos',
 
 		'home.about.label': 'Sobre mí',
 		'home.about.bio':
@@ -433,7 +455,7 @@ export const ui = {
 		'about.bio.p2':
 			'Hoy construyo sistemas de IA y realizo investigación en la intersección entre la tecnología y las humanidades. Esta experiencia interdisciplinaria me mostró cómo la optimización, cuando se aplica con cuidado en contextos humanísticos, puede ayudar a los sistemas a cumplir mejor su propósito.',
 		'about.bio.p3':
-			'En Simulacro Tech reúno todo esto a través de una variedad de soluciones técnicas, incluyendo sistemas RAG, investigación de métodos mixtos y estrategia de datos — todas construidas con el mismo cuidado que llevaba a la práctica clínica.',
+			'En Simulacro Tech reúno todo esto a través de una variedad de soluciones técnicas, incluyendo sistemas RAG, investigación de métodos mixtos y estrategia de datos — todas construidas con el mismo cuidado que dedicaba a la práctica clínica.',
 
 		'about.links.heading': 'Enlaces rápidos',
 		'about.links.cv': 'CV completo y proyectos',
@@ -446,6 +468,8 @@ export const ui = {
 		'about.education.degree3.title': 'Licenciatura en Psicología',
 
 		'about.experience.heading': 'Experiencia',
+		'about.experience.leadEngineer.title': 'Ingeniero Principal',
+		'about.experience.leadEngineer.details': 'Ingeniero principal en CAPTA.',
 		'about.experience.psychotherapy.title': 'Psicoterapia',
 		'about.experience.psychotherapy.details': 'Socio en la clínica de psicología Espaço Psique',
 		'about.experience.writing.title': 'Escritura',
