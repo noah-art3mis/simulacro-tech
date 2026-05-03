@@ -15,3 +15,7 @@ Design branches (each maps to a distinct visual design, named after its main dis
 | `design/bricolage-grotesque` | Texture-modernist (intermediate)        | `/home/noah-art3mis/simulacro-tech-bricolage-grotesque`   |
 
 When asked to make a content/style change, ask which design branch(es) it should land on if it's not obvious.
+
+## Translations
+
+Whenever you write or change user-facing text in `src/i18n/ui.ts` (or any other localized copy), explicitly flag the PT and ES translations to the user for review. Machine/AI translations of marketing copy are usually rough — calques, awkward register, or phrasing a native speaker would never use. Don't quietly assume the translations are fine; surface them as something the user should sanity-check.
