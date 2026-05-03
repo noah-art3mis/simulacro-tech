@@ -132,6 +132,8 @@ export const ui = {
 		'about.education.degree3.title': 'Bachelor in Psychology',
 
 		'about.experience.heading': 'Experience',
+		'about.experience.leadEngineer.title': 'Lead Engineer',
+		'about.experience.leadEngineer.details': 'Lead engineer at CAPTA.',
 		'about.experience.psychotherapy.title': 'Psychotherapy',
 		'about.experience.psychotherapy.details': 'Partner at Espaço Psique Psychology Clinic',
 		'about.experience.writing.title': 'Writing',
@@ -304,6 +306,8 @@ export const ui = {
 		'about.education.degree3.title': 'Bacharel em Psicologia',
 
 		'about.experience.heading': 'Experiência',
+		'about.experience.leadEngineer.title': 'Engenheiro Líder',
+		'about.experience.leadEngineer.details': 'Engenheiro líder na CAPTA.',
 		'about.experience.psychotherapy.title': 'Psicoterapia',
 		'about.experience.psychotherapy.details': 'Sócio na clínica de psicologia Espaço Psique',
 		'about.experience.writing.title': 'Escrita',
@@ -476,6 +480,8 @@ export const ui = {
 		'about.education.degree3.title': 'Licenciatura en Psicología',
 
 		'about.experience.heading': 'Experiencia',
+		'about.experience.leadEngineer.title': 'Ingeniero Principal',
+		'about.experience.leadEngineer.details': 'Ingeniero principal en CAPTA.',
 		'about.experience.psychotherapy.title': 'Psicoterapia',
 		'about.experience.psychotherapy.details': 'Socio en la clínica de psicología Espaço Psique',
 		'about.experience.writing.title': 'Escritura',

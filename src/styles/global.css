@@ -262,53 +262,6 @@
         line-height: 1.02;
     }
 
-    /* ─────────── Hero construction-mark bracket ─────────── */
-    /* A top-left L-bracket frames the headline like a print crop mark.
-       Two thin amber strokes draw outward from the corner via stroke-
-       dashoffset on load, then sit static. Hidden on small screens
-       where the layout grid doesn't carry the same architectural weight. */
-
-    .construction-mark {
-        position: absolute;
-        top: -1rem;
-        left: -1rem;
-        width: 48px;
-        height: 48px;
-        pointer-events: none;
-        color: var(--color-amber);
-        z-index: 5;
-    }
-    @media (min-width: 768px) {
-        .construction-mark { top: -1.4rem; left: -1.4rem; width: 60px; height: 60px; }
-    }
-    @media (min-width: 1024px) {
-        .construction-mark { top: -1.75rem; left: -1.75rem; width: 76px; height: 76px; }
-    }
-    .construction-mark svg {
-        width: 100%;
-        height: 100%;
-        overflow: visible;
-        display: block;
-    }
-    .construction-mark .cm {
-        fill: none;
-        stroke: currentColor;
-        stroke-width: 1.5;
-        stroke-linecap: square;
-    }
-    .construction-mark .cm-v,
-    .construction-mark .cm-h {
-        stroke-dasharray: 72;
-        stroke-dashoffset: 72;
-        animation: cm-draw 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-    .construction-mark .cm-v { animation-delay: 0.45s; }
-    .construction-mark .cm-h { animation-delay: 0.6s;  }
-
-    @keyframes cm-draw {
-        to { stroke-dashoffset: 0; }
-    }
-
     /* Hero emphasis — the highlighted word gets italic Cabinet Grotesk so it
        carries character against the upright headline. Optional swap target:
        a different family altogether (e.g. Fraunces serif italic) if you want
@@ -857,15 +810,11 @@
     .preview-sparkline .line,
     .preview-sparkline .dot,
     .preview-sparkline .area,
-    .preview-highlight mark,
-    .construction-mark .cm-v,
-    .construction-mark .cm-h {
+    .preview-highlight mark {
         animation: none !important;
     }
     .preview-waveform > span { height: 32% !important; }
     .preview-sparkline .line { stroke-dashoffset: 0 !important; }
     .preview-sparkline .dot { opacity: 1 !important; }
     .preview-highlight mark { background: rgba(245, 176, 66, 0.32) !important; }
-    .construction-mark .cm-v,
-    .construction-mark .cm-h { stroke-dashoffset: 0 !important; }
 }
