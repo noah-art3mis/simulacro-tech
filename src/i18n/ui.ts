@@ -265,6 +265,9 @@ export const ui = {
 		'projects.production.nopalero.stat.0': 'verificações de validação',
 		'projects.production.nopalero.stat.1': 'entrada manual de dados',
 
+		'projects.openSource.judex.summary':
+			'Biblioteca Python enxuta para extrair dados de processos do Supremo Tribunal Federal (STF).',
+
 		'projects.openSource.judex.tagline':
 			'Scraper de processos do Supremo Tribunal Federal (STF).',
 		'projects.openSource.judex.description':
