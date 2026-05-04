@@ -306,9 +306,11 @@ const featuredProjects = [
 			<h2 class="text-[clamp(2rem,5vw,3.75rem)] mb-6 leading-[1.05] text-balance">
 				{t('home.contact.heading')}
 			</h2>
-			<p class="text-lg text-[var(--color-text-muted)] text-pretty">
-				{t('home.contact.subheading')}
-			</p>
+			{t('home.contact.subheading') && (
+				<p class="text-lg text-[var(--color-text-muted)] text-pretty">
+					{t('home.contact.subheading')}
+				</p>
+			)}
 		</div>
 		<ContactForm lang={lang} />
 	</div>

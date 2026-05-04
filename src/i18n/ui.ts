@@ -61,8 +61,7 @@ export const ui = {
 
 		'home.projects.label': 'Selected work',
 		'home.projects.heading': 'Recent projects',
-		'home.projects.intro':
-			'A few examples of how the practice plays out — production systems, research tools, end-to-end builds.',
+		'home.projects.intro': 'Production systems, research tools, end-to-end builds.',
 		'home.projects.cta': 'Browse all projects',
 
 		'projects.production.molcajete.tagline':
@@ -75,7 +74,7 @@ export const ui = {
 		'projects.production.adapta.tagline':
 			'Data preprocessing pipeline and LLM fine-tuning infrastructure for Mexican Spanish political analysis.',
 		'projects.production.adapta.description':
-			'QLoRA fine-tuning workflow with reproducible training, evaluation, and registry. Built for empirical comparison of base models, prompts, and adapters across a curated benchmark of domain-specific tasks.',
+			'Specialized LLMs, produced by a reproducible fine-tuning and evaluation pipeline. Built for empirical comparison of base models and prompts.',
 		'projects.production.adapta.stat.0': 'evaluation metrics',
 		'projects.production.adapta.stat.1': 'training runs',
 
@@ -105,15 +104,15 @@ export const ui = {
 		'home.about.label': 'About',
 		'home.about.bio':
 			'Founded by Gustavo Costa, a psychologist turned data scientist. After years in clinical practice, he now applies that same attentiveness to how we build and deploy AI systems.',
-		'home.about.cta': 'Read full bio',
+		'home.about.cta': 'Read more',
 
 		'home.why.pullquote.before': 'Built for paying ',
 		'home.why.pullquote.italic': 'clients',
 		'home.why.pullquote.after': ', not for the demo.',
 
 		'home.contact.label': 'Contact',
-		'home.contact.heading': "Let's Talk",
-		'home.contact.subheading': "Have a project in mind? We'd love to hear about it.",
+		'home.contact.heading': 'What brings you here?',
+		'home.contact.subheading': '',
 
 		'about.label': 'About',
 		'about.subtitle':
@@ -127,7 +126,7 @@ export const ui = {
 
 		'about.links.heading': 'Quick Links',
 		'about.links.cv': 'Full CV & Projects',
-		'about.links.essays': 'Data Science Essays',
+		'about.links.essays': 'Essays on AI & Culture',
 		'about.links.philosophy': 'Philosophy of Psychoanalysis',
 
 		'about.education.heading': 'Education',
@@ -137,15 +136,19 @@ export const ui = {
 
 		'about.experience.heading': 'Experience',
 		'about.experience.leadEngineer.title': 'Lead Engineer',
-		'about.experience.leadEngineer.details': 'Lead engineer at CAPTA.',
+		'about.experience.leadEngineer.details': 'LLM Systems & Research Infrastructure',
+		'about.experience.leadEngineer.dates': '2026',
 		'about.experience.psychotherapy.title': 'Psychotherapy',
 		'about.experience.psychotherapy.details': 'Partner at Espaço Psique Psychology Clinic',
+		'about.experience.psychotherapy.dates': '2020 – 2024',
 		'about.experience.writing.title': 'Writing',
 		'about.experience.writing.details':
-			'Essays on data science, AI, and philosophy of psychoanalysis.',
+			'Essays on AI and philosophy of psychoanalysis.',
+		'about.experience.writing.dates': '2019 – present',
 		'about.experience.research.title': 'Research',
 		'about.experience.research.details':
 			'Dissertation on AI slop using mixed-methods.',
+		'about.experience.research.dates': '2025',
 
 		'footer.tagline': 'Human-centered AI and data consulting.',
 		'footer.manifesto.before': 'A working ',
@@ -162,11 +165,11 @@ export const ui = {
 		'form.email.label': 'Email',
 		'form.email.placeholder': 'you@example.com',
 		'form.message.label': 'Message',
-		'form.message.placeholder': 'Tell us about your project...',
-		'form.submit': 'Send Message',
-		'form.success.title': 'Thank you!',
-		'form.success.subtext': "We'll get back to you soon.",
-		'form.success.action': 'Send another message',
+		'form.message.placeholder': 'Say everything that comes to mind, without censoring...',
+		'form.submit': 'Send',
+		'form.success.title': 'Heard.',
+		'form.success.subtext': "I'll be back in touch soon.",
+		'form.success.action': 'Another session',
 		'form.error.empty': 'Please fill in all fields.',
 		'form.error.email': 'Please enter a valid email address.',
 		'form.error.generic': 'Something went wrong. Please try again.',
@@ -194,13 +197,13 @@ export const ui = {
 		'home.hero.title.before': 'Tecnologia a serviço das ',
 		'home.hero.title.highlight': 'pessoas',
 		'home.hero.tagline':
-			'Soluções de IA e dados fundamentadas na ética. Sistemas construídos com transparência, responsabilidade e foco no impacto humano.',
-		'home.hero.cta': 'Entre em contato',
+			'Soluções éticas de IA e dados. Construímos sistemas com cuidado, transparência e responsabilidade.',
+		'home.hero.cta': 'Fale conosco',
 
 		'home.services.label': 'Serviços',
 		'home.services.heading': 'O que construímos',
 		'home.services.subheading':
-			'Soluções interdisciplinares que unem profundidade técnica e visão humanística.',
+			'Soluções interdisciplinares que combinam profundidade técnica com olhar humanístico.',
 		'home.services.ai.title': 'Soluções de IA e PLN',
 		'home.services.ai.description':
 			'LLMs com fine-tuning, sistemas RAG, embeddings e modelagem de tópicos. Construídos com transparência e responsabilidade desde o início.',
@@ -209,39 +212,39 @@ export const ui = {
 			'Pesquisa de métodos mistos que une profundidade qualitativa e rigor computacional. Mineração de dados, visualização e análise estatística.',
 		'home.services.pipelines.title': 'Pipelines e automação',
 		'home.services.pipelines.description':
-			'Substituindo trabalho manual com dados por pipelines ponta a ponta — transcrição de áudio, leitura de documentos, web scraping, validação. As equipes investem o tempo em discernimento, não em digitação.',
+			'Substituindo o copia-e-cola por pipelines automáticas — transcrição de áudio, leitura de documentos, web scraping, validação. As equipes gastam o tempo decidindo, não digitando.',
 
 		'home.why.label': 'Abordagem',
 		'home.why.heading': 'Por que trabalhar conosco',
 		'home.why.intro':
-			'Uma combinação rara de psicologia clínica, formação filosófica e expertise técnica. Trazemos uma profundidade que perfis puramente técnicos não conseguem oferecer.',
+			'Uma combinação rara de psicologia clínica, formação filosófica e expertise técnica. Trazemos uma profundidade que quem só faz tecnologia não consegue alcançar.',
 		'home.why.clinical.title': 'Formação clínica',
 		'home.why.clinical.description':
-			'Anos de prática psicoterapêutica moldam como entendemos o impacto da tecnologia em pessoas reais.',
+			'Anos de prática psicoterapêutica moldam como entendemos o impacto da tecnologia em pessoas de carne e osso.',
 		'home.why.philosophy.title': 'Rigor filosófico',
 		'home.why.philosophy.description':
-			'Ética não é coisa que se pensa depois. Formação em filosofia significa fazer as perguntas difíceis antes de construir, não depois.',
+			'Ética não é um detalhe posterior. Filosofia é sobre fazer perguntas difíceis antes de construir.',
 		'home.why.technical.title': 'Profundidade técnica',
 		'home.why.technical.description':
-			'De pipelines de PLN à análise estatística, o trabalho técnico se baseia em metodologia acadêmica rigorosa.',
+			'De pipelines de PLN à análise estatística — trabalho técnico com rigor acadêmico.',
 
 		'home.projects.label': 'Trabalho selecionado',
 		'home.projects.heading': 'Projetos recentes',
 		'home.projects.intro':
-			'Alguns exemplos de como a prática se desdobra — sistemas em produção, ferramentas de pesquisa, implementações ponta a ponta.',
+			'Sistemas em produção, ferramentas de pesquisa, implementações ponta a ponta.',
 		'home.projects.cta': 'Ver todos os projetos',
 
 		'projects.production.molcajete.tagline':
-			'Pipeline de transcrição e análise com IA para pesquisa qualitativa em grupos focais sobre política.',
+			'Pipeline de transcrição e análise com IA para pesquisa política qualitativa.',
 		'projects.production.molcajete.description':
-			'Um pipeline completo de áudio a insight que substitui transcrição imprecisa e horas de anotações por projeto. Diarização de falantes, transcrição, classificação de temas e relatórios integrados — tudo entregue por uma camada de ferramentas que pesquisadores realmente usam.',
+			'Pipeline completo, do áudio bruto ao insight final, no lugar de transcrição cheia de erros e horas de anotação por projeto. Diarização de falantes, transcrição, classificação de temas e relatórios integrados — tudo numa camada de ferramentas que pesquisadores realmente usam.',
 		'projects.production.molcajete.stat.0': 'horas de áudio processadas',
 		'projects.production.molcajete.stat.1': 'tempo de entrega por projeto',
 
 		'projects.production.adapta.tagline':
 			'Pipeline de pré-processamento de dados e infraestrutura de fine-tuning de LLMs para análise política em espanhol mexicano.',
 		'projects.production.adapta.description':
-			'Workflow de fine-tuning com QLoRA: treinamento, avaliação e registro reprodutíveis. Construído para a comparação empírica de modelos base, prompts e adapters em um benchmark selecionado de tarefas específicas do domínio.',
+			'Modelos LLM especializados, fruto de um pipeline reprodutível de fine-tuning e avaliação. Permite a comparação empírica de modelos base e prompts.',
 		'projects.production.adapta.stat.0': 'métricas de avaliação',
 		'projects.production.adapta.stat.1': 'execuções de treino',
 
@@ -253,9 +256,9 @@ export const ui = {
 		'projects.production.nopalero.stat.1': 'entrada manual de dados',
 
 		'projects.openSource.judex.tagline':
-			'Scraper e parser em Python para dados de processos do Supremo Tribunal Federal (STF).',
+			'Scraper de processos do Supremo Tribunal Federal (STF).',
 		'projects.openSource.judex.description':
-			'CLI baseada em Typer com três etapas cache-first — coleta, download e extração — com suporte a execuções fortemente paralelizadas e rotação de proxy, alimentando um warehouse DuckDB. Vários backends de OCR, incluindo Tesseract auto-hospedado no fly.io para OCR de baixo custo.',
+			'CLI em Python baseada em Typer, com três etapas cache-first — coleta, download e extração. Suporta execuções massivamente paralelas com rotação de proxy e alimenta um warehouse DuckDB. Vários backends de OCR, incluindo Tesseract auto-hospedado no fly.io para inferência de baixo custo.',
 		'projects.openSource.judex.stat.0': 'varredura anual de HC',
 		'projects.openSource.judex.stat.1': 'vazão de PDFs',
 		'projects.openSource.judex.stat.2': 'vazão de processos',
@@ -264,36 +267,36 @@ export const ui = {
 		'projects.intro.heading': 'Trabalhos selecionados',
 		'projects.section.production': 'Em produção',
 		'projects.section.openSource': 'Código aberto',
-		'projects.cta.heading': 'Tem um problema que não cabe num modelo pronto?',
-		'projects.cta.lede': 'A maior parte do trabalho acima começou com alguém dizendo exatamente isso.',
-		'projects.cta.action': 'Vamos conversar',
+		'projects.cta.heading': 'Tem um problema que não entra numa caixinha?',
+		'projects.cta.lede': 'Os projetos acima começaram com alguém dizendo isso.',
+		'projects.cta.action': 'Conte mais',
 
 		'home.about.label': 'Sobre',
 		'home.about.bio':
-			'Fundada por Gustavo Costa, psicólogo de formação, hoje cientista de dados. Depois de anos na prática clínica, aplica essa mesma atenção à forma como construímos e implantamos sistemas de IA.',
-		'home.about.cta': 'Ler bio completa',
+			'Fundada por Gustavo Costa, psicólogo de formação, hoje cientista de dados. Depois de anos de prática clínica, traz a mesma escuta e cuidado na construção de sistemas de IA.',
+		'home.about.cta': 'Ler mais',
 
 		'home.why.pullquote.before': 'Construído para ',
 		'home.why.pullquote.italic': 'clientes reais',
 		'home.why.pullquote.after': ', não para a demo.',
 
 		'home.contact.label': 'Contato',
-		'home.contact.heading': 'Vamos conversar',
-		'home.contact.subheading': 'Tem um projeto em mente? Adoraríamos saber mais.',
+		'home.contact.heading': 'O que te traz aqui?',
+		'home.contact.subheading': '',
 
 		'about.label': 'Sobre',
 		'about.subtitle':
-			'Psicólogo de formação, hoje cientista de dados. Trago atenção clínica ao mundo da IA e da tecnologia.',
+			'Psicólogo de formação, hoje cientista de dados. A mesma escuta clínica, agora aplicada à IA e à tecnologia.',
 		'about.bio.p1':
-			'Antes de escrever código, trabalhei como psicólogo clínico e psicanalista em Brasília. Esse trabalho me ensinou a lidar com a complexidade e a fazer perguntas melhores, em vez de correr para soluções imediatas.',
+			'Antes de escrever código, trabalhei como psicólogo clínico e psicanalista em Brasília. Esse trabalho me ensinou a sustentar a complexidade e formular perguntas melhores, em vez de pular para soluções imediatas.',
 		'about.bio.p2':
-			'Hoje construo sistemas de IA e faço pesquisa na interseção entre tecnologia e humanidades. Essa experiência interdisciplinar me mostrou como a otimização, quando aplicada com cuidado em contextos humanísticos, pode ajudar sistemas a cumprirem melhor seu propósito.',
+			'Hoje construo sistemas de IA e faço pesquisa na interseção entre tecnologia e humanidades. A experiência interdisciplinar me mostrou: a otimização, aplicada com cuidado em contextos humanísticos, ajuda sistemas a cumprir melhor seu propósito.',
 		'about.bio.p3':
-			'Na Simulacro Tech, reúno tudo isso por meio de soluções técnicas diversas, incluindo sistemas RAG, pesquisa de métodos mistos e estratégia de dados — todas construídas com o mesmo cuidado que dedicava à prática clínica.',
+			'Na Simulacro Tech, junto tudo isso em soluções técnicas variadas — sistemas RAG, pesquisa de métodos mistos, estratégia de dados — todas construídas com a mesma atenção da prática clínica.',
 
 		'about.links.heading': 'Links rápidos',
-		'about.links.cv': 'CV completo e projetos',
-		'about.links.essays': 'Ensaios sobre ciência de dados',
+		'about.links.cv': 'Currículo e portfólio',
+		'about.links.essays': 'Ensaios sobre IA e cultura',
 		'about.links.philosophy': 'Filosofia da psicanálise',
 
 		'about.education.heading': 'Formação',
@@ -302,18 +305,22 @@ export const ui = {
 		'about.education.degree3.title': 'Bacharel em Psicologia',
 
 		'about.experience.heading': 'Experiência',
-		'about.experience.leadEngineer.title': 'Engenheiro Líder',
-		'about.experience.leadEngineer.details': 'Engenheiro líder na CAPTA.',
+		'about.experience.leadEngineer.title': 'Lead Engineer',
+		'about.experience.leadEngineer.details': 'Sistemas LLM & Infraestrutura de pesquisa',
+		'about.experience.leadEngineer.dates': '2026',
 		'about.experience.psychotherapy.title': 'Psicoterapia',
 		'about.experience.psychotherapy.details': 'Sócio na clínica de psicologia Espaço Psique',
+		'about.experience.psychotherapy.dates': '2020 – 2024',
 		'about.experience.writing.title': 'Escrita',
 		'about.experience.writing.details':
-			'Ensaios sobre ciência de dados, IA e filosofia da psicanálise.',
+			'Ensaios sobre IA e filosofia da psicanálise.',
+		'about.experience.writing.dates': '2019 – hoje',
 		'about.experience.research.title': 'Pesquisa',
 		'about.experience.research.details':
-			'Dissertação sobre AI slop com métodos mistos.',
+			'Dissertação sobre AI slop com métodos qualitativos e quantitativos.',
+		'about.experience.research.dates': '2025',
 
-		'footer.tagline': 'Consultoria em IA e dados centrada nas pessoas.',
+		'footer.tagline': 'Consultoria humana em IA e dados.',
 		'footer.manifesto.before': 'Um ',
 		'footer.manifesto.italic': 'arquivo',
 		'footer.manifesto.after': ' de sistemas construídos com o mesmo cuidado dedicado à clínica.',
@@ -328,11 +335,11 @@ export const ui = {
 		'form.email.label': 'Email',
 		'form.email.placeholder': 'voce@exemplo.com',
 		'form.message.label': 'Mensagem',
-		'form.message.placeholder': 'Conte-nos sobre seu projeto...',
-		'form.submit': 'Enviar mensagem',
-		'form.success.title': 'Obrigado!',
-		'form.success.subtext': 'Te respondemos em breve.',
-		'form.success.action': 'Enviar outra mensagem',
+		'form.message.placeholder': 'Diga tudo o que lhe vier à mente, sem censura...',
+		'form.submit': 'Enviar',
+		'form.success.title': 'Recebido.',
+		'form.success.subtext': 'Em breve, retorno.',
+		'form.success.action': 'Outra sessão',
 		'form.error.empty': 'Por favor, preencha todos os campos.',
 		'form.error.email': 'Por favor, insira um email válido.',
 		'form.error.generic': 'Algo deu errado. Por favor, tente novamente.',
@@ -393,8 +400,7 @@ export const ui = {
 
 		'home.projects.label': 'Trabajo seleccionado',
 		'home.projects.heading': 'Proyectos recientes',
-		'home.projects.intro':
-			'Algunos ejemplos de cómo se desarrolla la práctica — sistemas en producción, herramientas de investigación, implementaciones integrales.',
+		'home.projects.intro': 'Sistemas en producción, herramientas de investigación, implementaciones integrales.',
 		'home.projects.cta': 'Ver todos los proyectos',
 
 		'projects.production.molcajete.tagline':
@@ -407,7 +413,7 @@ export const ui = {
 		'projects.production.adapta.tagline':
 			'Pipeline de preprocesamiento de datos e infraestructura de fine-tuning de LLMs para análisis político en español mexicano.',
 		'projects.production.adapta.description':
-			'Flujo de fine-tuning con QLoRA: entrenamiento, evaluación y registro reproducibles. Construido para la comparación empírica de modelos base, prompts y adapters sobre un benchmark seleccionado de tareas específicas del dominio.',
+			'LLMs especializados, fruto de un pipeline reproducible de fine-tuning y evaluación. Construido para la comparación empírica de modelos base y prompts.',
 		'projects.production.adapta.stat.0': 'métricas de evaluación',
 		'projects.production.adapta.stat.1': 'ejecuciones de entrenamiento',
 
@@ -437,15 +443,15 @@ export const ui = {
 		'home.about.label': 'Sobre mí',
 		'home.about.bio':
 			'Fundada por Gustavo Costa, psicólogo de formación, ahora científico de datos. Tras años de práctica clínica, aplica esa misma atención a cómo construimos y desplegamos sistemas de IA.',
-		'home.about.cta': 'Leer biografía completa',
+		'home.about.cta': 'Leer más',
 
 		'home.why.pullquote.before': 'Construido para ',
 		'home.why.pullquote.italic': 'clientes reales',
 		'home.why.pullquote.after': ', no para la demo.',
 
 		'home.contact.label': 'Contacto',
-		'home.contact.heading': 'Hablemos',
-		'home.contact.subheading': '¿Tienes un proyecto en mente? Nos encantaría saber más.',
+		'home.contact.heading': '¿Qué te trae aquí?',
+		'home.contact.subheading': '',
 
 		'about.label': 'Sobre mí',
 		'about.subtitle':
@@ -459,7 +465,7 @@ export const ui = {
 
 		'about.links.heading': 'Enlaces rápidos',
 		'about.links.cv': 'CV completo y proyectos',
-		'about.links.essays': 'Ensayos sobre ciencia de datos',
+		'about.links.essays': 'Ensayos sobre IA y cultura',
 		'about.links.philosophy': 'Filosofía del psicoanálisis',
 
 		'about.education.heading': 'Educación',
@@ -468,16 +474,20 @@ export const ui = {
 		'about.education.degree3.title': 'Licenciatura en Psicología',
 
 		'about.experience.heading': 'Experiencia',
-		'about.experience.leadEngineer.title': 'Ingeniero Principal',
-		'about.experience.leadEngineer.details': 'Ingeniero principal en CAPTA.',
+		'about.experience.leadEngineer.title': 'Lead Engineer',
+		'about.experience.leadEngineer.details': 'Sistemas LLM & Infraestructura de investigación',
+		'about.experience.leadEngineer.dates': '2026',
 		'about.experience.psychotherapy.title': 'Psicoterapia',
 		'about.experience.psychotherapy.details': 'Socio en la clínica de psicología Espaço Psique',
+		'about.experience.psychotherapy.dates': '2020 – 2024',
 		'about.experience.writing.title': 'Escritura',
 		'about.experience.writing.details':
-			'Ensayos sobre ciencia de datos, IA y filosofía del psicoanálisis.',
+			'Ensayos sobre IA y filosofía del psicoanálisis.',
+		'about.experience.writing.dates': '2019 – presente',
 		'about.experience.research.title': 'Investigación',
 		'about.experience.research.details':
 			'Tesis sobre AI slop con métodos mixtos.',
+		'about.experience.research.dates': '2025',
 
 		'footer.tagline': 'Consultoría en IA y datos centrada en el ser humano.',
 		'footer.manifesto.before': 'Un ',
@@ -494,11 +504,11 @@ export const ui = {
 		'form.email.label': 'Email',
 		'form.email.placeholder': 'tu@ejemplo.com',
 		'form.message.label': 'Mensaje',
-		'form.message.placeholder': 'Cuéntanos sobre tu proyecto...',
-		'form.submit': 'Enviar mensaje',
-		'form.success.title': '¡Gracias!',
-		'form.success.subtext': 'Te responderemos pronto.',
-		'form.success.action': 'Enviar otro mensaje',
+		'form.message.placeholder': 'Di todo lo que se te ocurra, sin censurar...',
+		'form.submit': 'Enviar',
+		'form.success.title': 'Recibido.',
+		'form.success.subtext': 'Pronto vuelvo.',
+		'form.success.action': 'Otra sesión',
 		'form.error.empty': 'Por favor, completa todos los campos.',
 		'form.error.email': 'Por favor, introduce un email válido.',
 		'form.error.generic': 'Algo salió mal. Por favor, intenta de nuevo.',
