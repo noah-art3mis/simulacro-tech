@@ -311,9 +311,11 @@ const approach = [
 				<h2 class="text-display leading-[0.94] tracking-[-0.04em] text-balance max-w-3xl">
 					{t('home.contact.heading')}
 				</h2>
-				<p class="mt-8 text-lg lg:text-xl text-[var(--color-text-muted)] max-w-2xl text-pretty">
-					{t('home.contact.subheading')}
-				</p>
+				{t('home.contact.subheading') && (
+					<p class="mt-8 text-lg lg:text-xl text-[var(--color-text-muted)] max-w-2xl text-pretty">
+						{t('home.contact.subheading')}
+					</p>
+				)}
 			</div>
 		</div>
 
