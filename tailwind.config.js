@@ -21,14 +21,9 @@ export default {
                 },
             },
             fontFamily: {
-                sans: [
-                    'system-ui',
-                    '-apple-system',
-                    'BlinkMacSystemFont',
-                    'Segoe UI',
-                    'Roboto',
-                    'sans-serif',
-                ],
+                // Keep in sync with the body font-family in src/styles/global.css —
+                // `font-sans` must mean the site's actual sans, not a generic stack.
+                sans: ['Space Grotesk', 'system-ui', 'sans-serif'],
             },
         },
     },
