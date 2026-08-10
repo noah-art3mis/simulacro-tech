@@ -117,15 +117,17 @@
         color: var(--color-text-muted);
     }
 
-    /* Names the group of projects that follows. Outranks the body copy beneath
-       it on size and colour — an accent hue on a normal-case label is fine; it
-       was the letterspaced mono treatment that had to go. */
-    .section-mark {
-        font-size: 1.125rem;
-        font-weight: 600;
-        color: var(--color-accent);
-        display: inline-flex;
-        align-items: center;
+    /* Titles the group of projects that follows. Italic so it reads in a
+       different voice from the roman project names below it — those are set
+       larger, and without the change of voice the two would compete. */
+    .section-heading {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-weight: 400;
+        font-size: clamp(2rem, 3.5vw, 2.75rem);
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+        color: var(--color-text);
     }
 
     .hairline {
