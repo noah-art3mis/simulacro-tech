@@ -444,7 +444,7 @@ export const ui = {
 		'projects.openSource.zelador.tagline':
 			'CLI para que un agente de IA mantenga en orden una biblioteca de Zotero.',
 		'projects.openSource.zelador.description':
-			'Verifica etiquetas, metadatos y colecciones; enriquece metadatos con Crossref y arXiv; comprime PDFs. Implementa un ciclo de validación con respaldos y write-ahead logs — lo que hace seguro dejar que un agente de IA toque la base de datos.',
+			'Verifica etiquetas, metadatos y colecciones; enriquece metadatos con Crossref y arXiv; comprime PDFs. Implementa un ciclo de validación con backups y write-ahead logs — lo que hace seguro dejar que un agente de IA toque la base de datos.',
 
 		'projects.intro.heading': 'Trabajos seleccionados',
 		'projects.section.production': 'En producción',
