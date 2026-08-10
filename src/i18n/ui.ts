@@ -114,7 +114,6 @@ export const ui = {
 		'home.contact.heading': 'What brings you here?',
 		'home.contact.subheading': '',
 
-		'about.label': 'About',
 		'about.subtitle':
 			'Psychologist turned data scientist. Bringing clinical attentiveness to the world of AI and technology.',
 		'about.bio.p1':
@@ -284,7 +283,6 @@ export const ui = {
 		'home.contact.heading': 'O que te traz aqui?',
 		'home.contact.subheading': '',
 
-		'about.label': 'Sobre',
 		'about.subtitle':
 			'Psicólogo de formação, hoje cientista de dados. A mesma escuta clínica, agora aplicada à IA e à tecnologia.',
 		'about.bio.p1':
@@ -453,7 +451,6 @@ export const ui = {
 		'home.contact.heading': '¿Qué te trae aquí?',
 		'home.contact.subheading': '',
 
-		'about.label': 'Sobre mí',
 		'about.subtitle':
 			'Psicólogo de formación, ahora científico de datos. Aporto la atención clínica al mundo de la IA y la tecnología.',
 		'about.bio.p1':
