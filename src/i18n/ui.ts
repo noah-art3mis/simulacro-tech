@@ -95,9 +95,9 @@ export const ui = {
 		'projects.openSource.judex.stat.3': 'OCR backends',
 
 		'projects.openSource.zelador.tagline':
-			'CLI for an AI agent to keep a Zotero library in order — tags, metadata, collections, storage.',
+			'CLI for an AI agent to keep a Zotero library in order.',
 		'projects.openSource.zelador.description':
-			'Audits the library for stray tags, missing fields, and orphaned attachments; enriches metadata from Crossref and arXiv; compresses bulky PDFs. Writes run through a validate/apply loop with version-pinned plans, backups, and a write-ahead log — safe enough for an AI agent to touch the database.',
+			'Audits the library’s tags, metadata, and collections; enriches missing fields from Crossref and arXiv; compresses bulky PDF storage. Writes run through a validate/apply loop with version-pinned plans, backups, and a write-ahead log — safe enough for an AI agent to touch the database.',
 
 		'projects.intro.heading': 'Selected work',
 		'projects.section.production': 'In production',
@@ -269,9 +269,9 @@ export const ui = {
 		'projects.openSource.judex.stat.3': 'backends de OCR',
 
 		'projects.openSource.zelador.tagline':
-			'CLI para um agente de IA manter uma biblioteca Zotero em ordem — tags, metadados, coleções, armazenamento.',
+			'CLI para um agente de IA manter uma biblioteca Zotero em ordem.',
 		'projects.openSource.zelador.description':
-			'Audita a biblioteca em busca de tags soltas, campos faltando e anexos órfãos; enriquece metadados via Crossref e arXiv; comprime PDFs pesados. As escritas passam por um ciclo de validação e aplicação com planos fixados por versão, backups e log write-ahead — seguro o bastante para um agente de IA mexer no banco de dados.',
+			'Audita tags, metadados e coleções da biblioteca; enriquece campos faltantes via Crossref e arXiv; comprime o armazenamento de PDFs. As escritas passam por um ciclo de validação e aplicação com planos fixados por versão, backups e log write-ahead — seguro o bastante para um agente de IA mexer no banco de dados.',
 
 		'projects.intro.heading': 'Trabalhos selecionados',
 		'projects.section.production': 'Em produção',
@@ -442,9 +442,9 @@ export const ui = {
 		'projects.openSource.judex.stat.3': 'backends de OCR',
 
 		'projects.openSource.zelador.tagline':
-			'CLI para que un agente de IA mantenga en orden una biblioteca de Zotero — etiquetas, metadatos, colecciones, almacenamiento.',
+			'CLI para que un agente de IA mantenga en orden una biblioteca de Zotero.',
 		'projects.openSource.zelador.description':
-			'Audita la biblioteca en busca de etiquetas sueltas, campos faltantes y adjuntos huérfanos; enriquece metadatos vía Crossref y arXiv; comprime PDFs pesados. Las escrituras pasan por un ciclo de validación y aplicación con planes fijados por versión, respaldos y un log write-ahead — lo bastante seguro para que un agente de IA toque la base de datos.',
+			'Audita etiquetas, metadatos y colecciones de la biblioteca; enriquece campos faltantes vía Crossref y arXiv; comprime el almacenamiento de PDFs. Las escrituras pasan por un ciclo de validación y aplicación con planes fijados por versión, respaldos y un log write-ahead — lo bastante seguro para que un agente de IA toque la base de datos.',
 
 		'projects.intro.heading': 'Trabajos seleccionados',
 		'projects.section.production': 'En producción',
