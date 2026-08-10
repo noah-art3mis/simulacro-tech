@@ -102,23 +102,21 @@ const openSource: readonly OpenSourceEntry[] = [
 </section>
 
 <!-- ════════════════════════════════════════════════
-     I — In production
+     In production
      ════════════════════════════════════════════════ -->
 <section class="pt-12 pb-12 relative">
 	<div class="max-w-6xl mx-auto px-6 lg:px-10">
 		<div class="mb-8">
-			<span class="section-mark">I — {t('projects.section.production')}</span>
+			<span class="section-mark">{t('projects.section.production')}</span>
 		</div>
 
 		<div class="border-t border-[var(--color-rule-strong)]">
-			{production.map((p, i) => {
+			{production.map((p) => {
 				const Icon = p.icon;
-				const num = String(i + 1).padStart(2, '0');
 				return (
 					<article class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-16 border-b border-[var(--color-rule)]">
 						<div class="lg:col-span-4">
 							<div class="flex items-baseline gap-4 mb-6">
-								<span class="mono-num text-[var(--color-accent)] text-sm tracking-widest">N° {num}</span>
 								<div class="flex-1 hairline"></div>
 								<Icon size={18} class="text-[var(--color-accent)] opacity-70" />
 							</div>
@@ -153,23 +151,21 @@ const openSource: readonly OpenSourceEntry[] = [
 </section>
 
 <!-- ════════════════════════════════════════════════
-     II — Open source
+     Open source
      ════════════════════════════════════════════════ -->
 <section class="pt-12 pb-24 relative">
 	<div class="max-w-6xl mx-auto px-6 lg:px-10">
 		<div class="mb-8">
-			<span class="section-mark">II — {t('projects.section.openSource')}</span>
+			<span class="section-mark">{t('projects.section.openSource')}</span>
 		</div>
 
 		<div class="border-t border-[var(--color-rule-strong)]">
-			{openSource.map((p, i) => {
+			{openSource.map((p) => {
 				const Icon = p.icon;
-				const num = String(i + 1).padStart(2, '0');
 				return (
 					<article class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-16 border-b border-[var(--color-rule)]">
 						<div class="lg:col-span-4">
 							<div class="flex items-baseline gap-4 mb-6">
-								<span class="mono-num text-[var(--color-accent)] text-sm tracking-widest">N° {num}</span>
 								<div class="flex-1 hairline"></div>
 								<Icon size={18} class="text-[var(--color-accent)] opacity-70" />
 							</div>
