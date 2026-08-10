@@ -97,7 +97,7 @@ export const ui = {
 		'projects.openSource.zelador.tagline':
 			'CLI for an AI agent to keep a Zotero library in order.',
 		'projects.openSource.zelador.description':
-			'Audits the library’s tags, metadata, and collections; enriches missing fields from Crossref and arXiv; compresses bulky PDF storage. Writes run through a validate/apply loop with version-pinned plans, backups, and a write-ahead log — making it safe to let an AI agent touch the database.',
+			'Checks tags, metadata, and collections; enriches metadata from Crossref and arXiv; compresses PDFs. Implements a validation loop with backups and write-ahead logs — making it safe to let an AI agent touch the database.',
 
 		'projects.intro.heading': 'Selected work',
 		'projects.section.production': 'In production',
@@ -444,7 +444,7 @@ export const ui = {
 		'projects.openSource.zelador.tagline':
 			'CLI para que un agente de IA mantenga en orden una biblioteca de Zotero.',
 		'projects.openSource.zelador.description':
-			'Audita etiquetas, metadatos y colecciones de la biblioteca; enriquece campos faltantes vía Crossref y arXiv; comprime el almacenamiento de PDFs. Las escrituras pasan por un ciclo de validación y aplicación con planes fijados por versión, respaldos y un log write-ahead — lo que hace seguro dejar que un agente de IA toque la base de datos.',
+			'Verifica etiquetas, metadatos y colecciones; enriquece metadatos con Crossref y arXiv; comprime PDFs. Implementa un ciclo de validación con respaldos y write-ahead logs — lo que hace seguro dejar que un agente de IA toque la base de datos.',
 
 		'projects.intro.heading': 'Trabajos seleccionados',
 		'projects.section.production': 'En producción',
