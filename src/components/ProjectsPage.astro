@@ -6,6 +6,7 @@ import {
 	Cpu,
 	ScanLine,
 	Gavel,
+	Library,
 } from 'lucide-astro';
 import { ui, type Lang, type UIKey } from '../i18n/ui';
 import { getLocalizedPath } from '../i18n/utils';
@@ -69,6 +70,15 @@ const openSource: readonly OpenSourceEntry[] = [
 		href: 'https://github.com/noah-art3mis/judex-mini',
 		repo: 'noah-art3mis/judex-mini',
 		statValues: ['R$ 52', '0.93/s', '0.28/s', '4'],
+	},
+	{
+		kind: 'openSource',
+		id: 'zelador',
+		name: 'Zelador',
+		icon: Library,
+		href: 'https://github.com/noah-art3mis/zelador',
+		repo: 'noah-art3mis/zelador',
+		statValues: ['3', '15', '0', '100%'],
 	},
 ] as const;
 ---
