@@ -95,13 +95,9 @@ export const ui = {
 		'projects.openSource.judex.stat.3': 'OCR backends',
 
 		'projects.openSource.zelador.tagline':
-			'Deterministic CLI that lets an AI agent safely audit and reorganize a Zotero library.',
+			'CLI for organizing a Zotero library, safe enough for an AI agent to drive.',
 		'projects.openSource.zelador.description':
-			'The agent proposes, deterministic code validates, the user approves — every applied change is logged and reversible. Symbolic changesets expand into version-pinned plans; a write-ahead change log plus full-library backups make undo a replay, not a hope.',
-		'projects.openSource.zelador.stat.0': 'safety layers',
-		'projects.openSource.zelador.stat.1': 'changeset operations',
-		'projects.openSource.zelador.stat.2': 'deletions, ever',
-		'projects.openSource.zelador.stat.3': 'changes logged & reversible',
+			'The agent proposes changes; the CLI validates them deterministically and applies only what the user approves. A write-ahead change log, full-library backups, and version-pinned writes make every change reversible.',
 
 		'projects.intro.heading': 'Selected work',
 		'projects.section.production': 'In production',
@@ -273,13 +269,9 @@ export const ui = {
 		'projects.openSource.judex.stat.3': 'backends de OCR',
 
 		'projects.openSource.zelador.tagline':
-			'CLI determinística que permite a um agente de IA auditar e reorganizar uma biblioteca Zotero com segurança.',
+			'CLI para organizar uma biblioteca Zotero, segura o bastante para um agente de IA operar.',
 		'projects.openSource.zelador.description':
-			'O agente propõe, o código determinístico valida, o usuário aprova — toda mudança aplicada fica registrada e é reversível. Changesets simbólicos expandem em planos fixados por versão; um log de mudanças write-ahead e backups completos da biblioteca fazem do desfazer um replay, não uma aposta.',
-		'projects.openSource.zelador.stat.0': 'camadas de segurança',
-		'projects.openSource.zelador.stat.1': 'operações de changeset',
-		'projects.openSource.zelador.stat.2': 'exclusões, nunca',
-		'projects.openSource.zelador.stat.3': 'mudanças registradas e reversíveis',
+			'O agente propõe mudanças; a CLI valida de forma determinística e aplica apenas o que o usuário aprovar. Um log write-ahead, backups completos da biblioteca e escritas fixadas por versão tornam cada mudança reversível.',
 
 		'projects.intro.heading': 'Trabalhos selecionados',
 		'projects.section.production': 'Em produção',
@@ -450,13 +442,9 @@ export const ui = {
 		'projects.openSource.judex.stat.3': 'backends de OCR',
 
 		'projects.openSource.zelador.tagline':
-			'CLI determinista que permite a un agente de IA auditar y reorganizar una biblioteca de Zotero con seguridad.',
+			'CLI para organizar una biblioteca de Zotero, lo bastante segura para que la maneje un agente de IA.',
 		'projects.openSource.zelador.description':
-			'El agente propone, el código determinista valida, el usuario aprueba — cada cambio aplicado queda registrado y es reversible. Los changesets simbólicos se expanden en planes fijados por versión; un log de cambios write-ahead y respaldos completos de la biblioteca hacen del deshacer una repetición, no una apuesta.',
-		'projects.openSource.zelador.stat.0': 'capas de seguridad',
-		'projects.openSource.zelador.stat.1': 'operaciones de changeset',
-		'projects.openSource.zelador.stat.2': 'eliminaciones, jamás',
-		'projects.openSource.zelador.stat.3': 'cambios registrados y reversibles',
+			'El agente propone cambios; la CLI los valida de forma determinista y aplica solo lo que el usuario apruebe. Un log write-ahead, respaldos completos de la biblioteca y escrituras fijadas por versión hacen reversible cada cambio.',
 
 		'projects.intro.heading': 'Trabajos seleccionados',
 		'projects.section.production': 'En producción',
