@@ -80,18 +80,13 @@ const openSource: readonly OpenSourceEntry[] = [
 	<div class="glow-orb w-[420px] h-[420px] -top-20 -right-32 opacity-50"></div>
 
 	<div class="max-w-6xl mx-auto px-6 lg:px-10 relative z-10">
-		<div class="flex items-center gap-4 mb-12 animate-fade-up">
-			<span class="hairline w-12"></span>
-			<span class="mono-label">{t('nav.projects')}</span>
-		</div>
-
 		<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
 			<div class="lg:col-span-9">
-				<h1 class="text-6xl md:text-7xl lg:text-[6.5rem] mb-2 animate-fade-up animate-delay-1 leading-[0.95] text-balance">
+				<h1 class="text-6xl md:text-7xl lg:text-[6.5rem] mb-2 animate-fade-up leading-[0.95] text-balance">
 					{t('projects.intro.heading')}
 				</h1>
 			</div>
-			<div class="lg:col-span-3 animate-fade-up animate-delay-2">
+			<div class="lg:col-span-3 animate-fade-up animate-delay-1">
 				<div class="hairline mb-4"></div>
 				<p class="text-base text-[var(--color-text-muted)] leading-relaxed">
 					{t('meta.projects.description')}
@@ -116,9 +111,9 @@ const openSource: readonly OpenSourceEntry[] = [
 				return (
 					<article class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-16 border-b border-[var(--color-rule)]">
 						<div class="lg:col-span-4">
-							<div class="flex items-baseline gap-4 mb-6">
+							<div class="flex items-center gap-4 mb-6">
+								<Icon size={18} class="text-[var(--color-accent)] opacity-70 shrink-0" />
 								<div class="flex-1 hairline"></div>
-								<Icon size={18} class="text-[var(--color-accent)] opacity-70" />
 							</div>
 							<h2 class="text-5xl md:text-6xl leading-none">{p.name}</h2>
 						</div>
@@ -165,9 +160,9 @@ const openSource: readonly OpenSourceEntry[] = [
 				return (
 					<article class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-16 border-b border-[var(--color-rule)]">
 						<div class="lg:col-span-4">
-							<div class="flex items-baseline gap-4 mb-6">
+							<div class="flex items-center gap-4 mb-6">
+								<Icon size={18} class="text-[var(--color-accent)] opacity-70 shrink-0" />
 								<div class="flex-1 hairline"></div>
-								<Icon size={18} class="text-[var(--color-accent)] opacity-70" />
 							</div>
 							<h2 class="text-5xl md:text-6xl leading-none mb-4">{p.name}</h2>
 							<a

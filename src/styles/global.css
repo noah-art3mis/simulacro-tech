@@ -117,11 +117,13 @@
         color: var(--color-text-muted);
     }
 
-    /* Names the group of projects that follows. */
+    /* Names the group of projects that follows. Outranks the body copy beneath
+       it on size and colour — an accent hue on a normal-case label is fine; it
+       was the letterspaced mono treatment that had to go. */
     .section-mark {
-        font-size: 0.875rem;
+        font-size: 1.125rem;
         font-weight: 600;
-        color: var(--color-text);
+        color: var(--color-accent);
         display: inline-flex;
         align-items: center;
     }
