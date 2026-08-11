@@ -88,7 +88,7 @@ export const ui = {
 		'projects.production.autoslides.tagline':
 			'Turns rough notes into an editable, on-brand PowerPoint at the press of a button.',
 		'projects.production.autoslides.description':
-			'The brand template is codified once, so every slide comes out compliant by construction. Content lives in plain text and the slides regenerate from it, versionable and reproducible like code. The output is a standard .pptx that anyone can edit — no platform in the loop.',
+			'The brand template is codified once, so every slide comes out compliant by construction. Content lives in plain text and the slides regenerate from it, versionable and reproducible like code. The output is a standard .pptx that anyone can edit, with no platform in the loop.',
 		'projects.production.autoslides.stat.0': 'layout templates',
 		'projects.production.autoslides.stat.1': 'to rebuild 50 slides',
 
@@ -269,7 +269,7 @@ export const ui = {
 		'projects.production.autoslides.tagline':
 			'Transforma anotações soltas em um PowerPoint editável e com a identidade da marca, ao toque de um botão.',
 		'projects.production.autoslides.description':
-			'O template da marca é codificado uma vez, e cada slide sai em conformidade por construção. O conteúdo vive em texto simples e os slides são regenerados a partir dele, versionáveis e reproduzíveis como código. O resultado é um .pptx padrão que qualquer um pode editar — sem plataforma no meio.',
+			'O template da marca é codificado uma vez, e cada slide sai em conformidade por construção. O conteúdo vive em texto simples e os slides são regenerados a partir dele, versionáveis e reproduzíveis como código. O resultado é um .pptx padrão que qualquer um pode editar, sem plataforma no meio.',
 		'projects.production.autoslides.stat.0': 'templates de layout',
 		'projects.production.autoslides.stat.1': 'para reconstruir 50 slides',
 
@@ -449,7 +449,7 @@ export const ui = {
 		'projects.production.autoslides.tagline':
 			'Convierte notas sueltas en un PowerPoint editable y con la identidad de la marca, apretando un botón.',
 		'projects.production.autoslides.description':
-			'La plantilla de la marca se codifica una vez, y cada lámina sale conforme por construcción. El contenido vive en texto plano y las láminas se regeneran a partir de él, versionables y reproducibles como código. El resultado es un .pptx estándar que cualquiera puede editar — sin plataforma de por medio.',
+			'La plantilla de la marca se codifica una vez, y cada lámina sale conforme por construcción. El contenido vive en texto plano y las láminas se regeneran a partir de él, versionables y reproducibles como código. El resultado es un .pptx estándar que cualquiera puede editar, sin plataforma de por medio.',
 		'projects.production.autoslides.stat.0': 'plantillas de diseño',
 		'projects.production.autoslides.stat.1': 'para reconstruir 50 láminas',
 
