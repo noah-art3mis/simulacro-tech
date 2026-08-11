@@ -94,6 +94,11 @@ export const ui = {
 		'projects.openSource.judex.stat.2': 'cases sustained',
 		'projects.openSource.judex.stat.3': 'OCR backends',
 
+		'projects.openSource.zelador.tagline':
+			'CLI for an AI agent to keep a Zotero library in order.',
+		'projects.openSource.zelador.description':
+			'Checks tags, metadata, and collections; enriches metadata from Crossref and arXiv; compresses PDFs. Implements a validation loop with backups and write-ahead logs — making it safe to let an AI agent touch the database.',
+
 		'projects.intro.heading': 'Selected work',
 		'projects.section.production': 'In production',
 		'projects.section.openSource': 'Open source',
@@ -114,7 +119,6 @@ export const ui = {
 		'home.contact.heading': 'What brings you here?',
 		'home.contact.subheading': '',
 
-		'about.label': 'About',
 		'about.subtitle':
 			'Psychologist turned data scientist. Bringing clinical attentiveness to the world of AI and technology.',
 		'about.bio.p1':
@@ -264,6 +268,11 @@ export const ui = {
 		'projects.openSource.judex.stat.2': 'vazão de processos',
 		'projects.openSource.judex.stat.3': 'backends de OCR',
 
+		'projects.openSource.zelador.tagline':
+			'CLI para um agente de IA organizar uma biblioteca Zotero.',
+		'projects.openSource.zelador.description':
+			'Verifica etiquetas, metadados e pastas; enriquece metadados com Crossref e arXiv; comprime PDFs. Implementa um ciclo de validação com backups e write-ahead logs — o que torna seguro deixar um agente de IA mexer no banco de dados.',
+
 		'projects.intro.heading': 'Trabalhos selecionados',
 		'projects.section.production': 'Em produção',
 		'projects.section.openSource': 'Código aberto',
@@ -284,7 +293,6 @@ export const ui = {
 		'home.contact.heading': 'O que te traz aqui?',
 		'home.contact.subheading': '',
 
-		'about.label': 'Sobre',
 		'about.subtitle':
 			'Psicólogo de formação, hoje cientista de dados. A mesma escuta clínica, agora aplicada à IA e à tecnologia.',
 		'about.bio.p1':
@@ -433,6 +441,11 @@ export const ui = {
 		'projects.openSource.judex.stat.2': 'rendimiento de casos',
 		'projects.openSource.judex.stat.3': 'backends de OCR',
 
+		'projects.openSource.zelador.tagline':
+			'CLI para que un agente de IA mantenga en orden una biblioteca de Zotero.',
+		'projects.openSource.zelador.description':
+			'Verifica etiquetas, metadatos y colecciones; enriquece metadatos con Crossref y arXiv; comprime PDFs. Implementa un ciclo de validación con backups y write-ahead logs — lo que hace seguro dejar que un agente de IA toque la base de datos.',
+
 		'projects.intro.heading': 'Trabajos seleccionados',
 		'projects.section.production': 'En producción',
 		'projects.section.openSource': 'Código abierto',
@@ -453,7 +466,6 @@ export const ui = {
 		'home.contact.heading': '¿Qué te trae aquí?',
 		'home.contact.subheading': '',
 
-		'about.label': 'Sobre mí',
 		'about.subtitle':
 			'Psicólogo de formación, ahora científico de datos. Aporto la atención clínica al mundo de la IA y la tecnología.',
 		'about.bio.p1':

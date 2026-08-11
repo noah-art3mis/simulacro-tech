@@ -21,7 +21,7 @@ const featuredProjects = [
 ---
 
 <!-- ─────────── Hero ─────────── -->
-<!-- Strong glow. Choreographed entrance: eyebrow first, italic word last. -->
+<!-- Strong glow. Choreographed entrance: heading first, italic word last. -->
 <section
 	class="relative min-h-[92vh] flex items-center hero-mesh-bg"
 >
@@ -48,24 +48,20 @@ const featuredProjects = [
 
 	<div class="max-w-6xl mx-auto px-6 lg:px-8 py-24 relative z-10 w-full">
 		<div class="max-w-3xl">
-			<span class="eyebrow mb-6 animate-fade-up">
-				Simulacro Tech
-			</span>
-
 			<h1 class="text-[clamp(2.75rem,8vw,7.5rem)] leading-[0.95] mb-10 text-balance">
-				<span class="animate-fade-up animate-delay-1 inline-block">
+				<span class="animate-fade-up inline-block">
 					{t('home.hero.title.before')}
 				</span>
 				<span class="italic-reveal italic-serif gradient-text">{t('home.hero.title.highlight')}</span>
 			</h1>
 
 			<p
-				class="text-lg md:text-2xl text-[var(--color-text-muted)] mb-12 animate-fade-up animate-delay-2 max-w-2xl leading-relaxed text-pretty"
+				class="text-lg md:text-2xl text-[var(--color-text-muted)] mb-12 animate-fade-up animate-delay-1 max-w-2xl leading-relaxed text-pretty"
 			>
 				{t('home.hero.tagline')}
 			</p>
 
-			<div class="animate-fade-up animate-delay-3 flex items-center gap-6 flex-wrap">
+			<div class="animate-fade-up animate-delay-2 flex items-center gap-6 flex-wrap">
 				<a href="#contact" class="btn-primary inline-flex items-center justify-center gap-2 group">
 					{t('home.hero.cta')}
 					<ArrowRight size={18} class="transition-transform group-hover:translate-x-1" />
@@ -99,7 +95,6 @@ const featuredProjects = [
 
 	<div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
 		<div class="text-center max-w-3xl mx-auto mb-20">
-			<span class="eyebrow mb-5 inline-block">01 — {t('home.services.label')}</span>
 			<h2 class="text-[clamp(2rem,5vw,3.75rem)] mb-6 text-balance">{t('home.services.heading')}</h2>
 			<p class="text-lg md:text-xl text-[var(--color-text-muted)] leading-relaxed text-pretty">
 				{t('home.services.subheading')}
@@ -152,7 +147,6 @@ const featuredProjects = [
 	<div class="max-w-6xl mx-auto px-6 lg:px-8">
 		<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
 			<div class="lg:col-span-5">
-				<span class="eyebrow mb-5 inline-block">02 — {t('home.why.label')}</span>
 				<h2 class="text-[clamp(2rem,4.5vw,3.5rem)] mb-8 leading-[1.05]">{t('home.why.heading')}</h2>
 				<p class="text-lg text-[var(--color-text-muted)] leading-relaxed text-pretty">
 					{t('home.why.intro')}
@@ -220,7 +214,6 @@ const featuredProjects = [
 
 	<div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
 		<div class="text-center max-w-3xl mx-auto mb-20">
-			<span class="eyebrow mb-5 inline-block">03 — {t('home.projects.label')}</span>
 			<h2 class="text-[clamp(2rem,5vw,3.75rem)] mb-6 text-balance">{t('home.projects.heading')}</h2>
 			<p class="text-lg md:text-xl text-[var(--color-text-muted)] leading-relaxed text-pretty">
 				{t('home.projects.intro')}
@@ -228,15 +221,12 @@ const featuredProjects = [
 		</div>
 
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-			{featuredProjects.map((p, i) => (
+			{featuredProjects.map((p) => (
 				<a
 					href={`${projectsHref}#${p.id}`}
 					class="glass-card glass-card-case p-8 group stagger-child flex flex-col"
 				>
 					<div class="flex items-baseline gap-3 mb-6">
-						<span class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-accent)]">
-							{String(i + 1).padStart(2, '0')}
-						</span>
 						<span class="flex-1 h-px bg-[var(--color-border)]"></span>
 					</div>
 					<h3 class="text-2xl font-semibold mb-4 group-hover:text-[var(--color-accent)] transition-colors">
@@ -270,7 +260,6 @@ const featuredProjects = [
 			</div>
 
 			<div class="relative z-10 max-w-2xl">
-				<span class="eyebrow mb-7 inline-block">04 — {t('home.about.label')}</span>
 				<p class="text-xl md:text-2xl text-[var(--color-text-muted)] mb-8 leading-relaxed text-pretty">
 					{t('home.about.bio')}
 				</p>
@@ -302,7 +291,6 @@ const featuredProjects = [
 
 	<div class="max-w-4xl mx-auto px-6 lg:px-8 relative z-10">
 		<div class="text-center max-w-2xl mx-auto mb-14">
-			<span class="eyebrow mb-5 inline-block">05 — {t('home.contact.label')}</span>
 			<h2 class="text-[clamp(2rem,5vw,3.75rem)] mb-6 leading-[1.05] text-balance">
 				{t('home.contact.heading')}
 			</h2>

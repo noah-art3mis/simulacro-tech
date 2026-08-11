@@ -17,13 +17,10 @@ const t = (key: UIKey) => ui[lang][key];
 
 	<div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
 		<div class="max-w-3xl">
-			<span class="eyebrow mb-6 inline-block animate-fade-up">
-				{t('about.label')}
-			</span>
-			<h1 class="text-[clamp(3rem,7vw,6rem)] leading-[0.95] mb-8 animate-fade-up animate-delay-1">
+			<h1 class="text-[clamp(3rem,7vw,6rem)] leading-[0.95] mb-8 animate-fade-up">
 				Gustavo Costa
 			</h1>
-			<p class="text-xl md:text-2xl text-[var(--color-text-muted)] leading-relaxed animate-fade-up animate-delay-2 max-w-2xl text-pretty">
+			<p class="text-xl md:text-2xl text-[var(--color-text-muted)] leading-relaxed animate-fade-up animate-delay-1 max-w-2xl text-pretty">
 				{t('about.subtitle')}
 			</p>
 		</div>
@@ -49,7 +46,7 @@ const t = (key: UIKey) => ui[lang][key];
 
 			<div class="lg:col-span-4">
 				<div class="glass-card glass-card-service p-7 sticky top-28">
-					<h3 class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-accent)] mb-5">
+					<h3 class="font-sans text-sm font-semibold text-[var(--color-text)] mb-5">
 						{t('about.links.heading')}
 					</h3>
 					<div class="space-y-3">
