@@ -85,6 +85,11 @@ export const ui = {
 		'projects.production.nopalero.stat.0': 'validation checks',
 		'projects.production.nopalero.stat.1': 'manual data entry',
 
+		'projects.production.autoslides.tagline':
+			'Turns rough notes into an editable, on-brand PowerPoint at the press of a button.',
+		'projects.production.autoslides.description':
+			'Native text and shapes, not generated images. Editing is conversational: ask the agent to improve a slide or draft new ones, then press the button again.',
+
 		'projects.openSource.judex.tagline':
 			'Python scraper and parser for Brazilian Supreme Court (STF) case data.',
 		'projects.openSource.judex.description':
@@ -259,6 +264,11 @@ export const ui = {
 		'projects.production.nopalero.stat.0': 'verificações de validação',
 		'projects.production.nopalero.stat.1': 'entrada manual de dados',
 
+		'projects.production.autoslides.tagline':
+			'Transforma anotações soltas em um PowerPoint editável e com a identidade da marca, ao toque de um botão.',
+		'projects.production.autoslides.description':
+			'Texto e formas nativas, não imagens geradas. A edição é conversacional: peça ao agente para melhorar um slide ou criar novos, e aperte o botão de novo.',
+
 		'projects.openSource.judex.tagline':
 			'Scraper de processos do Supremo Tribunal Federal (STF).',
 		'projects.openSource.judex.description':
@@ -431,6 +441,11 @@ export const ui = {
 			'Pipeline automatizado de admisión que reemplaza horas de captura manual de datos por proyecto. Combina OCR, detección de fraude y clasificación socioeconómica — para que los analistas se enfoquen en las decisiones, no en el papeleo.',
 		'projects.production.nopalero.stat.0': 'verificaciones de validación',
 		'projects.production.nopalero.stat.1': 'entrada manual de datos',
+
+		'projects.production.autoslides.tagline':
+			'Convierte notas sueltas en un PowerPoint editable y con la identidad de la marca, apretando un botón.',
+		'projects.production.autoslides.description':
+			'Texto y formas nativas, no imágenes generadas. La edición es conversacional: pídele al agente mejorar una lámina o crear nuevas, y vuelve a apretar el botón.',
 
 		'projects.openSource.judex.tagline':
 			'Scraper y parser en Python para datos de procesos del Supremo Tribunal Federal de Brasil (STF).',

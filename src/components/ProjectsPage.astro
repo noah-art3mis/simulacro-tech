@@ -7,6 +7,7 @@ import {
 	ScanLine,
 	Gavel,
 	Library,
+	Presentation,
 } from 'lucide-astro';
 import { ui, type Lang, type UIKey } from '../i18n/ui';
 import { getLocalizedPath } from '../i18n/utils';
@@ -58,6 +59,13 @@ const production: readonly ProductionEntry[] = [
 		name: 'Nopalero',
 		icon: ScanLine,
 		statValues: ['48', '0'],
+	},
+	{
+		kind: 'production',
+		id: 'autoslides',
+		name: 'Autoslides',
+		icon: Presentation,
+		statValues: [],
 	},
 ] as const;
 
@@ -135,18 +143,20 @@ const openSource: readonly OpenSourceEntry[] = [
 							<p class="text-[var(--color-text-muted)] text-base md:text-lg leading-relaxed mb-10 max-w-2xl text-pretty">
 								{t(`projects.production.${p.id}.description` as UIKey)}
 							</p>
-							<div class="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-6 border-t border-[var(--color-rule-strong)] pt-6">
-								{p.statValues.map((value, idx) => (
-									<div>
-										<div class="font-display text-3xl md:text-4xl text-[var(--color-accent)] leading-none mb-2">
-											{value}
+							{p.statValues.length > 0 && (
+								<div class="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-6 border-t border-[var(--color-rule-strong)] pt-6">
+									{p.statValues.map((value, idx) => (
+										<div>
+											<div class="font-display text-3xl md:text-4xl text-[var(--color-accent)] leading-none mb-2">
+												{value}
+											</div>
+											<div class="mono-label leading-tight">
+												{t(`projects.production.${p.id}.stat.${idx}` as UIKey)}
+											</div>
 										</div>
-										<div class="mono-label leading-tight">
-											{t(`projects.production.${p.id}.stat.${idx}` as UIKey)}
-										</div>
-									</div>
-								))}
-							</div>
+									))}
+								</div>
+							)}
 						</div>
 					</article>
 				);
