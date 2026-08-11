@@ -88,7 +88,7 @@ export const ui = {
 		'projects.production.autoslides.tagline':
 			'Turns rough notes into an editable, on-brand PowerPoint at the press of a button.',
 		'projects.production.autoslides.description':
-			'Native text and shapes, not generated images. Editing is conversational: ask the agent to improve a slide or draft new ones, then press the button again.',
+			'Native text and shapes, not generated images.',
 
 		'projects.openSource.judex.tagline':
 			'Python scraper and parser for Brazilian Supreme Court (STF) case data.',
@@ -267,7 +267,7 @@ export const ui = {
 		'projects.production.autoslides.tagline':
 			'Transforma anotações soltas em um PowerPoint editável e com a identidade da marca, ao toque de um botão.',
 		'projects.production.autoslides.description':
-			'Texto e formas nativas, não imagens geradas. A edição é conversacional: peça ao agente para melhorar um slide ou criar novos, e aperte o botão de novo.',
+			'Texto e formas nativas, não imagens geradas.',
 
 		'projects.openSource.judex.tagline':
 			'Scraper de processos do Supremo Tribunal Federal (STF).',
@@ -445,7 +445,7 @@ export const ui = {
 		'projects.production.autoslides.tagline':
 			'Convierte notas sueltas en un PowerPoint editable y con la identidad de la marca, apretando un botón.',
 		'projects.production.autoslides.description':
-			'Texto y formas nativas, no imágenes generadas. La edición es conversacional: pídele al agente mejorar una lámina o crear nuevas, y vuelve a apretar el botón.',
+			'Texto y formas nativas, no imágenes generadas.',
 
 		'projects.openSource.judex.tagline':
 			'Scraper y parser en Python para datos de procesos del Supremo Tribunal Federal de Brasil (STF).',
