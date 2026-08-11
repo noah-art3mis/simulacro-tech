@@ -72,7 +72,7 @@ export const ui = {
 		'projects.production.molcajete.stat.1': 'turnaround per project',
 
 		'projects.production.adapta.tagline':
-			'Data preprocessing pipeline and LLM fine-tuning infrastructure for Mexican Spanish political analysis.',
+			'LLM fine-tuning infrastructure and data preprocessing pipeline for Mexican Spanish political analysis.',
 		'projects.production.adapta.description':
 			'Specialized LLMs, produced by a reproducible fine-tuning and evaluation pipeline. Built for empirical comparison of base models and prompts.',
 		'projects.production.adapta.stat.0': 'evaluation metrics',
@@ -246,7 +246,7 @@ export const ui = {
 		'projects.production.molcajete.stat.1': 'tempo de entrega por projeto',
 
 		'projects.production.adapta.tagline':
-			'Pipeline de pré-processamento de dados e infraestrutura de fine-tuning de LLMs para análise política em espanhol mexicano.',
+			'Infraestrutura de fine-tuning de LLMs e pipeline de pré-processamento de dados para análise política em espanhol mexicano.',
 		'projects.production.adapta.description':
 			'Modelos LLM especializados, fruto de um pipeline reprodutível de fine-tuning e avaliação. Permite a comparação empírica de modelos base e prompts.',
 		'projects.production.adapta.stat.0': 'métricas de avaliação',
@@ -419,7 +419,7 @@ export const ui = {
 		'projects.production.molcajete.stat.1': 'tiempo de entrega por proyecto',
 
 		'projects.production.adapta.tagline':
-			'Pipeline de preprocesamiento de datos e infraestructura de fine-tuning de LLMs para análisis político en español mexicano.',
+			'Infraestructura de fine-tuning de LLMs y pipeline de preprocesamiento de datos para análisis político en español mexicano.',
 		'projects.production.adapta.description':
 			'LLMs especializados, fruto de un pipeline reproducible de fine-tuning y evaluación. Construido para la comparación empírica de modelos base y prompts.',
 		'projects.production.adapta.stat.0': 'métricas de evaluación',
