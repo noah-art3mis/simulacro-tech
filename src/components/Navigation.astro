@@ -1,152 +1,40 @@
 ---
-import { Menu, X } from 'lucide-astro';
+import { Menu, ArrowUpRight } from 'lucide-astro';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 import { ui, type Lang, type UIKey } from '../i18n/ui';
 import { getLocalizedPath } from '../i18n/utils';
 
-interface Props {
-	lang: Lang;
-}
-
+interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const t = (key: UIKey) => ui[lang][key];
-
 const homeHref = getLocalizedPath('/', lang);
-const aboutHref = getLocalizedPath('/about', lang);
-const projectsHref = getLocalizedPath('/projects', lang);
-const contactHref = `${homeHref.replace(/\/$/, '')}/#contact`;
-
 const navItems = [
-	{ href: homeHref, label: t('nav.home') },
-	{ href: projectsHref, label: t('nav.projects') },
-	{ href: aboutHref, label: t('nav.about') },
+  { href: homeHref, label: t('nav.home') },
+  { href: getLocalizedPath('/projects', lang), label: t('nav.projects') },
+  { href: getLocalizedPath('/about', lang), label: t('nav.about') },
 ];
+const contactHref = homeHref.replace(/\/$/, '') + '/#contact';
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 ---
-
-<nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-[var(--color-bg)]/80 border-b border-[var(--color-border)]">
-	<div class="max-w-6xl mx-auto px-6 lg:px-8">
-		<div class="flex justify-between items-center h-20">
-			<a href={homeHref} class="group flex items-center gap-3">
-				<img
-					src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/simulacro.png`}
-					alt="Simulacro"
-					class="w-8 h-8 transition-transform duration-300 group-hover:scale-110"
-				/>
-				<span class="text-lg font-semibold tracking-tight">
-					simulacro<span class="text-[var(--color-text-muted)]">.tech</span>
-				</span>
-			</a>
-
-			<!-- Desktop Navigation -->
-			<div class="hidden md:flex items-center gap-8">
-				{
-					navItems.map((item) => (
-						<a
-							href={item.href}
-							class="text-sm font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors link-underline"
-							data-path={item.href}
-						>
-							{item.label}
-						</a>
-					))
-				}
-				<a
-					href={contactHref}
-					class="text-sm font-semibold text-[var(--color-bg)] bg-[var(--color-accent)] px-5 py-2.5 rounded-full hover:bg-[var(--color-accent-hover)] transition-all duration-300 hover:shadow-lg hover:shadow-[var(--color-accent)]/20"
-				>
-					{t('nav.contact')}
-				</a>
-				<div class="pl-4 border-l border-[var(--color-border)]">
-					<LanguageSwitcher lang={lang} />
-				</div>
-			</div>
-
-			<!-- Mobile menu button -->
-			<button
-				type="button"
-				class="md:hidden p-2 text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
-				id="mobile-menu-button"
-				aria-label="Toggle menu"
-				aria-expanded="false"
-			>
-				<Menu size={24} id="menu-icon" />
-				<X size={24} id="close-icon" class="hidden" />
-			</button>
-		</div>
-	</div>
-
-	<!-- Mobile Navigation -->
-	<div
-		class="md:hidden border-t border-[var(--color-border)] bg-[var(--color-bg-elevated)]/95 backdrop-blur-md overflow-hidden mobile-menu"
-		id="mobile-menu"
-	>
-		<div class="px-6 py-4 space-y-1">
-			{
-				navItems.map((item) => (
-					<a
-						href={item.href}
-						class="block px-4 py-3 text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-white/5 rounded-lg transition-colors text-base font-medium"
-						data-path={item.href}
-					>
-						{item.label}
-					</a>
-				))
-			}
-			<a
-				href={contactHref}
-				class="block px-4 py-3 mt-3 text-center font-semibold text-[var(--color-bg)] bg-[var(--color-accent)] rounded-full"
-			>
-				{t('nav.contact')}
-			</a>
-			<div class="px-4 pt-5 mt-3 border-t border-[var(--color-border)]">
-				<LanguageSwitcher lang={lang} />
-			</div>
-		</div>
-	</div>
-</nav>
-
-<!-- Spacer for fixed nav -->
-<div class="h-20"></div>
-
-<style>
-	/* Mobile menu transition — smooth max-height collapse */
-	.mobile-menu {
-		max-height: 0;
-		opacity: 0;
-		transition:
-			max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-			opacity 0.3s ease;
-	}
-	.mobile-menu.is-open {
-		max-height: 480px;
-		opacity: 1;
-	}
-</style>
-
-<script>
-	// Mobile menu toggle
-	const menuButton = document.getElementById('mobile-menu-button');
-	const mobileMenu = document.getElementById('mobile-menu');
-	const menuIcon = document.getElementById('menu-icon');
-	const closeIcon = document.getElementById('close-icon');
-
-	if (menuButton && mobileMenu && menuIcon && closeIcon) {
-		menuButton.addEventListener('click', () => {
-			const open = mobileMenu.classList.toggle('is-open');
-			menuButton.setAttribute('aria-expanded', String(open));
-			menuIcon.classList.toggle('hidden', open);
-			closeIcon.classList.toggle('hidden', !open);
-		});
-	}
-
-	// Highlight current path (normalize trailing slashes) — adds .is-active for animated underline
-	const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
-	document.querySelectorAll('[data-path]').forEach((link) => {
-		const linkPath = (link.getAttribute('data-path') || '').replace(/\/$/, '') || '/';
-		if (linkPath === currentPath) {
-			link.classList.add('text-[var(--color-text)]');
-			link.classList.remove('text-[var(--color-text-muted)]');
-			link.classList.add('is-active');
-		}
-	});
-</script>
+<header class="site-header shell">
+  <a href={homeHref} class="wordmark" aria-label="Simulacro Tech">
+    simulacro<span>.tech</span>
+  </a>
+  <nav class="desktop-navigation" aria-label={t('nav.menu')}>
+    {navItems.map(item => (
+      <a href={item.href} aria-current={(item.href.replace(/\/$/, '') || '/') === currentPath ? 'page' : undefined}>{item.label}</a>
+    ))}
+    <a class="nav-contact" href={contactHref}>{t('nav.contact')} <ArrowUpRight size={16} /></a>
+    <LanguageSwitcher lang={lang} />
+  </nav>
+  <details class="mobile-navigation">
+    <summary aria-label={t('nav.menu')}><Menu size={23} /><span>{t('nav.menu')}</span></summary>
+    <nav aria-label={t('nav.menu')}>
+      {navItems.map(item => (
+        <a href={item.href} aria-current={(item.href.replace(/\/$/, '') || '/') === currentPath ? 'page' : undefined}>{item.label}</a>
+      ))}
+      <a href={contactHref}>{t('nav.contact')}</a>
+      <LanguageSwitcher lang={lang} />
+    </nav>
+  </details>
+</header>

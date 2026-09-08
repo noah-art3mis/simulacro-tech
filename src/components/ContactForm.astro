@@ -14,7 +14,7 @@ const t = (key: UIKey) => ui[lang][key];
 	<form
 		id="contact-form"
 		action="https://formspree.io/f/xpwvlovb"
-		class="glass-card-contact p-8 md:p-10 space-y-7"
+		class="space-y-7"
 		target="_top"
 		method="POST"
 		data-error-empty={t('form.error.empty')}
@@ -25,7 +25,7 @@ const t = (key: UIKey) => ui[lang][key];
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 			<div class="space-y-2">
 				<label
-					class="block font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-text-muted)]"
+					class="form-label"
 					for="name"
 				>
 					{t('form.name.label')}
@@ -42,7 +42,7 @@ const t = (key: UIKey) => ui[lang][key];
 
 			<div class="space-y-2">
 				<label
-					class="block font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-text-muted)]"
+					class="form-label"
 					for="email"
 				>
 					{t('form.email.label')}
@@ -60,7 +60,7 @@ const t = (key: UIKey) => ui[lang][key];
 
 		<div class="space-y-2">
 			<label
-				class="block font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-text-muted)]"
+				class="form-label"
 				for="message"
 			>
 				{t('form.message.label')}
@@ -83,11 +83,12 @@ const t = (key: UIKey) => ui[lang][key];
 
 	<div
 		id="error"
-		class="rounded-xl p-4 text-sm text-red-400 border border-red-400/30 bg-red-400/[0.03] hidden mt-6"
+		role="alert"
+		class="form-error hidden"
 	>
 	</div>
 
-	<div id="success" class="rounded-xl p-8 text-center hidden mt-6 border border-[var(--color-accent)]/30 bg-[var(--color-accent)]/[0.03]">
+	<div id="success" role="status" class="form-success hidden">
 		<div
 			class="w-16 h-16 rounded-full bg-[var(--color-accent)]/10 flex items-center justify-center mx-auto mb-4"
 		>
@@ -99,12 +100,12 @@ const t = (key: UIKey) => ui[lang][key];
 					d="M5 13l4 4L19 7"></path>
 			</svg>
 		</div>
-		<p class="text-2xl mb-2 italic-serif">{t('form.success.title')}</p>
+		<p class="text-2xl mb-2 font-medium">{t('form.success.title')}</p>
 		<p class="text-sm text-[var(--color-text-muted)] mb-6">{t('form.success.subtext')}</p>
 		<button
 			type="button"
 			id="send-another"
-			class="font-mono text-xs uppercase tracking-[0.2em] text-[var(--color-accent)] hover:underline underline-offset-4"
+			class="text-link"
 		>
 			{t('form.success.action')}
 		</button>
@@ -147,6 +148,9 @@ const t = (key: UIKey) => ui[lang][key];
 			}
 
 			try {
+				const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+				submitButton.disabled = true;
+				form.setAttribute('aria-busy', 'true');
 				const response = await fetch(form.action, {
 					method: 'POST',
 					body: formData,
@@ -186,6 +190,9 @@ const t = (key: UIKey) => ui[lang][key];
 				console.error('Form submission error:', error);
 				errorDiv.textContent = msgNetwork;
 				errorDiv.classList.remove('hidden');
+			} finally {
+				(form.querySelector('button[type="submit"]') as HTMLButtonElement).disabled = false;
+				form.removeAttribute('aria-busy');
 			}
 		});
 

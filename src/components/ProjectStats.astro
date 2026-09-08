@@ -1,0 +1,17 @@
+---
+import { ui, type Lang, type UIKey } from '../i18n/ui';
+import type { ProductionProject, OpenSourceProject } from '../data/projects';
+
+interface Props { project: ProductionProject | OpenSourceProject; lang: Lang; }
+const { project, lang } = Astro.props;
+---
+{project.statValues.length > 0 && (
+  <dl class="project-stats">
+    {project.statValues.map((value, index) => (
+      <div>
+        <dt>{ui[lang][`projects.${project.kind}.${project.id}.stat.${index}` as UIKey]}</dt>
+        <dd>{value}</dd>
+      </div>
+    ))}
+  </dl>
+)}

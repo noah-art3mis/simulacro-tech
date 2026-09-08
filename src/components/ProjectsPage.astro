@@ -1,247 +1,51 @@
 ---
-import {
-	ArrowUpRight,
-	Github,
-	Mic,
-	Cpu,
-	ScanLine,
-	Gavel,
-	Library,
-	Presentation,
-} from 'lucide-astro';
+import { ArrowUpRight, Github } from 'lucide-astro';
+import ProjectStats from './ProjectStats.astro';
+import { production, openSource } from '../data/projects';
 import { ui, type Lang, type UIKey } from '../i18n/ui';
 import { getLocalizedPath } from '../i18n/utils';
 
-interface Props {
-	lang: Lang;
-}
-
+interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const t = (key: UIKey) => ui[lang][key];
 const homeHref = getLocalizedPath('/', lang);
-const contactHref = `${homeHref.replace(/\/$/, '')}/#contact`;
-
-type ProductionEntry = {
-	kind: 'production';
-	id: string;
-	name: string;
-	icon: typeof Mic;
-	statValues: readonly string[];
-};
-type OpenSourceEntry = {
-	kind: 'openSource';
-	id: string;
-	name: string;
-	icon: typeof Mic;
-	href: string;
-	repo: string;
-	statValues: readonly string[];
-};
-
-const production: readonly ProductionEntry[] = [
-	{
-		kind: 'production',
-		id: 'molcajete',
-		name: 'Molcajete',
-		icon: Mic,
-		statValues: ['2,000+', '<60 min'],
-	},
-	{
-		kind: 'production',
-		id: 'adapta',
-		name: 'Adapta',
-		icon: Cpu,
-		statValues: ['40+', '100+'],
-	},
-	{
-		kind: 'production',
-		id: 'nopalero',
-		name: 'Nopalero',
-		icon: ScanLine,
-		statValues: ['48', '0'],
-	},
-	{
-		kind: 'production',
-		id: 'azulejo',
-		name: 'Azulejo',
-		icon: Presentation,
-		statValues: ['94', '<5 s'],
-	},
-] as const;
-
-const openSource: readonly OpenSourceEntry[] = [
-	{
-		kind: 'openSource',
-		id: 'judex',
-		name: 'Judex',
-		icon: Gavel,
-		href: 'https://github.com/noah-art3mis/judex-mini',
-		repo: 'noah-art3mis/judex-mini',
-		statValues: ['R$ 52', '0.93/s', '0.28/s', '4'],
-	},
-	{
-		kind: 'openSource',
-		id: 'zelador',
-		name: 'Zelador',
-		icon: Library,
-		href: 'https://github.com/noah-art3mis/zelador',
-		repo: 'noah-art3mis/zelador',
-		statValues: [],
-	},
-] as const;
+const contactHref = homeHref.replace(/\/$/, '') + '/#contact';
 ---
-
-<!-- ════════════════════════════════════════════════
-     Masthead
-     ════════════════════════════════════════════════ -->
-<section class="relative pt-20 pb-16">
-	<div class="glow-orb w-[420px] h-[420px] -top-20 -right-32 opacity-50"></div>
-
-	<div class="max-w-6xl mx-auto px-6 lg:px-10 relative z-10">
-		<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
-			<div class="lg:col-span-9">
-				<h1 class="text-6xl md:text-7xl lg:text-[6.5rem] mb-2 animate-fade-up leading-[0.95] text-balance">
-					{t('projects.intro.heading')}
-				</h1>
-			</div>
-			<div class="lg:col-span-3 animate-fade-up animate-delay-1">
-				<div class="hairline mb-4"></div>
-				<p class="text-base text-[var(--color-text-muted)] leading-relaxed">
-					{t('meta.projects.description')}
-				</p>
-			</div>
-		</div>
-	</div>
+<header class="page-heading shell">
+  <h1>{t('projects.intro.heading')}</h1>
+  <p>{t('meta.projects.description')}</p>
+</header>
+<section class="project-collection shell" aria-labelledby="production-heading">
+  <h2 id="production-heading">{t('projects.section.production')}</h2>
+  {production.map(project => (
+    <article id={project.id} class="project-detail">
+      <h3>{project.name}</h3>
+      <div>
+        <p class="project-lede">{t(('projects.production.' + project.id + '.tagline') as UIKey)}</p>
+        <p class="project-description">{t(('projects.production.' + project.id + '.description') as UIKey)}</p>
+        <ProjectStats project={project} lang={lang} />
+      </div>
+    </article>
+  ))}
 </section>
-
-<!-- ════════════════════════════════════════════════
-     In production
-     ════════════════════════════════════════════════ -->
-<section class="pt-12 pb-12 relative">
-	<div class="max-w-6xl mx-auto px-6 lg:px-10">
-		<div class="mb-8">
-			<h2 class="section-heading">{t('projects.section.production')}</h2>
-		</div>
-
-		<div class="border-t border-[var(--color-rule-strong)]">
-			{production.map((p) => {
-				const Icon = p.icon;
-				return (
-					<article class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-16 border-b border-[var(--color-rule)]">
-						<div class="lg:col-span-4">
-							<div class="flex items-center gap-4 mb-6">
-								<Icon size={18} class="text-[var(--color-accent)] opacity-70 shrink-0" />
-								<div class="flex-1 hairline"></div>
-							</div>
-							<h3 class="text-5xl md:text-6xl leading-none">{p.name}</h3>
-						</div>
-
-						<div class="lg:col-span-8">
-							<p class="font-display text-2xl md:text-3xl leading-tight mb-6 text-balance">
-								{t(`projects.production.${p.id}.tagline` as UIKey)}
-							</p>
-							<p class="text-[var(--color-text-muted)] text-base md:text-lg leading-relaxed mb-10 max-w-2xl text-pretty">
-								{t(`projects.production.${p.id}.description` as UIKey)}
-							</p>
-							{p.statValues.length > 0 && (
-								<div class="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-6 border-t border-[var(--color-rule-strong)] pt-6">
-									{p.statValues.map((value, idx) => (
-										<div>
-											<div class="font-display text-3xl md:text-4xl text-[var(--color-accent)] leading-none mb-2">
-												{value}
-											</div>
-											<div class="mono-label leading-tight">
-												{t(`projects.production.${p.id}.stat.${idx}` as UIKey)}
-											</div>
-										</div>
-									))}
-								</div>
-							)}
-						</div>
-					</article>
-				);
-			})}
-		</div>
-	</div>
+<section class="project-collection shell" aria-labelledby="open-source-heading">
+  <h2 id="open-source-heading">{t('projects.section.openSource')}</h2>
+  {openSource.map(project => (
+    <article id={project.id} class="project-detail">
+      <div>
+        <h3>{project.name}</h3>
+        <a href={project.href} class="text-link repository-link" target="_blank" rel="noopener noreferrer"><Github size={17} />{project.repo}<ArrowUpRight size={16} /></a>
+      </div>
+      <div>
+        <p class="project-lede">{t(('projects.openSource.' + project.id + '.tagline') as UIKey)}</p>
+        <p class="project-description">{t(('projects.openSource.' + project.id + '.description') as UIKey)}</p>
+        <ProjectStats project={project} lang={lang} />
+      </div>
+    </article>
+  ))}
 </section>
-
-<!-- ════════════════════════════════════════════════
-     Open source
-     ════════════════════════════════════════════════ -->
-<section class="pt-12 pb-24 relative">
-	<div class="max-w-6xl mx-auto px-6 lg:px-10">
-		<div class="mb-8">
-			<h2 class="section-heading">{t('projects.section.openSource')}</h2>
-		</div>
-
-		<div class="border-t border-[var(--color-rule-strong)]">
-			{openSource.map((p) => {
-				const Icon = p.icon;
-				return (
-					<article class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-16 border-b border-[var(--color-rule)]">
-						<div class="lg:col-span-4">
-							<div class="flex items-center gap-4 mb-6">
-								<Icon size={18} class="text-[var(--color-accent)] opacity-70 shrink-0" />
-								<div class="flex-1 hairline"></div>
-							</div>
-							<h3 class="text-5xl md:text-6xl leading-none mb-4">{p.name}</h3>
-							<a
-								href={p.href}
-								target="_blank"
-								rel="noopener"
-								class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
-							>
-								<Github size={14} />
-								<span>{p.repo}</span>
-								<ArrowUpRight size={12} />
-							</a>
-						</div>
-
-						<div class="lg:col-span-8">
-							<p class="font-display text-2xl md:text-3xl leading-tight mb-6 text-balance">
-								{t(`projects.openSource.${p.id}.tagline` as UIKey)}
-							</p>
-							<p class="text-[var(--color-text-muted)] text-base md:text-lg leading-relaxed mb-10 max-w-2xl text-pretty">
-								{t(`projects.openSource.${p.id}.description` as UIKey)}
-							</p>
-							{p.statValues.length > 0 && (
-								<div class="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-6 border-t border-[var(--color-rule-strong)] pt-6">
-									{p.statValues.map((value, idx) => (
-										<div>
-											<div class="font-display text-3xl md:text-4xl text-[var(--color-accent)] leading-none mb-2">
-												{value}
-											</div>
-											<div class="mono-label leading-tight">
-												{t(`projects.openSource.${p.id}.stat.${idx}` as UIKey)}
-											</div>
-										</div>
-									))}
-								</div>
-							)}
-						</div>
-					</article>
-				);
-			})}
-		</div>
-	</div>
-</section>
-
-<!-- ════════════════════════════════════════════════
-     Closing CTA
-     ════════════════════════════════════════════════ -->
-<section class="py-24 relative overflow-hidden">
-	<div class="glow-orb w-[400px] h-[400px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-25"></div>
-
-	<div class="max-w-4xl mx-auto px-6 lg:px-10 relative z-10 text-center">
-		<h2 class="text-4xl md:text-5xl lg:text-6xl mb-6 text-balance">
-			{t('projects.cta.heading')}
-		</h2>
-		<p class="text-lg text-[var(--color-text-muted)] max-w-xl mx-auto mb-10">
-			{t('projects.cta.lede')}
-		</p>
-		<a href={contactHref} class="btn-primary inline-flex items-center justify-center gap-2 whitespace-nowrap group">
-			{t('projects.cta.action')}
-			<ArrowUpRight size={16} class="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-		</a>
-	</div>
+<section class="project-contact shell">
+  <h2>{t('projects.cta.heading')}</h2>
+  <p>{t('projects.cta.lede')}</p>
+  <a href={contactHref} class="btn-primary">{t('home.hero.cta')} <ArrowUpRight size={18} /></a>
 </section>

@@ -20,11 +20,12 @@ const targets = (Object.keys(languages) as Lang[])
 const dismissLabel = ui[currentLang]['banner.dismiss'];
 ---
 
-<div
+<aside
 	id="lang-banner"
+	aria-labelledby="lang-banner-link"
 	data-current={currentLang}
 	data-targets={JSON.stringify(targets)}
-	class="fixed bottom-0 left-0 right-0 z-50 border-t border-[var(--color-border)] bg-[var(--color-bg-elevated)]/95 backdrop-blur-md"
+	class="fixed bottom-0 left-0 right-0 z-50 border-t border-[var(--color-border)] bg-[var(--color-bg-elevated)]"
 	hidden
 >
 	<div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-center gap-4">
@@ -32,7 +33,7 @@ const dismissLabel = ui[currentLang]['banner.dismiss'];
 			id="lang-banner-link"
 			href="#"
 			data-target-lang=""
-			class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors font-medium underline-offset-4 hover:underline"
+			class="text-sm text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors font-medium underline-offset-4 hover:underline"
 		></a>
 		<button
 			type="button"
@@ -56,7 +57,7 @@ const dismissLabel = ui[currentLang]['banner.dismiss'];
 			</svg>
 		</button>
 	</div>
-</div>
+</aside>
 
 <script>
 	type Target = { lang: string; suggest: string; href: string };

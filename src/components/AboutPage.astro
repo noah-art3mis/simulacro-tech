@@ -1,168 +1,66 @@
 ---
-import { GraduationCap, Briefcase, ExternalLink } from 'lucide-astro';
+import { ArrowUpRight } from 'lucide-astro';
 import { ui, type Lang, type UIKey } from '../i18n/ui';
+import '../styles/about.css';
 
-interface Props {
-	lang: Lang;
-}
-
+interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const t = (key: UIKey) => ui[lang][key];
+const links = [
+  { key: 'cv', href: 'https://simulacro.cv' },
+  { key: 'essays', href: 'https://simulacro.co.uk' },
+  { key: 'philosophy', href: 'https://gustavocosta.psc.br' },
+] as const;
+const education = [
+  { key: 'degree1', school: 'London Interdisciplinary School' },
+  { key: 'degree2', school: 'Faculdade Inspirar' },
+  { key: 'degree3', school: 'Universidade de Brasília' },
+] as const;
+const experience = ['leadEngineer', 'research', 'psychotherapy', 'writing'] as const;
 ---
-
-<!-- ─────────── Hero ─────────── -->
-<section class="relative pt-16 pb-20">
-	<!-- A single, soft amber wash — about pages are introspective, not blasted -->
-	<div class="glow-orb w-[420px] h-[420px] -top-32 -right-32 opacity-50"></div>
-
-	<div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
-		<div class="max-w-3xl">
-			<h1 class="text-[clamp(3rem,7vw,6rem)] leading-[0.95] mb-8 animate-fade-up">
-				Gustavo Costa
-			</h1>
-			<p class="text-xl md:text-2xl text-[var(--color-text-muted)] leading-relaxed animate-fade-up animate-delay-1 max-w-2xl text-pretty">
-				{t('about.subtitle')}
-			</p>
-		</div>
-	</div>
+<section class="page-heading shell">
+  <h1>Gustavo Costa</h1>
+  <p>{t('about.subtitle')}</p>
 </section>
 
-<!-- ─────────── Bio ─────────── -->
-<!-- Drop-cap on the first paragraph; subsequent paragraphs are quieter. -->
-<section class="py-16 md:py-20">
-	<div class="max-w-6xl mx-auto px-6 lg:px-8">
-		<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
-			<div class="lg:col-span-8 space-y-7">
-				<p class="drop-cap text-lg text-[var(--color-text-muted)] leading-[1.7] text-pretty">
-					{t('about.bio.p1')}
-				</p>
-				<p class="text-lg text-[var(--color-text-muted)] leading-[1.7] text-pretty">
-					{t('about.bio.p2')}
-				</p>
-				<p class="text-lg text-[var(--color-text-muted)] leading-[1.7] text-pretty">
-					{t('about.bio.p3')}
-				</p>
-			</div>
-
-			<div class="lg:col-span-4">
-				<div class="glass-card glass-card-service p-7 sticky top-28">
-					<h3 class="font-sans text-sm font-semibold text-[var(--color-text)] mb-5">
-						{t('about.links.heading')}
-					</h3>
-					<div class="space-y-3">
-						<a
-							href="https://simulacro.cv"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="flex items-center justify-between text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors group py-1"
-						>
-							<span>{t('about.links.cv')}</span>
-							<ExternalLink
-								size={14}
-								class="opacity-40 group-hover:opacity-100 group-hover:text-[var(--color-accent)] transition-all"
-							/>
-						</a>
-						<a
-							href="https://simulacro.co.uk"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="flex items-center justify-between text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors group py-1"
-						>
-							<span>{t('about.links.essays')}</span>
-							<ExternalLink
-								size={14}
-								class="opacity-40 group-hover:opacity-100 group-hover:text-[var(--color-accent)] transition-all"
-							/>
-						</a>
-						<a
-							href="https://gustavocosta.psc.br"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="flex items-center justify-between text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors group py-1"
-						>
-							<span>{t('about.links.philosophy')}</span>
-							<ExternalLink
-								size={14}
-								class="opacity-40 group-hover:opacity-100 group-hover:text-[var(--color-accent)] transition-all"
-							/>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<section class="about-bio shell">
+  <div class="biography">
+    <p>{t('about.bio.p1')}</p>
+    <p>{t('about.bio.p2')}</p>
+    <p>{t('about.bio.p3')}</p>
+  </div>
+  <aside class="about-links">
+    <h2>{t('about.links.heading')}</h2>
+    {links.map(link => (
+      <a class="text-link" href={link.href} target="_blank" rel="noopener noreferrer">
+        {t(('about.links.' + link.key) as UIKey)} <ArrowUpRight size={18} />
+      </a>
+    ))}
+  </aside>
 </section>
 
-<!-- ─────────── Education & Experience ─────────── -->
-<!-- A more deliberate timeline: amber rule on the latest entry, faded on older ones. -->
-<section class="py-20 md:py-24 relative">
-	<div class="max-w-6xl mx-auto px-6 lg:px-8">
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-			<!-- Education -->
-			<div class="glass-card glass-card-service p-8 md:p-10">
-				<div class="flex items-center gap-4 mb-10">
-					<div class="icon-box">
-						<GraduationCap size={22} />
-					</div>
-					<h2 class="text-2xl md:text-3xl">{t('about.education.heading')}</h2>
-				</div>
-
-				<div class="space-y-7">
-					<div class="border-l-2 border-[var(--color-accent)] pl-6">
-						<h3 class="font-semibold mb-1.5 text-[var(--color-text)]">{t('about.education.degree1.title')}</h3>
-						<p class="text-sm text-[var(--color-text-muted)]">London Interdisciplinary School</p>
-					</div>
-					<div class="border-l-2 border-[var(--color-border)] pl-6">
-						<h3 class="font-semibold mb-1.5">{t('about.education.degree2.title')}</h3>
-						<p class="text-sm text-[var(--color-text-muted)]">Faculdade Inspirar</p>
-					</div>
-					<div class="border-l-2 border-[var(--color-border)] pl-6">
-						<h3 class="font-semibold mb-1.5">{t('about.education.degree3.title')}</h3>
-						<p class="text-sm text-[var(--color-text-muted)]">Universidade de Brasília</p>
-					</div>
-				</div>
-			</div>
-
-			<!-- Experience -->
-			<div class="glass-card glass-card-service p-8 md:p-10">
-				<div class="flex items-center gap-4 mb-10">
-					<div class="icon-box">
-						<Briefcase size={22} />
-					</div>
-					<h2 class="text-2xl md:text-3xl">{t('about.experience.heading')}</h2>
-				</div>
-
-				<div class="space-y-7">
-					<div class="border-l-2 border-[var(--color-accent)] pl-6">
-						<h3 class="font-semibold mb-1.5">{t('about.experience.leadEngineer.title')}</h3>
-						<p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
-							{t('about.experience.leadEngineer.details')}
-						</p>
-						<p class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-muted)]/60 mt-2">{t('about.experience.leadEngineer.dates')}</p>
-					</div>
-					<div class="border-l-2 border-[var(--color-border)] pl-6">
-						<h3 class="font-semibold mb-1.5">{t('about.experience.research.title')}</h3>
-						<p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
-							{t('about.experience.research.details')}
-						</p>
-						<p class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-muted)]/60 mt-2">{t('about.experience.research.dates')}</p>
-					</div>
-					<div class="border-l-2 border-[var(--color-border)] pl-6">
-						<h3 class="font-semibold mb-1.5">{t('about.experience.psychotherapy.title')}</h3>
-						<p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
-							{t('about.experience.psychotherapy.details')}
-						</p>
-						<p class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-muted)]/60 mt-2">{t('about.experience.psychotherapy.dates')}</p>
-					</div>
-					<div class="border-l-2 border-[var(--color-border)] pl-6">
-						<h3 class="font-semibold mb-1.5">{t('about.experience.writing.title')}</h3>
-						<p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
-							{t('about.experience.writing.details')}
-						</p>
-						<p class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-muted)]/60 mt-2">{t('about.experience.writing.dates')}</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+<div class="about-background shell">
+  <section aria-labelledby="education-heading">
+    <h2 id="education-heading">{t('about.education.heading')}</h2>
+    <div class="background-entries">
+      {education.map(degree => (
+        <article>
+          <h3>{t(('about.education.' + degree.key + '.title') as UIKey)}</h3>
+          <p>{degree.school}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+  <section aria-labelledby="experience-heading">
+    <h2 id="experience-heading">{t('about.experience.heading')}</h2>
+    <div class="background-entries">
+      {experience.map(role => (
+        <article>
+          <h3>{t(('about.experience.' + role + '.title') as UIKey)}</h3>
+          <p>{t(('about.experience.' + role + '.details') as UIKey)}</p>
+          <p class="entry-dates">{t(('about.experience.' + role + '.dates') as UIKey)}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</div>
