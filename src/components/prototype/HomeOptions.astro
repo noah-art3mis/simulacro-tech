@@ -1,12 +1,20 @@
 ---
-// Throwaway homepage refinements: same content, three hierarchies; selection pending.
+// Throwaway homepage refinements: same content, four directions; selection pending.
 import { ArrowRight, ArrowLeft } from 'lucide-astro';
 import Navigation from '../Navigation.astro';
 import Footer from '../Footer.astro';
 import { ui } from '../../i18n/ui';
 import '../../styles/global.css';
 import './options.css';
+import './atmosphere.css';
+import './catalogue.css';
 const t = ui.en;
+const variants = [
+  { key: 'A', name: 'Atmosphere' },
+  { key: 'B', name: 'Work first' },
+  { key: 'C', name: 'Studio' },
+  { key: 'D', name: 'Research catalogue' },
+];
 const services = ['ai', 'data', 'pipelines'] as const;
 const disciplines = ['clinical', 'philosophy', 'technical'] as const;
 const projects = [
@@ -29,9 +37,23 @@ const projects = [
   </head>
   <body class="home-prototype" data-variant="A">
     <a class="skip-link" href="#content">Skip to content</a>
-    <script is:inline>
+    <script is:inline define:vars={{ variants }}>
       const selected = new URLSearchParams(location.search).get('variant');
-      document.body.dataset.variant = ['A', 'B', 'C'].includes(selected) ? selected : 'A';
+      const current = Math.max(0, variants.findIndex(option => option.key === selected));
+      const option = variants[current];
+      document.body.dataset.variant = option.key;
+      document.title = `Simulacro · ${option.name} prototype`;
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelector('.prototype-switcher strong').textContent = `${option.key} · ${option.name}`;
+        document.querySelector('[data-cycle="previous"]').href = `?variant=${variants[(current + variants.length - 1) % variants.length].key}`;
+        document.querySelector('[data-cycle="next"]').href = `?variant=${variants[(current + 1) % variants.length].key}`;
+      });
+      document.addEventListener('keydown', event => {
+        if (event.target instanceof HTMLElement && event.target.closest('input, textarea, select, [contenteditable]')) return;
+        if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+        const direction = { ArrowLeft: 'previous', ArrowRight: 'next' }[event.key];
+        if (direction) document.querySelector(`[data-cycle="${direction}"]`)?.click();
+      });
     </script>
     <Navigation lang="en" />
     <main id="content" class="option-page">
@@ -41,11 +63,14 @@ const projects = [
           <p>{t['home.hero.tagline']}</p>
           <a class="contact-link" href="#contact">{t['home.hero.cta']} <ArrowRight size={18} /></a>
         </div>
+        <nav class="catalogue-index" aria-label="Areas of work">
+          {services.map(service => <a href={`#service-${service}`}>{t[`home.services.${service}.title`]}<ArrowRight size={20} /></a>)}
+        </nav>
       </section>
       <section class="services" aria-labelledby="services-heading">
         <div class="section-heading"><h2 id="services-heading">{t['home.services.heading']}</h2><p>{t['home.services.subheading']}</p></div>
         <div class="service-list">
-          {services.map(service => <article>
+          {services.map(service => <article id={`service-${service}`}>
             <h3>{t[`home.services.${service}.title`]}</h3>
             <p>{t[`home.services.${service}.description`]}</p>
           </article>)}
@@ -82,25 +107,11 @@ const projects = [
     </main>
     <Footer lang="en" />
     <aside class="prototype-switcher" aria-label="Design comparison">
-      <a data-cycle="previous" href="?variant=C" aria-label="Previous option"><ArrowLeft size={18} /></a>
-      <div><small>Homepage prototype</small><strong>A · Quiet</strong></div>
+      <a data-cycle="previous" href="?variant=D" aria-label="Previous option"><ArrowLeft size={18} /></a>
+      <div><small>Homepage prototype</small><strong>A · Atmosphere</strong></div>
       <a data-cycle="next" href="?variant=B" aria-label="Next option"><ArrowRight size={18} /></a>
       <a class="baseline-link" href="https://simulacro.tech">Baseline</a>
     </aside>
-    <script>
-      const options = ['A', 'B', 'C'];
-      const names = ['Quiet', 'Work first', 'Studio'];
-      const current = options.indexOf(document.body.dataset.variant!);
-      document.querySelector('.prototype-switcher strong')!.textContent = `${options[current]} · ${names[current]}`;
-      document.querySelector('[data-cycle="previous"]')!.setAttribute('href', `?variant=${options[(current + 2) % 3]}`);
-      document.querySelector('[data-cycle="next"]')!.setAttribute('href', `?variant=${options[(current + 1) % 3]}`);
-      document.title = `Simulacro · ${names[current]} prototype`;
-      document.addEventListener('keydown', event => {
-        if (event.target instanceof HTMLElement && event.target.closest('input, textarea, select, [contenteditable]')) return;
-        if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
-        const direction = { ArrowLeft: 'previous', ArrowRight: 'next' }[event.key];
-        if (direction) document.querySelector<HTMLAnchorElement>(`[data-cycle="${direction}"]`)?.click();
-      });
-    </script>
+
   </body>
 </html>

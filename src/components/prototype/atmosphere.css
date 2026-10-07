@@ -1,0 +1,38 @@
+/* A keeps the original scale and light, without the floating mark or particle runtime. */
+[data-variant='A'] .intro {
+  position: relative;
+  isolation: isolate;
+  min-height: min(880px, calc(100svh - 80px));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 96px 0;
+}
+[data-variant='A'] .intro::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: -100px;
+  left: calc((100% - 100vw) / 2);
+  width: 100vw;
+  background:
+    radial-gradient(ellipse at 16% 12%, rgb(245 158 11 / 18%), transparent 59%),
+    radial-gradient(ellipse at 88% 48%, rgb(139 92 246 / 15%), transparent 55%),
+    radial-gradient(ellipse at 48% 5%, rgb(239 68 68 / 5%), transparent 65%);
+  mask-image: linear-gradient(#000 65%, transparent);
+  pointer-events: none;
+}
+[data-variant='A'] .intro h1 {
+  max-width: 920px;
+  font-size: clamp(3.6rem, 8.4vw, 7.5rem);
+  font-weight: 600;
+  line-height: .98;
+}
+[data-variant='A'] .intro-detail { margin-top: 38px; max-width: 670px; }
+[data-variant='A'] .intro-detail p { font-size: clamp(1.1rem, 1.65vw, 1.5rem); }
+@media (max-width: 760px) {
+  [data-variant='A'] .intro { min-height: calc(88svh - 80px); padding: 68px 0; }
+  [data-variant='A'] .intro h1 { font-size: clamp(3.6rem, 12vw, 5rem); }
+  [data-variant='A'] .intro-detail { margin-top: 30px; }
+}
