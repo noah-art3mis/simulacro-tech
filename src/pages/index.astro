@@ -1,8 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HomePage from '../components/HomePage.astro';
+import HomeOptions from '../components/prototype/HomeOptions.astro';
+const showOptions = import.meta.env.DEV;
 ---
-
-<BaseLayout lang="en" titleKey="meta.home.title" descriptionKey="meta.home.description">
-	<HomePage lang="en" />
-</BaseLayout>
+{showOptions ? <HomeOptions /> : <BaseLayout lang="en" titleKey="meta.home.title" descriptionKey="meta.home.description"><HomePage lang="en" /></BaseLayout>}
