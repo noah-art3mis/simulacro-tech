@@ -8,8 +8,6 @@
 .home-prototype .project h3 { transition: color .2s ease; }
 .home-prototype .project > svg { transition: transform .2s ease; }
 .home-prototype .project:hover > svg, .home-prototype .project:focus-visible > svg { transform: translateX(4px); }
-.home-prototype .text-link { text-decoration: underline; text-decoration-color: transparent; transition: text-decoration-color .2s ease; }
-.home-prototype .text-link:hover { text-decoration-color: currentColor; }
 .home-prototype .contact input, .home-prototype .contact textarea { transition: border-color .2s ease, background-color .2s ease; }
 .home-prototype .contact input:focus, .home-prototype .contact textarea:focus { border-color: #f5ae35; background-color: rgb(245 158 11 / 3%); }
 @keyframes text-arrive {

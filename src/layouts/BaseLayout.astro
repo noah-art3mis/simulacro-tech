@@ -9,6 +9,7 @@ import '../components/prototype/visuals.css';
 import '../components/prototype/screens.css';
 import '../components/prototype/project-grid.css';
 import '../components/prototype/controls.css';
+import '../components/prototype/micro-motion.css';
 
 interface Props {
 	lang: Lang;
@@ -58,11 +59,11 @@ const buildDate = new Date().toISOString().slice(0, 10);
 		</script>
 
 		<script>
-			// Scroll reveal animation — staggered children inside revealed sections
 			const revealObserver = new IntersectionObserver((entries) => {
 				entries.forEach(entry => {
 					if (entry.isIntersecting) {
 						entry.target.classList.add('revealed');
+						revealObserver.unobserve(entry.target);
 					}
 				});
 			}, {
@@ -70,16 +71,13 @@ const buildDate = new Date().toISOString().slice(0, 10);
 				rootMargin: '0px 0px -60px 0px'
 			});
 
-			// Observe all sections for reveal
-			document.querySelectorAll('section').forEach(el => {
-				el.classList.add('reveal-on-scroll');
-				revealObserver.observe(el);
-			});
-
-			// Also observe elements that opt in directly
-			document.querySelectorAll('.reveal-on-scroll').forEach(el => {
-				revealObserver.observe(el);
-			});
+			const revealTargets = document.body.classList.contains('design-study')
+        ? '.project-identity h3, .project-identity > a, .project-description, .about-bio p, .about-history h2, .about-history .space-y-7 > div'
+        : 'section';
+      document.querySelectorAll(`${revealTargets}, .reveal-on-scroll`).forEach(el => {
+        el.classList.add('reveal-on-scroll');
+        revealObserver.observe(el);
+      });
 		</script>
 	</body>
 </html>

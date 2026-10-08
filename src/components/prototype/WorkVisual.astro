@@ -60,10 +60,22 @@ const { kind, collection } = Astro.props;
   </svg>
 </div>
 <script>
-  const visuals = document.querySelectorAll<HTMLElement>('.work-visual');
-  const observer = new IntersectionObserver(entries => {
-    for (const entry of entries) entry.target.classList.toggle('visual-visible', entry.isIntersecting);
+  const visuals = document.querySelectorAll<HTMLElement>('.project .work-visual, .project-detail .work-visual');
+  visuals.forEach(visual => {
+    const lines = visual.querySelectorAll<SVGGeometryElement>('path, ellipse, circle, rect, line, polyline, polygon');
+    lines.forEach((line, index) => {
+      if (line.closest('defs') || line.classList.contains('engraving-light') || getComputedStyle(line).stroke === 'none') return;
+      line.setAttribute('pathLength', '1');
+      line.classList.add('ink-line');
+      line.style.setProperty('--ink-delay', `${(index % 6) * 35}ms`);
+    });
   });
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      entry.target.classList.toggle('visual-visible', entry.isIntersecting);
+      if (entry.isIntersecting) entry.target.classList.add('ink-arrived');
+    }
+  }, { threshold: .15 });
   visuals.forEach(visual => observer.observe(visual));
   const reflectVisibility = () => document.documentElement.toggleAttribute('data-page-hidden', document.hidden);
   document.addEventListener('visibilitychange', reflectVisibility);

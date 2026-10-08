@@ -18,16 +18,11 @@
 .design-study .about-history .space-y-7 > :not(:last-child) { margin-bottom: 36px; }
 .design-study .about-history h2 { font-size: 42px; }
 .design-study .about-history h3 { font-family: 'Crimson Pro', Georgia, serif; font-size: 25px; font-weight: 400; }
-.design-study .reveal-on-scroll { transform: translateY(18px); transition-duration: .8s; }
-.design-study .reveal-on-scroll.revealed { transform: none; }
 @media (max-width: 760px) {
   .design-study .screen-hero { min-height: 420px; padding: 85px 0 65px; }
   .screen-hero-art { width: 170%; right: -180px; top: 25px; opacity: .55; }
   .design-study .about-history > div > .grid { gap: 72px; }
   .design-study .about-bio { padding: 35px 0 60px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .design-study .reveal-on-scroll { transform: none; transition: none; }
 }
 .screen-hero-art { height: 100%; overflow: hidden; mask-image: linear-gradient(90deg, transparent 15%, #000 75%), linear-gradient(#000 45%, transparent 100%); mask-composite: intersect; }
 .design-study .screen-hero > div > .grid { display: block; }
