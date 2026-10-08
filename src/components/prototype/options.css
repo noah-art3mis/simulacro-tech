@@ -63,5 +63,3 @@
   .prototype-switcher { gap: 6px; max-width: calc(100% - 20px); }
   .prototype-switcher div { min-width: 118px; }
 }
-
-.home-prototype > footer { padding-bottom: 92px; }
