@@ -83,9 +83,9 @@ export const ui = {
 		"projects.production.lexgpt.description":
 			"Jurisprudence search and advanced RAG sit alongside tools for reading sources and developing legal documents. Factual grounding runs through the workbench, keeping the evidence behind an answer within reach as questions become drafts.",
 		"projects.research.glasshouse.tagline":
-			"Exploring how journalism can make the path from a claim to a conclusion more transparent.",
+			"A modular toolkit for fact-checking and automated claim verification, built to strengthen human judgment.",
 		"projects.research.glasshouse.description":
-			"Glasshouse brings claim detection, evidence review and fact-checking into one investigation. Sources and reasoning remain visible, so others can trace how a conclusion was reached.",
+			"Claim detection, evidence retrieval and verification form an investigation that journalists and researchers can inspect and adapt. Sources and reasoning remain visible, and the modular design lets each stage serve the needs of the investigation.",
 
 		'projects.production.nopalero.tagline':
 			'Automated participant screening system for qualitative recruitment.',
@@ -273,9 +273,9 @@ export const ui = {
 		"projects.production.lexgpt.description":
 			"A busca de jurisprudência e o RAG avançado se somam a ferramentas de leitura de fontes e elaboração de documentos jurídicos. A fundamentação factual orienta o trabalho, mantendo as evidências por trás de uma resposta acessíveis enquanto as perguntas se transformam em textos.",
 		"projects.research.glasshouse.tagline":
-			"Uma investigação sobre como o jornalismo pode tornar mais transparente o caminho entre uma alegação e uma conclusão.",
+			"Um toolkit modular para checagem de fatos e verificação automática de alegações, desenvolvido para apoiar o julgamento humano.",
 		"projects.research.glasshouse.description":
-			"O Glasshouse reúne detecção de alegações, análise de evidências e checagem de fatos em uma mesma investigação. As fontes e o raciocínio permanecem visíveis, permitindo acompanhar como se chegou a uma conclusão.",
+			"Detecção de alegações, busca de evidências e verificação compõem uma investigação que jornalistas e pesquisadores podem examinar e adaptar. As fontes e o raciocínio permanecem visíveis, e o desenho modular permite ajustar cada etapa às necessidades da investigação.",
 
 		'projects.production.nopalero.tagline':
 			'Sistema automatizado de triagem de participantes para recrutamento qualitativo.',
@@ -462,9 +462,9 @@ export const ui = {
 		"projects.production.lexgpt.description":
 			"La búsqueda de jurisprudencia y el RAG avanzado se integran con herramientas para leer fuentes y elaborar documentos jurídicos. El rigor factual guía el trabajo, manteniendo accesibles las evidencias detrás de una respuesta mientras las preguntas se convierten en borradores.",
 		"projects.research.glasshouse.tagline":
-			"Una exploración de cómo el periodismo puede hacer más transparente el camino entre una afirmación y una conclusión.",
+			"Un toolkit modular para la verificación de hechos y la comprobación automática de afirmaciones, diseñado para apoyar el criterio humano.",
 		"projects.research.glasshouse.description":
-			"Glasshouse reúne detección de afirmaciones, revisión de evidencias y verificación de hechos en una misma investigación. Las fuentes y el razonamiento permanecen visibles para que otras personas puedan seguir cómo se llegó a una conclusión.",
+			"La detección de afirmaciones, la búsqueda de evidencias y la verificación forman una investigación que periodistas e investigadores pueden examinar y adaptar. Las fuentes y el razonamiento permanecen visibles, y el diseño modular permite ajustar cada etapa a las necesidades de la investigación.",
 
 		'projects.production.nopalero.tagline':
 			'Sistema automatizado de selección de participantes para reclutamiento cualitativo.',
