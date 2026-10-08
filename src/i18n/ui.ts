@@ -81,7 +81,7 @@ export const ui = {
 		"projects.production.lexgpt.tagline":
 			"A legal research workbench for the persistent challenge of jurisprudence search, with factuality at the centre of AI-assisted work.",
 		"projects.production.lexgpt.description":
-			"Jurisprudence search and advanced RAG bring sources into the drafting process, with tools designed to reduce hallucinations and keep claims open to verification. The workbench brings research and writing together, helping legal professionals trace an answer back to its evidence as an argument takes shape.",
+			"Jurisprudence search and advanced RAG bring sources into the drafting process, with tools designed to reduce hallucinations and keep claims open to verification.",
 		"projects.research.glasshouse.tagline":
 			"A modular fact-checking toolkit designed to ease the workload of journalists facing a growing tide of misinformation.",
 		"projects.research.glasshouse.description":
@@ -271,7 +271,7 @@ export const ui = {
 		"projects.production.lexgpt.tagline":
 			"Um ambiente de pesquisa jurídica para o desafio persistente da busca de jurisprudência, com a factualidade no centro do trabalho assistido por IA.",
 		"projects.production.lexgpt.description":
-			"A busca de jurisprudência e o RAG avançado trazem fontes para o processo de redação, com ferramentas concebidas para reduzir alucinações e manter as afirmações verificáveis. O ambiente reúne pesquisa e escrita, ajudando profissionais do direito a rastrear as evidências por trás de uma resposta enquanto desenvolvem seus argumentos.",
+			"A busca de jurisprudência e o RAG avançado trazem fontes para o processo de redação, com ferramentas concebidas para reduzir alucinações e manter as afirmações verificáveis.",
 		"projects.research.glasshouse.tagline":
 			"Um conjunto modular de ferramentas de fact-checking para aliviar a carga de trabalho de jornalistas diante do volume crescente de desinformação.",
 		"projects.research.glasshouse.description":
@@ -460,7 +460,7 @@ export const ui = {
 		"projects.production.lexgpt.tagline":
 			"Un entorno de investigación jurídica para el desafío persistente de la búsqueda de jurisprudencia, con la factualidad en el centro del trabajo asistido por IA.",
 		"projects.production.lexgpt.description":
-			"La búsqueda de jurisprudencia y el RAG avanzado incorporan fuentes al proceso de redacción, con herramientas diseñadas para reducir alucinaciones y mantener las afirmaciones verificables. El entorno reúne investigación y escritura, ayudando a profesionales del derecho a rastrear las evidencias detrás de una respuesta mientras desarrollan sus argumentos.",
+			"La búsqueda de jurisprudencia y el RAG avanzado incorporan fuentes al proceso de redacción, con herramientas diseñadas para reducir alucinaciones y mantener las afirmaciones verificables.",
 		"projects.research.glasshouse.tagline":
 			"Un conjunto modular de herramientas de fact-checking para aliviar la carga de trabajo de periodistas ante el volumen creciente de desinformación.",
 		"projects.research.glasshouse.description":
