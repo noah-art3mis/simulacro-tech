@@ -220,7 +220,7 @@ const projectsHref = getLocalizedPath('/projects', lang);
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 			{featuredProjects.map((p) => (
 				<a
-					href={`${projectsHref}#${p.id}`}
+					href={'href' in p ? p.href : `${projectsHref}#${p.id}`}
 					class="glass-card glass-card-case p-8 group stagger-child flex flex-col"
 				>
 					<div class="flex items-baseline gap-3 mb-6">

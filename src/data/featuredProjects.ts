@@ -9,6 +9,7 @@ export const featuredProjects = [
   },
   {
     id: 'lexgpt', name: 'LexGPT', icon: Gavel,
+    href: 'https://lexgpt.com.br/',
     taglineKey: 'projects.production.lexgpt.tagline',
     descriptionKey: 'projects.production.lexgpt.description',
     statValues: [],

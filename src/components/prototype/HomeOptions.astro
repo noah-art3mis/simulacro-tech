@@ -12,6 +12,8 @@ import './atmosphere.css';
 import './visuals.css';
 import './motion.css';
 import './paper.css';
+import './project-grid.css';
+import './controls.css';
 const t = ui.en;
 const variants = [
   { key: 'A', name: 'Linework' },
@@ -78,7 +80,7 @@ const disciplines = ['clinical', 'philosophy', 'technical'] as const;
       <section id="projects" class="projects" aria-labelledby="projects-heading">
         <div class="section-heading"><h2 id="projects-heading">{t['home.projects.heading']}</h2><p>{t['home.projects.intro']}</p></div>
         <div class="project-list">
-          {featuredProjects.map(project => <a class="project" href={`/projects#${project.id}`}>
+          {featuredProjects.map(project => <a class="project" href={'href' in project ? project.href : `/projects#${project.id}`}>
             <WorkVisual kind={project.id} />
             <div class="project-copy"><h3>{project.name}</h3><p>{t[project.taglineKey]}</p></div>
             <ArrowRight size={22} aria-hidden="true" />

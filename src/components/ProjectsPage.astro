@@ -23,6 +23,7 @@ const homeHref = getLocalizedPath('/', lang);
 const contactHref = `${homeHref.replace(/\/$/, '')}/#contact`;
 
 type ProjectEntry = {
+	href?: string;
 	taglineKey: UIKey;
 	descriptionKey: UIKey;
 	id: string;
@@ -148,6 +149,7 @@ const openSource: readonly OpenSourceEntry[] = [
 							<p class="text-[var(--color-text-muted)] text-base md:text-lg leading-relaxed mb-10 max-w-2xl text-pretty">
 								{t(p.descriptionKey)}
 							</p>
+							{p.href && <a href={p.href} class="inline-flex items-center gap-3 mb-8 text-[var(--color-accent)] hover:underline underline-offset-4">{t('projects.visit')} <ArrowUpRight size={17} aria-hidden="true" /></a>}
 							{p.statValues.length > 0 && (
 								<div class="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-6 border-t border-[var(--color-rule-strong)] pt-6">
 									{p.statValues.map((value, idx) => (

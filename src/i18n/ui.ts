@@ -78,6 +78,7 @@ export const ui = {
 		'projects.production.adapta.stat.0': 'evaluation metrics',
 		'projects.production.adapta.stat.1': 'training runs',
 
+		'projects.visit': 'Visit project',
 		"projects.production.lexgpt.tagline":
 			"A legal research workbench for the persistent challenge of jurisprudence search, with factuality at the centre of AI-assisted work.",
 		"projects.production.lexgpt.description":
@@ -268,6 +269,7 @@ export const ui = {
 		'projects.production.adapta.stat.0': 'métricas de avaliação',
 		'projects.production.adapta.stat.1': 'execuções de treino',
 
+		'projects.visit': 'Visitar projeto',
 		"projects.production.lexgpt.tagline":
 			"Um ambiente de pesquisa jurídica para o desafio persistente da busca de jurisprudência, com a factualidade no centro do trabalho assistido por IA.",
 		"projects.production.lexgpt.description":
@@ -457,6 +459,7 @@ export const ui = {
 		'projects.production.adapta.stat.0': 'métricas de evaluación',
 		'projects.production.adapta.stat.1': 'ejecuciones de entrenamiento',
 
+		'projects.visit': 'Visitar proyecto',
 		"projects.production.lexgpt.tagline":
 			"Un entorno de investigación jurídica para el desafío persistente de la búsqueda de jurisprudencia, con la factualidad en el centro del trabajo asistido por IA.",
 		"projects.production.lexgpt.description":

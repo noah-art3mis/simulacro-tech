@@ -37,7 +37,6 @@
 [data-variant='C'] .service-list { gap: 56px; }
 [data-variant='C'] .service-list h3 { font-size: 24px; }
 [data-variant='C'] .service-list .work-visual { margin: 42px 0; }
-[data-variant='C'] .project h3 { font-size: 44px; }
 [data-variant='C'] .project .work-visual { padding: 22px; background: #e4ded1; }
 [data-variant='C'] .project-copy p { max-width: 46ch; }
 [data-variant='C'] .bio p { font-family: 'Archivo', sans-serif; font-size: 25px; line-height: 1.5; letter-spacing: -.025em; }
@@ -67,7 +66,6 @@
   [data-variant='C'] .section-heading { margin-bottom: 38px; }
   [data-variant='C'] .service-list { gap: 54px; }
   [data-variant='C'] .service-list .work-visual { margin: 24px 0; }
-  [data-variant='C'] .project h3 { font-size: 38px; }
 }
 
 [data-variant='C'] .background .section-heading p { font-family: 'Archivo', sans-serif; }

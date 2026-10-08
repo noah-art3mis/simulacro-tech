@@ -41,7 +41,6 @@
 .home-prototype .project,
 .home-prototype .bio { border-top: 0; }
 .home-prototype .option-page section:not(.intro) { padding: 112px 0; }
-.home-prototype .project-list { display: grid; gap: 24px; }
 .home-prototype .background { display: grid; grid-template-columns: 1fr 1.3fr; gap: 70px 100px; }
 .home-prototype .background .section-heading { display: block; margin: 0; }
 .home-prototype .background .section-heading h2 { margin-bottom: 28px; }
@@ -50,7 +49,6 @@
 .home-prototype .bio { grid-column: 1 / -1; margin-top: 100px; padding-top: 0; }
 @media (max-width: 760px) {
   .home-prototype .option-page section:not(.intro) { padding: 72px 0; }
-  .home-prototype .project-list { gap: 32px; }
   .home-prototype .background { grid-template-columns: 1fr; gap: 40px; }
   .home-prototype .background .section-heading h2 { margin-bottom: 18px; }
 }
