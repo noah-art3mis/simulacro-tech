@@ -1,0 +1,65 @@
+---
+interface Props { kind: 'ai' | 'data' | 'pipelines' | 'adapta' | 'lexgpt' | 'glasshouse'; }
+const { kind } = Astro.props;
+const descriptions = {
+  ai: 'Abstract source connections converging into a shared representation.',
+  data: 'Abstract clusters separating and regrouping, illustrating pattern discovery.',
+  pipelines: 'Abstract streams passing through successive processing stages.',
+  adapta: 'Abstract network reorganising from a general model into a specialised one.',
+  lexgpt: 'Abstract document layers linked back to their supporting sources.',
+  glasshouse: 'Transparent planes surrounding a claim, illustrating evidence examined from several perspectives.',
+};
+---
+<div class={`work-visual visual-${kind}`}>
+  <svg viewBox="0 0 360 220" role="img" aria-label={descriptions[kind]}>
+    {kind === 'ai' && <>
+      <g class="visual-traces"><path d="M30 42C110 42 95 110 177 110M30 110H177M30 178C110 178 95 110 177 110M177 110C235 110 230 47 316 47M177 110H316M177 110C235 110 230 173 316 173"/></g>
+      <g class="visual-stream"><path d="M30 42C110 42 95 110 177 110M30 178C110 178 95 110 177 110M177 110C235 110 230 47 316 47M177 110H316"/></g>
+      <g class="visual-points"><circle cx="30" cy="42" r="5"/><circle cx="30" cy="110" r="5"/><circle cx="30" cy="178" r="5"/><circle cx="316" cy="47" r="5"/><circle cx="316" cy="110" r="5"/><circle cx="316" cy="173" r="5"/></g>
+      <g class="visual-focus"><circle class="visual-halo" cx="177" cy="110" r="46"/><circle class="visual-outline" cx="177" cy="110" r="29"/><circle class="visual-core" cx="177" cy="110" r="9"/></g>
+    </>}
+    {kind === 'data' && <>
+      <g class="visual-cluster cluster-one"><ellipse class="visual-halo" cx="93" cy="129" rx="66" ry="49"/>{[[47,127],[66,108],[84,144],[107,105],[125,139],[96,170],[73,126]].map(([cx,cy])=><circle class="visual-core" cx={cx} cy={cy} r="4"/>)}</g>
+      <g class="visual-cluster cluster-two"><ellipse class="visual-violet-plane" cx="232" cy="65" rx="58" ry="37"/>{[[192,65],[213,42],[229,79],[247,52],[273,69],[238,37]].map(([cx,cy])=><circle class="visual-violet-dot" cx={cx} cy={cy} r="4"/>)}</g>
+      <g class="visual-cluster cluster-three"><ellipse class="visual-halo" cx="280" cy="161" rx="42" ry="31"/>{[[250,156],[269,179],[287,149],[307,162],[274,151]].map(([cx,cy])=><circle class="visual-core" cx={cx} cy={cy} r="4"/>)}</g>
+      <path class="visual-traces" d="M113 111Q167 13 213 64M129 149Q193 193 250 156"/>
+    </>}
+    {kind === 'pipelines' && <>
+      <g class="visual-traces"><path d="M14 62H57Q80 62 80 86V110H342M14 110H342M14 158H57Q80 158 80 134V110"/></g>
+      <g class="visual-stream"><path d="M14 62H57Q80 62 80 86V110H342M14 158H57Q80 158 80 134V110H342"/></g>
+      <g class="visual-gate"><path class="visual-plane" d="M115 66l37 22v65l-37-22z"/><path class="visual-outline" d="M115 66v65l37 22"/></g>
+      <g class="visual-gate gate-two"><path class="visual-violet-plane" d="M207 66l37 22v65l-37-22z"/><path class="visual-outline" d="M207 66v65l37 22"/></g>
+      <g class="visual-points"><circle cx="14" cy="62" r="4"/><circle cx="14" cy="110" r="4"/><circle cx="14" cy="158" r="4"/><circle cx="334" cy="110" r="7"/></g>
+    </>}
+    {kind === 'adapta' && <>
+      <g class="visual-traces"><path d="M30 42L112 73 30 110 112 147 30 178M30 42L112 147M30 178L112 73M112 73L209 42 112 147 209 110 112 73 209 178 112 147M209 42L318 76 209 110 318 146 209 178M209 42L318 146M209 178L318 76"/></g>
+      <g class="visual-stream"><path d="M30 110L112 73 209 110 318 76M30 178L112 147 209 178 318 146"/></g>
+      <g class="visual-points">{[[30,42],[30,110],[30,178],[112,73],[112,147],[209,42],[209,110],[209,178],[318,76],[318,146]].map(([cx,cy])=><circle cx={cx} cy={cy} r="6"/>)}</g>
+      <g class="visual-focus"><circle class="visual-halo" cx="318" cy="76" r="23"/><circle class="visual-halo" cx="318" cy="146" r="23"/></g>
+    </>}
+    {kind === 'lexgpt' && <>
+      <g class="visual-document document-back"><path class="visual-violet-plane" d="M54 33h139v147H54z"/><path class="visual-fine" d="M73 57h96M73 72h76M73 101h90M73 116h53M73 144h82"/></g>
+      <g class="visual-document document-front"><path class="visual-plane" d="M88 54h139v147H88z"/><path class="visual-fine" d="M107 79h96M107 94h72M107 124h96M107 139h57M107 169h79"/></g>
+      <g class="visual-traces"><path d="M203 79H254Q270 79 270 63V43H313M186 169H254Q270 169 270 153V132H313"/></g>
+      <g class="visual-stream"><path d="M203 79H254Q270 79 270 63V43H313M186 169H254Q270 169 270 153V132H313"/></g>
+      <circle class="visual-core" cx="313" cy="43" r="6"/><circle class="visual-core" cx="313" cy="132" r="6"/>
+    </>}
+    {kind === 'glasshouse' && <>
+      <g class="visual-glass glass-back"><path class="visual-violet-plane" d="m94 26 167 31v132L94 158z"/><path class="visual-fine" d="m94 26 82 71 85-40M176 97v76"/></g>
+      <g class="visual-glass glass-front"><path class="visual-plane" d="m70 63 175-28v133L70 196z"/><path class="visual-fine" d="m70 63 87 64 88-92M157 127v55"/></g>
+      <path class="visual-traces" d="M22 110h84M237 110h101M176 14v54M176 154v53"/>
+      <g class="visual-focus"><path class="visual-core" d="m176 88 22 22-22 22-22-22z"/><circle class="visual-outline" cx="176" cy="110" r="40"/></g>
+      <g class="visual-points"><circle cx="22" cy="110" r="4"/><circle cx="338" cy="110" r="4"/><circle cx="176" cy="14" r="4"/><circle cx="176" cy="207" r="4"/></g>
+    </>}
+  </svg>
+</div>
+<script>
+  const visuals = document.querySelectorAll<HTMLElement>('.work-visual');
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) entry.target.classList.toggle('visual-visible', entry.isIntersecting);
+  });
+  visuals.forEach(visual => observer.observe(visual));
+  const reflectVisibility = () => document.documentElement.toggleAttribute('data-page-hidden', document.hidden);
+  document.addEventListener('visibilitychange', reflectVisibility);
+  reflectVisibility();
+</script>

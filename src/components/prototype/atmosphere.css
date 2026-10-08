@@ -1,4 +1,4 @@
-/* A keeps the original scale and light, without the floating mark or particle runtime. */
+/* A keeps the original scale and light, without the floating mark. */
 [data-variant='A'] .intro {
   position: relative;
   isolation: isolate;
@@ -35,4 +35,22 @@
   [data-variant='A'] .intro { min-height: calc(88svh - 80px); padding: 68px 0; }
   [data-variant='A'] .intro h1 { font-size: clamp(3.6rem, 12vw, 5rem); }
   [data-variant='A'] .intro-detail { margin-top: 30px; }
+}
+/* Separate the content through spacing rather than a rule at every section. */
+[data-variant='A'] .option-page section + section,
+[data-variant='A'] .project,
+[data-variant='A'] .bio { border-top: 0; }
+[data-variant='A'] .option-page section:not(.intro) { padding: 112px 0; }
+[data-variant='A'] .project-list { display: grid; gap: 32px; }
+[data-variant='A'] .background { display: grid; grid-template-columns: 1fr 1.3fr; gap: 70px 100px; }
+[data-variant='A'] .background .section-heading { display: block; margin: 0; }
+[data-variant='A'] .background .section-heading h2 { margin-bottom: 28px; }
+[data-variant='A'] .background .section-heading p { font-family: 'Space Grotesk', sans-serif; font-style: normal; font-size: 18px; }
+[data-variant='A'] .discipline-list { grid-template-columns: 1fr; gap: 40px; }
+[data-variant='A'] .bio { grid-column: 1 / -1; margin-top: 24px; padding-top: 0; }
+@media (max-width: 760px) {
+  [data-variant='A'] .option-page section:not(.intro) { padding: 72px 0; }
+  [data-variant='A'] .project-list { gap: 40px; }
+  [data-variant='A'] .background { grid-template-columns: 1fr; gap: 40px; }
+  [data-variant='A'] .background .section-heading h2 { margin-bottom: 18px; }
 }

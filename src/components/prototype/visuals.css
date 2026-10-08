@@ -1,0 +1,46 @@
+#prototype-constellation { display: none; }
+[data-variant='A'] #prototype-constellation { display: block; position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+[data-variant='A'] .option-page, [data-variant='A'] footer { position: relative; z-index: 1; }
+.work-visual { display: none; }
+.project-copy { display: contents; }
+[data-variant='A'] .work-visual { display: block; margin: 24px 0; }
+[data-variant='A'] .work-visual svg { display: block; width: 100%; height: auto; overflow: visible; }
+.visual-traces { fill: none; stroke: #9b8059; stroke-width: 1; }
+.visual-fine { fill: none; stroke: #bdb1a0; stroke-width: .8; }
+.visual-outline { fill: none; stroke: #e6b15b; stroke-width: 1; }
+.visual-plane { fill: #392c1d; fill-opacity: .72; stroke: #d1a25d; stroke-width: 1; }
+.visual-violet-plane { fill: #41354e; fill-opacity: .38; stroke: #a298b7; stroke-width: 1; }
+.visual-halo { fill: #d8a455; fill-opacity: .06; stroke: #a28b68; stroke-width: 1; }
+.visual-core { fill: #edb251; }
+.visual-violet-dot { fill: #b4a2ce; }
+.visual-points { fill: #141316; stroke: #edb251; stroke-width: 1.5; }
+/* The geometry stays fixed; only the light changes. */
+.visual-stream { fill: none; stroke: #f5cf90; stroke-width: 1.7; animation: signal-light 9s ease-in-out infinite; }
+.visual-focus { animation: plane-light 10s ease-in-out infinite; }
+.visual-cluster { animation: plane-light 12s ease-in-out infinite; }
+.cluster-two { animation-delay: -4s; }
+.cluster-three { animation-delay: -8s; }
+.visual-gate { animation: plane-light 10s ease-in-out infinite; }
+.gate-two { animation-delay: -5s; }
+.visual-document { animation: plane-light 12s ease-in-out infinite; }
+.document-back { animation-delay: -6s; }
+.visual-glass { animation: plane-light 14s ease-in-out infinite; }
+.glass-back { animation-delay: -7s; }
+.work-visual svg * { animation-play-state: paused; }
+.work-visual.visual-visible svg * { animation-play-state: running; }
+html[data-page-hidden] .work-visual svg * { animation-play-state: paused; }
+@keyframes signal-light { 0%, 70%, 100% { opacity: .08; } 35% { opacity: .85; } }
+@keyframes plane-light { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+[data-variant='A'] .project { grid-template-columns: minmax(260px, 390px) 1fr 24px; gap: 60px; padding: 48px 0; }
+[data-variant='A'] .project-copy { display: block; }
+[data-variant='A'] .project h3 { margin-bottom: 18px; font-size: 44px; }
+[data-variant='A'] .project .work-visual { margin: 0; }
+[data-variant='A'] .project > svg { color: var(--color-accent); }
+@media (prefers-reduced-motion: reduce) { .work-visual svg * { animation: none; } }
+@media (max-width: 760px) {
+  [data-variant='A'] .service-list { gap: 42px; }
+  [data-variant='A'] .project { grid-template-columns: 1fr 24px; gap: 20px 12px; padding: 28px 0; }
+  [data-variant='A'] .project .work-visual { grid-column: 1 / -1; }
+  [data-variant='A'] .project-copy { grid-row: 2; }
+  [data-variant='A'] .project > svg { grid-row: 2; }
+}
