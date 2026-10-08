@@ -2,54 +2,53 @@
 interface Props { kind: 'ai' | 'data' | 'pipelines' | 'adapta' | 'lexgpt' | 'glasshouse'; }
 const { kind } = Astro.props;
 const descriptions = {
-  ai: 'Abstract source connections converging into a shared representation.',
-  data: 'Abstract clusters separating and regrouping, illustrating pattern discovery.',
-  pipelines: 'Abstract streams passing through successive processing stages.',
-  adapta: 'Abstract network reorganising from a general model into a specialised one.',
-  lexgpt: 'Abstract document layers linked back to their supporting sources.',
-  glasshouse: 'Transparent planes surrounding a claim, illustrating evidence examined from several perspectives.',
+  ai: 'Overlapping elliptical fields forming an interference pattern.',
+  data: 'Nested contours revealing an underlying shape.',
+  pipelines: 'Interwoven strands separating into parallel streams.',
+  adapta: 'A field of curved lines drawn through a narrow focus.',
+  lexgpt: 'Layered arches organised around a common reference line.',
+  glasshouse: 'A transparent circular lens revealing a field of crossing lines.',
 };
 ---
 <div class={`work-visual visual-${kind}`}>
   <svg viewBox="0 0 360 220" role="img" aria-label={descriptions[kind]}>
     {kind === 'ai' && <>
-      <g class="visual-traces"><path d="M30 42C110 42 95 110 177 110M30 110H177M30 178C110 178 95 110 177 110M177 110C235 110 230 47 316 47M177 110H316M177 110C235 110 230 173 316 173"/></g>
-      <g class="visual-stream"><path d="M30 42C110 42 95 110 177 110M30 178C110 178 95 110 177 110M177 110C235 110 230 47 316 47M177 110H316"/></g>
-      <g class="visual-points"><circle cx="30" cy="42" r="5"/><circle cx="30" cy="110" r="5"/><circle cx="30" cy="178" r="5"/><circle cx="316" cy="47" r="5"/><circle cx="316" cy="110" r="5"/><circle cx="316" cy="173" r="5"/></g>
-      <g class="visual-focus"><circle class="visual-halo" cx="177" cy="110" r="46"/><circle class="visual-outline" cx="177" cy="110" r="29"/><circle class="visual-core" cx="177" cy="110" r="9"/></g>
+      <g class="engraving-line">{Array.from({length: 18}, (_, i) => <ellipse cx="142" cy="110" rx={15+i*4.2} ry={80-i*2.8}/>)}</g>
+      <g class="engraving-violet">{Array.from({length: 18}, (_, i) => <ellipse cx="218" cy="110" rx={15+i*4.2} ry={80-i*2.8}/>)}</g>
+      <ellipse class="engraving-light" cx="180" cy="110" rx="20" ry="70"/>
     </>}
     {kind === 'data' && <>
-      <g class="visual-cluster cluster-one"><ellipse class="visual-halo" cx="93" cy="129" rx="66" ry="49"/>{[[47,127],[66,108],[84,144],[107,105],[125,139],[96,170],[73,126]].map(([cx,cy])=><circle class="visual-core" cx={cx} cy={cy} r="4"/>)}</g>
-      <g class="visual-cluster cluster-two"><ellipse class="visual-violet-plane" cx="232" cy="65" rx="58" ry="37"/>{[[192,65],[213,42],[229,79],[247,52],[273,69],[238,37]].map(([cx,cy])=><circle class="visual-violet-dot" cx={cx} cy={cy} r="4"/>)}</g>
-      <g class="visual-cluster cluster-three"><ellipse class="visual-halo" cx="280" cy="161" rx="42" ry="31"/>{[[250,156],[269,179],[287,149],[307,162],[274,151]].map(([cx,cy])=><circle class="visual-core" cx={cx} cy={cy} r="4"/>)}</g>
-      <path class="visual-traces" d="M113 111Q167 13 213 64M129 149Q193 193 250 156"/>
+      <g class="engraving-line">{Array.from({length: 17}, (_, i) => <path d={`M ${43+i*6} ${132-i*3} C ${5+i*9} ${57+i*2}, ${131+i*2} ${9+i*5}, ${193-i} ${41+i*3} S ${348-i*6} ${72+i*2}, ${315-i*5} ${134-i} S ${184-i} ${217-i*5}, ${132+i} ${177-i*3} S ${57+i*5} ${169-i*2}, ${43+i*6} ${132-i*3} Z`}/>)}</g>
+      <path class="engraving-light" d="M61 123C32 73 135 24 190 50S329 80 306 130 187 192 142 167 79 154 61 123Z"/>
     </>}
     {kind === 'pipelines' && <>
-      <g class="visual-traces"><path d="M14 62H57Q80 62 80 86V110H342M14 110H342M14 158H57Q80 158 80 134V110"/></g>
-      <g class="visual-stream"><path d="M14 62H57Q80 62 80 86V110H342M14 158H57Q80 158 80 134V110H342"/></g>
-      <g class="visual-gate"><path class="visual-plane" d="M115 66l37 22v65l-37-22z"/><path class="visual-outline" d="M115 66v65l37 22"/></g>
-      <g class="visual-gate gate-two"><path class="visual-violet-plane" d="M207 66l37 22v65l-37-22z"/><path class="visual-outline" d="M207 66v65l37 22"/></g>
-      <g class="visual-points"><circle cx="14" cy="62" r="4"/><circle cx="14" cy="110" r="4"/><circle cx="14" cy="158" r="4"/><circle cx="334" cy="110" r="7"/></g>
+      <g class="engraving-line">{Array.from({length: 14}, (_, i) => <path d={`M18 ${45+i*4}C100 ${45+i*4},100 ${172-i*4},180 ${172-i*4}S260 ${45+i*4},342 ${45+i*4}`}/>)}</g>
+      <g class="engraving-violet">{Array.from({length: 14}, (_, i) => <path d={`M18 ${175-i*4}C100 ${175-i*4},100 ${48+i*4},180 ${48+i*4}S260 ${175-i*4},342 ${175-i*4}`}/>)}</g>
+      <path class="engraving-light" d="M18 69C100 69 100 148 180 148S260 69 342 69"/>
     </>}
     {kind === 'adapta' && <>
-      <g class="visual-traces"><path d="M30 42L112 73 30 110 112 147 30 178M30 42L112 147M30 178L112 73M112 73L209 42 112 147 209 110 112 73 209 178 112 147M209 42L318 76 209 110 318 146 209 178M209 42L318 146M209 178L318 76"/></g>
-      <g class="visual-stream"><path d="M30 110L112 73 209 110 318 76M30 178L112 147 209 178 318 146"/></g>
-      <g class="visual-points">{[[30,42],[30,110],[30,178],[112,73],[112,147],[209,42],[209,110],[209,178],[318,76],[318,146]].map(([cx,cy])=><circle cx={cx} cy={cy} r="6"/>)}</g>
-      <g class="visual-focus"><circle class="visual-halo" cx="318" cy="76" r="23"/><circle class="visual-halo" cx="318" cy="146" r="23"/></g>
+      <g class="engraving-soft">{Array.from({length: 23}, (_, i) => <path d={`M23 ${22+i*8}C100 ${22+i*8},120 ${99+i},180 ${99+i}S260 ${22+i*8},337 ${22+i*8}`}/>)}</g>
+      <g class="engraving-line">{Array.from({length: 11}, (_, i) => <path d={`M23 ${54+i*11}C100 ${54+i*11},120 ${103+i*1.2},180 ${103+i*1.2}S260 ${48+i*12},337 ${48+i*12}`}/>)}</g>
+      <path class="engraving-light" d="M23 87C100 87 120 107 180 107S260 84 337 84"/>
+      <path class="engraving-rule" d="M180 30v48M180 143v47"/>
     </>}
     {kind === 'lexgpt' && <>
-      <g class="visual-document document-back"><path class="visual-violet-plane" d="M54 33h139v147H54z"/><path class="visual-fine" d="M73 57h96M73 72h76M73 101h90M73 116h53M73 144h82"/></g>
-      <g class="visual-document document-front"><path class="visual-plane" d="M88 54h139v147H88z"/><path class="visual-fine" d="M107 79h96M107 94h72M107 124h96M107 139h57M107 169h79"/></g>
-      <g class="visual-traces"><path d="M203 79H254Q270 79 270 63V43H313M186 169H254Q270 169 270 153V132H313"/></g>
-      <g class="visual-stream"><path d="M203 79H254Q270 79 270 63V43H313M186 169H254Q270 169 270 153V132H313"/></g>
-      <circle class="visual-core" cx="313" cy="43" r="6"/><circle class="visual-core" cx="313" cy="132" r="6"/>
+      <g class="engraving-violet">{Array.from({length: 15}, (_, i) => <path d={`M${47+i*5} 191V${99+i*2}A${89-i*5} ${72-i*2} 0 0 1 ${225-i*5} ${99+i*2}V191`}/>)}</g>
+      <g class="engraving-line">{Array.from({length: 15}, (_, i) => <path d={`M${135+i*5} 191V${99+i*2}A${89-i*5} ${72-i*2} 0 0 1 ${313-i*5} ${99+i*2}V191`}/>)}</g>
+      <path class="engraving-light" d="M180 191V81A45 44 0 0 1 270 81V191"/>
+      <path class="engraving-rule" d="M34 191H326"/>
     </>}
     {kind === 'glasshouse' && <>
-      <g class="visual-glass glass-back"><path class="visual-violet-plane" d="m94 26 167 31v132L94 158z"/><path class="visual-fine" d="m94 26 82 71 85-40M176 97v76"/></g>
-      <g class="visual-glass glass-front"><path class="visual-plane" d="m70 63 175-28v133L70 196z"/><path class="visual-fine" d="m70 63 87 64 88-92M157 127v55"/></g>
-      <path class="visual-traces" d="M22 110h84M237 110h101M176 14v54M176 154v53"/>
-      <g class="visual-focus"><path class="visual-core" d="m176 88 22 22-22 22-22-22z"/><circle class="visual-outline" cx="176" cy="110" r="40"/></g>
-      <g class="visual-points"><circle cx="22" cy="110" r="4"/><circle cx="338" cy="110" r="4"/><circle cx="176" cy="14" r="4"/><circle cx="176" cy="207" r="4"/></g>
+      <defs><clipPath id="glasshouse-lens"><circle cx="180" cy="110" r="79"/></clipPath></defs>
+      <g class="engraving-soft">{Array.from({length: 20}, (_, i) => <path d={`M${35+i*14} 23L${15+i*14} 197`}/>)}</g>
+      <g clip-path="url(#glasshouse-lens)">
+        <circle cx="180" cy="110" r="79" fill="#17151c" fill-opacity=".7"/>
+        <g class="engraving-violet">{Array.from({length: 24}, (_, i) => <path d={`M63 ${20+i*8}L297 ${-26+i*8}`}/>)}</g>
+        <g class="engraving-line">{Array.from({length: 20}, (_, i) => <path d={`M${35+i*14} 23Q${82+i*10} 110 ${15+i*14} 197`}/>)}</g>
+      </g>
+      <circle class="engraving-line" cx="180" cy="110" r="79"/>
+      <circle class="engraving-light" cx="180" cy="110" r="85"/>
+      <path class="engraving-rule" d="M180 13v12M180 195v12M83 110H71M277 110h12"/>
     </>}
   </svg>
 </div>

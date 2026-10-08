@@ -78,7 +78,7 @@ const disciplines = ['clinical', 'philosophy', 'technical'] as const;
           </article>)}
         </div>
       </section>
-      <section class="projects" aria-labelledby="projects-heading">
+      <section id="projects" class="projects" aria-labelledby="projects-heading">
         <div class="section-heading"><h2 id="projects-heading">{t['home.projects.heading']}</h2><p>{t['home.projects.intro']}</p></div>
         <div class="project-list">
           {featuredProjects.map(project => <a class="project" href={`/projects#${project.id}`}>
