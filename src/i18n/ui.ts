@@ -79,13 +79,13 @@ export const ui = {
 		'projects.production.adapta.stat.1': 'training runs',
 
 		"projects.production.lexgpt.tagline":
-			"A workbench for exploring jurisprudence, developing arguments and keeping legal research grounded in its sources.",
+			"A legal research workbench for the persistent challenge of jurisprudence search, with factuality at the centre of AI-assisted work.",
 		"projects.production.lexgpt.description":
-			"Jurisprudence search and advanced RAG sit alongside tools for reading sources and developing legal documents. Factual grounding runs through the workbench, keeping the evidence behind an answer within reach as questions become drafts.",
+			"Jurisprudence search and advanced RAG bring sources into the drafting process, with tools designed to reduce hallucinations and keep claims open to verification. The workbench brings research and writing together, helping legal professionals trace an answer back to its evidence as an argument takes shape.",
 		"projects.research.glasshouse.tagline":
-			"A modular toolkit for fact-checking and automated claim verification, built to strengthen human judgment.",
+			"A modular fact-checking toolkit designed to ease the workload of journalists facing a growing tide of misinformation.",
 		"projects.research.glasshouse.description":
-			"Claim detection, evidence retrieval and verification form an investigation that journalists and researchers can inspect and adapt. Sources and reasoning remain visible, and the modular design lets each stage serve the needs of the investigation.",
+			"Automated claim verification brings claim detection, evidence retrieval and assessment into a transparent workflow. Its modular stages are designed to reduce repetitive work and keep sources and reasoning open to inspection, giving journalists more room for the investigations that need human judgment.",
 
 		'projects.production.nopalero.tagline':
 			'Automated participant screening system for qualitative recruitment.',
@@ -269,13 +269,13 @@ export const ui = {
 		'projects.production.adapta.stat.1': 'execuções de treino',
 
 		"projects.production.lexgpt.tagline":
-			"Um ambiente para explorar a jurisprudência, desenvolver argumentos e manter a pesquisa jurídica ancorada em suas fontes.",
+			"Um ambiente de pesquisa jurídica para o desafio persistente da busca de jurisprudência, com a factualidade no centro do trabalho assistido por IA.",
 		"projects.production.lexgpt.description":
-			"A busca de jurisprudência e o RAG avançado se somam a ferramentas de leitura de fontes e elaboração de documentos jurídicos. A fundamentação factual orienta o trabalho, mantendo as evidências por trás de uma resposta acessíveis enquanto as perguntas se transformam em textos.",
+			"A busca de jurisprudência e o RAG avançado trazem fontes para o processo de redação, com ferramentas concebidas para reduzir alucinações e manter as afirmações verificáveis. O ambiente reúne pesquisa e escrita, ajudando profissionais do direito a rastrear as evidências por trás de uma resposta enquanto desenvolvem seus argumentos.",
 		"projects.research.glasshouse.tagline":
-			"Um toolkit modular para checagem de fatos e verificação automática de alegações, desenvolvido para apoiar o julgamento humano.",
+			"Um conjunto modular de ferramentas de fact-checking para aliviar a carga de trabalho de jornalistas diante do volume crescente de desinformação.",
 		"projects.research.glasshouse.description":
-			"Detecção de alegações, busca de evidências e verificação compõem uma investigação que jornalistas e pesquisadores podem examinar e adaptar. As fontes e o raciocínio permanecem visíveis, e o desenho modular permite ajustar cada etapa às necessidades da investigação.",
+			"A verificação automatizada de alegações reúne detecção, busca de evidências e análise em um fluxo transparente. Suas etapas modulares foram concebidas para reduzir tarefas repetitivas e manter fontes e raciocínio abertos à análise, dando aos jornalistas mais espaço para investigações que exigem julgamento humano.",
 
 		'projects.production.nopalero.tagline':
 			'Sistema automatizado de triagem de participantes para recrutamento qualitativo.',
@@ -458,13 +458,13 @@ export const ui = {
 		'projects.production.adapta.stat.1': 'ejecuciones de entrenamiento',
 
 		"projects.production.lexgpt.tagline":
-			"Un entorno para explorar la jurisprudencia, desarrollar argumentos y mantener la investigación jurídica vinculada a sus fuentes.",
+			"Un entorno de investigación jurídica para el desafío persistente de la búsqueda de jurisprudencia, con la factualidad en el centro del trabajo asistido por IA.",
 		"projects.production.lexgpt.description":
-			"La búsqueda de jurisprudencia y el RAG avanzado se integran con herramientas para leer fuentes y elaborar documentos jurídicos. El rigor factual guía el trabajo, manteniendo accesibles las evidencias detrás de una respuesta mientras las preguntas se convierten en borradores.",
+			"La búsqueda de jurisprudencia y el RAG avanzado incorporan fuentes al proceso de redacción, con herramientas diseñadas para reducir alucinaciones y mantener las afirmaciones verificables. El entorno reúne investigación y escritura, ayudando a profesionales del derecho a rastrear las evidencias detrás de una respuesta mientras desarrollan sus argumentos.",
 		"projects.research.glasshouse.tagline":
-			"Un toolkit modular para la verificación de hechos y la comprobación automática de afirmaciones, diseñado para apoyar el criterio humano.",
+			"Un conjunto modular de herramientas de fact-checking para aliviar la carga de trabajo de periodistas ante el volumen creciente de desinformación.",
 		"projects.research.glasshouse.description":
-			"La detección de afirmaciones, la búsqueda de evidencias y la verificación forman una investigación que periodistas e investigadores pueden examinar y adaptar. Las fuentes y el razonamiento permanecen visibles, y el diseño modular permite ajustar cada etapa a las necesidades de la investigación.",
+			"La verificación automática de afirmaciones reúne detección, búsqueda de evidencias y evaluación en un flujo transparente. Sus etapas modulares están diseñadas para reducir tareas repetitivas y mantener las fuentes y el razonamiento abiertos al escrutinio, dejando más espacio a los periodistas para investigaciones que requieren criterio humano.",
 
 		'projects.production.nopalero.tagline':
 			'Sistema automatizado de selección de participantes para reclutamiento cualitativo.',
