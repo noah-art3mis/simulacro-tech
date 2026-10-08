@@ -8,7 +8,7 @@ import {
 	Library,
 	Presentation,
 } from 'lucide-astro';
-import WorkVisual from './prototype/WorkVisual.astro';
+import WorkVisual from './illustrations/WorkVisual.astro';
 import { featuredProjects } from '../data/featuredProjects';
 import { ui, type Lang, type UIKey } from '../i18n/ui';
 import { getLocalizedPath } from '../i18n/utils';
@@ -99,7 +99,7 @@ const openSource: readonly OpenSourceEntry[] = [
      Masthead
      ════════════════════════════════════════════════ -->
 <section class="screen-hero relative pt-20 pb-16">
-	{import.meta.env.DEV && <div class="screen-hero-art" aria-hidden="true"><WorkVisual kind="hero" /></div>}
+	{<div class="screen-hero-art" aria-hidden="true"><WorkVisual kind="hero" /></div>}
 	<div class="glow-orb w-[420px] h-[420px] -top-20 -right-32 opacity-50"></div>
 
 	<div class="max-w-6xl mx-auto px-6 lg:px-10 relative z-10">
@@ -134,7 +134,7 @@ const openSource: readonly OpenSourceEntry[] = [
 				return (
 					<article id={p.id} class="project-detail scroll-mt-24 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-16 border-b border-[var(--color-rule)]">
 						<div class="project-identity lg:col-span-4">
-							{import.meta.env.DEV && <WorkVisual {...projectVisuals[p.id as keyof typeof projectVisuals]} />}
+							{<WorkVisual {...projectVisuals[p.id as keyof typeof projectVisuals]} />}
 							<div class="flex items-center gap-4 mb-6">
 								<Icon size={18} class="text-[var(--color-accent)] opacity-70 shrink-0" />
 								<div class="flex-1 hairline"></div>
@@ -187,7 +187,7 @@ const openSource: readonly OpenSourceEntry[] = [
 				return (
 					<article id={p.id} class="project-detail scroll-mt-24 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-16 border-b border-[var(--color-rule)]">
 						<div class="project-identity lg:col-span-4">
-							{import.meta.env.DEV && <WorkVisual {...projectVisuals[p.id as keyof typeof projectVisuals]} />}
+							{<WorkVisual {...projectVisuals[p.id as keyof typeof projectVisuals]} />}
 							<div class="flex items-center gap-4 mb-6">
 								<Icon size={18} class="text-[var(--color-accent)] opacity-70 shrink-0" />
 								<div class="flex-1 hairline"></div>

@@ -5,19 +5,24 @@ import LanguageBanner from '../components/LanguageBanner.astro';
 import { ui, type Lang, type UIKey } from '../i18n/ui';
 import { getAlternates } from '../i18n/utils';
 import '../styles/global.css';
-import '../components/prototype/visuals.css';
-import '../components/prototype/screens.css';
-import '../components/prototype/project-grid.css';
-import '../components/prototype/controls.css';
-import '../components/prototype/micro-motion.css';
+import '../styles/site/home.css';
+import '../styles/site/atmosphere.css';
+import '../styles/site/motion.css';
+import '../styles/site/home-projects.css';
+import '../styles/site/visuals.css';
+import '../styles/site/screens.css';
+import '../styles/site/project-grid.css';
+import '../styles/site/controls.css';
+import '../styles/site/micro-motion.css';
 
 interface Props {
 	lang: Lang;
 	titleKey: UIKey;
 	descriptionKey: UIKey;
+  home?: boolean;
 }
 
-const { lang, titleKey, descriptionKey } = Astro.props;
+const { lang, titleKey, descriptionKey, home = false } = Astro.props;
 const t = (key: UIKey) => ui[lang][key];
 
 const siteOrigin = Astro.site ? Astro.site.origin : 'https://simulacro.tech';
@@ -39,13 +44,13 @@ const buildDate = new Date().toISOString().slice(0, 10);
 		))}
 		<title>{t(titleKey)}</title>
 	</head>
-	<body class:list={["overflow-x-hidden", { "design-study": import.meta.env.DEV }]} data-variant={import.meta.env.DEV ? "A" : undefined} data-build-date={buildDate}>
+	<body class:list={["overflow-x-hidden site-design", { "home-design": home }]} data-build-date={buildDate}>
 		<!-- Animated network canvas -->
-		<canvas id="network-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+		<canvas aria-hidden="true" id="network-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
 
 		<div class="min-h-screen flex flex-col relative z-10">
 			<Navigation lang={lang} />
-			<main class="flex-grow relative">
+			<main id="content" class="flex-grow relative">
 				<slot />
 			</main>
 			<Footer lang={lang} buildDate={buildDate} />
@@ -71,9 +76,7 @@ const buildDate = new Date().toISOString().slice(0, 10);
 				rootMargin: '0px 0px -60px 0px'
 			});
 
-			const revealTargets = document.body.classList.contains('design-study')
-        ? '.project-identity h3, .project-identity > a, .project-description, .about-bio p, .about-history h2, .about-history .space-y-7 > div'
-        : 'section';
+			const revealTargets = '.project-identity h3, .project-identity > a, .project-description, .about-bio p, .about-history h2, .about-history .space-y-7 > div';
       document.querySelectorAll(`${revealTargets}, .reveal-on-scroll`).forEach(el => {
         el.classList.add('reveal-on-scroll');
         revealObserver.observe(el);

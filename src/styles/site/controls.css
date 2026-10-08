@@ -1,0 +1,23 @@
+.site-design :is(.contact-link, .btn-primary, nav a[href$='#contact']) {
+  border: 1px solid var(--color-accent);
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-accent);
+  font-weight: 500;
+  box-shadow: none;
+  transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+}
+.site-design :is(.contact-link, .btn-primary, nav a[href$='#contact']):hover {
+  border-color: var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+  color: var(--color-accent);
+  box-shadow: none;
+  transform: none;
+}
+.site-design .contact-link { gap: 30px; padding: 14px 22px; }
+.site-design .contact-link svg { transition: transform .2s ease; }
+.site-design .contact-link:hover svg { transform: translateX(4px); }
+.site-design .contact button { border-radius: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .site-design .contact-link:hover svg { transform: none; }
+}

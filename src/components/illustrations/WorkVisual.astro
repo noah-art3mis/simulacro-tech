@@ -1,13 +1,12 @@
 ---
 import ContourFields from './ContourFields.astro';
-import PaperForms from './PaperForms.astro';
 interface Props { kind: 'ai' | 'data' | 'pipelines' | 'adapta' | 'lexgpt' | 'glasshouse' | 'molcajete' | 'hero'; collection?: 'contours'; }
 const { kind, collection } = Astro.props;
 
 ---
 <div class={`work-visual visual-${kind}`}>
   <svg viewBox="0 0 360 220" aria-hidden="true" focusable="false">
-    {collection !== 'contours' && <g class="illustration-a">
+    {collection !== 'contours' && <g>
     {kind === 'ai' && <>
       <g class="engraving-line">{Array.from({length: 18}, (_, i) => <ellipse cx="142" cy="110" rx={15+i*4.2} ry={80-i*2.8}/>)}</g>
       <g class="engraving-violet">{Array.from({length: 18}, (_, i) => <ellipse cx="218" cy="110" rx={15+i*4.2} ry={80-i*2.8}/>)}</g>
@@ -55,8 +54,7 @@ const { kind, collection } = Astro.props;
       <g fill="none" stroke="#bab0d2" stroke-width=".24" opacity=".8">{Array.from({length: 26}, (_, i) => <path d={`M${15+i*6} -30C${-80+i*10} 130 ${400-i*7} 45 ${285-i*3} 240`}/>)}</g>
     </>}
     </g>}
-    <g class={collection === 'contours' ? undefined : 'illustration-b'}><ContourFields kind={kind} /></g>
-    {collection !== 'contours' && <g class="illustration-c"><PaperForms kind={kind} /></g>}
+    {collection === 'contours' && <ContourFields kind={kind} />}
   </svg>
 </div>
 <script>

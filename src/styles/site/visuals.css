@@ -1,9 +1,7 @@
-#prototype-constellation { display: none; }
-:is(.home-prototype, .design-study) #prototype-constellation { display: block; position: fixed; inset: 0; pointer-events: none; z-index: 0; }
-:is(.home-prototype, .design-study) .option-page, :is(.home-prototype, .design-study) footer { position: relative; z-index: 1; }
+:is(.home-design, .site-design) .home-page, :is(.home-design, .site-design) footer { position: relative; z-index: 1; }
 .work-visual { display: none; }
-:is(.home-prototype, .design-study) .work-visual { display: block; margin: 24px 0; }
-:is(.home-prototype, .design-study) .work-visual svg { display: block; width: 100%; height: auto; overflow: visible; }
+:is(.home-design, .site-design) .work-visual { display: block; margin: 24px 0; }
+:is(.home-design, .site-design) .work-visual svg { display: block; width: 100%; height: auto; overflow: visible; }
 .engraving-line { fill: none; stroke: #d9af70; stroke-width: .85; }
 .engraving-violet { fill: none; stroke: #a49bb8; stroke-width: .8; }
 .engraving-soft { fill: none; stroke: #927b5c; stroke-width: .65; opacity: .65; }
@@ -16,8 +14,6 @@ html[data-page-hidden] .work-visual svg * { animation-play-state: paused; }
 @keyframes signal-light { 0%, 70%, 100% { opacity: .08; } 35% { opacity: .85; } }
 @media (prefers-reduced-motion: reduce) { .work-visual svg * { animation: none; } }
 @media (max-width: 760px) {
-  :is(.home-prototype, .design-study) .service-list { gap: 42px; }
+  :is(.home-design, .site-design) .service-list { gap: 42px; }
 }
 
-.illustration-a, .illustration-b, .illustration-c { display: none; }
-[data-variant='A'] .illustration-a, [data-variant='B'] .illustration-b, [data-variant='C'] .illustration-c { display: inline; }
