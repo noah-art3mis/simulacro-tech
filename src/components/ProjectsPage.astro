@@ -40,7 +40,16 @@ type OpenSourceEntry = {
 	statValues: readonly string[];
 };
 
-const projectVisuals = { adapta: 'adapta', lexgpt: 'lexgpt', glasshouse: 'glasshouse', molcajete: 'molcajete', nopalero: 'data', azulejo: 'pipelines', judex: 'lexgpt', zelador: 'data' } as const;
+const projectVisuals = {
+  adapta: { kind: 'adapta' },
+  lexgpt: { kind: 'lexgpt' },
+  glasshouse: { kind: 'glasshouse' },
+  molcajete: { kind: 'molcajete' },
+  nopalero: { kind: 'data', collection: 'contours' },
+  azulejo: { kind: 'pipelines', collection: 'contours' },
+  judex: { kind: 'lexgpt', collection: 'contours' },
+  zelador: { kind: 'glasshouse', collection: 'contours' },
+} as const;
 
 const systems: readonly ProjectEntry[] = [
 	...featuredProjects,
@@ -124,7 +133,7 @@ const openSource: readonly OpenSourceEntry[] = [
 				return (
 					<article id={p.id} class="project-detail scroll-mt-24 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-16 border-b border-[var(--color-rule)]">
 						<div class="project-identity lg:col-span-4">
-							{import.meta.env.DEV && <WorkVisual kind={projectVisuals[p.id as keyof typeof projectVisuals]} />}
+							{import.meta.env.DEV && <WorkVisual {...projectVisuals[p.id as keyof typeof projectVisuals]} />}
 							<div class="flex items-center gap-4 mb-6">
 								<Icon size={18} class="text-[var(--color-accent)] opacity-70 shrink-0" />
 								<div class="flex-1 hairline"></div>
@@ -176,7 +185,7 @@ const openSource: readonly OpenSourceEntry[] = [
 				return (
 					<article id={p.id} class="project-detail scroll-mt-24 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-16 border-b border-[var(--color-rule)]">
 						<div class="project-identity lg:col-span-4">
-							{import.meta.env.DEV && <WorkVisual kind={projectVisuals[p.id as keyof typeof projectVisuals]} />}
+							{import.meta.env.DEV && <WorkVisual {...projectVisuals[p.id as keyof typeof projectVisuals]} />}
 							<div class="flex items-center gap-4 mb-6">
 								<Icon size={18} class="text-[var(--color-accent)] opacity-70 shrink-0" />
 								<div class="flex-1 hairline"></div>
