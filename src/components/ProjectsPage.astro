@@ -3,12 +3,12 @@ import {
 	ArrowUpRight,
 	Github,
 	Mic,
-	Cpu,
 	ScanLine,
 	Gavel,
 	Library,
 	Presentation,
 } from 'lucide-astro';
+import { featuredProjects } from '../data/featuredProjects';
 import { ui, type Lang, type UIKey } from '../i18n/ui';
 import { getLocalizedPath } from '../i18n/utils';
 
@@ -21,8 +21,9 @@ const t = (key: UIKey) => ui[lang][key];
 const homeHref = getLocalizedPath('/', lang);
 const contactHref = `${homeHref.replace(/\/$/, '')}/#contact`;
 
-type ProductionEntry = {
-	kind: 'production';
+type ProjectEntry = {
+	taglineKey: UIKey;
+	descriptionKey: UIKey;
 	id: string;
 	name: string;
 	icon: typeof Mic;
@@ -38,31 +39,29 @@ type OpenSourceEntry = {
 	statValues: readonly string[];
 };
 
-const production: readonly ProductionEntry[] = [
+const systems: readonly ProjectEntry[] = [
+	...featuredProjects,
 	{
-		kind: 'production',
 		id: 'molcajete',
+		taglineKey: 'projects.production.molcajete.tagline',
+		descriptionKey: 'projects.production.molcajete.description',
 		name: 'Molcajete',
 		icon: Mic,
 		statValues: ['2,000+', '<60 min'],
 	},
+
 	{
-		kind: 'production',
-		id: 'adapta',
-		name: 'Adapta',
-		icon: Cpu,
-		statValues: ['40+', '100+'],
-	},
-	{
-		kind: 'production',
 		id: 'nopalero',
+		taglineKey: 'projects.production.nopalero.tagline',
+		descriptionKey: 'projects.production.nopalero.description',
 		name: 'Nopalero',
 		icon: ScanLine,
 		statValues: ['48', '0'],
 	},
 	{
-		kind: 'production',
 		id: 'azulejo',
+		taglineKey: 'projects.production.azulejo.tagline',
+		descriptionKey: 'projects.production.azulejo.description',
 		name: 'Azulejo',
 		icon: Presentation,
 		statValues: ['94', '<5 s'],
@@ -120,14 +119,14 @@ const openSource: readonly OpenSourceEntry[] = [
 <section class="pt-12 pb-12 relative">
 	<div class="max-w-6xl mx-auto px-6 lg:px-10">
 		<div class="mb-8">
-			<h2 class="section-heading">{t('projects.section.production')}</h2>
+			<h2 class="section-heading">{t('projects.section.systems')}</h2>
 		</div>
 
 		<div class="border-t border-[var(--color-rule-strong)]">
-			{production.map((p) => {
+			{systems.map((p) => {
 				const Icon = p.icon;
 				return (
-					<article class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-16 border-b border-[var(--color-rule)]">
+					<article id={p.id} class="scroll-mt-24 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-16 border-b border-[var(--color-rule)]">
 						<div class="lg:col-span-4">
 							<div class="flex items-center gap-4 mb-6">
 								<Icon size={18} class="text-[var(--color-accent)] opacity-70 shrink-0" />
@@ -138,10 +137,10 @@ const openSource: readonly OpenSourceEntry[] = [
 
 						<div class="lg:col-span-8">
 							<p class="font-display text-2xl md:text-3xl leading-tight mb-6 text-balance">
-								{t(`projects.production.${p.id}.tagline` as UIKey)}
+								{t(p.taglineKey)}
 							</p>
 							<p class="text-[var(--color-text-muted)] text-base md:text-lg leading-relaxed mb-10 max-w-2xl text-pretty">
-								{t(`projects.production.${p.id}.description` as UIKey)}
+								{t(p.descriptionKey)}
 							</p>
 							{p.statValues.length > 0 && (
 								<div class="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-6 border-t border-[var(--color-rule-strong)] pt-6">
@@ -178,7 +177,7 @@ const openSource: readonly OpenSourceEntry[] = [
 			{openSource.map((p) => {
 				const Icon = p.icon;
 				return (
-					<article class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-16 border-b border-[var(--color-rule)]">
+					<article id={p.id} class="scroll-mt-24 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-16 border-b border-[var(--color-rule)]">
 						<div class="lg:col-span-4">
 							<div class="flex items-center gap-4 mb-6">
 								<Icon size={18} class="text-[var(--color-accent)] opacity-70 shrink-0" />

@@ -1,5 +1,6 @@
 ---
 import ContactForm from './ContactForm.astro';
+import { featuredProjects } from '../data/featuredProjects';
 import { ArrowRight, Brain, BarChart3, Workflow, HeartPulse, BookOpenText, Cpu } from 'lucide-astro';
 import { ui, type Lang, type UIKey } from '../i18n/ui';
 import { getLocalizedPath } from '../i18n/utils';
@@ -13,11 +14,7 @@ const t = (key: UIKey) => ui[lang][key];
 const aboutHref = getLocalizedPath('/about', lang);
 const projectsHref = getLocalizedPath('/projects', lang);
 
-const featuredProjects = [
-	{ id: 'molcajete', name: 'Molcajete', taglineKey: 'projects.production.molcajete.tagline' },
-	{ id: 'adapta',    name: 'Adapta',    taglineKey: 'projects.production.adapta.tagline' },
-	{ id: 'judex', name: 'Judex', taglineKey: 'projects.openSource.judex.tagline' },
-] as const;
+
 ---
 
 <!-- ─────────── Hero ─────────── -->

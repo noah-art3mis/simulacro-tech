@@ -72,11 +72,20 @@ export const ui = {
 		'projects.production.molcajete.stat.1': 'turnaround per project',
 
 		'projects.production.adapta.tagline':
-			'LLM fine-tuning infrastructure and data preprocessing pipeline for Mexican Spanish political analysis.',
+			'LLM fine-tuning infrastructure for Mexican Spanish political analysis.',
 		'projects.production.adapta.description':
 			'Specialized LLMs, produced by a reproducible fine-tuning and evaluation pipeline. Built for empirical comparison of base models and prompts.',
 		'projects.production.adapta.stat.0': 'evaluation metrics',
 		'projects.production.adapta.stat.1': 'training runs',
+
+		"projects.production.lexgpt.tagline":
+			"A workbench for exploring jurisprudence, developing arguments and keeping legal research grounded in its sources.",
+		"projects.production.lexgpt.description":
+			"Jurisprudence search and advanced RAG sit alongside tools for reading sources and developing legal documents. Factual grounding runs through the workbench, keeping the evidence behind an answer within reach as questions become drafts.",
+		"projects.research.glasshouse.tagline":
+			"Exploring how journalism can make the path from a claim to a conclusion more transparent.",
+		"projects.research.glasshouse.description":
+			"Glasshouse brings claim detection, evidence review and fact-checking into one investigation. Sources and reasoning remain visible, so others can trace how a conclusion was reached.",
 
 		'projects.production.nopalero.tagline':
 			'Automated participant screening system for qualitative recruitment.',
@@ -107,7 +116,7 @@ export const ui = {
 			'Checks tags, metadata, and collections; enriches metadata from Crossref and arXiv; compresses PDFs. Implements a validation loop with backups and write-ahead logs — making it safe to let an AI agent touch the database.',
 
 		'projects.intro.heading': 'Selected work',
-		'projects.section.production': 'In production',
+		'projects.section.systems': 'Systems & research',
 		'projects.section.openSource': 'Open source',
 		'projects.cta.heading': "Have a problem that doesn't fit a template?",
 		'projects.cta.lede': 'Most of the work above started as someone saying exactly that.',
@@ -253,11 +262,20 @@ export const ui = {
 		'projects.production.molcajete.stat.1': 'tempo de entrega por projeto',
 
 		'projects.production.adapta.tagline':
-			'Infraestrutura de fine-tuning de LLMs e pipeline de pré-processamento de dados para análise política em espanhol mexicano.',
+			'Infraestrutura de fine-tuning de LLMs para análise política em espanhol mexicano.',
 		'projects.production.adapta.description':
 			'Modelos LLM especializados, fruto de um pipeline reprodutível de fine-tuning e avaliação. Permite a comparação empírica de modelos base e prompts.',
 		'projects.production.adapta.stat.0': 'métricas de avaliação',
 		'projects.production.adapta.stat.1': 'execuções de treino',
+
+		"projects.production.lexgpt.tagline":
+			"Um ambiente para explorar a jurisprudência, desenvolver argumentos e manter a pesquisa jurídica ancorada em suas fontes.",
+		"projects.production.lexgpt.description":
+			"A busca de jurisprudência e o RAG avançado se somam a ferramentas de leitura de fontes e elaboração de documentos jurídicos. A fundamentação factual orienta o trabalho, mantendo as evidências por trás de uma resposta acessíveis enquanto as perguntas se transformam em textos.",
+		"projects.research.glasshouse.tagline":
+			"Uma investigação sobre como o jornalismo pode tornar mais transparente o caminho entre uma alegação e uma conclusão.",
+		"projects.research.glasshouse.description":
+			"O Glasshouse reúne detecção de alegações, análise de evidências e checagem de fatos em uma mesma investigação. As fontes e o raciocínio permanecem visíveis, permitindo acompanhar como se chegou a uma conclusão.",
 
 		'projects.production.nopalero.tagline':
 			'Sistema automatizado de triagem de participantes para recrutamento qualitativo.',
@@ -288,7 +306,7 @@ export const ui = {
 			'Verifica etiquetas, metadados e pastas; enriquece metadados com Crossref e arXiv; comprime PDFs. Implementa um ciclo de validação com backups e write-ahead logs — o que torna seguro deixar um agente de IA mexer no banco de dados.',
 
 		'projects.intro.heading': 'Trabalhos selecionados',
-		'projects.section.production': 'Em produção',
+		'projects.section.systems': 'Sistemas e pesquisa',
 		'projects.section.openSource': 'Código aberto',
 		'projects.cta.heading': 'Tem um problema que não entra numa caixinha?',
 		'projects.cta.lede': 'Os projetos acima começaram com alguém dizendo isso.',
@@ -433,11 +451,20 @@ export const ui = {
 		'projects.production.molcajete.stat.1': 'tiempo de entrega por proyecto',
 
 		'projects.production.adapta.tagline':
-			'Infraestructura de fine-tuning de LLMs y pipeline de preprocesamiento de datos para análisis político en español mexicano.',
+			'Infraestructura de fine-tuning de LLMs para análisis político en español mexicano.',
 		'projects.production.adapta.description':
 			'LLMs especializados, fruto de un pipeline reproducible de fine-tuning y evaluación. Construido para la comparación empírica de modelos base y prompts.',
 		'projects.production.adapta.stat.0': 'métricas de evaluación',
 		'projects.production.adapta.stat.1': 'ejecuciones de entrenamiento',
+
+		"projects.production.lexgpt.tagline":
+			"Un entorno para explorar la jurisprudencia, desarrollar argumentos y mantener la investigación jurídica vinculada a sus fuentes.",
+		"projects.production.lexgpt.description":
+			"La búsqueda de jurisprudencia y el RAG avanzado se integran con herramientas para leer fuentes y elaborar documentos jurídicos. El rigor factual guía el trabajo, manteniendo accesibles las evidencias detrás de una respuesta mientras las preguntas se convierten en borradores.",
+		"projects.research.glasshouse.tagline":
+			"Una exploración de cómo el periodismo puede hacer más transparente el camino entre una afirmación y una conclusión.",
+		"projects.research.glasshouse.description":
+			"Glasshouse reúne detección de afirmaciones, revisión de evidencias y verificación de hechos en una misma investigación. Las fuentes y el razonamiento permanecen visibles para que otras personas puedan seguir cómo se llegó a una conclusión.",
 
 		'projects.production.nopalero.tagline':
 			'Sistema automatizado de selección de participantes para reclutamiento cualitativo.',
@@ -468,7 +495,7 @@ export const ui = {
 			'Verifica etiquetas, metadatos y colecciones; enriquece metadatos con Crossref y arXiv; comprime PDFs. Implementa un ciclo de validación con backups y write-ahead logs — lo que hace seguro dejar que un agente de IA toque la base de datos.',
 
 		'projects.intro.heading': 'Trabajos seleccionados',
-		'projects.section.production': 'En producción',
+		'projects.section.systems': 'Sistemas e investigación',
 		'projects.section.openSource': 'Código abierto',
 		'projects.cta.heading': '¿Tienes un problema que no encaja en una plantilla?',
 		'projects.cta.lede': 'La mayoría del trabajo anterior empezó con alguien diciendo exactamente eso.',
