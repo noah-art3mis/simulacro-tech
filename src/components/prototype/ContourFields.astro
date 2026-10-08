@@ -1,0 +1,26 @@
+---
+interface Props { kind: string; }
+const { kind } = Astro.props;
+---
+{(kind === 'hero' || kind === 'ai') && <g class="engraving-line">
+  {Array.from({length: 34}, (_, i) => <path d={`M${180+i*.9} ${16+i*1.1}C${335-i*2} ${-10+i*3},${352-i*3} ${175-i},${205-i*.6} ${201-i*1.4}C${15+i*3} ${235-i*3},${14+i*2} ${16+i},${180+i*.9} ${16+i*1.1}Z`}/>)}
+</g>}
+{kind === 'data' && <g class="engraving-violet">
+  {Array.from({length: 28}, (_, i) => <path d={`M30 ${30+i*6}Q105 ${-30+i*12} 180 ${30+i*6}T330 ${30+i*6}`}/>)}
+</g>}
+{kind === 'pipelines' && <g class="engraving-line">
+  {Array.from({length: 26}, (_, i) => <path d={`M${24+i*4} 195C${240-i*3} 195,${120+i*3} 25,${336-i*4} 25`}/>)}
+</g>}
+{kind === 'adapta' && <g class="engraving-line">
+  {Array.from({length: 28}, (_, i) => <path d={`M${30+i*4} 185L${170+i*2} ${25+i*3}L${330-i*4} 185Z`}/>)}
+</g>}
+{kind === 'lexgpt' && <>
+  <g class="engraving-violet">{Array.from({length: 20}, (_, i) => <ellipse cx="130" cy="110" rx={90-i*3.5} ry={32+i*2.5}/>)}</g>
+  <g class="engraving-line">{Array.from({length: 20}, (_, i) => <ellipse cx="230" cy="110" rx={90-i*3.5} ry={32+i*2.5}/>)}</g>
+</>}
+{kind === 'glasshouse' && <g class="engraving-line">
+  {Array.from({length: 26}, (_, i) => <rect x={60+i*3.1} y={20+i*3.1} width={240-i*6.2} height={180-i*6.2} rx={65-i*2.3}/>)}
+</g>}
+{kind === 'molcajete' && <g class="engraving-violet">
+  {Array.from({length: 28}, (_, i) => <path d={`M25 ${30+i*6}C95 ${160-i*3},120 ${160-i*3},180 ${30+i*6}S270 ${160-i*3},335 ${30+i*6}`}/>)}
+</g>}

@@ -1,0 +1,48 @@
+---
+interface Props { kind: string; }
+const { kind } = Astro.props;
+const amber = 'var(--paper-amber, #c79450)';
+const pale = 'var(--paper-pale, #d6c5a7)';
+const violet = 'var(--paper-violet, #807890)';
+---
+{(kind === 'hero' || kind === 'ai') && <>
+  <path d="M44 126A92 92 0 0 1 228 126V191H44Z" fill={amber}/>
+  <circle cx="237" cy="101" r="72" fill={violet}/>
+  <path d="M153 191V70H204V191Z" fill={pale}/>
+  <path d="M204 70A72 72 0 0 1 204 166Z" fill="#302b35"/>
+</>}
+{kind === 'data' && <>
+  <path d="M40 174L119 30L199 174Z" fill={violet}/>
+  <path d="M116 174L195 52L274 174Z" fill={pale}/>
+  <path d="M204 174L268 79L332 174Z" fill={amber}/>
+  <circle cx="264" cy="48" r="15" fill={pale}/>
+</>}
+{kind === 'pipelines' && <>
+  <path d="M32 38H166V99H105V184H32Z" fill={amber}/>
+  <path d="M126 122H196V38H268V184H126Z" fill={violet}/>
+  <path d="M229 119H328V184H229Z" fill={pale}/>
+</>}
+{kind === 'adapta' && <>
+  <path d="M33 34H131L225 188H127Z" fill={amber}/>
+  <path d="M143 34H237L328 188H234Z" fill={violet}/>
+  <path d="M131 34H143L234 188H225Z" fill={pale}/>
+  <circle cx="286" cy="50" r="20" fill={pale}/>
+</>}
+{kind === 'lexgpt' && <>
+  <path d="M45 187V95A67 67 0 0 1 179 95V187H137V95A25 25 0 0 0 87 95V187Z" fill={amber}/>
+  <path d="M180 187V95A67 67 0 0 1 314 95V187H272V95A25 25 0 0 0 222 95V187Z" fill={pale}/>
+  <rect x="125" y="163" width="110" height="24" fill={violet}/>
+</>}
+{kind === 'glasshouse' && <>
+  <rect x="55" y="31" width="146" height="155" fill={violet}/>
+  <circle cx="214" cy="110" r="80" fill={amber}/>
+  <path d="M201 31V186A80 80 0 0 1 201 31Z" fill={pale}/>
+  <circle cx="214" cy="110" r="36" fill="#17151c"/>
+</>}
+{kind === 'molcajete' && <>
+  <path d="M30 59H174A72 72 0 0 1 30 59Z" fill={amber}/>
+  <path d="M186 160H330A72 72 0 0 0 186 160Z" fill={violet}/>
+  <circle cx="180" cy="110" r="34" fill={pale}/>
+  <path d="M30 149H127V180H30Z" fill={violet}/>
+  <path d="M233 39H330V70H233Z" fill={amber}/>
+</>}

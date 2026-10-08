@@ -8,6 +8,7 @@ import {
 	Library,
 	Presentation,
 } from 'lucide-astro';
+import WorkVisual from './prototype/WorkVisual.astro';
 import { featuredProjects } from '../data/featuredProjects';
 import { ui, type Lang, type UIKey } from '../i18n/ui';
 import { getLocalizedPath } from '../i18n/utils';
@@ -39,16 +40,10 @@ type OpenSourceEntry = {
 	statValues: readonly string[];
 };
 
+const projectVisuals = { adapta: 'adapta', lexgpt: 'lexgpt', glasshouse: 'glasshouse', molcajete: 'molcajete', nopalero: 'data', azulejo: 'pipelines', judex: 'lexgpt', zelador: 'data' } as const;
+
 const systems: readonly ProjectEntry[] = [
 	...featuredProjects,
-	{
-		id: 'molcajete',
-		taglineKey: 'projects.production.molcajete.tagline',
-		descriptionKey: 'projects.production.molcajete.description',
-		name: 'Molcajete',
-		icon: Mic,
-		statValues: ['2,000+', '<60 min'],
-	},
 
 	{
 		id: 'nopalero',
@@ -93,7 +88,8 @@ const openSource: readonly OpenSourceEntry[] = [
 <!-- ════════════════════════════════════════════════
      Masthead
      ════════════════════════════════════════════════ -->
-<section class="relative pt-20 pb-16">
+<section class="screen-hero relative pt-20 pb-16">
+	{import.meta.env.DEV && <div class="screen-hero-art" aria-hidden="true"><WorkVisual kind="hero" /></div>}
 	<div class="glow-orb w-[420px] h-[420px] -top-20 -right-32 opacity-50"></div>
 
 	<div class="max-w-6xl mx-auto px-6 lg:px-10 relative z-10">
@@ -122,12 +118,13 @@ const openSource: readonly OpenSourceEntry[] = [
 			<h2 class="section-heading">{t('projects.section.systems')}</h2>
 		</div>
 
-		<div class="border-t border-[var(--color-rule-strong)]">
+		<div class="project-details border-t border-[var(--color-rule-strong)]">
 			{systems.map((p) => {
 				const Icon = p.icon;
 				return (
-					<article id={p.id} class="scroll-mt-24 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-16 border-b border-[var(--color-rule)]">
-						<div class="lg:col-span-4">
+					<article id={p.id} class="project-detail scroll-mt-24 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-16 border-b border-[var(--color-rule)]">
+						<div class="project-identity lg:col-span-4">
+							{import.meta.env.DEV && <WorkVisual kind={projectVisuals[p.id as keyof typeof projectVisuals]} />}
 							<div class="flex items-center gap-4 mb-6">
 								<Icon size={18} class="text-[var(--color-accent)] opacity-70 shrink-0" />
 								<div class="flex-1 hairline"></div>
@@ -135,7 +132,7 @@ const openSource: readonly OpenSourceEntry[] = [
 							<h3 class="text-5xl md:text-6xl leading-none">{p.name}</h3>
 						</div>
 
-						<div class="lg:col-span-8">
+						<div class="project-description lg:col-span-8">
 							<p class="font-display text-2xl md:text-3xl leading-tight mb-6 text-balance">
 								{t(p.taglineKey)}
 							</p>
@@ -173,12 +170,13 @@ const openSource: readonly OpenSourceEntry[] = [
 			<h2 class="section-heading">{t('projects.section.openSource')}</h2>
 		</div>
 
-		<div class="border-t border-[var(--color-rule-strong)]">
+		<div class="project-details border-t border-[var(--color-rule-strong)]">
 			{openSource.map((p) => {
 				const Icon = p.icon;
 				return (
-					<article id={p.id} class="scroll-mt-24 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-16 border-b border-[var(--color-rule)]">
-						<div class="lg:col-span-4">
+					<article id={p.id} class="project-detail scroll-mt-24 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-16 border-b border-[var(--color-rule)]">
+						<div class="project-identity lg:col-span-4">
+							{import.meta.env.DEV && <WorkVisual kind={projectVisuals[p.id as keyof typeof projectVisuals]} />}
 							<div class="flex items-center gap-4 mb-6">
 								<Icon size={18} class="text-[var(--color-accent)] opacity-70 shrink-0" />
 								<div class="flex-1 hairline"></div>
@@ -196,7 +194,7 @@ const openSource: readonly OpenSourceEntry[] = [
 							</a>
 						</div>
 
-						<div class="lg:col-span-8">
+						<div class="project-description lg:col-span-8">
 							<p class="font-display text-2xl md:text-3xl leading-tight mb-6 text-balance">
 								{t(`projects.openSource.${p.id}.tagline` as UIKey)}
 							</p>

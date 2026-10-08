@@ -1,5 +1,5 @@
 ---
-// Throwaway homepage refinements: same content, four directions; selection pending.
+// Throwaway homepage refinements: A/B compare linework; C explores a separate paper-and-type identity.
 import { ArrowRight, ArrowLeft } from 'lucide-astro';
 import Navigation from '../Navigation.astro';
 import Footer from '../Footer.astro';
@@ -9,15 +9,14 @@ import { ui } from '../../i18n/ui';
 import '../../styles/global.css';
 import './options.css';
 import './atmosphere.css';
-import './catalogue.css';
 import './visuals.css';
 import './motion.css';
+import './paper.css';
 const t = ui.en;
 const variants = [
-  { key: 'A', name: 'Atmosphere' },
-  { key: 'B', name: 'Work first' },
-  { key: 'C', name: 'Studio' },
-  { key: 'D', name: 'Research catalogue' },
+  { key: 'A', name: 'Linework' },
+  { key: 'B', name: 'Contour fields' },
+  { key: 'C', name: 'Paper studio' },
 ];
 const services = ['ai', 'data', 'pipelines'] as const;
 const disciplines = ['clinical', 'philosophy', 'technical'] as const;
@@ -59,14 +58,12 @@ const disciplines = ['clinical', 'philosophy', 'technical'] as const;
     <Navigation lang="en" />
     <main id="content" class="option-page">
       <section class="intro">
+        <div class="hero-art" aria-hidden="true"><WorkVisual kind="hero" /></div>
         <h1>{t['home.hero.title.before']} <span>{t['home.hero.title.highlight']}</span></h1>
         <div class="intro-detail">
           <p>{t['home.hero.tagline']}</p>
           <a class="contact-link" href="#contact">{t['home.hero.cta']} <ArrowRight size={18} /></a>
         </div>
-        <nav class="catalogue-index" aria-label="Areas of work">
-          {services.map(service => <a href={`#service-${service}`}>{t[`home.services.${service}.title`]}<ArrowRight size={20} /></a>)}
-        </nav>
       </section>
       <section class="services" aria-labelledby="services-heading">
         <div class="section-heading"><h2 id="services-heading">{t['home.services.heading']}</h2><p>{t['home.services.subheading']}</p></div>
@@ -111,15 +108,15 @@ const disciplines = ['clinical', 'philosophy', 'technical'] as const;
     </main>
     <Footer lang="en" />
     <aside class="prototype-switcher" aria-label="Design comparison">
-      <a data-cycle="previous" href="?variant=D" aria-label="Previous option"><ArrowLeft size={18} /></a>
-      <div><small>Homepage prototype</small><strong>A · Atmosphere</strong></div>
+      <a data-cycle="previous" href="?variant=C" aria-label="Previous option"><ArrowLeft size={18} /></a>
+      <div><small>Illustration study</small><strong>A · Linework</strong></div>
       <a data-cycle="next" href="?variant=B" aria-label="Next option"><ArrowRight size={18} /></a>
       <a class="baseline-link" href="https://simulacro.tech">Baseline</a>
     </aside>
 
     <script>
       import { startConstellation } from '../../scripts/constellation';
-      if (document.body.dataset.variant === 'A') {
+      {
         startConstellation(document.querySelector<HTMLCanvasElement>('#prototype-constellation')!);
         const textObserver = new IntersectionObserver(entries => {
           for (const entry of entries) {

@@ -5,6 +5,8 @@ import LanguageBanner from '../components/LanguageBanner.astro';
 import { ui, type Lang, type UIKey } from '../i18n/ui';
 import { getAlternates } from '../i18n/utils';
 import '../styles/global.css';
+import '../components/prototype/visuals.css';
+import '../components/prototype/screens.css';
 
 interface Props {
 	lang: Lang;
@@ -34,7 +36,7 @@ const buildDate = new Date().toISOString().slice(0, 10);
 		))}
 		<title>{t(titleKey)}</title>
 	</head>
-	<body class="overflow-x-hidden" data-build-date={buildDate}>
+	<body class:list={["overflow-x-hidden", { "design-study": import.meta.env.DEV }]} data-variant={import.meta.env.DEV ? "A" : undefined} data-build-date={buildDate}>
 		<!-- Animated network canvas -->
 		<canvas id="network-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
 

@@ -1,4 +1,4 @@
-import { Cpu, Gavel, SearchCheck } from 'lucide-astro';
+import { Cpu, Gavel, SearchCheck, Mic } from 'lucide-astro';
 
 export const featuredProjects = [
   {
@@ -18,5 +18,11 @@ export const featuredProjects = [
     taglineKey: 'projects.research.glasshouse.tagline',
     descriptionKey: 'projects.research.glasshouse.description',
     statValues: [],
+  },
+  {
+    id: 'molcajete', name: 'Molcajete', icon: Mic,
+    taglineKey: 'projects.production.molcajete.tagline',
+    descriptionKey: 'projects.production.molcajete.description',
+    statValues: ['2,000+', '<60 min'],
   },
 ] as const;

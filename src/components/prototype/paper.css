@@ -1,0 +1,74 @@
+@font-face { font-family: 'Archivo'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/archivo/archivo-400.ttf') format('truetype'); }
+@font-face { font-family: 'Archivo'; font-style: normal; font-weight: 500; font-display: swap; src: url('/fonts/archivo/archivo-500.ttf') format('truetype'); }
+@font-face { font-family: 'Archivo'; font-style: normal; font-weight: 600; font-display: swap; src: url('/fonts/archivo/archivo-600.ttf') format('truetype'); }
+@font-face { font-family: 'Archivo'; font-style: normal; font-weight: 700; font-display: swap; src: url('/fonts/archivo/archivo-700.ttf') format('truetype'); }
+/* C explores a warm typographic grid around the solid illustration set. */
+[data-variant='C'].home-prototype {
+  font-family: 'Archivo', sans-serif;
+  --font-display: 'Archivo', sans-serif;
+  --paper-amber: #df532f;
+  --paper-pale: #e7be55;
+  --paper-violet: #3555b5;
+  --color-bg: #f2efe7;
+  --color-bg-elevated: #e5dfd3;
+  --color-text: #233b38;
+  --color-text-muted: #615e56;
+  --color-accent: #b13d27;
+  --color-accent-hover: #8d301f;
+  --color-border: #cdc5b6;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+[data-variant='C'] #prototype-constellation { display: none; }
+[data-variant='C'] .option-page { max-width: 1280px; padding-inline: 48px; }
+[data-variant='C'] .intro { min-height: 760px; padding: 100px 0; }
+[data-variant='C'] .intro::before { display: none; }
+[data-variant='C'] .intro h1 { max-width: 59%; font-family: 'Archivo', sans-serif; font-size: clamp(4.5rem, 7.2vw, 6.8rem); font-weight: 500; line-height: 1.01; letter-spacing: -.04em; text-wrap: initial; }
+[data-variant='C'] .intro h1 span { color: inherit; }
+[data-variant='C'] .intro-detail { max-width: 510px; margin-top: 38px; }
+[data-variant='C'] .intro-detail p { font-size: 19px; line-height: 1.55; }
+[data-variant='C'] .hero-art { width: 560px; right: -65px; top: 49%; opacity: 1; mask-image: none; }
+[data-variant='C'] .contact-link { color: #fff8ed; border-radius: 0; padding: 15px 22px; font-weight: 500; }
+[data-variant='C'] .contact-link:hover { background: #8d301f; box-shadow: none; }
+[data-variant='C'] .option-page h2 { font-family: 'Archivo', sans-serif; font-size: clamp(2rem, 3.4vw, 3.2rem); font-style: normal; font-weight: 500; letter-spacing: -.04em; line-height: 1.12; }
+[data-variant='C'] .option-page h3 { font-family: 'Archivo', sans-serif; font-weight: 500; letter-spacing: -.035em; }
+[data-variant='C'] .section-heading { align-items: start; margin-bottom: 58px; }
+[data-variant='C'] .section-heading p { font-family: 'Archivo', sans-serif; font-style: normal; font-size: 16px; line-height: 1.65; }
+[data-variant='C'] .service-list { gap: 56px; }
+[data-variant='C'] .service-list h3 { font-size: 24px; }
+[data-variant='C'] .service-list .work-visual { margin: 42px 0; }
+[data-variant='C'] .project h3 { font-size: 44px; }
+[data-variant='C'] .project .work-visual { padding: 22px; background: #e4ded1; }
+[data-variant='C'] .project-copy p { max-width: 46ch; }
+[data-variant='C'] .bio p { font-family: 'Archivo', sans-serif; font-size: 25px; line-height: 1.5; letter-spacing: -.025em; }
+[data-variant='C'] .text-link { font-weight: 500; }
+[data-variant='C'] .contact input, [data-variant='C'] .contact textarea { border-color: #9c9382; border-radius: 0; }
+[data-variant='C'] .contact input::placeholder, [data-variant='C'] .contact textarea::placeholder { color: #777064; }
+[data-variant='C'] .contact button { color: #777064; border-color: #9c9382; border-radius: 0; }
+[data-variant='C'] .contact input:focus, [data-variant='C'] .contact textarea:focus { border-color: #b13d27; background: #f5f1e9; }
+[data-variant='C'] > nav { border: 0; }
+[data-variant='C'] > nav a[href$='#contact'] { border-radius: 0; color: #fff8ed; }
+[data-variant='C'] footer { background: #e3ddd1; border: 0; }
+[data-variant='C'] .prototype-switcher { background: #233b38; color: #f2efe7; border-color: #233b38; border-radius: 0; }
+[data-variant='C'] .prototype-switcher a:hover { background: #45433d; }
+[data-variant='C'] .prototype-switcher .baseline-link { border-color: #706b60; }
+@media (max-width: 1100px) and (min-width: 761px) {
+  [data-variant='C'] .intro h1 { font-size: 76px; max-width: 58%; }
+  [data-variant='C'] .hero-art { width: 450px; right: -60px; }
+  [data-variant='C'] .intro-detail { max-width: 48%; }
+}
+@media (max-width: 760px) {
+  [data-variant='C'] .option-page { padding-inline: 24px; }
+  [data-variant='C'] .intro { min-height: 0; padding: 68px 0 30px; }
+  [data-variant='C'] .intro h1 { max-width: 100%; font-size: clamp(3.6rem, 13vw, 5rem); letter-spacing: -.04em; }
+  [data-variant='C'] .intro-detail { margin-top: 28px; }
+  [data-variant='C'] .intro-detail p { font-size: 17px; }
+  [data-variant='C'] .hero-art { position: static; order: 3; width: 100%; margin-top: 45px; transform: none; }
+  [data-variant='C'] .section-heading { margin-bottom: 38px; }
+  [data-variant='C'] .service-list { gap: 54px; }
+  [data-variant='C'] .service-list .work-visual { margin: 24px 0; }
+  [data-variant='C'] .project h3 { font-size: 38px; }
+}
+
+[data-variant='C'] .background .section-heading p { font-family: 'Archivo', sans-serif; }
+[data-variant='C'] footer h3 { font-family: 'Archivo', sans-serif; }

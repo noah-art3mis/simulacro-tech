@@ -1,4 +1,5 @@
 ---
+import WorkVisual from './prototype/WorkVisual.astro';
 import { GraduationCap, Briefcase, ExternalLink } from 'lucide-astro';
 import { ui, type Lang, type UIKey } from '../i18n/ui';
 
@@ -11,7 +12,8 @@ const t = (key: UIKey) => ui[lang][key];
 ---
 
 <!-- ─────────── Hero ─────────── -->
-<section class="relative pt-16 pb-20">
+<section class="screen-hero relative pt-16 pb-20">
+	{import.meta.env.DEV && <div class="screen-hero-art" aria-hidden="true"><WorkVisual kind="hero" /></div>}
 	<!-- A single, soft amber wash — about pages are introspective, not blasted -->
 	<div class="glow-orb w-[420px] h-[420px] -top-32 -right-32 opacity-50"></div>
 
@@ -29,7 +31,7 @@ const t = (key: UIKey) => ui[lang][key];
 
 <!-- ─────────── Bio ─────────── -->
 <!-- Drop-cap on the first paragraph; subsequent paragraphs are quieter. -->
-<section class="py-16 md:py-20">
+<section class="about-bio py-16 md:py-20">
 	<div class="max-w-6xl mx-auto px-6 lg:px-8">
 		<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
 			<div class="lg:col-span-8 space-y-7">
@@ -95,7 +97,7 @@ const t = (key: UIKey) => ui[lang][key];
 
 <!-- ─────────── Education & Experience ─────────── -->
 <!-- A more deliberate timeline: amber rule on the latest entry, faded on older ones. -->
-<section class="py-20 md:py-24 relative">
+<section class="about-history py-20 md:py-24 relative">
 	<div class="max-w-6xl mx-auto px-6 lg:px-8">
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 			<!-- Education -->

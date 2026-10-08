@@ -1,10 +1,10 @@
 #prototype-constellation { display: none; }
-[data-variant='A'] #prototype-constellation { display: block; position: fixed; inset: 0; pointer-events: none; z-index: 0; }
-[data-variant='A'] .option-page, [data-variant='A'] footer { position: relative; z-index: 1; }
+:is(.home-prototype, .design-study) #prototype-constellation { display: block; position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+:is(.home-prototype, .design-study) .option-page, :is(.home-prototype, .design-study) footer { position: relative; z-index: 1; }
 .work-visual { display: none; }
 .project-copy { display: contents; }
-[data-variant='A'] .work-visual { display: block; margin: 24px 0; }
-[data-variant='A'] .work-visual svg { display: block; width: 100%; height: auto; overflow: visible; }
+:is(.home-prototype, .design-study) .work-visual { display: block; margin: 24px 0; }
+:is(.home-prototype, .design-study) .work-visual svg { display: block; width: 100%; height: auto; overflow: visible; }
 .engraving-line { fill: none; stroke: #d9af70; stroke-width: .85; }
 .engraving-violet { fill: none; stroke: #a49bb8; stroke-width: .8; }
 .engraving-soft { fill: none; stroke: #927b5c; stroke-width: .65; opacity: .65; }
@@ -15,16 +15,25 @@
 .work-visual.visual-visible svg * { animation-play-state: running; }
 html[data-page-hidden] .work-visual svg * { animation-play-state: paused; }
 @keyframes signal-light { 0%, 70%, 100% { opacity: .08; } 35% { opacity: .85; } }
-[data-variant='A'] .project { grid-template-columns: minmax(260px, 390px) 1fr 24px; gap: 60px; padding: 48px 0; }
-[data-variant='A'] .project-copy { display: block; }
-[data-variant='A'] .project h3 { margin-bottom: 18px; font-size: 44px; }
-[data-variant='A'] .project .work-visual { margin: 0; }
-[data-variant='A'] .project > svg { color: var(--color-accent); }
+:is(.home-prototype, .design-study) .project { grid-template-columns: minmax(260px, 390px) 1fr 24px; gap: 60px; padding: 36px 0; }
+:is(.home-prototype, .design-study) .project-copy { display: block; }
+:is(.home-prototype, .design-study) .project h3 { margin-bottom: 18px; font-size: 44px; }
+:is(.home-prototype, .design-study) .project .work-visual { margin: 0; }
+:is(.home-prototype, .design-study) .project > svg { color: var(--color-accent); }
 @media (prefers-reduced-motion: reduce) { .work-visual svg * { animation: none; } }
 @media (max-width: 760px) {
-  [data-variant='A'] .service-list { gap: 42px; }
-  [data-variant='A'] .project { grid-template-columns: 1fr 24px; gap: 20px 12px; padding: 28px 0; }
-  [data-variant='A'] .project .work-visual { grid-column: 1 / -1; }
-  [data-variant='A'] .project-copy { grid-row: 2; }
-  [data-variant='A'] .project > svg { grid-row: 2; }
+  :is(.home-prototype, .design-study) .service-list { gap: 42px; }
+  :is(.home-prototype, .design-study) .project { grid-template-columns: 1fr 24px; gap: 20px 12px; padding: 24px 0; }
+  :is(.home-prototype, .design-study) .project .work-visual { grid-column: 1 / -1; }
+  :is(.home-prototype, .design-study) .project-copy { grid-row: 2; }
+  :is(.home-prototype, .design-study) .project > svg { grid-row: 2; }
 }
+
+@media (min-width: 761px) {
+  :is(.home-prototype, .design-study) .project:nth-child(even) { grid-template-columns: 1fr 24px minmax(260px, 390px); }
+  :is(.home-prototype, .design-study) .project:nth-child(even) .work-visual { grid-column: 3; grid-row: 1; }
+  :is(.home-prototype, .design-study) .project:nth-child(even) .project-copy { grid-column: 1; grid-row: 1; }
+  :is(.home-prototype, .design-study) .project:nth-child(even) > svg { grid-column: 2; grid-row: 1; }
+}
+.illustration-a, .illustration-b, .illustration-c { display: none; }
+[data-variant='A'] .illustration-a, [data-variant='B'] .illustration-b, [data-variant='C'] .illustration-c { display: inline; }

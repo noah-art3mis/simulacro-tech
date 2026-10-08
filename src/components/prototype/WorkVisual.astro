@@ -1,17 +1,13 @@
 ---
-interface Props { kind: 'ai' | 'data' | 'pipelines' | 'adapta' | 'lexgpt' | 'glasshouse'; }
+import ContourFields from './ContourFields.astro';
+import PaperForms from './PaperForms.astro';
+interface Props { kind: 'ai' | 'data' | 'pipelines' | 'adapta' | 'lexgpt' | 'glasshouse' | 'molcajete' | 'hero'; }
 const { kind } = Astro.props;
-const descriptions = {
-  ai: 'Overlapping elliptical fields forming an interference pattern.',
-  data: 'Nested contours revealing an underlying shape.',
-  pipelines: 'Interwoven strands separating into parallel streams.',
-  adapta: 'A field of curved lines drawn through a narrow focus.',
-  lexgpt: 'Layered arches organised around a common reference line.',
-  glasshouse: 'A transparent circular lens revealing a field of crossing lines.',
-};
+
 ---
 <div class={`work-visual visual-${kind}`}>
-  <svg viewBox="0 0 360 220" role="img" aria-label={descriptions[kind]}>
+  <svg viewBox="0 0 360 220" aria-hidden="true" focusable="false">
+    <g class="illustration-a">
     {kind === 'ai' && <>
       <g class="engraving-line">{Array.from({length: 18}, (_, i) => <ellipse cx="142" cy="110" rx={15+i*4.2} ry={80-i*2.8}/>)}</g>
       <g class="engraving-violet">{Array.from({length: 18}, (_, i) => <ellipse cx="218" cy="110" rx={15+i*4.2} ry={80-i*2.8}/>)}</g>
@@ -50,6 +46,17 @@ const descriptions = {
       <circle class="engraving-light" cx="180" cy="110" r="85"/>
       <path class="engraving-rule" d="M180 13v12M180 195v12M83 110H71M277 110h12"/>
     </>}
+    {kind === 'molcajete' && <>
+      <g class="engraving-line">{Array.from({length: 22}, (_, i) => <path d={`M25 ${35+i*7}C80 ${110+i*2},105 ${-20+i*10},180 ${45+i*6}S280 ${220-i*6},335 ${40+i*7}`}/>)}</g>
+      <path class="engraving-light" d="M25 105C80 130 105 80 180 105S280 160 335 110"/>
+    </>}
+    {kind === 'hero' && <>
+      <g fill="none" stroke="#f6d59a" stroke-width=".4">{Array.from({length: 29}, (_, i) => <path d={`M${-40+i*10} 240C${360+i*4} 160 ${-160+i*15} 30 ${390-i*4} -30`}/>)}</g>
+      <g fill="none" stroke="#bab0d2" stroke-width=".24" opacity=".8">{Array.from({length: 17}, (_, i) => <path d={`M${-20+i*12} 240C${360+i*5} 80 ${-140+i*17} 130 ${370-i*4} -30`}/>)}</g>
+    </>}
+    </g>
+    <g class="illustration-b"><ContourFields kind={kind} /></g>
+    <g class="illustration-c"><PaperForms kind={kind} /></g>
   </svg>
 </div>
 <script>
