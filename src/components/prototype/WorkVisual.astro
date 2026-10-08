@@ -51,8 +51,8 @@ const { kind } = Astro.props;
       <path class="engraving-light" d="M25 105C80 130 105 80 180 105S280 160 335 110"/>
     </>}
     {kind === 'hero' && <>
-      <g fill="none" stroke="#f6d59a" stroke-width=".4">{Array.from({length: 29}, (_, i) => <path d={`M${-40+i*10} 240C${360+i*4} 160 ${-160+i*15} 30 ${390-i*4} -30`}/>)}</g>
-      <g fill="none" stroke="#bab0d2" stroke-width=".24" opacity=".8">{Array.from({length: 17}, (_, i) => <path d={`M${-20+i*12} 240C${360+i*5} 80 ${-140+i*17} 130 ${370-i*4} -30`}/>)}</g>
+      <g fill="none" stroke="#f6d59a" stroke-width=".4">{Array.from({length: 32}, (_, i) => <path d={`M-60 ${210-i*4}C125 ${275-i*6} 65 ${-70+i*6} 410 ${15+i*3}`}/>)}</g>
+      <g fill="none" stroke="#bab0d2" stroke-width=".24" opacity=".8">{Array.from({length: 26}, (_, i) => <path d={`M${15+i*6} -30C${-80+i*10} 130 ${400-i*7} 45 ${285-i*3} 240`}/>)}</g>
     </>}
     </g>
     <g class="illustration-b"><ContourFields kind={kind} /></g>
