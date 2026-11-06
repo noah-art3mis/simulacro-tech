@@ -31,7 +31,7 @@ for (const { html, md, heading } of pages) {
 		levels.forEach((level, i) => assert.ok(i === 0 || level <= levels[i - 1] + 1, 'skips no heading level'));
 		const pageUrls = pages.map((page) => `/${page.html.replace(/index\.html$/, '')}`.replace(/(.)\/$/, '$1'));
 		for (const [, path] of markdown.matchAll(/\]\((\/[^)#\s]*)(?:#[^)\s]*)?\)/g)) {
-			assert.ok(!pageUrls.includes(path), `links to the Markdown route instead of ${path}`);
+			assert.ok(!pageUrls.includes(path.replace(/(.)\/$/, '$1')), `links to the Markdown route instead of ${path}`);
 		}
 	});
 
