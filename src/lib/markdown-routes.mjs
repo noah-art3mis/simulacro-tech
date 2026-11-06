@@ -36,8 +36,8 @@ function toMarkdown(html, pathnames) {
 		// Removed icons leave whitespace-only lines behind.
 		.replace(/\n\s*\n\s*\n/g, '\n\n')
 		// Keep readers on the Markdown routes, since GitHub Pages can't negotiate.
-		.replace(/\]\((\/[^)#\s]*)(#[^)\s]*)?\)/g, (link, path) =>
-			pathnames.has(pagePath(path)) ? `](${markdownPath(path)})` : link,
+		.replace(/\]\((\/[^)#\s]*)(#[^)\s]*)?\)/g, (link, path, fragment = '') =>
+			pathnames.has(pagePath(path)) ? `](${markdownPath(path)}${fragment})` : link,
 		);
 	return `${markdown}\n`;
 }

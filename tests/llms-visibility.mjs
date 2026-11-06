@@ -46,6 +46,12 @@ test('Markdown leaves out the contact form, which agents cannot use', () => {
 	assert.doesNotMatch(home, /Another session|Heard\.|Name Email/);
 });
 
+test('Markdown links keep the section they point at', () => {
+	assert.ok(read('index.md').includes('### [Molcajete](/projects.md#molcajete)'));
+	assert.ok(read('projects.md').split('\n').includes('### Molcajete'), 'the fragment matches a heading');
+	assert.ok(read('es.md').includes('### [Molcajete](/es/projects.md#molcajete)'));
+});
+
 test('robots.txt signals search, live AI use and training in the wildcard group', () => {
 	const robots = read('robots.txt');
 	assert.match(robots, /^User-agent: \*\nContent-Signal: search=yes, ai-input=yes, ai-train=yes\n/m);
