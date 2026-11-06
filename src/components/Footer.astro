@@ -143,7 +143,7 @@ const year = new Date().getFullYear();
 
 		<!-- ─── Signoff line ─── -->
 		<div class="pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs text-[var(--color-text-muted)]">
-			<p>&copy; {year} Simulacro Tech · {t('footer.copyright')}</p>
+			<p>&copy; {year} Simulacro Tech · {t('footer.copyright')} · <a href="/llms.txt" class="hover:text-[var(--color-text)] transition-colors">llms.txt</a></p>
 			{buildDate && (
 				<p class="flex items-center gap-2">
 					<span class="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]/60"></span>

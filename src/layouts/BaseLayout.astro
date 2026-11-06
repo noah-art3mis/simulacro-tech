@@ -4,6 +4,7 @@ import Footer from '../components/Footer.astro';
 import LanguageBanner from '../components/LanguageBanner.astro';
 import { ui, type Lang, type UIKey } from '../i18n/ui';
 import { getAlternates } from '../i18n/utils';
+import { markdownPath } from '../lib/markdown-routes.mjs';
 import '../styles/global.css';
 import '../styles/site/home.css';
 import '../styles/site/atmosphere.css';
@@ -43,6 +44,7 @@ const buildDate = new Date().toISOString().slice(0, 10);
 		{alternates.map((alt) => (
 			<link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
 		))}
+		<link rel="alternate" type="text/markdown" href={markdownPath(Astro.url.pathname)} />
 		<title>{t(titleKey)}</title>
 	</head>
 	<body class:list={["overflow-x-hidden site-design", { "home-design": home }]} data-build-date={buildDate}>

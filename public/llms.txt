@@ -1,0 +1,27 @@
+# Simulacro Tech
+
+> Data and AI consultancy grounded in ethics, run by Gustavo Costa. It builds LLM systems, legal research tools and data pipelines.
+
+Contact: contact@simulacro.tech
+
+## English
+
+- [Home](/index.md): Services, featured projects, background and contact
+- [Projects](/projects.md): Selected work in AI infrastructure, NLP and applied research
+- [About](/about.md): Gustavo Costa's background, from psychology to data science
+
+## Português
+
+- [Início](/pt.md): Serviços, projetos em destaque, formação e contato
+- [Projetos](/pt/projects.md): Trabalhos selecionados em infraestrutura de IA, PLN e pesquisa aplicada
+- [Sobre](/pt/about.md): A trajetória de Gustavo Costa, da psicologia à ciência de dados
+
+## Español
+
+- [Inicio](/es.md): Servicios, proyectos destacados, formación y contacto
+- [Proyectos](/es/projects.md): Trabajos seleccionados en infraestructura de IA, PLN e investigación aplicada
+- [Sobre mí](/es/about.md): La trayectoria de Gustavo Costa, de la psicología a la ciencia de datos
+
+## Optional
+
+- [Gustavo Costa's homepage](https://simulacro.cv/llms.txt): Research, publications and CV
