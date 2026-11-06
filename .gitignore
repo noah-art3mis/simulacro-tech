@@ -6,6 +6,8 @@ NOTES.md
 node_modules
 
 # Output
+dist/
+.astro/
 .output
 .vercel
 .netlify
