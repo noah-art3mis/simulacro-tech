@@ -6,6 +6,9 @@ export function markdownPath(pathname) {
 	return `${pathname.replace(/\/$/, '') || '/index'}.md`;
 }
 
+/** A page's URL path without its trailing slash, keeping the root as /. */
+const pagePath = (pathname) => pathname.replace(/\/$/, '') || '/';
+
 const turndown = new TurndownService({
 	headingStyle: 'atx',
 	bulletListMarker: '-',
@@ -34,7 +37,7 @@ function toMarkdown(html, pathnames) {
 		.replace(/\n\s*\n\s*\n/g, '\n\n')
 		// Keep readers on the Markdown routes, since GitHub Pages can't negotiate.
 		.replace(/\]\((\/[^)#\s]*)(#[^)\s]*)?\)/g, (link, path) =>
-			pathnames.has(path.replace(/\/$/, '')) ? `](${markdownPath(path)})` : link,
+			pathnames.has(pagePath(path)) ? `](${markdownPath(path)})` : link,
 		);
 	return `${markdown}\n`;
 }
@@ -45,7 +48,7 @@ export function markdownRoutes() {
 		name: 'markdown-routes',
 		hooks: {
 			'astro:build:done': async ({ dir, pages }) => {
-				const pathnames = new Set(pages.map(({ pathname }) => `/${pathname.replace(/\/$/, '')}`));
+				const pathnames = new Set(pages.map(({ pathname }) => pagePath(`/${pathname}`)));
 				for (const { pathname } of pages) {
 					const html = await readFile(new URL(`${pathname}index.html`, dir), 'utf8');
 					const file = new URL(`.${markdownPath(`/${pathname}`)}`, dir);

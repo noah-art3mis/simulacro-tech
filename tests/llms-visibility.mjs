@@ -27,6 +27,12 @@ for (const { html, md, heading } of pages) {
 		assert.doesNotMatch(markdown, /<\/?[a-z][^>]*>/i, 'has no leftover HTML');
 		assert.doesNotMatch(markdown, /\[\s*\n/, 'has no link spanning several lines');
 		assert.doesNotMatch(markdown, /\n\s*\n\s*\n/, 'has no runs of blank lines');
+		const levels = [...markdown.matchAll(/^(#{1,6}) /gm)].map((match) => match[1].length);
+		levels.forEach((level, i) => assert.ok(i === 0 || level <= levels[i - 1] + 1, 'skips no heading level'));
+		const pageUrls = pages.map((page) => `/${page.html.replace(/index\.html$/, '')}`.replace(/(.)\/$/, '$1'));
+		for (const [, path] of markdown.matchAll(/\]\((\/[^)#\s]*)(?:#[^)\s]*)?\)/g)) {
+			assert.ok(!pageUrls.includes(path), `links to the Markdown route instead of ${path}`);
+		}
 	});
 
 	test(`${html} advertises ${md}`, () => {
@@ -38,13 +44,6 @@ test('Markdown leaves out the contact form, which agents cannot use', () => {
 	const home = read('index.md');
 	assert.ok(home.includes('[contact@simulacro.tech](mailto:contact@simulacro.tech)'));
 	assert.doesNotMatch(home, /Another session|Heard\.|Name Email/);
-});
-
-test('Markdown links to other pages stay on the Markdown routes', () => {
-	const home = read('index.md');
-	assert.ok(home.includes('(/projects.md)'));
-	assert.ok(home.includes('(/about.md)'));
-	assert.doesNotMatch(home, /\]\(\/(projects|about)(#[^)]*)?\)/);
 });
 
 test('robots.txt signals search, live AI use and training in the wildcard group', () => {
