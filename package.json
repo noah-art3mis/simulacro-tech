@@ -6,7 +6,8 @@
     "scripts": {
         "dev": "astro dev",
         "build": "astro build",
-        "preview": "astro preview"
+        "preview": "astro preview",
+        "test": "astro build && node --test tests/llms-visibility.mjs"
     },
     "devDependencies": {
         "@tailwindcss/postcss": "^4.1.17",
@@ -16,6 +17,7 @@
         "lucide-astro": "^0.556.0",
         "postcss": "^8.5.6",
         "tailwindcss": "^4.1.17",
+        "turndown": "^7.2.5",
         "typescript": "^5.9.3"
     }
 }
