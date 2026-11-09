@@ -31,3 +31,5 @@ Latest window: “Research, language and data.” with the concrete list of tran
 The current comparison now includes the full Astro site, preserving original Projects/About and localized routes. Homepage projects link to local detail anchors; All projects opens the original project page. The navbar reads simulacro.tech and wraps on narrow phones. Use scripts/build-full-site-preview.mjs for a frozen full-site preview; the earlier focused builder is for the standalone homepage comparison.
 
 4K follow-up: the network background now has a2560×1440 pixel-area ceiling, preserving aspect ratio. This reduces raster work on large/high-DPI windows; page text remains native resolution. See DESIGN.md for the reproduced Zen failure and measurement limits.
+
+Window description now reads: “Built with transparency, accountability and human impact in mind.”
