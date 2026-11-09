@@ -23,3 +23,5 @@ It reproduces and pins the mobile Contact-link omission found during review. Thi
 ## Human signal copy variant
 
 This branch, `design/network-human-copy`, preserves the selected network design at `3fbc60b` and changes only its hero/window framing to the original direction 02 copy in `public/worlds/02/index.html`. Hero: “Keep the human in the loop.”, AI and data consultancy / Clinical attention / Computational depth, Meet the work. Window: “Behind every dataset, there are people. We build accordingly.” plus “A representation is always a choice. So is the system behind it.” Window type adapts to the longer text. Palette, renderer, camera speed and halved pointer steering are unchanged.
+
+This variant includes the same optimized renderer as design/network: reusable projection storage and batched edges, preserving density, geometry, camera speed and halved pointer steering. See DESIGN.md for measured performance and its limits.

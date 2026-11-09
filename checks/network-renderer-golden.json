@@ -1,0 +1,16 @@
+{
+  "desktop": {
+    "hash": "fed91231358aa01dcc5335dcc8ffcb4345bc3a2c1a8ee9d132e40926a69c5344",
+    "geometryHash": "7ccc611786412c29d679697085df4685979a60b83bdc300f97b048f76e27d9dc",
+    "strokesPerFrame": 1681.5714285714287,
+    "vectorAllocations": 6424,
+    "visiblePoints": 1378
+  },
+  "mobile": {
+    "hash": "0611dbe99bb9d5d01bc992cb468bfdd84e284d4230b223cf766ec71cc59f9715",
+    "geometryHash": "b676873dab441bece12fb9639375758f0c8541825e1e1cc54a837eea4f4f2327",
+    "strokesPerFrame": 1399.857142857143,
+    "vectorAllocations": 6424,
+    "visiblePoints": 1224
+  }
+}
