@@ -1,5 +1,9 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import HomePage from '../components/HomePage.astro';
+import { readFile } from 'node:fs/promises';
+
+const html = (await readFile('public/worlds/next/04/index.html', 'utf8'))
+  .replaceAll('../../assets/', '/worlds/assets/')
+  .replaceAll('href="../../index.html', 'href="/worlds/index.html')
+  .replaceAll('href="index.html"', 'href="/"');
 ---
-<BaseLayout lang="en" home titleKey="meta.home.title" descriptionKey="meta.home.description"><HomePage lang="en" /></BaseLayout>
+<Fragment set:html={html} />
