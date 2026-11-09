@@ -10,6 +10,9 @@ async page => {
   await overview.waitFor({state:'visible'});
   if(await overview.locator('[data-overview-label]').count())throw new Error('The ordered structures must not have visible category names');
   const canvas=page.locator('#network');
+  if(await canvas.getAttribute('data-structure-source')!=='network')throw new Error('The big picture must reveal the actual network, not a replacement diagram');
+  await page.waitForFunction(()=>document.querySelector('#network').dataset.view==='overview');
+  if(Number(await canvas.getAttribute('data-structure-nodes'))!==6420||Number(await canvas.getAttribute('data-structure-edges'))!==7464)throw new Error('The overview must retain the original graph nodes and connections');
   if(await page.locator('canvas').count()!==1)throw new Error('Overview must reuse the existing canvas');
   await page.waitForFunction(()=>document.querySelector('#network').dataset.view==='overview');
   await page.waitForTimeout(1500);

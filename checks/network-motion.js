@@ -11,11 +11,11 @@ async page => {
   }
   await page.goto(url);
   const controls = page.getByRole('button',{name:'Pause motion',exact:true});
-  if (await controls.count() !== 2) throw new Error('Each moving reading surface must have a motion control');
+  if (await controls.count() !== 1) throw new Error('The page must have one shared motion control');
   const control = controls.first();
   await control.click();
   const canvas = page.locator('#network');
-  if (await page.getByRole('button',{name:'Resume motion',exact:true}).count() !== 2) throw new Error('Motion controls must stay synchronized');
+  if (await page.getByRole('button',{name:'Resume motion',exact:true}).count() !== 1) throw new Error('Motion controls must stay synchronized');
   const stopped = await canvas.getAttribute('data-camera-phase');
   await page.waitForTimeout(150);
   if (await canvas.getAttribute('data-camera-phase') !== stopped) throw new Error('Pause must stop the camera');
