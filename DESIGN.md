@@ -188,6 +188,6 @@ The owner removed the entire callout treatment: no leader lines, labels, cards o
 
 ### Sticky shared navigation and language choices – latest authority
 
-The canonical Navigation.astro stays at the top while scrolling on Home, Projects and About in all three languages. It contains the brand, Work, About and Contact, followed by compact EN/PT/ES links with full accessible language names and an active-language underline. Language links preserve the current page. Approach remains a homepage section but is removed from navigation. Phones use two compact rows with the brand and languages above the page links.
+The canonical Navigation.astro stays at the top while scrolling on Home, Projects and About in all three languages. It contains the brand, Home, Work, About and Contact, followed by compact EN/PT/ES links with full accessible language names and an active-language underline. Language links preserve the current page. Approach remains a homepage section but is removed from navigation. Phones use two compact rows with the brand and languages above the page links.
 
 A ResizeObserver publishes the header height for anchor clearance and the overview canvas region; the existing overview resize handler consumes that height without another animation loop. Skip links stay above the header, section targets scroll below it, and the overview return and manipulation controls remain clear in short windows.

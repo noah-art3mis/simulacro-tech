@@ -6,7 +6,7 @@ Branch: `design/network-human-copy`. The selected site includes Home, Projects a
 
 - Homepage visual template and Canvas renderer: `public/worlds/next/07/index.html`.
 - Homepage composition/localization: `src/components/NetworkHome.astro`, `src/lib/render-network-home.ts`, `src/i18n/ui.ts`.
-- Single shared sticky navbar: `src/components/Navigation.astro`; Work, About, Contact and EN/PT/ES page-preserving language choices.
+- Single shared sticky navbar: `src/components/Navigation.astro`; Home, Work, About, Contact and EN/PT/ES page-preserving language choices.
 - Static secondary-page shell: `src/layouts/ReadingLayout.astro`, `src/styles/site/reading-shell.css`.
 - About: `AboutPage.astro`, `about-reading.css`; original biography, education, experience and five profile links.
 - Projects: `ProjectsPage.astro`, `projects-reading.css`; nine original WorkVisual illustrations and original project content.

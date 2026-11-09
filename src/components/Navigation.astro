@@ -5,6 +5,7 @@ interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const home = `${getLocalizedPath('/', lang).replace(/\/$/, '')}/`;
 const items = [
+  { href: home, label: ui[lang]['nav.home'] },
   { href: getLocalizedPath('/projects/', lang), label: ui[lang]['network.work'] },
   { href: getLocalizedPath('/about/', lang), label: ui[lang]['nav.about'] },
   { href: `${home}#contact`, label: ui[lang]['nav.contact'] },
