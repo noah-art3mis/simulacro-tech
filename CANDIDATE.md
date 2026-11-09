@@ -8,7 +8,7 @@ Run `npm ci` once, then `npm run dev -- --host 0.0.0.0`. This is a local design 
 
 ## Current direction
 
-Use the living network to express relationships, language and interpretation. Let the reading voice express attention and judgment: Crimson Pro headings, Space Grotesk body, sentence case, measured scale and useful project descriptions. Keep the graph, winding camera and spatial controls intact. Site navigation serves prospective clients through Work, Approach and Contact. No generated images.
+Use the living network to express relationships, language and interpretation. Let the reading voice express attention and judgment: Crimson Pro headings, Space Grotesk body, sentence case, measured scale and useful project descriptions. Keep the graph, winding camera, pointer steering and Pause/Resume control intact; the owner removed the entry gate and steering caption. Site navigation serves prospective clients through Work, Approach and Contact. No generated images.
 
 The focused mobile-navigation regression can run against an already-open local homepage:
 
