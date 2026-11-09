@@ -12,3 +12,5 @@ Each candidate branch opens its selected direction at `/`. Its `CANDIDATE.md` na
 Continue work in `~/worktrees/simulacro-network`. The owner's latest change is to soften its IMPACT-like typography toward the first/current-site direction while preserving the network scene and controls. No generated imagery. No merge or deployment is authorized.
 
 Additional comparison: `design/network-human-copy` at `~/worktrees/simulacro-network-human-copy` applies the original direction 02 hero and window copy to the network. `design/network` remains the selected baseline.
+
+Current copy and full-site integration work continues on `design/network-human-copy`; `design/network` preserves the original headline version. Projects/About remain the original site implementation, now included in the full preview.

@@ -115,3 +115,9 @@ Manual reproducible checks: `node checks/network-renderer.mjs`; `checks/network-
 ### Window copy correction
 
 The owner rejected the direction02 manifesto wording and requested plain copy without the gradient. The window now reads “Research, language and data.” and “We build tools for transcribing interviews, searching documents, evaluating language models and checking claims.” Remove the full-window gradient; solid charcoal directly behind the heading and paragraph preserves readability. Keep the hero, rest of the page and renderer unchanged. The owner narrowed scope to this window change; no site-wide rewrite or performance-meter feature.
+
+### Homepage and retained secondary pages
+
+The navbar brand is `simulacro.tech`. At narrow widths its links can wrap without clipping. The owner asked about the rest of the site: keep the existing Projects and About implementations and localized routes while reviewing their role, rather than deleting them. Projects contains detail and open-source work beyond the homepage; the homepage links Molcajete, Adapta and Glasshouse to their local project anchors and adds an All projects link. LexGPT keeps its external product URL. The existing secondary-page typography, layout and content remain unchanged.
+
+The full-site preview builds the actual Astro routes. Its packaging helper changes directory hrefs to explicit index.html documents only inside the frozen artifact because the preview server does not resolve directory indexes; production source uses normal directory routes. `checks/site-navigation.js` was observed failing when project links left the preview, then passing after local routing; it covers project-to-home navigation and the brand/overflow at390 and320 pixels.
