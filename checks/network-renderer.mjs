@@ -14,7 +14,7 @@ function render(width,height,dpr=1){
   const pending=new Map(),events=new Map();let next=0;
   const canvas={dataset:{},getContext:()=>ctx};
   const controls=[{},{}];
-  const realm=vm.createContext({innerWidth:width,innerHeight:height,devicePixelRatio:dpr,document:{hidden:false,querySelector:()=>canvas,querySelectorAll:()=>controls,addEventListener:(name,fn)=>events.set(name,fn)},matchMedia:()=>({matches:false,addEventListener(){}}),addEventListener:(name,fn)=>events.set(name,fn),requestAnimationFrame:fn=>{pending.set(++next,fn);return next;},cancelAnimationFrame:id=>pending.delete(id)});
+  const realm=vm.createContext({innerWidth:width,innerHeight:height,devicePixelRatio:dpr,scrollY:0,document:{hidden:false,querySelector:()=>canvas,querySelectorAll:()=>controls,addEventListener:(name,fn)=>events.set(name,fn)},matchMedia:()=>({matches:false,addEventListener(){}}),addEventListener:(name,fn)=>events.set(name,fn),requestAnimationFrame:fn=>{pending.set(++next,fn);return next;},cancelAnimationFrame:id=>pending.delete(id)});
   controls.forEach(control=>control.setAttribute=()=>{});
   vm.runInContext('globalThis.vectorAllocations=0;const originalMap=Array.prototype.map;Array.prototype.map=function(...args){vectorAllocations++;return originalMap.apply(this,args)};',realm);
   vm.runInContext(script,realm);
