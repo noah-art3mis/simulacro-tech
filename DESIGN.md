@@ -97,3 +97,7 @@ Resolved the five findings: replaced the floating Pause control with synchronize
 This remains a design review, with full production CI deferred until the design is settled. Physical devices, screen-reader output, complete camera cycles, exhaustive per-frame contrast, external-link availability and slow-resource layout shifts remain outside the completed checks.
 
 Latest motion adjustment: pointer steering amplitude is halved on both axes (125 horizontal, 105 vertical). Automatic camera path, speed and pointer easing remain unchanged.
+
+## Alternative: human signal copy on the network
+
+The owner requested a separate candidate applying the original direction 02 hero and window copy to the selected network design. Preserve the selected `design/network` branch. This variant is `design/network-human-copy`; its visual owner and Astro root remain the same files. Keep the established palette, project copy, footer, motion controls and halved pointer response. Adapt window typography for the longer text; do not silently redesign the visualization in this copy comparison.
