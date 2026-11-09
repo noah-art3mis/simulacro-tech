@@ -97,3 +97,13 @@ Resolved the five findings: replaced the floating Pause control with synchronize
 This remains a design review, with full production CI deferred until the design is settled. Physical devices, screen-reader output, complete camera cycles, exhaustive per-frame contrast, external-link availability and slow-resource layout shifts remain outside the completed checks.
 
 Latest motion adjustment: pointer steering amplitude is halved on both axes (125 horizontal, 105 vertical). Automatic camera path, speed and pointer easing remain unchanged.
+
+### Network performance follow-up – 2026-11-09
+
+The owner reported stuttering after prolonged viewing. A paced 56-second Chrome run at 1440×1000, DPR1 stayed at60Hz without duplicate callbacks or monotonically growing heap; sustained degradation was not reproduced in this environment. Synthetic6× CPU contention did reproduce poor headroom. Ranked probes were main-thread frame work, allocation churn and high-DPI raster costs.
+
+Reuse projected point records, active flags, visible lists and edge buckets rather than creating per-point vectors and objects each frame. Batch lines into64 fine opacity groups, preserving every point, connection, camera position, pointer response, colour and point opacity; edge opacity rounds by at most0.00254 and overlapping edges share batched compositing. The deterministic canvas test pins geometry and point draw order, bounds vector-map allocation and line submissions, and was observed failing before each optimization. Desktop baseline temporary vector allocations were6424 per frame, now3; edge submissions approximately1682 per frame, now48 in the pinned sequence. Full command hashes match after buffer reuse; geometry hashes match after batching.
+
+Independent paced browser measurements: normal render callback median/p95 2.9/4.0ms baseline versus0.9/1.3ms final;6× CPU contention 19.0/26.1ms versus6.2/9.2ms. Observed heap peaks fell58–67%. Same browser/viewport/instrumentation, but camera phases and external machine load were not perfectly controlled, so relative effect sizes are observational estimates. Synthetic6× playback still missed60fps despite the callback improvement; raster/compositor and external load remain possible limits. No confirmed memory leak, GPU diagnosis or reproduction on the owner's physical device. Detailed raw logs remain in ignored `var/network-browser-perf/`.
+
+Manual reproducible checks: `node checks/network-renderer.mjs`; `checks/network-frame-budget.js` runs through playwright-cli on an open actual homepage; existing motion and navigation browser checks remain applicable. Final production CI is deferred while design iteration continues. Apply the same renderer to both network-copy branches.

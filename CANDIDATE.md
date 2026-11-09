@@ -19,3 +19,5 @@ playwright-cli -s=network-check close
 ```
 
 It reproduces and pins the mobile Contact-link omission found during review. This is a focused browser check, not the final production CI gate.
+
+Performance follow-up: the renderer reuses projection storage and batches edge drawing into64 fine opacity groups. It preserves geometry, density, camera path/speed and halved pointer steering. `node checks/network-renderer.mjs` checks desktop/mobile geometry plus allocation/submission budgets. See DESIGN.md for measured results and limits.
