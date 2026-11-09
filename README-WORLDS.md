@@ -44,3 +44,22 @@ These pages bring back the original “Technology that serves people” headline
 Motion inspection covers entered and overview states, pointer steering, paused canvas pixels, ordinary scrolling and reduced-motion static views. Independent review confirmed those behaviours and original content coverage. The phone control overlap in 02 and faded active contact link in 07 were corrected. Long camera cycles, physical-phone performance and a full accessibility audit remain unverified. Final production CI waits for the owner’s design choice.
 
 The motion pass also exposed heavy Canvas drawing in 02 and 04. Batched point/edge paths, cached shading and reduced mesh detail made both scenes smoother while retaining their scale and camera paths. Main-agent spot measurements after optimization were approximately 17 ms per frame for 02 and 33 ms for 04 at 1440×1000 in this browser; these are local samples, not device-wide performance guarantees.
+
+## Current site, more extreme
+
+`public/worlds/extreme/index.html` begins from the actual deployed homepage snapshot, rather than another layout template. It retains the current site's navigation, Crimson Pro / Space Grotesk typography, copy, service columns, alternating project rows, disciplines, biography, and contact form. It enlarges the type and imagery and starts inside a warm amber/ivory/violet perspective network on the first frame, with no entry gate. The live form endpoint is preserved; automated checks do not submit messages.
+
+The four conceptual project artworks were generated with the built-in `image_gen.imagegen` tool, inspected, and saved as:
+
+- `public/worlds/assets/extreme-adapta.webp` – parchment sheets shaped into a language landscape.
+- `public/worlds/assets/extreme-lexgpt.webp` – archival-book pages forming an illuminated arch.
+- `public/worlds/assets/extreme-glasshouse.webp` – hand-cast glass revealing folded paper.
+- `public/worlds/assets/extreme-molcajete.webp` – handmade paper/felt loops arranged as a conversation.
+
+Exact prompts and tool metadata are retained in `public/worlds/assets/extreme-artwork.json`; original generated PNGs remain in ignored `var/extreme-images/`. These are artistic illustrations, not product screenshots or research evidence. Original fonts are self-hosted with their OFL licences under `public/worlds/assets/current-fonts/`.
+
+The latest `next/04/index.html` replaces CPU-painted wireframe quads with three WebGL2 draw calls, smooth shaded amber/sage/lilac surfaces, shader distortion and default inside-flight. The visible compositing strip was reproduced and fixed. Local desktop frame timing improved substantially; physical-device performance remains unverified. Both candidates preserve ordinary scrolling and reduced-motion static views.
+
+`scripts/build-focused-preview.mjs` prepares a directly opened frozen preview for either `--entry extreme` or `--entry next/04`, so the current-site version can be reviewed without entering a comparison gallery. Production deployment and final CI remain outside this design iteration.
+
+Independent visual review found no remaining actionable defects in the final extreme and smooth-knot candidates. Desktop and phone content, images, menu, ordinary scrolling, and inside-first motion were inspected. Main-agent follow-up confirmed that the settled knot pause and both reduced-motion scenes produce unchanged captured frames. Physical-device performance, long camera cycles, exhaustive accessibility and actual form submission remain unverified. The focused previews include the full comparison collection for the knot's “All directions” navigation.
