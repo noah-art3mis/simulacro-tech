@@ -12,5 +12,29 @@
     "strokesPerFrame": 1399.857142857143,
     "vectorAllocations": 6424,
     "visiblePoints": 1224
+  },
+  "ultrahd": {
+    "hash": "17db4c12da71b9bb8dff2ded0ffebf2caed01d50cc71d54679d27aa7d72e9ea0",
+    "geometryHash": "091889211df821bd8412546d61116635424cefc0c5eafba15702ea4687df958d",
+    "strokesPerFrame": 48,
+    "vectorAllocations": 3,
+    "visiblePoints": 1591,
+    "backingPixels": 8294400
+  },
+  "retina": {
+    "hash": "5c1b8537b59995215ff70ec8544367ca24bd38a7a3353af7e1ec2940de287a82",
+    "geometryHash": "7ccc611786412c29d679697085df4685979a60b83bdc300f97b048f76e27d9dc",
+    "strokesPerFrame": 48,
+    "vectorAllocations": 3,
+    "visiblePoints": 1378,
+    "backingPixels": 4161600
+  },
+  "ultrahdRetina": {
+    "hash": "c0917e541086fb783509ae4bbf52d33843f38a75d6928171347d2c7ab74a3ad3",
+    "geometryHash": "091889211df821bd8412546d61116635424cefc0c5eafba15702ea4687df958d",
+    "strokesPerFrame": 48,
+    "vectorAllocations": 3,
+    "visiblePoints": 1591,
+    "backingPixels": 23970816
   }
 }
