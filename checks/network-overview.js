@@ -16,11 +16,14 @@ async page => {
   if(await page.locator('canvas').count()!==1)throw new Error('Overview must reuse the existing canvas');
   await page.waitForFunction(()=>document.querySelector('#network').dataset.view==='overview');
   await page.waitForTimeout(1500);
+  await page.getByRole('button',{name:'Pause motion',exact:true}).click();
+  await page.waitForTimeout(80);
   const still=await canvas.getAttribute('data-camera-phase');
   const draws=await page.evaluate(()=>window.__overviewDraws);
   await page.waitForTimeout(200);
   if(await canvas.getAttribute('data-camera-phase')!==still)throw new Error('The big picture must settle so it can be read');
-  if(await page.evaluate(()=>window.__overviewDraws)!==draws)throw new Error('The settled overview must stop drawing frames');
+  if(await page.evaluate(()=>window.__overviewDraws)!==draws)throw new Error('The paused overview must stop drawing frames');
+  await page.getByRole('button',{name:'Resume motion',exact:true}).click();
   await page.getByRole('button',{name:'Back to the network',exact:true}).first().click();
   await page.waitForFunction(()=>document.querySelector('#network').dataset.view==='network');
   if(await overview.isVisible())throw new Error('Overview labels must leave when returning to the network');
@@ -41,5 +44,5 @@ async page => {
   await page.waitForTimeout(50);
   if(await canvas.getAttribute('data-view')!=='overview')throw new Error('Reduced motion must switch to the overview immediately');
   await page.emulateMedia({reducedMotion:'no-preference'});
-  return {overview:'unlabelled structures, settled',canvas:'reused',return:'moving network restored',pause:'preserved',reducedMotion:'immediate'};
+  return {overview:'actual network, paused on demand',canvas:'reused',return:'moving network restored',pause:'preserved',reducedMotion:'immediate'};
 }

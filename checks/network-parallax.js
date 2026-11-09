@@ -19,6 +19,9 @@ async page => {
   await page.emulateMedia({reducedMotion:'no-preference'});
   await page.locator('.interlude .overview-control').click();
   await page.waitForFunction(()=>document.querySelector('#network').dataset.view==='overview');
+  const pause=page.getByRole('button',{name:'Pause motion',exact:true});
+  if(await pause.count())await pause.click();
+  await page.waitForTimeout(80);
   const revision=await canvas.getAttribute('data-view-revision');
   await page.evaluate(()=>scrollBy({top:100,behavior:'instant'}));await page.waitForTimeout(150);
   if(await canvas.getAttribute('data-view-revision')!==revision)throw new Error('Page scroll must not redraw or move the settled interactive overview');

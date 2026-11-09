@@ -19,7 +19,8 @@ async page => {
   if(Number(await canvas.getAttribute('data-overview-yaw'))===keyed)throw new Error('Keyboard arrows must orbit the focused overview');
   await page.locator('.overview-reset').click();await page.waitForTimeout(50);
   if(Math.abs(Number(await canvas.getAttribute('data-overview-yaw')))>1e-6||Math.abs(Number(await canvas.getAttribute('data-overview-pitch')))>1e-6||Math.abs(Number(await canvas.getAttribute('data-overview-zoom'))-1)>1e-6)throw new Error('Reset must restore the fitted camera');
+  await page.getByRole('button',{name:'Pause motion',exact:true}).click();await page.waitForTimeout(80);
   const revision=await canvas.getAttribute('data-view-revision');await page.waitForTimeout(250);
-  if(await canvas.getAttribute('data-view-revision')!==revision)throw new Error('The interactive overview must stop rendering when idle');
-  return {drag:'changes rendered camera',zoom:'bounded',keyboard:'works',reset:'fitted view',idle:'no redraw'};
+  if(await canvas.getAttribute('data-view-revision')!==revision)throw new Error('The interactive overview must stop rendering when paused');
+  return {drag:'changes rendered camera',zoom:'bounded',keyboard:'works',reset:'fitted view',paused:'no redraw'};
 }
