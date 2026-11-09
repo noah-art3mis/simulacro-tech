@@ -1,13 +1,14 @@
 async page => {
   const home=new URL('/',page.url()).href;
   await page.goto(home);
-  const button=page.getByRole('button',{name:'See the big picture',exact:true}).first();
+  if(await page.locator('.hero .overview-control').count())throw new Error('The big-picture control belongs only in the second network window');
+  const button=page.locator('.interlude .overview-control');
   if(!await button.count())throw new Error('The network must offer a See the big picture control');
   await page.evaluate(()=>{const ctx=document.querySelector('#network').getContext('2d'),clear=ctx.clearRect.bind(ctx);window.__overviewDraws=0;ctx.clearRect=(...args)=>{window.__overviewDraws++;return clear(...args)}});
   await button.focus();await page.keyboard.press('Enter');
   const overview=page.getByRole('group',{name:'Network overview',exact:true});
   await overview.waitFor({state:'visible'});
-  if(await overview.locator('[data-overview-label]').count()<3)throw new Error('The big picture must have readable group labels');
+  if(await overview.locator('[data-overview-label]').count())throw new Error('The ordered structures must not have visible category names');
   const canvas=page.locator('#network');
   if(await page.locator('canvas').count()!==1)throw new Error('Overview must reuse the existing canvas');
   await page.waitForFunction(()=>document.querySelector('#network').dataset.view==='overview');
@@ -37,5 +38,5 @@ async page => {
   await page.waitForTimeout(50);
   if(await canvas.getAttribute('data-view')!=='overview')throw new Error('Reduced motion must switch to the overview immediately');
   await page.emulateMedia({reducedMotion:'no-preference'});
-  return {overview:'labelled and settled',canvas:'reused',return:'moving network restored',pause:'preserved',reducedMotion:'immediate'};
+  return {overview:'unlabelled structures, settled',canvas:'reused',return:'moving network restored',pause:'preserved',reducedMotion:'immediate'};
 }

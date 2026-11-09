@@ -1,9 +1,4 @@
 ---
-import { readFile } from 'node:fs/promises';
-
-const html = (await readFile('public/worlds/next/07/index.html', 'utf8'))
-  .replaceAll('../../assets/', '/worlds/assets/')
-  .replaceAll('href="../../index.html', 'href="/worlds/index.html')
-  .replaceAll('href="index.html"', 'href="/"');
+import NetworkHome from '../components/NetworkHome.astro';
 ---
-<Fragment set:html={html} />
+<NetworkHome lang="en" />

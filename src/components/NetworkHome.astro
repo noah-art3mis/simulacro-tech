@@ -1,0 +1,8 @@
+---
+import { readFile } from 'node:fs/promises';
+import { renderNetworkHome } from '../lib/render-network-home';
+import type { Lang } from '../i18n/ui';
+interface Props { lang: Lang; }
+const html = renderNetworkHome(await readFile('public/worlds/next/07/index.html', 'utf8'), Astro.props.lang);
+---
+<Fragment set:html={html} />
