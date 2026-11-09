@@ -30,3 +30,6 @@ vite.config.ts.timestamp-*
 
 # Local docs (design notes, internal references)
 docs/
+
+var/
+.playwright-cli/
