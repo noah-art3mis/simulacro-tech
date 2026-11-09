@@ -1,12 +1,11 @@
 ---
-import { ui, type Lang } from '../i18n/ui';
+import { ui, languages, type Lang } from '../i18n/ui';
 import { getLocalizedPath } from '../i18n/utils';
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const home = `${getLocalizedPath('/', lang).replace(/\/$/, '')}/`;
 const items = [
   { href: getLocalizedPath('/projects/', lang), label: ui[lang]['network.work'] },
-  { href: `${home}#approach`, label: ui[lang]['home.why.label'] },
   { href: getLocalizedPath('/about/', lang), label: ui[lang]['nav.about'] },
   { href: `${home}#contact`, label: ui[lang]['nav.contact'] },
 ];
@@ -17,7 +16,21 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
   <div class="site-links">
     {items.map(item => <a href={item.href} aria-current={!item.href.includes('#') && item.href.replace(/\/$/, '') === currentPath ? 'page' : undefined}>{item.label}</a>)}
   </div>
+  <div class="site-languages" role="group" aria-label={ui[lang]['network.language']}>
+    {(Object.keys(languages) as Lang[]).map(locale => <a href={`${getLocalizedPath(Astro.url.pathname, locale).replace(/\/$/, '')}/`} lang={locale} hreflang={locale} aria-label={languages[locale]} aria-current={locale === lang ? 'page' : undefined}>{locale.toUpperCase()}</a>)}
+  </div>
 </nav>
+<script>
+  const navigation = document.querySelector<HTMLElement>('.site-navigation');
+  if (navigation) {
+    const measure = () => {
+      document.documentElement.style.setProperty('--site-nav-height', `${navigation.offsetHeight}px`);
+      window.dispatchEvent(new Event('site-navigation-resize'));
+    };
+    measure();
+    new ResizeObserver(measure).observe(navigation);
+  }
+</script>
 <style>
   .site-navigation {
     --nav-background: #211d19;
@@ -27,13 +40,14 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
     --nav-gap: 30px;
     --nav-motion: 180ms;
     --nav-ease: cubic-bezier(.2,.7,.2,1);
-    position: relative;
-    z-index: 3;
+    position: sticky;
+    top: 0;
+    z-index: 30;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 24px;
-    padding: 23px var(--nav-inset);
+    padding: 16px var(--nav-inset);
     background: var(--nav-background);
     color: var(--nav-text);
     border-bottom: 2px solid var(--nav-text);
@@ -43,14 +57,24 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
   .site-navigation a { color: inherit; text-decoration: none; }
   .site-brand { display: inline-flex; align-items: center; flex: none; min-height: 36px; }
   .site-brand strong { font-size: 28px; font-weight: 700; letter-spacing: -1.8px; line-height: 1.2; }
-  .site-links { display: flex; flex-wrap: wrap; gap: 6px var(--nav-gap); }
+  .site-links { display: flex; flex-wrap: wrap; gap: 6px var(--nav-gap); margin-left: auto; }
+  .site-languages { display: flex; align-items: center; gap: 6px; }
+  .site-languages a { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; min-width: 28px; padding: 4px; font-size: 12px; }
+  .site-languages a[aria-current="page"] { color: var(--nav-accent); text-decoration: underline; text-underline-offset: .35em; }
+  :global(html) { scroll-padding-top: calc(var(--site-nav-height, 84px) + 12px); }
+  :global(a.skip-content) { z-index: 40; }
   .site-links a { position: relative; display: inline-flex; align-items: center; min-height: 36px; font-size: 13px; }
   .site-links a::after { content: ''; position: absolute; left: 0; right: 0; bottom: 2px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform var(--nav-motion) var(--nav-ease); }
   .site-links a[aria-current='page']::after, .site-links a:focus-visible::after { transform: scaleX(1); }
   .site-navigation a:focus-visible { outline: 3px solid var(--nav-accent); outline-offset: 5px; }
   .site-navigation a:active { opacity: .7; }
   @media (hover: hover) and (pointer: fine) { .site-links a:hover::after { transform: scaleX(1); } .site-brand:hover { color: var(--nav-accent); } }
-  @media (max-width: 700px) { .site-navigation { --nav-inset: 6vw; --nav-gap: 18px; flex-wrap: wrap; gap: 10px; padding: 20px var(--nav-inset); } .site-brand strong { font-size: 23px; } .site-links { flex-basis: 100%; } }
+  @media (max-width: 800px) {
+    .site-navigation { --nav-inset: 6vw; --nav-gap: 22px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 10px; padding: 10px var(--nav-inset); }
+    .site-brand strong { font-size: 23px; }
+    .site-links { grid-row: 2; grid-column: 1 / -1; margin-left: 0; }
+    .site-languages { grid-column: 2; grid-row: 1; }
+  }
   @media (pointer: coarse) { .site-navigation a { min-height: 44px; } }
   @media (prefers-reduced-motion: reduce) { .site-links a::after { transition: none; } }
 </style>

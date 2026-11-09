@@ -6,7 +6,7 @@ async page => {
       await page.goto(origin+locale+route);
       const nav=page.getByRole('navigation');
       if(await nav.count()!==1)throw new Error('Each page must render one shared navbar');
-      const links=await nav.getByRole('link').evaluateAll(nodes=>nodes.map(node=>({text:node.textContent.trim(),href:node.getAttribute('href')})));
+      const links=await nav.locator('a:not([hreflang])').evaluateAll(nodes=>nodes.map(node=>({text:node.textContent.trim(),href:node.getAttribute('href')})));
       if(!expected)expected=JSON.stringify(links);else if(JSON.stringify(links)!==expected)throw new Error(`${locale||'en'}: Home, Projects and About must use the same navbar links`);
       for(const width of [390,320]){await page.setViewportSize({width,height:844});if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw new Error(`${locale+route} must fit at ${width}px`);}
       if(route==='/projects/'){

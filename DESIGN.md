@@ -185,3 +185,9 @@ The three new behavioral checks were observed failing before implementation, the
 ### Overview annotations removed – latest authority
 
 The owner removed the entire callout treatment: no leader lines, labels, cards or hotspots appear in the overview. Their markup, styles, point-selection work and unused translations are removed. The slowly rotating actual graph, direct manipulation, Reset, global motion control and smooth copy return remain. This supersedes the persistent-guide treatment above.
+
+### Sticky shared navigation and language choices – latest authority
+
+The canonical Navigation.astro stays at the top while scrolling on Home, Projects and About in all three languages. It contains the brand, Work, About and Contact, followed by compact EN/PT/ES links with full accessible language names and an active-language underline. Language links preserve the current page. Approach remains a homepage section but is removed from navigation. Phones use two compact rows with the brand and languages above the page links.
+
+A ResizeObserver publishes the header height for anchor clearance and the overview canvas region; the existing overview resize handler consumes that height without another animation loop. Skip links stay above the header, section targets scroll below it, and the overview return and manipulation controls remain clear in short windows.
