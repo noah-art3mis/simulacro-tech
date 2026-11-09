@@ -3,16 +3,10 @@ import '../styles/site/projects-reading.css';
 import {
 	ArrowUpRight,
 	Github,
-	Mic,
-	ScanLine,
-	Gavel,
-	Library,
-	Presentation,
 } from 'lucide-astro';
 import WorkVisual from './illustrations/WorkVisual.astro';
 import { featuredProjects } from '../data/featuredProjects';
 import { ui, type Lang, type UIKey } from '../i18n/ui';
-import { getLocalizedPath } from '../i18n/utils';
 
 interface Props {
 	lang: Lang;
@@ -20,8 +14,6 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = (key: UIKey) => ui[lang][key];
-const homeHref = getLocalizedPath('/', lang);
-const contactHref = `${homeHref.replace(/\/$/, '')}/#contact`;
 
 type ProjectEntry = {
 	href?: string;
@@ -29,14 +21,12 @@ type ProjectEntry = {
 	descriptionKey: UIKey;
 	id: string;
 	name: string;
-	icon: typeof Mic;
 	statValues: readonly string[];
 };
 type OpenSourceEntry = {
 	kind: 'openSource';
 	id: string;
 	name: string;
-	icon: typeof Mic;
 	href: string;
 	repo: string;
 	statValues: readonly string[];
@@ -61,7 +51,6 @@ const systems: readonly ProjectEntry[] = [
 		taglineKey: 'projects.production.nopalero.tagline',
 		descriptionKey: 'projects.production.nopalero.description',
 		name: 'Nopalero',
-		icon: ScanLine,
 		statValues: ['48', '0'],
 	},
 	{
@@ -69,7 +58,6 @@ const systems: readonly ProjectEntry[] = [
 		taglineKey: 'projects.production.azulejo.tagline',
 		descriptionKey: 'projects.production.azulejo.description',
 		name: 'Azulejo',
-		icon: Presentation,
 		statValues: ['94', '<5 s'],
 	},
 ] as const;
@@ -79,7 +67,6 @@ const openSource: readonly OpenSourceEntry[] = [
 		kind: 'openSource',
 		id: 'judex',
 		name: 'Judex',
-		icon: Gavel,
 		href: 'https://github.com/noah-art3mis/judex-mini',
 		repo: 'noah-art3mis/judex-mini',
 		statValues: ['R$ 52', '0.93/s', '0.28/s', '4'],
@@ -88,7 +75,6 @@ const openSource: readonly OpenSourceEntry[] = [
 		kind: 'openSource',
 		id: 'zelador',
 		name: 'Zelador',
-		icon: Library,
 		href: 'https://github.com/noah-art3mis/zelador',
 		repo: 'noah-art3mis/zelador',
 		statValues: [],
@@ -97,7 +83,7 @@ const openSource: readonly OpenSourceEntry[] = [
 ---
 
 <section class="projects-intro">
-  <div>
+  <div class="projects-intro-copy">
     <h1>{t('projects.intro.heading')}</h1>
     <p>{t('meta.projects.description')}</p>
   </div>
@@ -108,10 +94,9 @@ const openSource: readonly OpenSourceEntry[] = [
   <h2 id="systems-title">{t('projects.section.systems')}</h2>
   <div class="project-details">
     {systems.map(p => {
-      const Icon = p.icon;
       return <article id={p.id} class="project-detail">
         <div class="project-identity">
-          <h3><Icon size={24} stroke-width={1.5} aria-hidden="true" /><span>{p.name}</span></h3>
+          <h3>{p.name}</h3>
           <WorkVisual {...projectVisuals[p.id as keyof typeof projectVisuals]} />
         </div>
         <div class="project-description">
@@ -131,10 +116,9 @@ const openSource: readonly OpenSourceEntry[] = [
   <h2 id="open-source-title">{t('projects.section.openSource')}</h2>
   <div class="project-details">
     {openSource.map(p => {
-      const Icon = p.icon;
       return <article id={p.id} class="project-detail">
         <div class="project-identity">
-          <h3><Icon size={24} stroke-width={1.5} aria-hidden="true" /><span>{p.name}</span></h3>
+          <h3>{p.name}</h3>
           <WorkVisual {...projectVisuals[p.id as keyof typeof projectVisuals]} />
           <a href={p.href} target="_blank" rel="noopener noreferrer" class="project-repository"><Github size={17} aria-hidden="true" /><span>{p.repo}</span><ArrowUpRight size={17} aria-hidden="true" /></a>
         </div>
@@ -152,5 +136,5 @@ const openSource: readonly OpenSourceEntry[] = [
 
 <section class="projects-cta">
   <h2>{t('projects.cta.heading')}</h2>
-  <div><p>{t('projects.cta.lede')}</p><a href={contactHref} class="project-link">{t('projects.cta.action')}<ArrowUpRight size={20} stroke-width={1.5} aria-hidden="true" /></a></div>
+  <p>{t('projects.cta.lede')}</p>
 </section>

@@ -1,7 +1,7 @@
 ---
-import { ui, languages, type Lang, type UIKey } from '../i18n/ui';
+import { ui, type Lang, type UIKey } from '../i18n/ui';
 import Navigation from '../components/Navigation.astro';
-import { getAlternates, getLocalizedPath } from '../i18n/utils';
+import { getAlternates } from '../i18n/utils';
 import { markdownPath } from '../lib/markdown-routes.mjs';
 import '../styles/site/reading-shell.css';
 interface Props { lang: Lang; titleKey: UIKey; descriptionKey: UIKey; }
@@ -31,9 +31,6 @@ const alternates = getAlternates(Astro.url.pathname, Astro.site?.origin ?? 'http
     <main id="content" tabindex="-1"><slot /></main>
     <footer class="reading-footer">
       <a class="reading-email" href="mailto:contact@simulacro.tech">contact@simulacro.tech</a>
-        <div class="reading-languages">
-          {(Object.keys(languages) as Lang[]).map(locale => <a href={getLocalizedPath(Astro.url.pathname, locale)} lang={locale} hreflang={locale} aria-current={locale === lang ? 'page' : undefined}>{languages[locale]}</a>)}
-        </div>
     </footer>
   </body>
 </html>

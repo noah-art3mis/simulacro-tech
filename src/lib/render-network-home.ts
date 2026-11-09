@@ -17,14 +17,11 @@ export function renderNetworkHome(source: string, lang: Lang): string {
   for (const [name, english, key] of [
     ['aria-label', 'Animated three-dimensional network', 'network.canvasLabel'],
     ['aria-label', 'Network overview', 'network.overviewLabel'],
-    ['aria-label', 'Language', 'network.language'],
     ['alt', "Simulacro's abstract mirrored artwork", 'network.artAlt'],
   ]) html = html.replace(`${name}="${english}"`, `${name}="${attr(t(key))}"`);
   const prefix = lang === 'en' ? '' : `/${lang}`;
   html = html.replace(/href="\/(about|projects)(\/[^\"]*)?"/g,
     (_match, route, suffix = '') => `href="${prefix}/${route}${suffix}"`);
-  html = html.replace(/(<a href="[^\"]*" lang="([a-z]+)" hreflang="[a-z]+")([^>]*)>/g,
-    (_match, link, locale) => `${link}${locale === lang ? ' aria-current="page"' : ''}>`);
   const alternates = (['en', 'pt', 'es'] as const).map(locale =>
     `<link rel="alternate" hreflang="${locale}" href="https://simulacro.tech/${locale === 'en' ? '' : `${locale}/`}">`).join('');
   return html.replace('</head>', `<meta name="description" content="${attr(t('meta.home.description'))}">${alternates}</head>`);

@@ -5,6 +5,7 @@ async page => {
     for(const route of ['/','/projects/','/about/']){
       await page.goto(origin+locale+route);
       const nav=page.getByRole('navigation');
+      if(await page.locator('.language-links,.reading-languages').count())throw new Error('Language choices belong only in the shared navbar');
       if(await nav.count()!==1)throw new Error('Each page must render one shared navbar');
       const links=await nav.locator('a:not([hreflang])').evaluateAll(nodes=>nodes.map(node=>({text:node.textContent.trim(),href:node.getAttribute('href')})));
       if(!expected)expected=JSON.stringify(links);else if(JSON.stringify(links)!==expected)throw new Error(`${locale||'en'}: Home, Projects and About must use the same navbar links`);

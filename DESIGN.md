@@ -191,3 +191,11 @@ The owner removed the entire callout treatment: no leader lines, labels, cards o
 The canonical Navigation.astro stays at the top while scrolling on Home, Projects and About in all three languages. It contains the brand, Home, Work, About and Contact, followed by compact EN/PT/ES links with full accessible language names and an active-language underline. Language links preserve the current page. Approach remains a homepage section but is removed from navigation. Phones use two compact rows with the brand and languages above the page links.
 
 A ResizeObserver publishes the header height for anchor clearance and the overview canvas region; the existing overview resize handler consumes that height without another animation loop. Skip links stay above the header, section targets scroll below it, and the overview return and manipulation controls remain clear in short windows.
+
+### Footer language links and landing-page scale – latest authority
+
+Language choices now appear only in the shared sticky navbar. Duplicate language rows are removed from the homepage contact section and the Projects/About footer; email links and hreflang metadata remain.
+
+The second-window overview button is reduced to roughly half its previous width and type scale, remaining centered, rectangular and unanimated. The global fixed motion control also uses square corners. Projects reuses its original line illustration as an oversized, cropped header background with readable copy; downstream project illustrations remain. Small decorative icons are removed from project headings, while functional repository and link icons remain.
+
+The Work closing section now contains only its translated heading and description, with spacing and typography balanced for that content. The “Start a conversation” action is removed in every language; the footer email remains the contact destination.
