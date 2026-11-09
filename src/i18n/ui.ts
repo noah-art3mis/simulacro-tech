@@ -21,6 +21,7 @@ export const ui = {
 			'Selected work in AI infrastructure, NLP, and applied research.',
 
 		'nav.home': 'Home',
+		'nav.skipContent': 'Skip to content',
 		'nav.about': 'About',
 		'nav.projects': 'Projects',
 		'nav.contact': 'Contact',
@@ -211,6 +212,7 @@ export const ui = {
 			'Trabalhos selecionados em infraestrutura de IA, PLN e pesquisa aplicada.',
 
 		'nav.home': 'Início',
+		'nav.skipContent': 'Pular para o conteúdo',
 		'nav.about': 'Sobre',
 		'nav.projects': 'Projetos',
 		'nav.contact': 'Contato',
@@ -402,6 +404,7 @@ export const ui = {
 			'Trabajos seleccionados en infraestructura de IA, PLN e investigación aplicada.',
 
 		'nav.home': 'Inicio',
+		'nav.skipContent': 'Saltar al contenido',
 		'nav.about': 'Sobre mí',
 		'nav.projects': 'Proyectos',
 		'nav.contact': 'Contacto',

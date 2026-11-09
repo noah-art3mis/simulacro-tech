@@ -1,170 +1,49 @@
 ---
-import WorkVisual from './illustrations/WorkVisual.astro';
-import { GraduationCap, Briefcase, ExternalLink } from 'lucide-astro';
+import { ArrowUpRight } from 'lucide-astro';
 import { ui, type Lang, type UIKey } from '../i18n/ui';
-
-interface Props {
-	lang: Lang;
-}
-
+interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const t = (key: UIKey) => ui[lang][key];
+const links = [
+  { href: 'https://linkedin.com/in/gustavoarcos', label: 'LinkedIn' },
+  { href: 'https://github.com/noah-art3mis', label: 'GitHub' },
+  { href: 'https://simulacro.cv', label: t('about.links.cv') },
+  { href: 'https://simulacro.co.uk', label: t('about.links.essays') },
+  { href: 'https://gustavocosta.psc.br', label: t('about.links.philosophy') },
+];
+const education = [
+  { title: t('about.education.degree1.title'), place: 'London Interdisciplinary School' },
+  { title: t('about.education.degree2.title'), place: 'Faculdade Inspirar' },
+  { title: t('about.education.degree3.title'), place: 'Universidade de Brasília' },
+];
+const experience = ['leadEngineer', 'research', 'psychotherapy', 'writing'] as const;
 ---
-
-<!-- ─────────── Hero ─────────── -->
-<section class="screen-hero relative pt-16 pb-20">
-	{<div class="screen-hero-art" aria-hidden="true"><WorkVisual kind="hero" /></div>}
-	<!-- A single, soft amber wash — about pages are introspective, not blasted -->
-	<div class="glow-orb w-[420px] h-[420px] -top-32 -right-32 opacity-50"></div>
-
-	<div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
-		<div class="max-w-3xl">
-			<h1 class="text-[clamp(3rem,7vw,6rem)] leading-[0.95] mb-8 animate-fade-up">
-				Gustavo Costa
-			</h1>
-			<p class="text-xl md:text-2xl text-[var(--color-text-muted)] leading-relaxed animate-fade-up animate-delay-1 max-w-2xl text-pretty">
-				{t('about.subtitle')}
-			</p>
-		</div>
-	</div>
+<section class="reading-intro">
+  <h1>Gustavo Costa</h1>
+  <p>{t('about.subtitle')}</p>
 </section>
-
-<!-- ─────────── Bio ─────────── -->
-<!-- Drop-cap on the first paragraph; subsequent paragraphs are quieter. -->
-<section class="about-bio py-16 md:py-20">
-	<div class="max-w-6xl mx-auto px-6 lg:px-8">
-		<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
-			<div class="lg:col-span-8 space-y-7">
-				<p class="drop-cap text-lg text-[var(--color-text-muted)] leading-[1.7] text-pretty">
-					{t('about.bio.p1')}
-				</p>
-				<p class="text-lg text-[var(--color-text-muted)] leading-[1.7] text-pretty">
-					{t('about.bio.p2')}
-				</p>
-				<p class="text-lg text-[var(--color-text-muted)] leading-[1.7] text-pretty">
-					{t('about.bio.p3')}
-				</p>
-			</div>
-
-			<div class="lg:col-span-4">
-				<div class="glass-card glass-card-service p-7 sticky top-28">
-					<h2 class="font-sans text-sm font-semibold text-[var(--color-text)] mb-5">
-						{t('about.links.heading')}
-					</h2>
-					<div class="space-y-3">
-						<a
-							href="https://simulacro.cv"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="flex items-center justify-between text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors group py-1"
-						>
-							<span>{t('about.links.cv')}</span>
-							<ExternalLink
-								size={14}
-								class="opacity-40 group-hover:opacity-100 group-hover:text-[var(--color-accent)] transition-all"
-							/>
-						</a>
-						<a
-							href="https://simulacro.co.uk"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="flex items-center justify-between text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors group py-1"
-						>
-							<span>{t('about.links.essays')}</span>
-							<ExternalLink
-								size={14}
-								class="opacity-40 group-hover:opacity-100 group-hover:text-[var(--color-accent)] transition-all"
-							/>
-						</a>
-						<a
-							href="https://gustavocosta.psc.br"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="flex items-center justify-between text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors group py-1"
-						>
-							<span>{t('about.links.philosophy')}</span>
-							<ExternalLink
-								size={14}
-								class="opacity-40 group-hover:opacity-100 group-hover:text-[var(--color-accent)] transition-all"
-							/>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<section class="reading-bio">
+  <div class="reading-prose">
+    <p>{t('about.bio.p1')}</p>
+    <p>{t('about.bio.p2')}</p>
+    <p>{t('about.bio.p3')}</p>
+  </div>
+  <aside class="reading-links" aria-labelledby="links-title">
+    <h2 id="links-title">{t('about.links.heading')}</h2>
+    {links.map(link => <a href={link.href} target="_blank" rel="noopener noreferrer"><span>{link.label}</span><ArrowUpRight size={20} stroke-width={1.5} aria-hidden="true" /></a>)}
+  </aside>
 </section>
-
-<!-- ─────────── Education & Experience ─────────── -->
-<!-- A more deliberate timeline: amber rule on the latest entry, faded on older ones. -->
-<section class="about-history py-20 md:py-24 relative">
-	<div class="max-w-6xl mx-auto px-6 lg:px-8">
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-			<!-- Education -->
-			<div class="glass-card glass-card-service p-8 md:p-10">
-				<div class="flex items-center gap-4 mb-10">
-					<div class="icon-box">
-						<GraduationCap size={22} />
-					</div>
-					<h2 class="text-2xl md:text-3xl">{t('about.education.heading')}</h2>
-				</div>
-
-				<div class="space-y-7">
-					<div class="border-l-2 border-[var(--color-accent)] pl-6">
-						<h3 class="font-semibold mb-1.5 text-[var(--color-text)]">{t('about.education.degree1.title')}</h3>
-						<p class="text-sm text-[var(--color-text-muted)]">London Interdisciplinary School</p>
-					</div>
-					<div class="border-l-2 border-[var(--color-border)] pl-6">
-						<h3 class="font-semibold mb-1.5">{t('about.education.degree2.title')}</h3>
-						<p class="text-sm text-[var(--color-text-muted)]">Faculdade Inspirar</p>
-					</div>
-					<div class="border-l-2 border-[var(--color-border)] pl-6">
-						<h3 class="font-semibold mb-1.5">{t('about.education.degree3.title')}</h3>
-						<p class="text-sm text-[var(--color-text-muted)]">Universidade de Brasília</p>
-					</div>
-				</div>
-			</div>
-
-			<!-- Experience -->
-			<div class="glass-card glass-card-service p-8 md:p-10">
-				<div class="flex items-center gap-4 mb-10">
-					<div class="icon-box">
-						<Briefcase size={22} />
-					</div>
-					<h2 class="text-2xl md:text-3xl">{t('about.experience.heading')}</h2>
-				</div>
-
-				<div class="space-y-7">
-					<div class="border-l-2 border-[var(--color-accent)] pl-6">
-						<h3 class="font-semibold mb-1.5">{t('about.experience.leadEngineer.title')}</h3>
-						<p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
-							{t('about.experience.leadEngineer.details')}
-						</p>
-						<p class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-muted)]/60 mt-2">{t('about.experience.leadEngineer.dates')}</p>
-					</div>
-					<div class="border-l-2 border-[var(--color-border)] pl-6">
-						<h3 class="font-semibold mb-1.5">{t('about.experience.research.title')}</h3>
-						<p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
-							{t('about.experience.research.details')}
-						</p>
-						<p class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-muted)]/60 mt-2">{t('about.experience.research.dates')}</p>
-					</div>
-					<div class="border-l-2 border-[var(--color-border)] pl-6">
-						<h3 class="font-semibold mb-1.5">{t('about.experience.psychotherapy.title')}</h3>
-						<p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
-							{t('about.experience.psychotherapy.details')}
-						</p>
-						<p class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-muted)]/60 mt-2">{t('about.experience.psychotherapy.dates')}</p>
-					</div>
-					<div class="border-l-2 border-[var(--color-border)] pl-6">
-						<h3 class="font-semibold mb-1.5">{t('about.experience.writing.title')}</h3>
-						<p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
-							{t('about.experience.writing.details')}
-						</p>
-						<p class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-muted)]/60 mt-2">{t('about.experience.writing.dates')}</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<section class="reading-history">
+  <div>
+    <h2>{t('about.education.heading')}</h2>
+    <div class="history-entries">
+      {education.map(item => <article><h3>{item.title}</h3><p>{item.place}</p></article>)}
+    </div>
+  </div>
+  <div>
+    <h2>{t('about.experience.heading')}</h2>
+    <div class="history-entries">
+      {experience.map(key => <article><h3>{t(`about.experience.${key}.title`)}</h3><p>{t(`about.experience.${key}.details`)}</p><p class="history-date">{t(`about.experience.${key}.dates`)}</p></article>)}
+    </div>
+  </div>
 </section>

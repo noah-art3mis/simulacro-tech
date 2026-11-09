@@ -31,7 +31,7 @@ if(!process.argv.includes('--record')){
   const golden=JSON.parse(readFileSync(new URL('./network-renderer-golden.json',import.meta.url),'utf8'));
   for(const size of Object.keys(result)){
     assert.equal(result[size].geometryHash,golden[size].geometryHash,`${size} rendering must preserve the scene, camera, pointer response and draw order`);
-    assert.ok(result[size].backingPixels<=3_686_400,`Background exceeds QHD pixel budget: ${result[size].backingPixels}`);
+    assert.ok(result[size].backingPixels<=1_440_000,`Background exceeds 900p pixel budget: ${result[size].backingPixels}`);
     assert.ok(result[size].strokesPerFrame<100,`Too many individual line submissions: ${result[size].strokesPerFrame}`);
     assert.ok(result[size].vectorAllocations<100,`Renderer allocates ${result[size].vectorAllocations} temporary vectors per frame; reuse projection storage to avoid sustained GC pressure`);
   }

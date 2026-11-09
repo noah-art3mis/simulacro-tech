@@ -33,3 +33,11 @@ The current comparison now includes the full Astro site, preserving original Pro
 4K follow-up: the network background now has a2560×1440 pixel-area ceiling, preserving aspect ratio. This reduces raster work on large/high-DPI windows; page text remains native resolution. See DESIGN.md for the reproduced Zen failure and measurement limits.
 
 Window description now reads: “Built with transparency, accountability and human impact in mind.”
+
+## Current polish and overview
+
+The homepage now links to a matching static About page, with the existing translated biography/history and the LinkedIn, GitHub, CV, Essays and Philosophy links. Its owners are `src/components/AboutPage.astro`, `src/layouts/AboutLayout.astro` and `src/styles/site/about-reading.css`; all three About locales use them. Footer copyright/rights/llms and build captions are no longer displayed. The llms.txt and Markdown endpoints remain available.
+
+Homepage interaction feedback uses shared short CSS timing, native focus/press states and SVG arrows, with coarse-pointer and reduced-motion handling. LexGPT and Glasshouse have revised custom symbols; Adapta and Molcajete are unchanged. Hero and window copy remain unchanged.
+
+The hero’s “See the big picture” toggle morphs the existing canvas points into People, Language, Research and Systems, then stops drawing. Return restores the camera and prior pause state; reduced motion switches immediately. Labels are HTML and the button exposes its pressed state. Default scene geometry remains pinned by the existing fixtures. The background now has a 1600×900 pixel-area ceiling, superseding QHD, with softer large-screen edges as the deliberate performance tradeoff. Focused checks live in `checks/network-overview.js`, `checks/network-overview-layout.js`, `checks/network-renderer.mjs` and the About navigation/keyboard checks. Design iteration and user review remain open.

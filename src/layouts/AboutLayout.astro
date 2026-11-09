@@ -1,0 +1,45 @@
+---
+import { ui, languages, type Lang, type UIKey } from '../i18n/ui';
+import { getAlternates, getLocalizedPath } from '../i18n/utils';
+import { markdownPath } from '../lib/markdown-routes.mjs';
+import '../styles/site/about-reading.css';
+interface Props { lang: Lang; titleKey: UIKey; descriptionKey: UIKey; }
+const { lang, titleKey, descriptionKey } = Astro.props;
+const t = (key: UIKey) => ui[lang][key];
+const home = getLocalizedPath('/', lang);
+const alternates = getAlternates(Astro.url.pathname, Astro.site?.origin ?? 'https://simulacro.tech');
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#211d19" />
+    <meta name="description" content={t(descriptionKey)} />
+    <title>{t(titleKey)}</title>
+    <link rel="icon" href="/simulacro.png" />
+    <link rel="stylesheet" href="/worlds/assets/current-fonts/fonts.css" />
+    <link rel="alternate" type="text/markdown" href={markdownPath(Astro.url.pathname)} />
+    {alternates.map(alt => <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />)}
+  </head>
+  <body>
+    <a class="skip-content" href="#content">{t('nav.skipContent')}</a>
+    <header class="reading-header">
+      <a class="reading-brand" href={home}>simulacro.tech</a>
+      <nav aria-label={t('nav.about')}>
+        <a href={home}>{t('nav.home')}</a>
+        <a href={getLocalizedPath('/projects/', lang)}>{t('nav.projects')}</a>
+        <a href={getLocalizedPath('/about/', lang)} aria-current="page">{t('nav.about')}</a>
+        <a href={`${home.replace(/\/$/, '')}/#contact`}>{t('nav.contact')}</a>
+      </nav>
+    </header>
+    <main id="content" tabindex="-1"><slot /></main>
+    <footer class="reading-footer">
+      <a class="reading-email" href="mailto:contact@simulacro.tech">contact@simulacro.tech</a>
+        <div class="reading-languages">
+          {(Object.keys(languages) as Lang[]).map(locale => <a href={getLocalizedPath('/about/', locale)} lang={locale} hreflang={locale} aria-current={locale === lang ? 'page' : undefined}>{languages[locale]}</a>)}
+        </div>
+    </footer>
+  </body>
+</html>

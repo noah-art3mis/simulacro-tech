@@ -5,13 +5,11 @@ import { getLocalizedPath } from '../i18n/utils';
 
 interface Props {
 	lang: Lang;
-	buildDate?: string;
 }
 
-const { lang, buildDate } = Astro.props;
+const { lang } = Astro.props;
 const t = (key: UIKey) => ui[lang][key];
 const homeHref = getLocalizedPath('/', lang);
-const year = new Date().getFullYear();
 ---
 
 <footer class="border-t border-[var(--color-border)] mt-auto bg-[var(--color-bg-elevated)]/50 relative overflow-hidden">
@@ -19,7 +17,7 @@ const year = new Date().getFullYear();
 	<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--color-accent)]/30 to-transparent"></div>
 
 	<div class="max-w-6xl mx-auto px-6 lg:px-8 pt-20 pb-10">
-		<div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 pb-12 border-b border-[var(--color-border)]">
+		<div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
 			<!-- Brand -->
 			<div class="md:col-span-5">
 				<a href={homeHref} class="flex items-center gap-3 mb-4">
@@ -141,15 +139,5 @@ const year = new Date().getFullYear();
 			</div>
 		</div>
 
-		<!-- ─── Signoff line ─── -->
-		<div class="pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs text-[var(--color-text-muted)]">
-			<p>&copy; {year} Simulacro Tech · {t('footer.copyright')} · <a href="/llms.txt" class="hover:text-[var(--color-text)] transition-colors">llms.txt</a></p>
-			{buildDate && (
-				<p class="flex items-center gap-2">
-					<span class="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]/60"></span>
-					<span>{t('footer.build.label')} · {buildDate}</span>
-				</p>
-			)}
-		</div>
 	</div>
 </footer>
