@@ -181,3 +181,7 @@ All three annotations remain visible as short translated labels – Neighborhood
 The window retains its section height while entering and leaving the overview. On return, its heading and description reveal over 420ms with opacity and a small vertical rise after the camera arrives; the rectangular CTA remains unanimated. Reduced motion reveals immediately, including when the preference changes during the reveal. Canvas copyState and the overview busy state track completion.
 
 The three new behavioral checks were observed failing before implementation, then passing. Targeted regressions cover spin/Pause/reduced motion, all three localized guides, copy return including a reduced-motion change mid-reveal, orbit/zoom/reset, original graph reuse, parallax, short viewport fit and translations. Five normal-renderer geometry fixtures remain unchanged. Independent Astra low review found no actionable issues across EN/PT/ES at 1440/390/320, including short windows and extreme orbit/zoom. A full spin revolution, physical touch testing and prolonged device sessions remain unverified. Final production CI remains deferred during visual iteration.
+
+### Overview annotations removed – latest authority
+
+The owner removed the entire callout treatment: no leader lines, labels, cards or hotspots appear in the overview. Their markup, styles, point-selection work and unused translations are removed. The slowly rotating actual graph, direct manipulation, Reset, global motion control and smooth copy return remain. This supersedes the persistent-guide treatment above.

@@ -31,11 +31,8 @@ export const ui = {
 		"network.exploreHint": "Drag to rotate. Scroll or pinch to zoom.",
 		"network.reset": "Reset view",
 
-		"network.neighborhoodTitle": "Neighborhood",
 
-		"network.strandTitle": "Strand",
 
-		"network.depthTitle": "Depth",
 
 		"network.canvasLabel": "Animated three-dimensional network",
 		"network.artAlt": "Simulacro's abstract mirrored artwork",
@@ -257,11 +254,8 @@ export const ui = {
 		"network.exploreHint": "Arraste para girar. Role ou use dois dedos para ampliar.",
 		"network.reset": "Restaurar vista",
 
-		"network.neighborhoodTitle": "Vizinhança",
 
-		"network.strandTitle": "Fio",
 
-		"network.depthTitle": "Profundidade",
 
 		"network.canvasLabel": "Rede tridimensional animada",
 		"network.artAlt": "Arte abstrata espelhada da Simulacro",
@@ -484,11 +478,8 @@ export const ui = {
 		"network.exploreHint": "Arrastra para girar. Usa la rueda o dos dedos para ampliar.",
 		"network.reset": "Restablecer vista",
 
-		"network.neighborhoodTitle": "Vecindad",
 
-		"network.strandTitle": "Hilo",
 
-		"network.depthTitle": "Profundidad",
 
 		"network.canvasLabel": "Red tridimensional animada",
 		"network.artAlt": "Obra abstracta reflejada de Simulacro",
