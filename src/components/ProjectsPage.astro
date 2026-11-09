@@ -1,4 +1,5 @@
 ---
+import '../styles/site/projects-reading.css';
 import {
 	ArrowUpRight,
 	Github,
@@ -95,161 +96,61 @@ const openSource: readonly OpenSourceEntry[] = [
 ] as const;
 ---
 
-<!-- ════════════════════════════════════════════════
-     Masthead
-     ════════════════════════════════════════════════ -->
-<section class="screen-hero relative pt-20 pb-16">
-	{<div class="screen-hero-art" aria-hidden="true"><WorkVisual kind="hero" /></div>}
-	<div class="glow-orb w-[420px] h-[420px] -top-20 -right-32 opacity-50"></div>
-
-	<div class="max-w-6xl mx-auto px-6 lg:px-10 relative z-10">
-		<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
-			<div class="lg:col-span-9">
-				<h1 class="text-6xl md:text-7xl lg:text-[6.5rem] mb-2 animate-fade-up leading-[0.95] text-balance">
-					{t('projects.intro.heading')}
-				</h1>
-			</div>
-			<div class="lg:col-span-3 animate-fade-up animate-delay-1">
-				<div class="hairline mb-4"></div>
-				<p class="text-base text-[var(--color-text-muted)] leading-relaxed">
-					{t('meta.projects.description')}
-				</p>
-			</div>
-		</div>
-	</div>
+<section class="projects-intro">
+  <div>
+    <h1>{t('projects.intro.heading')}</h1>
+    <p>{t('meta.projects.description')}</p>
+  </div>
+  <div class="projects-intro-art" aria-hidden="true"><WorkVisual kind="hero" /></div>
 </section>
 
-<!-- ════════════════════════════════════════════════
-     In production
-     ════════════════════════════════════════════════ -->
-<section class="pt-12 pb-12 relative">
-	<div class="max-w-6xl mx-auto px-6 lg:px-10">
-		<div class="mb-8">
-			<h2 class="section-heading">{t('projects.section.systems')}</h2>
-		</div>
-
-		<div class="project-details border-t border-[var(--color-rule-strong)]">
-			{systems.map((p) => {
-				const Icon = p.icon;
-				return (
-					<article id={p.id} class="project-detail scroll-mt-24 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-16 border-b border-[var(--color-rule)]">
-						<div class="project-identity lg:col-span-4">
-							{<WorkVisual {...projectVisuals[p.id as keyof typeof projectVisuals]} />}
-							<div class="flex items-center gap-4 mb-6">
-								<Icon size={18} class="text-[var(--color-accent)] opacity-70 shrink-0" />
-								<div class="flex-1 hairline"></div>
-							</div>
-							<h3 class="text-5xl md:text-6xl leading-none">{p.name}</h3>
-						</div>
-
-						<div class="project-description lg:col-span-8">
-							<p class="font-display text-2xl md:text-3xl leading-tight mb-6 text-balance">
-								{t(p.taglineKey)}
-							</p>
-							<p class="text-[var(--color-text-muted)] text-base md:text-lg leading-relaxed mb-10 max-w-2xl text-pretty">
-								{t(p.descriptionKey)}
-							</p>
-							{p.href && <a href={p.href} class="inline-flex items-center gap-3 mb-8 text-[var(--color-accent)] hover:underline underline-offset-4">{t('projects.visit')} <ArrowUpRight size={17} aria-hidden="true" /></a>}
-							{p.statValues.length > 0 && (
-								<div class="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-6 border-t border-[var(--color-rule-strong)] pt-6">
-									{p.statValues.map((value, idx) => (
-										<div>
-											<div class="font-display text-3xl md:text-4xl text-[var(--color-accent)] leading-none mb-2">
-												{value}
-											</div>
-											<div class="mono-label leading-tight">
-												{t(`projects.production.${p.id}.stat.${idx}` as UIKey)}
-											</div>
-										</div>
-									))}
-								</div>
-							)}
-						</div>
-					</article>
-				);
-			})}
-		</div>
-	</div>
+<section class="projects-section" aria-labelledby="systems-title">
+  <h2 id="systems-title">{t('projects.section.systems')}</h2>
+  <div class="project-details">
+    {systems.map(p => {
+      const Icon = p.icon;
+      return <article id={p.id} class="project-detail">
+        <div class="project-identity">
+          <h3><Icon size={24} stroke-width={1.5} aria-hidden="true" /><span>{p.name}</span></h3>
+          <WorkVisual {...projectVisuals[p.id as keyof typeof projectVisuals]} />
+        </div>
+        <div class="project-description">
+          <p class="project-tagline">{t(p.taglineKey)}</p>
+          <p class="project-copy">{t(p.descriptionKey)}</p>
+          {p.href && <a href={p.href} class="project-link">{t('projects.visit')} <ArrowUpRight size={20} stroke-width={1.5} aria-hidden="true" /></a>}
+          {p.statValues.length > 0 && <dl class="project-stats">
+            {p.statValues.map((value, idx) => <div><dt>{t(`projects.production.${p.id}.stat.${idx}` as UIKey)}</dt><dd>{value}</dd></div>)}
+          </dl>}
+        </div>
+      </article>;
+    })}
+  </div>
 </section>
 
-<!-- ════════════════════════════════════════════════
-     Open source
-     ════════════════════════════════════════════════ -->
-<section class="pt-12 pb-24 relative">
-	<div class="max-w-6xl mx-auto px-6 lg:px-10">
-		<div class="mb-8">
-			<h2 class="section-heading">{t('projects.section.openSource')}</h2>
-		</div>
-
-		<div class="project-details border-t border-[var(--color-rule-strong)]">
-			{openSource.map((p) => {
-				const Icon = p.icon;
-				return (
-					<article id={p.id} class="project-detail scroll-mt-24 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-16 border-b border-[var(--color-rule)]">
-						<div class="project-identity lg:col-span-4">
-							{<WorkVisual {...projectVisuals[p.id as keyof typeof projectVisuals]} />}
-							<div class="flex items-center gap-4 mb-6">
-								<Icon size={18} class="text-[var(--color-accent)] opacity-70 shrink-0" />
-								<div class="flex-1 hairline"></div>
-							</div>
-							<h3 class="text-5xl md:text-6xl leading-none mb-4">{p.name}</h3>
-							<a
-								href={p.href}
-								target="_blank"
-								rel="noopener"
-								class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
-							>
-								<Github size={14} />
-								<span>{p.repo}</span>
-								<ArrowUpRight size={12} />
-							</a>
-						</div>
-
-						<div class="project-description lg:col-span-8">
-							<p class="font-display text-2xl md:text-3xl leading-tight mb-6 text-balance">
-								{t(`projects.openSource.${p.id}.tagline` as UIKey)}
-							</p>
-							<p class="text-[var(--color-text-muted)] text-base md:text-lg leading-relaxed mb-10 max-w-2xl text-pretty">
-								{t(`projects.openSource.${p.id}.description` as UIKey)}
-							</p>
-							{p.statValues.length > 0 && (
-								<div class="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-6 border-t border-[var(--color-rule-strong)] pt-6">
-									{p.statValues.map((value, idx) => (
-										<div>
-											<div class="font-display text-3xl md:text-4xl text-[var(--color-accent)] leading-none mb-2">
-												{value}
-											</div>
-											<div class="mono-label leading-tight">
-												{t(`projects.openSource.${p.id}.stat.${idx}` as UIKey)}
-											</div>
-										</div>
-									))}
-								</div>
-							)}
-						</div>
-					</article>
-				);
-			})}
-		</div>
-	</div>
+<section class="projects-section" aria-labelledby="open-source-title">
+  <h2 id="open-source-title">{t('projects.section.openSource')}</h2>
+  <div class="project-details">
+    {openSource.map(p => {
+      const Icon = p.icon;
+      return <article id={p.id} class="project-detail">
+        <div class="project-identity">
+          <h3><Icon size={24} stroke-width={1.5} aria-hidden="true" /><span>{p.name}</span></h3>
+          <WorkVisual {...projectVisuals[p.id as keyof typeof projectVisuals]} />
+          <a href={p.href} target="_blank" rel="noopener noreferrer" class="project-repository"><Github size={17} aria-hidden="true" /><span>{p.repo}</span><ArrowUpRight size={17} aria-hidden="true" /></a>
+        </div>
+        <div class="project-description">
+          <p class="project-tagline">{t(`projects.openSource.${p.id}.tagline` as UIKey)}</p>
+          <p class="project-copy">{t(`projects.openSource.${p.id}.description` as UIKey)}</p>
+          {p.statValues.length > 0 && <dl class="project-stats">
+            {p.statValues.map((value, idx) => <div><dt>{t(`projects.openSource.${p.id}.stat.${idx}` as UIKey)}</dt><dd>{value}</dd></div>)}
+          </dl>}
+        </div>
+      </article>;
+    })}
+  </div>
 </section>
 
-<!-- ════════════════════════════════════════════════
-     Closing CTA
-     ════════════════════════════════════════════════ -->
-<section class="py-24 relative overflow-hidden">
-	<div class="glow-orb w-[400px] h-[400px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-25"></div>
-
-	<div class="max-w-4xl mx-auto px-6 lg:px-10 relative z-10 text-center">
-		<h2 class="text-4xl md:text-5xl lg:text-6xl mb-6 text-balance">
-			{t('projects.cta.heading')}
-		</h2>
-		<p class="text-lg text-[var(--color-text-muted)] max-w-xl mx-auto mb-10">
-			{t('projects.cta.lede')}
-		</p>
-		<a href={contactHref} class="btn-primary inline-flex items-center justify-center gap-2 whitespace-nowrap group">
-			{t('projects.cta.action')}
-			<ArrowUpRight size={16} class="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-		</a>
-	</div>
+<section class="projects-cta">
+  <h2>{t('projects.cta.heading')}</h2>
+  <div><p>{t('projects.cta.lede')}</p><a href={contactHref} class="project-link">{t('projects.cta.action')}<ArrowUpRight size={20} stroke-width={1.5} aria-hidden="true" /></a></div>
 </section>

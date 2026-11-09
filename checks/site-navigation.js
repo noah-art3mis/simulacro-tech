@@ -9,7 +9,7 @@ async page => {
   await page.getByRole('link',{name:/^Molcajete/}).click();
   await page.locator('#molcajete').waitFor({state:'visible'});
   if(new URL(page.url()).hash!=='#molcajete')throw new Error('Project details must retain their fragment');
-  await page.getByRole('navigation').getByRole('link',{name:'Simulacro simulacro.tech',exact:true}).click();
+  await page.getByRole('navigation').getByRole('link',{name:'simulacro.tech',exact:true}).click();
   await page.getByRole('heading',{name:'Keep the human in the loop.'}).waitFor({state:'visible'});
   for(const width of [390,320]){
     await page.setViewportSize({width,height:844});

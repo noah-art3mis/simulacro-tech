@@ -1,0 +1,30 @@
+.projects-intro{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:8vw;align-items:center;padding:calc(var(--space)*4) 0 calc(var(--space)*3)}
+.projects-intro h1{font-size:clamp(64px,8.8vw,128px);margin-bottom:var(--space)}
+.projects-intro p{color:var(--muted);font-size:clamp(20px,2vw,28px);line-height:1.5;max-width:42ch}
+.projects-intro-art{max-width:500px;width:100%;justify-self:end}
+.projects-section{padding:var(--space) 0 calc(var(--space)*3)}
+.projects-section>h2{font-size:clamp(36px,3.8vw,56px);margin-bottom:calc(var(--space)*2)}
+.project-detail{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.45fr);gap:8vw;border-top:1px solid var(--line);padding:calc(var(--space)*2.5) 0 calc(var(--space)*3);scroll-margin-top:var(--space)}
+.project-identity h3{display:flex;align-items:center;gap:16px;font-family:'Crimson Pro',Georgia,serif;font-size:clamp(44px,5vw,76px);font-weight:400;line-height:1.05;letter-spacing:-.025em;text-wrap:balance}
+.project-identity h3 svg{flex:none;color:var(--amber)}
+.project-identity .work-visual{max-width:440px;margin-top:var(--space)}
+.projects-intro .work-visual svg,.project-identity .work-visual svg{display:block;width:100%;height:auto}
+.work-visual .engraving-line{fill:none;stroke:var(--amber);stroke-width:.85}
+.work-visual .engraving-violet{fill:none;stroke:var(--violet);stroke-width:.8}
+.work-visual .engraving-soft{fill:none;stroke:var(--amber);stroke-width:.65;opacity:.45}
+.work-visual .engraving-rule{fill:none;stroke:var(--muted);stroke-width:.7}
+.work-visual .engraving-light{fill:none;stroke:var(--ivory);stroke-width:1.15}
+.project-tagline{font-family:'Crimson Pro',Georgia,serif;font-size:clamp(28px,2.7vw,40px);line-height:1.2;margin-bottom:var(--space);text-wrap:pretty}
+.project-copy{font-size:18px;line-height:1.7;color:var(--muted);max-width:68ch}
+.project-link{display:inline-flex;align-items:center;gap:12px;color:var(--amber);font-size:17px;margin-top:var(--space);padding:8px 0;border-bottom:1px solid currentColor;line-height:1.5}
+.project-link svg,.project-repository>svg:last-child{flex:none;transition:transform var(--motion) var(--ease)}
+.project-repository{display:inline-flex;align-items:center;gap:10px;font-size:13px;max-width:100%;padding:8px 0;color:var(--muted)}
+.project-repository span{overflow-wrap:anywhere}.project-repository>svg{flex:none}
+.project-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space);margin:calc(var(--space)*1.5) 0 0;max-width:620px}
+.project-stats>div{display:flex;flex-direction:column;gap:8px}.project-stats dt{font-size:13px;line-height:1.5;color:var(--muted);max-width:22ch}.project-stats dd{order:-1;margin:0;font-family:'Crimson Pro',Georgia,serif;font-size:36px;line-height:1.1;color:var(--amber);font-variant-numeric:tabular-nums}
+.projects-cta{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8vw;padding:calc(var(--space)*3) 0 calc(var(--space)*4);border-top:2px solid var(--ivory)}
+.projects-cta h2{font-size:clamp(40px,5vw,72px)}.projects-cta p{color:var(--muted);max-width:48ch}
+@media(hover:hover) and (pointer:fine){.project-link:hover svg,.project-repository:hover>svg:last-child{transform:translate(3px,-3px)}.project-link:hover,.project-repository:hover{color:var(--ivory)}}
+.project-link:active,.project-repository:active{opacity:.7}
+@media(max-width:700px){.projects-intro{padding:calc(var(--space)*3) 0 calc(var(--space)*2);gap:var(--space);grid-template-columns:1fr}.projects-intro h1{font-size:16vw}.projects-intro-art{max-width:300px;justify-self:center}.project-detail{grid-template-columns:1fr;gap:var(--space);padding:calc(var(--space)*2) 0 calc(var(--space)*2.5)}.project-identity .work-visual{max-width:340px;margin:var(--space) auto 0}.project-copy{font-size:17px}.projects-cta{grid-template-columns:1fr;gap:var(--space)}.projects-section{padding-bottom:var(--space)}}
+@media(prefers-reduced-motion:reduce){.project-link:hover svg,.project-repository:hover>svg:last-child{transform:none}}

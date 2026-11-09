@@ -1,8 +1,13 @@
 ---
+import Navigation from './Navigation.astro';
 import { readFile } from 'node:fs/promises';
 import { renderNetworkHome } from '../lib/render-network-home';
 import type { Lang } from '../i18n/ui';
 interface Props { lang: Lang; }
 const html = renderNetworkHome(await readFile('public/worlds/next/07/index.html', 'utf8'), Astro.props.lang);
+const [beforeNavigation, afterNavigation, extraNavigation] = html.split('<!--site-navigation-->');
+if (afterNavigation === undefined || extraNavigation !== undefined) throw new Error('Homepage template requires exactly one site-navigation marker');
 ---
-<Fragment set:html={html} />
+<Fragment set:html={beforeNavigation} />
+<Navigation lang={Astro.props.lang} />
+<Fragment set:html={afterNavigation} />

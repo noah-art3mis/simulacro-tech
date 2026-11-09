@@ -1,154 +1,56 @@
 ---
-import { Menu, X } from 'lucide-astro';
-import LanguageSwitcher from './LanguageSwitcher.astro';
-import { ui, type Lang, type UIKey } from '../i18n/ui';
+import { ui, type Lang } from '../i18n/ui';
 import { getLocalizedPath } from '../i18n/utils';
-
-interface Props {
-	lang: Lang;
-}
-
+interface Props { lang: Lang; }
 const { lang } = Astro.props;
-const t = (key: UIKey) => ui[lang][key];
-
-const homeHref = getLocalizedPath('/', lang);
-const aboutHref = getLocalizedPath('/about', lang);
-const projectsHref = getLocalizedPath('/projects', lang);
-const contactHref = `${homeHref.replace(/\/$/, '')}/#contact`;
-
-const navItems = [
-	{ href: homeHref, label: t('nav.home') },
-	{ href: projectsHref, label: t('nav.projects') },
-	{ href: aboutHref, label: t('nav.about') },
+const home = `${getLocalizedPath('/', lang).replace(/\/$/, '')}/`;
+const items = [
+  { href: getLocalizedPath('/projects/', lang), label: ui[lang]['network.work'] },
+  { href: `${home}#approach`, label: ui[lang]['home.why.label'] },
+  { href: getLocalizedPath('/about/', lang), label: ui[lang]['nav.about'] },
+  { href: `${home}#contact`, label: ui[lang]['nav.contact'] },
 ];
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 ---
-
-<nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-[var(--color-bg)]/80 border-b border-[var(--color-border)]">
-	<div class="max-w-6xl mx-auto px-6 lg:px-8">
-		<div class="flex justify-between items-center h-20">
-			<a href={homeHref} class="group flex items-center gap-3">
-				<img
-					src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/simulacro.png`}
-					alt="Simulacro"
-					width="32"
-					height="32"
-					class="w-8 h-8 transition-transform duration-300 group-hover:scale-110"
-				/>
-				<span class="text-lg font-semibold tracking-tight">
-					simulacro<span class="text-[var(--color-text-muted)]">.tech</span>
-				</span>
-			</a>
-
-			<!-- Desktop Navigation -->
-			<div class="hidden md:flex items-center gap-8">
-				{
-					navItems.map((item) => (
-						<a
-							href={item.href}
-							class="text-sm font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors link-underline"
-							data-path={item.href}
-						>
-							{item.label}
-						</a>
-					))
-				}
-				<a
-					href={contactHref}
-					class="text-sm font-semibold text-[var(--color-bg)] bg-[var(--color-accent)] px-5 py-2.5 rounded-full hover:bg-[var(--color-accent-hover)] transition-all duration-300 hover:shadow-lg hover:shadow-[var(--color-accent)]/20"
-				>
-					{t('nav.contact')}
-				</a>
-				<div class="pl-4 border-l border-[var(--color-border)]">
-					<LanguageSwitcher lang={lang} />
-				</div>
-			</div>
-
-			<!-- Mobile menu button -->
-			<button
-				type="button"
-				class="md:hidden p-2 text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
-				id="mobile-menu-button"
-				aria-label="Toggle menu"
-				aria-expanded="false"
-			>
-				<Menu size={24} id="menu-icon" />
-				<X size={24} id="close-icon" class="hidden" />
-			</button>
-		</div>
-	</div>
-
-	<!-- Mobile Navigation -->
-	<div
-		class="md:hidden border-t border-[var(--color-border)] bg-[var(--color-bg-elevated)]/95 backdrop-blur-md overflow-hidden mobile-menu"
-		id="mobile-menu"
-	>
-		<div class="px-6 py-4 space-y-1">
-			{
-				navItems.map((item) => (
-					<a
-						href={item.href}
-						class="block px-4 py-3 text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-white/5 rounded-lg transition-colors text-base font-medium"
-						data-path={item.href}
-					>
-						{item.label}
-					</a>
-				))
-			}
-			<a
-				href={contactHref}
-				class="block px-4 py-3 mt-3 text-center font-semibold text-[var(--color-bg)] bg-[var(--color-accent)] rounded-full"
-			>
-				{t('nav.contact')}
-			</a>
-			<div class="px-4 pt-5 mt-3 border-t border-[var(--color-border)]">
-				<LanguageSwitcher lang={lang} />
-			</div>
-		</div>
-	</div>
+<nav class="site-navigation">
+  <a class="site-brand" href={home}><strong>simulacro.tech</strong></a>
+  <div class="site-links">
+    {items.map(item => <a href={item.href} aria-current={!item.href.includes('#') && item.href.replace(/\/$/, '') === currentPath ? 'page' : undefined}>{item.label}</a>)}
+  </div>
 </nav>
-
-<!-- Spacer for fixed nav -->
-<div class="h-20"></div>
-
 <style>
-	/* Mobile menu transition — smooth max-height collapse */
-	.mobile-menu {
-		max-height: 0;
-		opacity: 0;
-		transition:
-			max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-			opacity 0.3s ease;
-	}
-	.mobile-menu.is-open {
-		max-height: 480px;
-		opacity: 1;
-	}
+  .site-navigation {
+    --nav-background: #211d19;
+    --nav-text: #f1e7d6;
+    --nav-accent: #dfac69;
+    --nav-inset: 4vw;
+    --nav-gap: 30px;
+    --nav-motion: 180ms;
+    --nav-ease: cubic-bezier(.2,.7,.2,1);
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 23px var(--nav-inset);
+    background: var(--nav-background);
+    color: var(--nav-text);
+    border-bottom: 2px solid var(--nav-text);
+    font-family: 'Space Grotesk', sans-serif;
+    line-height: 1.4;
+  }
+  .site-navigation a { color: inherit; text-decoration: none; }
+  .site-brand { display: inline-flex; align-items: center; flex: none; min-height: 36px; }
+  .site-brand strong { font-size: 28px; font-weight: 700; letter-spacing: -1.8px; line-height: 1.2; }
+  .site-links { display: flex; flex-wrap: wrap; gap: 6px var(--nav-gap); }
+  .site-links a { position: relative; display: inline-flex; align-items: center; min-height: 36px; font-size: 13px; }
+  .site-links a::after { content: ''; position: absolute; left: 0; right: 0; bottom: 2px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform var(--nav-motion) var(--nav-ease); }
+  .site-links a[aria-current='page']::after, .site-links a:focus-visible::after { transform: scaleX(1); }
+  .site-navigation a:focus-visible { outline: 3px solid var(--nav-accent); outline-offset: 5px; }
+  .site-navigation a:active { opacity: .7; }
+  @media (hover: hover) and (pointer: fine) { .site-links a:hover::after { transform: scaleX(1); } .site-brand:hover { color: var(--nav-accent); } }
+  @media (max-width: 700px) { .site-navigation { --nav-inset: 6vw; --nav-gap: 18px; flex-wrap: wrap; gap: 10px; padding: 20px var(--nav-inset); } .site-brand strong { font-size: 23px; } .site-links { flex-basis: 100%; } }
+  @media (pointer: coarse) { .site-navigation a { min-height: 44px; } }
+  @media (prefers-reduced-motion: reduce) { .site-links a::after { transition: none; } }
 </style>
-
-<script>
-	// Mobile menu toggle
-	const menuButton = document.getElementById('mobile-menu-button');
-	const mobileMenu = document.getElementById('mobile-menu');
-	const menuIcon = document.getElementById('menu-icon');
-	const closeIcon = document.getElementById('close-icon');
-
-	if (menuButton && mobileMenu && menuIcon && closeIcon) {
-		menuButton.addEventListener('click', () => {
-			const open = mobileMenu.classList.toggle('is-open');
-			menuButton.setAttribute('aria-expanded', String(open));
-			menuIcon.classList.toggle('hidden', open);
-			closeIcon.classList.toggle('hidden', !open);
-		});
-	}
-
-	// Highlight current path (normalize trailing slashes) — adds .is-active for animated underline
-	const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
-	document.querySelectorAll('[data-path]').forEach((link) => {
-		const linkPath = (link.getAttribute('data-path') || '').replace(/\/$/, '') || '/';
-		if (linkPath === currentPath) {
-			link.classList.add('text-[var(--color-text)]');
-			link.classList.remove('text-[var(--color-text-muted)]');
-			link.classList.add('is-active');
-		}
-	});
-</script>

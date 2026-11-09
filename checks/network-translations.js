@@ -12,7 +12,7 @@ async page => {
     if(lang!=='en'){
       if(normalLabel==='See the big picture')throw new Error(`${path} must translate its overview control`);
       if((await page.getByRole('heading',{level:1}).innerText()).includes('Keep the human'))throw new Error(`${path} must translate the hero`);
-      if((await page.locator('.interlude p').innerText()).includes('Built with transparency'))throw new Error(`${path} must translate the window description`);
+      if((await page.locator('.interlude > p').innerText()).includes('Built with transparency'))throw new Error(`${path} must translate the window description`);
       if((await page.locator('.motion-control').first().innerText())==='Pause motion')throw new Error(`${path} must translate motion controls`);
     }
     await button.click();

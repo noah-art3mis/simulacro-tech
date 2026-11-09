@@ -11,7 +11,7 @@ export function renderNetworkHome(source: string, lang: Lang): string {
     .replace(/<title>.*?<\/title>/, `<title>${t('meta.home.title')}</title>`)
     .replace(/<([a-z][\w-]*)([^>]*data-i18n="([^"]+)"[^>]*)>([\s\S]*?)<\/\1>/g,
       (_match, tag, attributes, key) => `<${tag}${attributes}>${t(key)}</${tag}>`);
-  for (const name of ['pause', 'resume', 'reduced', 'overview', 'network']) {
+  for (const name of ['pause', 'resume', 'reduced', 'overview', 'network', 'interactive']) {
     html = html.replace(new RegExp(`data-${name}="[^"]*"`), `data-${name}="${attr(t(`network.${name}`))}"`);
   }
   for (const [name, english, key] of [
